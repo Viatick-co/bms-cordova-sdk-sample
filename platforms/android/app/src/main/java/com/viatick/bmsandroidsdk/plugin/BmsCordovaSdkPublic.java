@@ -58,6 +58,8 @@ public class BmsCordovaSdkPublic extends CordovaPlugin implements ViaBmsCtrl.Via
   public boolean execute(String action, JSONArray args,
     final CallbackContext callbackContext) throws JSONException {
       if (action.equals("initCustomer")) {
+          Log.d(TAG, "initCustomer: " + args.getString(0) + " " + args.getString(1)
+          + " " + args.getString(2));
           viaBmsCtrl.initCustomer(args.getString(0), args.getString(1),
                   args.getString(2), this.zones);
           return true;
@@ -103,6 +105,7 @@ public class BmsCordovaSdkPublic extends CordovaPlugin implements ViaBmsCtrl.Via
           // authorizedZones is optional field
           // sdkInited callback will be called after initialization
           this.zones = zones;
+          Log.d(TAG, "zones: " + zones);
           initSdkCallback.success("");
       } else {
           initSdkCallback.error("");
