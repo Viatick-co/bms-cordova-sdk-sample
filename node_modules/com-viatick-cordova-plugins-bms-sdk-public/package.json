@@ -1,65 +1,32 @@
 {
-  "_args": [
-    [
-      {
-        "raw": "https://github.com/Viatick-co/bms-cordova-sdk-public.git#v2.0-dev",
-        "scope": null,
-        "escapedName": null,
-        "name": null,
-        "rawSpec": "https://github.com/Viatick-co/bms-cordova-sdk-public.git#v2.0-dev",
-        "spec": "git+https://github.com/Viatick-co/bms-cordova-sdk-public.git#v2.0-dev",
-        "type": "hosted",
-        "hosted": {
-          "type": "github",
-          "ssh": "git@github.com:Viatick-co/bms-cordova-sdk-public.git#v2.0-dev",
-          "sshUrl": "git+ssh://git@github.com/Viatick-co/bms-cordova-sdk-public.git#v2.0-dev",
-          "httpsUrl": "git+https://github.com/Viatick-co/bms-cordova-sdk-public.git#v2.0-dev",
-          "gitUrl": "git://github.com/Viatick-co/bms-cordova-sdk-public.git#v2.0-dev",
-          "shortcut": "github:Viatick-co/bms-cordova-sdk-public#v2.0-dev",
-          "directUrl": "https://raw.githubusercontent.com/Viatick-co/bms-cordova-sdk-public/v2.0-dev/package.json"
-        }
-      },
-      "/Users/zanyk/Viatick/Projects/bms-sdk-cordova-sample/bms-sdk-cordova-sample"
-    ]
-  ],
   "_from": "git+https://github.com/Viatick-co/bms-cordova-sdk-public.git#v2.0-dev",
   "_id": "com-viatick-cordova-plugins-bms-sdk-public@0.1.2",
-  "_inCache": true,
+  "_inBundle": false,
+  "_integrity": "",
   "_location": "/com-viatick-cordova-plugins-bms-sdk-public",
   "_phantomChildren": {},
   "_requested": {
+    "type": "git",
     "raw": "https://github.com/Viatick-co/bms-cordova-sdk-public.git#v2.0-dev",
-    "scope": null,
-    "escapedName": null,
-    "name": null,
     "rawSpec": "https://github.com/Viatick-co/bms-cordova-sdk-public.git#v2.0-dev",
-    "spec": "git+https://github.com/Viatick-co/bms-cordova-sdk-public.git#v2.0-dev",
-    "type": "hosted",
-    "hosted": {
-      "type": "github",
-      "ssh": "git@github.com:Viatick-co/bms-cordova-sdk-public.git#v2.0-dev",
-      "sshUrl": "git+ssh://git@github.com/Viatick-co/bms-cordova-sdk-public.git#v2.0-dev",
-      "httpsUrl": "git+https://github.com/Viatick-co/bms-cordova-sdk-public.git#v2.0-dev",
-      "gitUrl": "git://github.com/Viatick-co/bms-cordova-sdk-public.git#v2.0-dev",
-      "shortcut": "github:Viatick-co/bms-cordova-sdk-public#v2.0-dev",
-      "directUrl": "https://raw.githubusercontent.com/Viatick-co/bms-cordova-sdk-public/v2.0-dev/package.json"
-    }
+    "saveSpec": "git+https://github.com/Viatick-co/bms-cordova-sdk-public.git#v2.0-dev",
+    "fetchSpec": "https://github.com/Viatick-co/bms-cordova-sdk-public.git",
+    "gitCommittish": "v2.0-dev"
   },
   "_requiredBy": [
     "#USER",
     "/"
   ],
-  "_resolved": "git+https://github.com/Viatick-co/bms-cordova-sdk-public.git#3ee49e851630a5bae336431c434f3e9ba27b77db",
-  "_shasum": "661f999ffb5425af4344f992c35d19914dbad3f2",
-  "_shrinkwrap": null,
+  "_resolved": "git+https://github.com/Viatick-co/bms-cordova-sdk-public.git#2da99e42ed01c9774d15379e04302bd1ead0d17c",
   "_spec": "https://github.com/Viatick-co/bms-cordova-sdk-public.git#v2.0-dev",
-  "_where": "/Users/zanyk/Viatick/Projects/bms-sdk-cordova-sample/bms-sdk-cordova-sample",
+  "_where": "/Users/viatick/Desktop/Project/bms-cordova-sdk-sample",
   "author": {
     "name": "viatick"
   },
   "bugs": {
     "url": "https://github.com/Viatick-co/bms-cordova-sdk-public/issues"
   },
+  "bundleDependencies": false,
   "cordova": {
     "id": "com-viatick-cordova-plugins-bms-sdk-public",
     "platforms": [
@@ -67,10 +34,8 @@
       "android"
     ]
   },
-  "dependencies": {},
+  "deprecated": false,
   "description": "bms cordova sdk",
-  "devDependencies": {},
-  "gitHead": "3ee49e851630a5bae336431c434f3e9ba27b77db",
   "homepage": "https://github.com/Viatick-co/bms-cordova-sdk-public#readme",
   "keywords": [
     "ecosystem:cordova",
@@ -79,9 +44,6 @@
   ],
   "license": "ISC",
   "name": "com-viatick-cordova-plugins-bms-sdk-public",
-  "optionalDependencies": {},
-  "readme": "# bms-cordova-sdk-public\n\n> Native iOS SDK link https://github.com/Viatick-co/bms-ios-sdk-public\n\n> Native Android SDK link https://github.com/Viatick-co/bms-android-sdk-public\n\n## Installation\n\nRun following command in your `ionic / cordova` project root directory.\n\n```\n$ ionic cordova plugin add https://github.com/Viatick-co/bms-cordova-sdk-public.git\n\nor\n\n$ cordova plugin add https://github.com/Viatick-co/bms-cordova-sdk-public.git\n```\n\n## Settings\n\n### iOS xcode\n\n* Build Settings\n\t- SWIFT_VERSION => ^3.3\n\n* Build Phases\n\t- UserNotifications.framework\n\t- CoreLocation.framework\n\t- NotificationCenter.framework\n\n* Info.plist\n```xml\n<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>\n<string>description for location access</string>\n<key>NSLocationWhenInUseUsageDescription</key>\n<string>description for location access</string>\n<key>NSLocationAlwaysUsageDescription</key>\n<string>description for location access</string>\n```\n\n* Capabilities\n\t- Enable `Location updates` in `Background Modes`\n\n\n## Sample Codes\n\n```javascript\n// Step 1 optional\npublic initCustomer = function() {\n\ttry {\n\t\tcordova.plugins.BmsCordovaSdkPublic.initCustomer(\"customer_identifier\", \"customer_email\", \"customer_phone\", (success) => {\n\t\t\tconsole.log(\"success\", success);\n\t\t}, (error) => {\n\t\t\tconsole.log(\"error\", error);\n\t\t});\n\t} catch(e) {\n\t\tconsole.log(\"exception\", e);\n\t}\n};\n\n// Step 2 required\npublic setting = function() {\n\tlet enableAlert = true;\n\tlet enableBackground = true;\n\tlet enableSite = true;\n\tlet enableAttendance = true;\n\tlet enableTracking = true;\n\ttry {\n\t\tcordova.plugins.BmsCordovaSdkPublic.setting(enableAlert, enableBackground, enableSite, enableAttendance, enableTracking, (success) => {\n\t\t\tconsole.log(\"success\", success);\n\t\t}, (error) => {\n\t\t\tconsole.log(\"error\", error);\n\t\t});\n\t} catch(e) {\n\t\tconsole.log(\"exception\", e);\n\t}\n}\n\n// Step 3 required\npublic initSDK = function() {\n\ttry {\n\t\tcordova.plugins.BmsCordovaSdkPublic.initSDK(\"SDK_KEY_FROM_BMS\", (success) => {\n\t\t\tconsole.log(\"success\", success);\n\t\t}, (error) => {\n\t\t\tconsole.log(\"error\", error);\n\t\t});\n\t} catch(e) {\n\t\tconsole.log(\"exception\", e);\n\t}\n};\n\n// Step 4 required\npublic startService = function() {\n\ttry {\n\t\tcordova.plugins.BmsCordovaSdkPublic.startSDK((success) => {\n\t\t\tconsole.log(\"success\", success);\n\t\t}, (error) => {\n\t\t\tconsole.log(\"error\", error);\n\t\t});\n\t} catch(e) {\n\t\tconsole.log(\"exception\", e);\n\t}\n};\n\n// Step 5 required\npublic endService = function() {\n\ttry {\n\t\tcordova.plugins.BmsCordovaSdkPublic.endSDK((success) => {\n\t\t\tconsole.log(\"success\", success);\n\t\t}, (error) => {\n\t\t\tconsole.log(\"error\", error);\n\t\t});\n\t} catch(e) {\n\t\tconsole.log(\"exception\", e);\n\t}\n};\n\n\n```\n",
-  "readmeFilename": "README.md",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Viatick-co/bms-cordova-sdk-public.git"

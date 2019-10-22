@@ -13,6 +13,7 @@ import android.widget.Toast;
 // Cordova-required packages
 import com.viatick.bmsandroidsdk.controller.ViaBmsCtrl;
 import com.viatick.bmsandroidsdk.model.ViaZone;
+import com.viatick.bmsandroidsdk.model.ViaBmsUtil;
 
 import org.apache.cordova.CallbackContext;
 import org.apache.cordova.CordovaInterface;
@@ -30,6 +31,7 @@ import java.util.List;
 import static android.content.Context.BIND_AUTO_CREATE;
 
 public class BmsCordovaSdkPublic extends CordovaPlugin implements ViaBmsCtrl.ViaBmsCtrlDelegate {
+  String TAG = "BmsCordovaSdkPublic";
   CallbackContext initSdkCallback;
   CallbackContext initCustomerCallback;
   CallbackContext checkinCallback;
@@ -54,15 +56,19 @@ public class BmsCordovaSdkPublic extends CordovaPlugin implements ViaBmsCtrl.Via
   public boolean execute(String action, JSONArray args,
     final CallbackContext callbackContext) throws JSONException {
       if (action.equals("initCustomer")) {
+          initCustomerCallback = callbackContext;
+          Log.d(TAG, "initCustomer: " + args.getString(0) + " " + args.getString(1)
+          + " " + args.getString(2));
           ViaBmsCtrl.initCustomer(args.getString(0), args.getString(1),
                   args.getString(2), this.zones);
           return true;
       } else if (action.equals("setting")) {
           ViaBmsCtrl.settings(args.getBoolean(0), args.getBoolean(1),
-                  args.getBoolean(2), args.getBoolean(3),
-                  args.getString(4), args.getIntOrNull(5), args.getBoolean(6),
-                  args.getBoolean(7), args.getBoolean(8), args.getBoolean(9),
-                  args.getIntOrNull(10), args.getIntOrNull(11));
+                  args.getBoolean(2),
+                  ((args.getString(3) == "AUTO") ? ViaBmsUtil.MinisiteViewType.AUTO :
+                  ViaBmsUtil.MinisiteViewType.LIST), args.getInt(4), args.getBoolean(5),
+                  args.getBoolean(6), args.getBoolean(7),
+                  args.getInt(8), args.getInt(9));
 
           callbackContext.success("");
           return true;
@@ -71,12 +77,20 @@ public class BmsCordovaSdkPublic extends CordovaPlugin implements ViaBmsCtrl.Via
           ViaBmsCtrl.initSdk(cordova.getActivity(), args.getString(0));
           return true;
       } else if (action.equals("startSDK")) {
-          ViaBmsCtrl.startBmsService();
-          callbackContext.success();
+          boolean sdkInited = ViaBmsCtrl.isSdkInited();
+          boolean bmsRunning = ViaBmsCtrl.isBmsRunning();
+
+          if (!bmsRunning && sdkInited) {
+              Log.d(TAG, "Bms Starting");
+              ViaBmsCtrl.startBmsService();
+          }
+
+          callbackContext.success("");
+
           return true;
       } else if (action.equals("endSDK")) {
           ViaBmsCtrl.stopBmsService();
-          callbackContext.success();
+          callbackContext.success("");
           return true;
       } else if (action.equals("checkIn")) {
           checkinCallback = callbackContext;
@@ -98,9 +112,10 @@ public class BmsCordovaSdkPublic extends CordovaPlugin implements ViaBmsCtrl.Via
           // authorizedZones is optional field
           // sdkInited callback will be called after initialization
           this.zones = zones;
-          initSdkCallback.ok();
+          Log.d(TAG, "zones: " + zones);
+          initSdkCallback.success("");
       } else {
-          initSdkCallback.error();
+          initSdkCallback.error("");
       }
   }
 
@@ -109,9 +124,9 @@ public class BmsCordovaSdkPublic extends CordovaPlugin implements ViaBmsCtrl.Via
   public void customerInited(boolean inited) {
       Log.d(TAG, "Customer Inited " + inited);
       if (inited) {
-          initCustomerCallback.ok();
+          initCustomerCallback.success("");
       } else {
-          initCustomerCallback.error();
+          initCustomerCallback.error("");
       }
   }
 
@@ -133,19 +148,16 @@ public class BmsCordovaSdkPublic extends CordovaPlugin implements ViaBmsCtrl.Via
       checkoutCallback.sendPluginResult(pluginResult);
   }
 
-  // override this method
   @Override
-  public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
-      super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-
-      // must put this line of code in after super.onRequestPermissionsResult
-      ViaBmsCtrl.onRequestPermissionsResult(this, requestCode, permissions, grantResults);
+  public void onRequestPermissionResult(int requestCode, String[] permissions,
+  int[] grantResults) throws JSONException {
+      ViaBmsCtrl.onRequestPermissionsResult(cordova.getActivity(), requestCode, permissions, grantResults);
   }
 
   // override this method
   @Override
-  public void onResume() {
-      super.onResume();
+  public void onResume(boolean multitasking) {
+      super.onResume(multitasking);
 
       // must put this line of code in after super.onResume()
       ViaBmsCtrl.onResume();

@@ -52,4 +52,7 @@
     <feature name="BmsCordovaSdkPublic">
         <param name="ios-package" value="BmsCordovaSdkPublic" />
     </feature>
+    <feature name="BackgroundLocationServices">
+        <param name="ios-package" value="BackgroundLocationServices" />
+    </feature>
 </widget>

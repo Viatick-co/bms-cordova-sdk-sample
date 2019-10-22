@@ -1,0 +1,11 @@
+framework module BmsSDK {
+  umbrella header "BmsSDK.h"
+
+  export *
+  module * { export * }
+}
+
+module BmsSDK.Swift {
+    header "BmsSDK-Swift.h"
+    requires objc
+}

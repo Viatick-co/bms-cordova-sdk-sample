@@ -11,6 +11,46 @@
             {
               "xml": "<feature name=\"BmsCordovaSdkPublic\"><param name=\"ios-package\" value=\"BmsCordovaSdkPublic\" /></feature>",
               "count": 1
+            },
+            {
+              "xml": "<feature name=\"BackgroundLocationServices\"><param name=\"ios-package\" value=\"BackgroundLocationServices\" /></feature>",
+              "count": 1
+            }
+          ]
+        }
+      },
+      "*-Info.plist": {
+        "parents": {
+          "CFBundleURLTypes": [
+            {
+              "xml": "<array><dict><key>NSLocationAlwaysAndWhenInUseUsageDescription</key><string>description for location access</string><key>NSLocationWhenInUseUsageDescription</key><string>description for location access</string><key>NSLocationAlwaysUsageDescription</key><string>description for location access</string></dict></array>",
+              "count": 1
+            }
+          ],
+          "UIBackgroundModes": [
+            {
+              "xml": "<array><string>location</string></array>",
+              "count": 1
+            }
+          ]
+        }
+      },
+      "*/Entitlements-Debug.plist": {
+        "parents": {
+          "aps-environment": [
+            {
+              "xml": "<string>development</string>",
+              "count": 1
+            }
+          ]
+        }
+      },
+      "*/Entitlements-Release.plist": {
+        "parents": {
+          "aps-environment": [
+            {
+              "xml": "<string>production</string>",
+              "count": 1
             }
           ]
         }

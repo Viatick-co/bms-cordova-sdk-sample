@@ -5,63 +5,64 @@
 	};
 	objectVersion = 46;
 	objects = {
+
 /* Begin PBXBuildFile section */
 		0207DA581B56EA530066E2B4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0207DA571B56EA530066E2B4 /* Images.xcassets */; };
 		1D3623260D0F684500981E51 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* AppDelegate.m */; };
 		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
+		1F6A3A80BB8B4A56B4C1DB4E /* BmsCordovaSdkPublic.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5AF59014784B97BB77E3FE /* BmsCordovaSdkPublic.swift */; };
 		301BF552109A68D80062928A /* libCordova.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 301BF535109A57CC0062928A /* libCordova.a */; settings = {ATTRIBUTES = (Required, ); }; };
 		302D95F114D2391D003F00A1 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 302D95EF14D2391D003F00A1 /* MainViewController.m */; };
 		302D95F214D2391D003F00A1 /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 302D95F014D2391D003F00A1 /* MainViewController.xib */; };
 		6AFF5BF91D6E424B00AB3073 /* CDVLaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6AFF5BF81D6E424B00AB3073 /* CDVLaunchScreen.storyboard */; };
-		44736E25A60F49F5989C442D /* BmsCordovaSdkPublic.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C522732F694775AD1BC52F /* BmsCordovaSdkPublic.swift */; };
-		4FB5E7EBFB354605964F2F1A /* ViaApiCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5254E0C67C4549B0C9A588 /* ViaApiCtrl.swift */; };
-		31E8236839274D4288DBFE88 /* ViaBackgroundTaskCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 320593433BBD450499276ADB /* ViaBackgroundTaskCenter.swift */; };
-		74F18EC81B404EDDB9644FF2 /* ViaBmsCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5603A9FC76BA41DEAE55FF75 /* ViaBmsCtrl.swift */; };
-		C1C92338CD234AAA95897397 /* ViaIBeaconCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ED743ED7A1D4495BF12DEA8 /* ViaIBeaconCtrl.swift */; };
-		D8BAA9DCB53C487083483DFB /* ViaNotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9293F808A00E49BBA7252A91 /* ViaNotificationCenter.swift */; };
-		DCEF481D26474009B1F03518 /* ViaMinisiteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AAD734DF0E14E37A4C0B3B4 /* ViaMinisiteTableViewCell.swift */; };
-		9E719B2DCF244DA4B082749C /* ViaMinisiteTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F9E4AF19611F43059D0CA671 /* ViaMinisiteTableViewCell.xib */; };
-		762B884D180B4085800BD48A /* ViaMinisiteTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F039E443E84DB8B5C26BBD /* ViaMinisiteTableViewController.swift */; };
-		E9733C938CC14C71ABF74697 /* ViaMinisiteTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D12A65A7D5FF492E90DF3D2F /* ViaMinisiteTableViewController.xib */; };
-		08A5EF62B8554823BB93F221 /* ViaMinisiteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 199F3474F85F41C897AA0D56 /* ViaMinisiteViewController.swift */; };
-		F4C7E021739C4781B4048988 /* ViaMinisiteViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A76E4942E9694885B102FFCC /* ViaMinisiteViewController.xib */; };
-		BED5A3FDEC3B41DABA1D9B8F /* ViaBmsUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BC030BF2F3541D5960A3804 /* ViaBmsUtil.swift */; };
-		675447602DC045CBBA262D25 /* ViaIBeacon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C534FC808A4966B5121066 /* ViaIBeacon.swift */; };
-		B48B9B63CD434E26B6B987D0 /* ViaMinisite.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73CDCCBE4814F6CBCEAAD2E /* ViaMinisite.swift */; };
-		E7F2EA2036514DD7BC5EDBBE /* ViaIcons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8111AA2535484483A279FA49 /* ViaIcons.xcassets */; };
+		9FAD88D438A848CAA51F6A45 /* BmsSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 74B1593C8CB04EFDB14D1313 /* BmsSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
 		301BF534109A57CC0062928A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 301BF52D109A57CC0062928A /* CordovaLib.xcodeproj */;
+			containerPortal = 301BF52D109A57CC0062928A /* CordovaLib/CordovaLib.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = D2AAC07E0554694100DB518D;
 			remoteInfo = CordovaLib;
 		};
 		301BF550109A68C00062928A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 301BF52D109A57CC0062928A /* CordovaLib.xcodeproj */;
+			containerPortal = 301BF52D109A57CC0062928A /* CordovaLib/CordovaLib.xcodeproj */;
 			proxyType = 1;
 			remoteGlobalIDString = D2AAC07D0554694100DB518D;
 			remoteInfo = CordovaLib;
 		};
 		907D8123214C687600058A10 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 301BF52D109A57CC0062928A /* CordovaLib.xcodeproj */;
+			containerPortal = 301BF52D109A57CC0062928A /* CordovaLib/CordovaLib.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = C0C01EB21E3911D50056E6CB;
 			remoteInfo = Cordova;
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		EE83258D79154CACA2F75DCA /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				9FAD88D438A848CAA51F6A45 /* BmsSDK.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
-		0207DA571B56EA530066E2B4 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = "HelloCordova/Images.xcassets"; sourceTree = SOURCE_ROOT; };
+		0207DA571B56EA530066E2B4 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = HelloCordova/Images.xcassets; sourceTree = SOURCE_ROOT; };
 		1D3623240D0F684500981E51 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		1D3623250D0F684500981E51 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		1D6058910D05DD3D006BFB54 /* HelloCordova.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "HelloCordova.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1D6058910D05DD3D006BFB54 /* HelloCordova.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HelloCordova.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		301BF52D109A57CC0062928A /* CordovaLib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = CordovaLib/CordovaLib.xcodeproj; sourceTree = "<group>"; };
+		301BF52D109A57CC0062928A /* CordovaLib/CordovaLib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = CordovaLib/CordovaLib.xcodeproj; sourceTree = "<group>"; };
 		301BF56E109A69640062928A /* www */ = {isa = PBXFileReference; lastKnownFileType = folder; path = www; sourceTree = SOURCE_ROOT; };
 		302D95EE14D2391D003F00A1 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		302D95EF14D2391D003F00A1 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
@@ -70,28 +71,14 @@
 		3047A5101AB8059700498E2A /* build-release.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = "build-release.xcconfig"; path = "cordova/build-release.xcconfig"; sourceTree = SOURCE_ROOT; };
 		3047A5111AB8059700498E2A /* build.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = build.xcconfig; path = cordova/build.xcconfig; sourceTree = SOURCE_ROOT; };
 		32CA4F630368D1EE00C91783 /* HelloCordova-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "HelloCordova-Prefix.pch"; sourceTree = "<group>"; };
-		6AFF5BF81D6E424B00AB3073 /* CDVLaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = CDVLaunchScreen.storyboard; path = "HelloCordova/CDVLaunchScreen.storyboard"; sourceTree = SOURCE_ROOT; };
+		6AFF5BF81D6E424B00AB3073 /* CDVLaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = CDVLaunchScreen.storyboard; path = HelloCordova/CDVLaunchScreen.storyboard; sourceTree = SOURCE_ROOT; };
+		74B1593C8CB04EFDB14D1313 /* BmsSDK.framework */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = wrapper.framework; name = BmsSDK.framework; path = "HelloCordova/Plugins/com-viatick-cordova-plugins-bms-sdk-public/BmsSDK.framework"; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* HelloCordova-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "HelloCordova-Info.plist"; path = "HelloCordova/HelloCordova-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = SOURCE_ROOT; };
+		DA5AF59014784B97BB77E3FE /* BmsCordovaSdkPublic.swift */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.swift; name = BmsCordovaSdkPublic.swift; path = "com-viatick-cordova-plugins-bms-sdk-public/BmsCordovaSdkPublic.swift"; sourceTree = "<group>"; };
 		EB87FDF31871DA8E0020F90C /* www */ = {isa = PBXFileReference; lastKnownFileType = folder; name = www; path = ../../www; sourceTree = "<group>"; };
 		EB87FDF41871DAF40020F90C /* config.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = config.xml; path = ../../config.xml; sourceTree = "<group>"; };
-		ED33DF2A687741AEAF9F8254 /* Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Bridging-Header.h"; path = "Bridging-Header.h"; sourceTree = "<group>"; };
-		F840E1F0165FE0F500CFE078 /* config.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = config.xml; path = "HelloCordova/config.xml"; sourceTree = "<group>"; };
-		F9C522732F694775AD1BC52F /* BmsCordovaSdkPublic.swift */ = {isa = PBXFileReference; name = "BmsCordovaSdkPublic.swift"; path = "com-viatick-cordova-plugins-bms-sdk-public/BmsCordovaSdkPublic.swift"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.swift; explicitFileType = undefined; includeInIndex = 0; };
-		9E5254E0C67C4549B0C9A588 /* ViaApiCtrl.swift */ = {isa = PBXFileReference; name = "ViaApiCtrl.swift"; path = "com-viatick-cordova-plugins-bms-sdk-public/ViaApiCtrl.swift"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.swift; explicitFileType = undefined; includeInIndex = 0; };
-		320593433BBD450499276ADB /* ViaBackgroundTaskCenter.swift */ = {isa = PBXFileReference; name = "ViaBackgroundTaskCenter.swift"; path = "com-viatick-cordova-plugins-bms-sdk-public/ViaBackgroundTaskCenter.swift"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.swift; explicitFileType = undefined; includeInIndex = 0; };
-		5603A9FC76BA41DEAE55FF75 /* ViaBmsCtrl.swift */ = {isa = PBXFileReference; name = "ViaBmsCtrl.swift"; path = "com-viatick-cordova-plugins-bms-sdk-public/ViaBmsCtrl.swift"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.swift; explicitFileType = undefined; includeInIndex = 0; };
-		1ED743ED7A1D4495BF12DEA8 /* ViaIBeaconCtrl.swift */ = {isa = PBXFileReference; name = "ViaIBeaconCtrl.swift"; path = "com-viatick-cordova-plugins-bms-sdk-public/ViaIBeaconCtrl.swift"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.swift; explicitFileType = undefined; includeInIndex = 0; };
-		9293F808A00E49BBA7252A91 /* ViaNotificationCenter.swift */ = {isa = PBXFileReference; name = "ViaNotificationCenter.swift"; path = "com-viatick-cordova-plugins-bms-sdk-public/ViaNotificationCenter.swift"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.swift; explicitFileType = undefined; includeInIndex = 0; };
-		2AAD734DF0E14E37A4C0B3B4 /* ViaMinisiteTableViewCell.swift */ = {isa = PBXFileReference; name = "ViaMinisiteTableViewCell.swift"; path = "com-viatick-cordova-plugins-bms-sdk-public/ViaMinisiteTableViewCell.swift"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.swift; explicitFileType = undefined; includeInIndex = 0; };
-		F9E4AF19611F43059D0CA671 /* ViaMinisiteTableViewCell.xib */ = {isa = PBXFileReference; name = "ViaMinisiteTableViewCell.xib"; path = "com-viatick-cordova-plugins-bms-sdk-public/ViaMinisiteTableViewCell.xib"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = file.xib; explicitFileType = undefined; includeInIndex = 0; };
-		A0F039E443E84DB8B5C26BBD /* ViaMinisiteTableViewController.swift */ = {isa = PBXFileReference; name = "ViaMinisiteTableViewController.swift"; path = "com-viatick-cordova-plugins-bms-sdk-public/ViaMinisiteTableViewController.swift"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.swift; explicitFileType = undefined; includeInIndex = 0; };
-		D12A65A7D5FF492E90DF3D2F /* ViaMinisiteTableViewController.xib */ = {isa = PBXFileReference; name = "ViaMinisiteTableViewController.xib"; path = "com-viatick-cordova-plugins-bms-sdk-public/ViaMinisiteTableViewController.xib"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = file.xib; explicitFileType = undefined; includeInIndex = 0; };
-		199F3474F85F41C897AA0D56 /* ViaMinisiteViewController.swift */ = {isa = PBXFileReference; name = "ViaMinisiteViewController.swift"; path = "com-viatick-cordova-plugins-bms-sdk-public/ViaMinisiteViewController.swift"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.swift; explicitFileType = undefined; includeInIndex = 0; };
-		A76E4942E9694885B102FFCC /* ViaMinisiteViewController.xib */ = {isa = PBXFileReference; name = "ViaMinisiteViewController.xib"; path = "com-viatick-cordova-plugins-bms-sdk-public/ViaMinisiteViewController.xib"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = file.xib; explicitFileType = undefined; includeInIndex = 0; };
-		6BC030BF2F3541D5960A3804 /* ViaBmsUtil.swift */ = {isa = PBXFileReference; name = "ViaBmsUtil.swift"; path = "com-viatick-cordova-plugins-bms-sdk-public/ViaBmsUtil.swift"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.swift; explicitFileType = undefined; includeInIndex = 0; };
-		00C534FC808A4966B5121066 /* ViaIBeacon.swift */ = {isa = PBXFileReference; name = "ViaIBeacon.swift"; path = "com-viatick-cordova-plugins-bms-sdk-public/ViaIBeacon.swift"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.swift; explicitFileType = undefined; includeInIndex = 0; };
-		B73CDCCBE4814F6CBCEAAD2E /* ViaMinisite.swift */ = {isa = PBXFileReference; name = "ViaMinisite.swift"; path = "com-viatick-cordova-plugins-bms-sdk-public/ViaMinisite.swift"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.swift; explicitFileType = undefined; includeInIndex = 0; };
-		8111AA2535484483A279FA49 /* ViaIcons.xcassets */ = {isa = PBXFileReference; name = "ViaIcons.xcassets"; path = "ViaIcons.xcassets"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = folder.assetcatalog; explicitFileType = undefined; includeInIndex = 0; };
+		ED33DF2A687741AEAF9F8254 /* Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
+		F840E1F0165FE0F500CFE078 /* config.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = config.xml; path = HelloCordova/config.xml; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,7 +103,7 @@
 				1D3623250D0F684500981E51 /* AppDelegate.m */,
 			);
 			name = Classes;
-			path = "HelloCordova/Classes";
+			path = HelloCordova/Classes;
 			sourceTree = SOURCE_ROOT;
 		};
 		19C28FACFE9D520D11CA2CBB /* Products */ = {
@@ -133,7 +120,7 @@
 				EB87FDF41871DAF40020F90C /* config.xml */,
 				EB87FDF31871DA8E0020F90C /* www */,
 				EB87FDF11871DA420020F90C /* Staging */,
-				301BF52D109A57CC0062928A /* CordovaLib.xcodeproj */,
+				301BF52D109A57CC0062928A /* CordovaLib/CordovaLib.xcodeproj */,
 				080E96DDFE201D6D7F000001 /* Classes */,
 				307C750510C5A3420062BCA9 /* Plugins */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
@@ -152,7 +139,7 @@
 				ED33DF2A687741AEAF9F8254 /* Bridging-Header.h */,
 			);
 			name = "Other Sources";
-			path = "HelloCordova";
+			path = HelloCordova;
 			sourceTree = "<group>";
 		};
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
@@ -162,15 +149,15 @@
 				3047A50E1AB8057F00498E2A /* config */,
 				8D1107310486CEB800E47090 /* HelloCordova-Info.plist */,
 				6AFF5BF81D6E424B00AB3073 /* CDVLaunchScreen.storyboard */,
-				8111AA2535484483A279FA49 /* ViaIcons.xcassets */,
 			);
 			name = Resources;
-			path = "HelloCordova/Resources";
+			path = HelloCordova/Resources;
 			sourceTree = "<group>";
 		};
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				74B1593C8CB04EFDB14D1313 /* BmsSDK.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -197,24 +184,10 @@
 		307C750510C5A3420062BCA9 /* Plugins */ = {
 			isa = PBXGroup;
 			children = (
-				F9C522732F694775AD1BC52F /* BmsCordovaSdkPublic.swift */,
-				9E5254E0C67C4549B0C9A588 /* ViaApiCtrl.swift */,
-				320593433BBD450499276ADB /* ViaBackgroundTaskCenter.swift */,
-				5603A9FC76BA41DEAE55FF75 /* ViaBmsCtrl.swift */,
-				1ED743ED7A1D4495BF12DEA8 /* ViaIBeaconCtrl.swift */,
-				9293F808A00E49BBA7252A91 /* ViaNotificationCenter.swift */,
-				2AAD734DF0E14E37A4C0B3B4 /* ViaMinisiteTableViewCell.swift */,
-				F9E4AF19611F43059D0CA671 /* ViaMinisiteTableViewCell.xib */,
-				A0F039E443E84DB8B5C26BBD /* ViaMinisiteTableViewController.swift */,
-				D12A65A7D5FF492E90DF3D2F /* ViaMinisiteTableViewController.xib */,
-				199F3474F85F41C897AA0D56 /* ViaMinisiteViewController.swift */,
-				A76E4942E9694885B102FFCC /* ViaMinisiteViewController.xib */,
-				6BC030BF2F3541D5960A3804 /* ViaBmsUtil.swift */,
-				00C534FC808A4966B5121066 /* ViaIBeacon.swift */,
-				B73CDCCBE4814F6CBCEAAD2E /* ViaMinisite.swift */,
+				DA5AF59014784B97BB77E3FE /* BmsCordovaSdkPublic.swift */,
 			);
 			name = Plugins;
-			path = "HelloCordova/Plugins";
+			path = HelloCordova/Plugins;
 			sourceTree = SOURCE_ROOT;
 		};
 		EB87FDF11871DA420020F90C /* Staging */ = {
@@ -237,14 +210,15 @@
 				1D60588D0D05DD3D006BFB54 /* Resources */,
 				1D60588E0D05DD3D006BFB54 /* Sources */,
 				1D60588F0D05DD3D006BFB54 /* Frameworks */,
+				EE83258D79154CACA2F75DCA /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				301BF551109A68C00062928A /* PBXTargetDependency */,
 			);
-			name = "HelloCordova";
-			productName = "HelloCordova";
+			name = HelloCordova;
+			productName = HelloCordova;
 			productReference = 1D6058910D05DD3D006BFB54 /* HelloCordova.app */;
 			productType = "com.apple.product-type.application";
 		};
@@ -257,7 +231,7 @@
 				LastUpgradeCheck = 510;
 				TargetAttributes = {
 					1D6058900D05DD3D006BFB54 = {
-						ProvisioningStyle = Automatic;
+						DevelopmentTeam = 65BFNMKECG;
 					};
 				};
 			};
@@ -265,12 +239,17 @@
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 1;
+			knownRegions = (
+				English,
+				en,
+				Base,
+			);
 			mainGroup = 29B97314FDCFA39411CA2CEA /* CustomTemplate */;
 			projectDirPath = "";
 			projectReferences = (
 				{
 					ProductGroup = 301BF52E109A57CC0062928A /* Products */;
-					ProjectRef = 301BF52D109A57CC0062928A /* CordovaLib.xcodeproj */;
+					ProjectRef = 301BF52D109A57CC0062928A /* CordovaLib/CordovaLib.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -305,7 +284,6 @@
 				302D95F214D2391D003F00A1 /* MainViewController.xib in Resources */,
 				0207DA581B56EA530066E2B4 /* Images.xcassets in Resources */,
 				6AFF5BF91D6E424B00AB3073 /* CDVLaunchScreen.storyboard in Resources */,
-				E7F2EA2036514DD7BC5EDBBE /* ViaIcons.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -337,21 +315,7 @@
 				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
 				1D3623260D0F684500981E51 /* AppDelegate.m in Sources */,
 				302D95F114D2391D003F00A1 /* MainViewController.m in Sources */,
-				44736E25A60F49F5989C442D /* BmsCordovaSdkPublic.swift in Sources */,
-				4FB5E7EBFB354605964F2F1A /* ViaApiCtrl.swift in Sources */,
-				31E8236839274D4288DBFE88 /* ViaBackgroundTaskCenter.swift in Sources */,
-				74F18EC81B404EDDB9644FF2 /* ViaBmsCtrl.swift in Sources */,
-				C1C92338CD234AAA95897397 /* ViaIBeaconCtrl.swift in Sources */,
-				D8BAA9DCB53C487083483DFB /* ViaNotificationCenter.swift in Sources */,
-				DCEF481D26474009B1F03518 /* ViaMinisiteTableViewCell.swift in Sources */,
-				9E719B2DCF244DA4B082749C /* ViaMinisiteTableViewCell.xib in Resources */,
-				762B884D180B4085800BD48A /* ViaMinisiteTableViewController.swift in Sources */,
-				E9733C938CC14C71ABF74697 /* ViaMinisiteTableViewController.xib in Resources */,
-				08A5EF62B8554823BB93F221 /* ViaMinisiteViewController.swift in Sources */,
-				F4C7E021739C4781B4048988 /* ViaMinisiteViewController.xib in Resources */,
-				BED5A3FDEC3B41DABA1D9B8F /* ViaBmsUtil.swift in Sources */,
-				675447602DC045CBBA262D25 /* ViaIBeacon.swift in Sources */,
-				B48B9B63CD434E26B6B987D0 /* ViaMinisite.swift in Sources */,
+				1F6A3A80BB8B4A56B4C1DB4E /* BmsCordovaSdkPublic.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -376,6 +340,11 @@
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				COPY_PHASE_STRIP = NO;
+				DEVELOPMENT_TEAM = 65BFNMKECG;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"HelloCordova/Plugins/com-viatick-cordova-plugins-bms-sdk-public\"",
+				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -387,6 +356,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.viatick.bmssdksample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -400,7 +370,14 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = YES;
+				DEVELOPMENT_TEAM = 65BFNMKECG;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"HelloCordova/Plugins/com-viatick-cordova-plugins-bms-sdk-public\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "HelloCordova/HelloCordova-Prefix.pch";
 				GCC_THUMB_SUPPORT = NO;
@@ -410,6 +387,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.viatick.bmssdksample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -450,9 +429,9 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.viatick.bmssdksample;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = com.viatick.bmssdksample;
 			};
 			name = Debug;
 		};
@@ -490,9 +469,9 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.viatick.bmssdksample;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = com.viatick.bmssdksample;
 			};
 			name = Release;
 		};

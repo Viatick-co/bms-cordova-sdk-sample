@@ -57,6 +57,10 @@
             {
               "xml": "<uses-permission android:name=\"android.permission.READ_CONTACTS\" />",
               "count": 1
+            },
+            {
+              "xml": "<uses-permission android:name=\"android.permission.FOREGROUND_SERVICE\" />",
+              "count": 1
             }
           ],
           "application": [
