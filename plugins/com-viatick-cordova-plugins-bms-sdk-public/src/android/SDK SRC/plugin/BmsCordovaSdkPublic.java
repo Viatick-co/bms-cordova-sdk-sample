@@ -30,7 +30,6 @@ import java.util.List;
 import static android.content.Context.BIND_AUTO_CREATE;
 
 public class BmsCordovaSdkPublic extends CordovaPlugin implements ViaBmsCtrl.ViaBmsCtrlDelegate {
-  ViaBmsCtrl viaBmsCtrl = new ViaBmsCtrl();
   CallbackContext initSdkCallback;
   CallbackContext initCustomerCallback;
   CallbackContext checkinCallback;
@@ -55,11 +54,11 @@ public class BmsCordovaSdkPublic extends CordovaPlugin implements ViaBmsCtrl.Via
   public boolean execute(String action, JSONArray args,
     final CallbackContext callbackContext) throws JSONException {
       if (action.equals("initCustomer")) {
-          viaBmsCtrl.initCustomer(args.getString(0), args.getString(1),
+          ViaBmsCtrl.initCustomer(args.getString(0), args.getString(1),
                   args.getString(2), this.zones);
           return true;
       } else if (action.equals("setting")) {
-          viaBmsCtrl.settings(args.getBoolean(0), args.getBoolean(1),
+          ViaBmsCtrl.settings(args.getBoolean(0), args.getBoolean(1),
                   args.getBoolean(2), args.getBoolean(3),
                   args.getString(4), args.getIntOrNull(5), args.getBoolean(6),
                   args.getBoolean(7), args.getBoolean(8), args.getBoolean(9),
@@ -69,14 +68,14 @@ public class BmsCordovaSdkPublic extends CordovaPlugin implements ViaBmsCtrl.Via
           return true;
       } else if (action.equals("initSDK")) {
           initSdkCallback = callbackContext;
-          viaBmsCtrl.initSdk(cordova.getActivity(), args.getString(0));
+          ViaBmsCtrl.initSdk(cordova.getActivity(), args.getString(0));
           return true;
       } else if (action.equals("startSDK")) {
-          viaBmsCtrl.startBmsService();
+          ViaBmsCtrl.startBmsService();
           callbackContext.success();
           return true;
       } else if (action.equals("endSDK")) {
-          viaBmsCtrl.stopBmsService();
+          ViaBmsCtrl.stopBmsService();
           callbackContext.success();
           return true;
       } else if (action.equals("checkIn")) {
