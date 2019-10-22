@@ -19,7 +19,7 @@
 
 var setting = function(callback) {
    try {
-     cordova.plugins.BmsCordovaSdkPublic.setting(true, true, true,
+     cordova.plugins.BmsCordovaSdkPublic.setting(true, true,
        true, "LIST", 0, true, true, true, 2, 2, (success) => {
        console.log("setting success", success);
        callback();
