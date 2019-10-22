@@ -81,6 +81,30 @@ var endService = function() {
 	}
 };
 
+var checkIn = function() {
+	try {
+		cordova.plugins.BmsCordovaSdkPublic.checkIn((success) => {
+			console.log("checkIn success", success);
+		}, (error) => {
+			console.log("checkIn error", error);
+		});
+	} catch(e) {
+		console.log("checkIn exception", e);
+	}
+};
+
+var checkOut = function() {
+	try {
+		cordova.plugins.BmsCordovaSdkPublic.checkOut((success) => {
+			console.log("checkOut success", success);
+		}, (error) => {
+			console.log("checkOut error", error);
+		});
+	} catch(e) {
+		console.log("checkOut exception", e);
+	}
+};
+
 var app = {
     // Application Constructor
     initialize: function() {
@@ -97,6 +121,9 @@ var app = {
           initSDK(function () {
             initCustomer(function () {
               startService();
+
+              checkIn(); // check-in listener
+              checkOut(); // check-out listener
             });
           });
         });
