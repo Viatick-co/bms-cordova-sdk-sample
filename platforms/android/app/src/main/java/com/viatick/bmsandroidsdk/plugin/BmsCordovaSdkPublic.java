@@ -79,8 +79,16 @@ public class BmsCordovaSdkPublic extends CordovaPlugin implements ViaBmsCtrl.Via
           viaBmsCtrl.initSdk(cordova.getActivity(), args.getString(0));
           return true;
       } else if (action.equals("startSDK")) {
-          viaBmsCtrl.startBmsService();
+          boolean sdkInited = ViaBmsCtrl.isSdkInited();
+          boolean bmsRunning = ViaBmsCtrl.isBmsRunning();
+
+          if (!bmsRunning && sdkInited) {
+              Log.d(TAG, "Bms Starting");
+              viaBmsCtrl.startBmsService();
+          }
+
           callbackContext.success("");
+
           return true;
       } else if (action.equals("endSDK")) {
           viaBmsCtrl.stopBmsService();
