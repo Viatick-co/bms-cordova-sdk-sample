@@ -1,0 +1,6 @@
+dependencies {
+  compile ':bms-android-sdk-release'
+  implementation "com.android.support:design:27.1.1"
+  implementation "org.altbeacon:android-beacon-library:2.8.1"
+  implementation "com.squareup.picasso:picasso:2.7+"
+}

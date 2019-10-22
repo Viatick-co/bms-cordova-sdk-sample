@@ -1,0 +1,87 @@
+<?xml version='1.0' encoding='utf-8'?>
+<plugin id="com-viatick-cordova-plugins-bms-sdk-public" version="0.1.2" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
+	<name>BmsCordovaSdkPublic</name>
+	<js-module name="BmsCordovaSdkPublic" src="www/BmsCordovaSdkPublic.js">
+		<clobbers target="cordova.plugins.BmsCordovaSdkPublic" />
+	</js-module>
+	<platform name="ios">
+		<config-file target="config.xml" parent="/*">
+			<feature name="BmsCordovaSdkPublic">
+				<param name="ios-package" value="BmsCordovaSdkPublic" />
+			</feature>
+		</config-file>
+		<source-file src="src/ios/BmsCordovaSdkPublic.swift" />
+		<source-file src="src/ios/SDK SRC/CONTROLLER/ViaApiCtrl.swift" />
+		<source-file src="src/ios/SDK SRC/CONTROLLER/ViaBackgroundTaskCenter.swift" />
+		<source-file src="src/ios/SDK SRC/CONTROLLER/ViaBmsCtrl.swift" />
+		<source-file src="src/ios/SDK SRC/CONTROLLER/ViaIBeaconCtrl.swift" />
+		<source-file src="src/ios/SDK SRC/CONTROLLER/ViaNotificationCenter.swift" />
+		<source-file src="src/ios/SDK SRC/VIEW/ViaMinisiteTableViewCell.swift" />
+		<source-file src="src/ios/SDK SRC/VIEW/ViaMinisiteTableViewCell.xib" />
+		<source-file src="src/ios/SDK SRC/VIEW/ViaMinisiteTableViewController.swift" />
+		<source-file src="src/ios/SDK SRC/VIEW/ViaMinisiteTableViewController.xib" />
+		<source-file src="src/ios/SDK SRC/VIEW/ViaMinisiteViewController.swift" />
+		<source-file src="src/ios/SDK SRC/VIEW/ViaMinisiteViewController.xib" />
+		<source-file src="src/ios/SDK SRC/MODEL/ViaBmsUtil.swift" />
+		<source-file src="src/ios/SDK SRC/MODEL/ViaIBeacon.swift" />
+		<source-file src="src/ios/SDK SRC/MODEL/ViaMinisite.swift" />
+		<resource-file src="src/ios/SDK SRC/RES/ViaIcons.xcassets" />
+	</platform>
+
+	<platform name="android">
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="BmsCordovaSdkPublic">
+                <param name="android-package" onload="true" value="com.viatick.bmsandroidsdk.plugin.BmsCordovaSdkPublic" />
+            </feature>
+        </config-file>
+
+        <source-file src="src/android/bms-android-sdk-release.aar" target-dir="libs" />
+				<source-file src="src/android/SDK SRC/plugin" target-dir="app/src/main/java/com/viatick/bmsandroidsdk" />
+
+        <config-file target="AndroidManifest.xml" parent="/manifest">
+          <uses-permission android:name="android.permission.INTERNET" />
+          <uses-permission android:name="android.permission.BLUETOOTH" />
+          <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+          <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+          <uses-permission android:name="android.permission.GET_TASKS" />
+
+          <uses-feature
+              android:name="android.hardware.bluetooth_le"
+              android:required="true" />
+
+          <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+          <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+          <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+          <uses-permission android:name="android.permission.READ_CONTACTS" />
+        </config-file>
+
+        <config-file target="AndroidManifest.xml" parent="application">
+            <activity android:name="com.viatick.bmsandroidsdk.view.MinisiteMenuActivity" android:theme="@style/Base.Theme.AppCompat"/>
+            <activity android:name="com.viatick.bmsandroidsdk.view.MinisiteActivity" android:theme="@style/Base.Theme.AppCompat" />
+
+            <service android:name="com.viatick.bmsandroidsdk.controller.ViaIBeaconCtrl"></service>
+            <service android:name="org.altbeacon.beacon.service.BeaconService"
+                android:enabled="true"
+                android:isolatedProcess="false"
+                android:label="beacon"></service>
+            <service android:name="org.altbeacon.beacon.BeaconIntentProcessor"
+                android:enabled="true"></service>
+
+            <receiver android:name="org.altbeacon.beacon.startup.StartupBroadcastReceiver">
+                <intent-filter>
+                    <action android:name="android.intent.action.BOOT_COMPLETED" />
+                    <action android:name="android.intent.action.ACTION_POWER_CONNECTED" />
+                    <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED" />
+                </intent-filter>
+            </receiver>
+
+            <receiver android:name="com.viatick.bmsandroidsdk.helper.ViaBeaconRebootReceiver">
+                <intent-filter>
+                    <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                </intent-filter>
+            </receiver>
+        </config-file>
+
+        <framework src="src/android/BmsCordovaSdkPublic.gradle" custom="true" type="gradleReference" />
+    </platform>
+</plugin>

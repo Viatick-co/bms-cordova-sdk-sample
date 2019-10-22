@@ -1,0 +1,118 @@
+/*
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied.  See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
+
+var setting = function(callback) {
+   try {
+     cordova.plugins.BmsCordovaSdkPublic.setting(true, true, true,
+       true, "LIST", 0, true, false, true, 2, 2, (success) => {
+       console.log("setting success", success);
+       callback();
+     }, (error) => {
+       console.log("setting error", error);
+     });
+   } catch(e) {
+     console.log("exception", e);
+   }
+}
+
+var initCustomer = function(callback) {
+	try {
+		cordova.plugins.BmsCordovaSdkPublic.initCustomer("khoa_android", "khoa@viatick.com", "+65 88268722", (success) => {
+			console.log("initCustomer success", success);
+      callback();
+		}, (error) => {
+			console.log("initCustomer error", error);
+		});
+	} catch(e) {
+		console.log("initCustomer exception", e);
+	}
+};
+
+var initSDK = function(callback) {
+	try {
+		cordova.plugins.BmsCordovaSdkPublic.initSDK("_tonthdf8aoramakguq7e92bkqtbip8etkeo5vdaojgmnqrbnmnv", (success) => {
+			console.log("initSDK success", success);
+      callback();
+		}, (error) => {
+			console.log("initSDK error", error);
+		});
+	} catch(e) {
+		console.log("initSDK exception", e);
+	}
+};
+
+var startService = function() {
+	try {
+		cordova.plugins.BmsCordovaSdkPublic.startSDK((success) => {
+			console.log("startService success", success);
+		}, (error) => {
+			console.log("startService error", error);
+		});
+	} catch(e) {
+		console.log("startService xception", e);
+	}
+};
+
+var endService = function() {
+	try {
+		cordova.plugins.BmsCordovaSdkPublic.endSDK((success) => {
+			console.log("endService success", success);
+		}, (error) => {
+			console.log("endService error", error);
+		});
+	} catch(e) {
+		console.log("endService exception", e);
+	}
+};
+
+var app = {
+    // Application Constructor
+    initialize: function() {
+        document.addEventListener('deviceready', this.onDeviceReady.bind(this), false);
+    },
+
+    // deviceready Event Handler
+    //
+    // Bind any cordova events here. Common events are:
+    // 'pause', 'resume', etc.
+    onDeviceReady: function() {
+        this.receivedEvent('deviceready');
+        setting(function () {
+          initSDK(function () {
+            initCustomer(function () {
+              startService();
+            });
+          });
+        });
+    },
+
+    // Update DOM on a Received Event
+    receivedEvent: function(id) {
+        var parentElement = document.getElementById(id);
+        var listeningElement = parentElement.querySelector('.listening');
+        var receivedElement = parentElement.querySelector('.received');
+
+        listeningElement.setAttribute('style', 'display:none;');
+        receivedElement.setAttribute('style', 'display:block;');
+
+        console.log('Received Event: ' + id);
+    }
+};
+
+app.initialize();

@@ -1,0 +1,119 @@
+{
+  "prepare_queue": {
+    "installed": [],
+    "uninstalled": []
+  },
+  "config_munge": {
+    "files": {
+      "res/xml/config.xml": {
+        "parents": {
+          "/*": [
+            {
+              "xml": "<feature name=\"Whitelist\"><param name=\"android-package\" value=\"org.apache.cordova.whitelist.WhitelistPlugin\" /><param name=\"onload\" value=\"true\" /></feature>",
+              "count": 1
+            },
+            {
+              "xml": "<feature name=\"BmsCordovaSdkPublic\"><param name=\"android-package\" onload=\"true\" value=\"com.viatick.bmsandroidsdk.plugin.BmsCordovaSdkPublic\" /></feature>",
+              "count": 1
+            }
+          ]
+        }
+      },
+      "AndroidManifest.xml": {
+        "parents": {
+          "/manifest": [
+            {
+              "xml": "<uses-permission android:name=\"android.permission.INTERNET\" />",
+              "count": 1
+            },
+            {
+              "xml": "<uses-permission android:name=\"android.permission.BLUETOOTH\" />",
+              "count": 1
+            },
+            {
+              "xml": "<uses-permission android:name=\"android.permission.BLUETOOTH_ADMIN\" />",
+              "count": 1
+            },
+            {
+              "xml": "<uses-permission android:name=\"android.permission.RECEIVE_BOOT_COMPLETED\" />",
+              "count": 2
+            },
+            {
+              "xml": "<uses-permission android:name=\"android.permission.GET_TASKS\" />",
+              "count": 1
+            },
+            {
+              "xml": "<uses-feature android:name=\"android.hardware.bluetooth_le\" android:required=\"true\" />",
+              "count": 1
+            },
+            {
+              "xml": "<uses-permission android:name=\"android.permission.ACCESS_COARSE_LOCATION\" />",
+              "count": 1
+            },
+            {
+              "xml": "<uses-permission android:name=\"android.permission.READ_PHONE_STATE\" />",
+              "count": 1
+            },
+            {
+              "xml": "<uses-permission android:name=\"android.permission.READ_CONTACTS\" />",
+              "count": 1
+            }
+          ],
+          "application": [
+            {
+              "xml": "<activity android:name=\"com.viatick.bmsandroidsdk.view.MinisiteMenuActivity\" android:theme=\"@style/Base.Theme.AppCompat\" />",
+              "count": 1
+            },
+            {
+              "xml": "<activity android:name=\"com.viatick.bmsandroidsdk.view.MinisiteActivity\" android:theme=\"@style/Base.Theme.AppCompat\" />",
+              "count": 1
+            },
+            {
+              "xml": "<service android:name=\"com.viatick.bmsandroidsdk.controller.ViaIBeaconCtrl\" />",
+              "count": 1
+            },
+            {
+              "xml": "<service android:enabled=\"true\" android:isolatedProcess=\"false\" android:label=\"beacon\" android:name=\"org.altbeacon.beacon.service.BeaconService\" />",
+              "count": 1
+            },
+            {
+              "xml": "<service android:enabled=\"true\" android:name=\"org.altbeacon.beacon.BeaconIntentProcessor\" />",
+              "count": 1
+            },
+            {
+              "xml": "<receiver android:name=\"org.altbeacon.beacon.startup.StartupBroadcastReceiver\"><intent-filter><action android:name=\"android.intent.action.BOOT_COMPLETED\" /><action android:name=\"android.intent.action.ACTION_POWER_CONNECTED\" /><action android:name=\"android.intent.action.ACTION_POWER_DISCONNECTED\" /></intent-filter></receiver>",
+              "count": 1
+            },
+            {
+              "xml": "<receiver android:name=\"com.viatick.bmsandroidsdk.helper.ViaBeaconRebootReceiver\"><intent-filter><action android:name=\"android.intent.action.BOOT_COMPLETED\" /></intent-filter></receiver>",
+              "count": 1
+            }
+          ]
+        }
+      }
+    }
+  },
+  "installed_plugins": {
+    "cordova-plugin-whitelist": {
+      "PACKAGE_NAME": "com.viatick.bmssdksample"
+    },
+    "com-viatick-cordova-plugins-bms-sdk-public": {
+      "PACKAGE_NAME": "com.viatick.bmssdksample"
+    }
+  },
+  "dependent_plugins": {},
+  "modules": [
+    {
+      "id": "com-viatick-cordova-plugins-bms-sdk-public.BmsCordovaSdkPublic",
+      "file": "plugins/com-viatick-cordova-plugins-bms-sdk-public/www/BmsCordovaSdkPublic.js",
+      "pluginId": "com-viatick-cordova-plugins-bms-sdk-public",
+      "clobbers": [
+        "cordova.plugins.BmsCordovaSdkPublic"
+      ]
+    }
+  ],
+  "plugin_metadata": {
+    "cordova-plugin-whitelist": "1.3.4",
+    "com-viatick-cordova-plugins-bms-sdk-public": "0.1.2"
+  }
+}

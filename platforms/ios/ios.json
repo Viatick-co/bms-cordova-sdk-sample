@@ -1,0 +1,43 @@
+{
+  "prepare_queue": {
+    "installed": [],
+    "uninstalled": []
+  },
+  "config_munge": {
+    "files": {
+      "config.xml": {
+        "parents": {
+          "/*": [
+            {
+              "xml": "<feature name=\"BmsCordovaSdkPublic\"><param name=\"ios-package\" value=\"BmsCordovaSdkPublic\" /></feature>",
+              "count": 1
+            }
+          ]
+        }
+      }
+    }
+  },
+  "installed_plugins": {
+    "cordova-plugin-whitelist": {
+      "PACKAGE_NAME": "$(PRODUCT_BUNDLE_IDENTIFIER)"
+    },
+    "com-viatick-cordova-plugins-bms-sdk-public": {
+      "PACKAGE_NAME": "$(PRODUCT_BUNDLE_IDENTIFIER)"
+    }
+  },
+  "dependent_plugins": {},
+  "modules": [
+    {
+      "id": "com-viatick-cordova-plugins-bms-sdk-public.BmsCordovaSdkPublic",
+      "file": "plugins/com-viatick-cordova-plugins-bms-sdk-public/www/BmsCordovaSdkPublic.js",
+      "pluginId": "com-viatick-cordova-plugins-bms-sdk-public",
+      "clobbers": [
+        "cordova.plugins.BmsCordovaSdkPublic"
+      ]
+    }
+  ],
+  "plugin_metadata": {
+    "cordova-plugin-whitelist": "1.3.4",
+    "com-viatick-cordova-plugins-bms-sdk-public": "0.1.2"
+  }
+}
