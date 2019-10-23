@@ -1,3 +1,5 @@
+import BmsSDK
+
 @objc(BmsCordovaSdkPublic) class BmsCordovaSdkPublic : CDVPlugin {
 	private var viaBmsCtrl = ViaBmsCtrl.sharedInstance;
 	private var initSdkCallbackId: String!;
@@ -83,10 +85,10 @@ extension BmsCordovaSdkPublic: ViaBmsCtrlDelegate {
         print("sdk inited", status);
 
 				if (status) {
-					pluginResult = CDVPluginResult(status: CDVCommandStatus_OK, messageAs: "");
+					var pluginResult = CDVPluginResult(status: CDVCommandStatus_OK, messageAs: "");
 					self.commandDelegate!.send(pluginResult, callbackId: initSdkCallbackId);
 				} else {
-					pluginResult = CDVPluginResult(status: CDVCommandStatus_ERROR, messageAs: "");
+					var pluginResult = CDVPluginResult(status: CDVCommandStatus_ERROR, messageAs: "");
 					self.commandDelegate!.send(pluginResult, callbackId: initSdkCallbackId);
 				}
     }
@@ -95,7 +97,7 @@ extension BmsCordovaSdkPublic: ViaBmsCtrlDelegate {
         print("customer inited", inited);
 
 				if (status) {
-					pluginResult = CDVPluginResult(status: CDVCommandStatus_OK, messageAs: "");
+					var pluginResult = CDVPluginResult(status: CDVCommandStatus_OK, messageAs: "");
 					self.commandDelegate!.send(pluginResult, callbackId: initCustomerCallbackId);
 				} else {
 					pluginResult = CDVPluginResult(status: CDVCommandStatus_ERROR, messageAs: "");
@@ -106,7 +108,7 @@ extension BmsCordovaSdkPublic: ViaBmsCtrlDelegate {
     func checkin() {
         print("check in callback");
 
-				pluginResult = CDVPluginResult(status: CDVCommandStatus_OK, messageAs: "");
+				var pluginResult = CDVPluginResult(status: CDVCommandStatus_OK, messageAs: "");
 				pluginResult.setKeepCallbackAsBool(true);
 				self.commandDelegate!.send(pluginResult, callbackId: checkinCallbackId);
     }
@@ -114,7 +116,7 @@ extension BmsCordovaSdkPublic: ViaBmsCtrlDelegate {
     func checkout() {
         print("check out callback");
 
-				pluginResult = CDVPluginResult(status: CDVCommandStatus_OK, messageAs: "");
+				var pluginResult = CDVPluginResult(status: CDVCommandStatus_OK, messageAs: "");
 				pluginResult.setKeepCallbackAsBool(true);
 				self.commandDelegate!.send(pluginResult, callbackId: checkoutCallbackId);
     }
