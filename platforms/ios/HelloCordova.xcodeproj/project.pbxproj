@@ -5,18 +5,17 @@
 	};
 	objectVersion = 46;
 	objects = {
-
 /* Begin PBXBuildFile section */
 		0207DA581B56EA530066E2B4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0207DA571B56EA530066E2B4 /* Images.xcassets */; };
-		12649B3FBA3543BB86D8A1CB /* BmsCordovaSdkPublic.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB508DD229CE4622A5C93E3B /* BmsCordovaSdkPublic.swift */; };
 		1D3623260D0F684500981E51 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* AppDelegate.m */; };
 		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
 		301BF552109A68D80062928A /* libCordova.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 301BF535109A57CC0062928A /* libCordova.a */; settings = {ATTRIBUTES = (Required, ); }; };
 		302D95F114D2391D003F00A1 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 302D95EF14D2391D003F00A1 /* MainViewController.m */; };
 		302D95F214D2391D003F00A1 /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 302D95F014D2391D003F00A1 /* MainViewController.xib */; };
 		6AFF5BF91D6E424B00AB3073 /* CDVLaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6AFF5BF81D6E424B00AB3073 /* CDVLaunchScreen.storyboard */; };
-		784283417490416A85BF5FAA /* BmsSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D63D5C95F7224AEBA5FEB0F6 /* BmsSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		9B53DC4A235FE35E00DDA8D1 /* BmsSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D63D5C95F7224AEBA5FEB0F6 /* BmsSDK.framework */; };
+		AA5C6EA3313646B7A2B50E42 /* BmsCordovaSdkPublic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BABE716CB88464A87B0AB08 /* BmsCordovaSdkPublic.swift */; };
+		8F6D22EEB5414E2199FF31D0 /* BmsSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 308F71EBBC914B079A504059 /* BmsSDK.framework */; };
+		B6FF18E3D7C744178E7C7FB6 /* BmsSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 308F71EBBC914B079A504059 /* BmsSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +50,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				784283417490416A85BF5FAA /* BmsSDK.framework in Embed Frameworks */,
+				B6FF18E3D7C744178E7C7FB6 /* BmsSDK.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -74,12 +74,12 @@
 		32CA4F630368D1EE00C91783 /* HelloCordova-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "HelloCordova-Prefix.pch"; sourceTree = "<group>"; };
 		6AFF5BF81D6E424B00AB3073 /* CDVLaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = CDVLaunchScreen.storyboard; path = HelloCordova/CDVLaunchScreen.storyboard; sourceTree = SOURCE_ROOT; };
 		8D1107310486CEB800E47090 /* HelloCordova-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "HelloCordova-Info.plist"; path = "HelloCordova/HelloCordova-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = SOURCE_ROOT; };
-		D63D5C95F7224AEBA5FEB0F6 /* BmsSDK.framework */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = wrapper.framework; name = BmsSDK.framework; path = "HelloCordova/Plugins/com-viatick-cordova-plugins-bms-sdk-public/BmsSDK.framework"; sourceTree = "<group>"; };
 		EB87FDF31871DA8E0020F90C /* www */ = {isa = PBXFileReference; lastKnownFileType = folder; name = www; path = ../../www; sourceTree = "<group>"; };
 		EB87FDF41871DAF40020F90C /* config.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = config.xml; path = ../../config.xml; sourceTree = "<group>"; };
 		ED33DF2A687741AEAF9F8254 /* Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
 		F840E1F0165FE0F500CFE078 /* config.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = config.xml; path = HelloCordova/config.xml; sourceTree = "<group>"; };
-		FB508DD229CE4622A5C93E3B /* BmsCordovaSdkPublic.swift */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.swift; name = BmsCordovaSdkPublic.swift; path = "com-viatick-cordova-plugins-bms-sdk-public/BmsCordovaSdkPublic.swift"; sourceTree = "<group>"; };
+		4BABE716CB88464A87B0AB08 /* BmsCordovaSdkPublic.swift */ = {isa = PBXFileReference; name = "BmsCordovaSdkPublic.swift"; path = "com-viatick-cordova-plugins-bms-sdk-public/BmsCordovaSdkPublic.swift"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.swift; explicitFileType = undefined; includeInIndex = 0; };
+		308F71EBBC914B079A504059 /* BmsSDK.framework */ = {isa = PBXFileReference; name = "BmsSDK.framework"; path = "HelloCordova/Plugins/com-viatick-cordova-plugins-bms-sdk-public/BmsSDK.framework"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,7 +87,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9B53DC4A235FE35E00DDA8D1 /* BmsSDK.framework in Frameworks */,
 				301BF552109A68D80062928A /* libCordova.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -159,7 +158,7 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				D63D5C95F7224AEBA5FEB0F6 /* BmsSDK.framework */,
+				308F71EBBC914B079A504059 /* BmsSDK.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -186,7 +185,7 @@
 		307C750510C5A3420062BCA9 /* Plugins */ = {
 			isa = PBXGroup;
 			children = (
-				FB508DD229CE4622A5C93E3B /* BmsCordovaSdkPublic.swift */,
+				4BABE716CB88464A87B0AB08 /* BmsCordovaSdkPublic.swift */,
 			);
 			name = Plugins;
 			path = HelloCordova/Plugins;
@@ -317,7 +316,7 @@
 				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
 				1D3623260D0F684500981E51 /* AppDelegate.m in Sources */,
 				302D95F114D2391D003F00A1 /* MainViewController.m in Sources */,
-				12649B3FBA3543BB86D8A1CB /* BmsCordovaSdkPublic.swift in Sources */,
+				AA5C6EA3313646B7A2B50E42 /* BmsCordovaSdkPublic.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -347,6 +346,7 @@
 					"$(inherited)",
 					"HelloCordova/Plugins/com-viatick-cordova-plugins-bms-sdk-public",
 					"$(PROJECT_DIR)/HelloCordova/Plugins/com-viatick-cordova-plugins-bms-sdk-public",
+					"\"HelloCordova/Plugins/com-viatick-cordova-plugins-bms-sdk-public\"",
 					"\"HelloCordova/Plugins/com-viatick-cordova-plugins-bms-sdk-public\"",
 				);
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -382,6 +382,7 @@
 					"$(inherited)",
 					"HelloCordova/Plugins/com-viatick-cordova-plugins-bms-sdk-public",
 					"$(PROJECT_DIR)/HelloCordova/Plugins/com-viatick-cordova-plugins-bms-sdk-public",
+					"\"HelloCordova/Plugins/com-viatick-cordova-plugins-bms-sdk-public\"",
 					"\"HelloCordova/Plugins/com-viatick-cordova-plugins-bms-sdk-public\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
