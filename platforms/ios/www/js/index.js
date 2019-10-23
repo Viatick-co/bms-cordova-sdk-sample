@@ -16,6 +16,95 @@
  * specific language governing permissions and limitations
  * under the License.
  */
+
+var setting = function(callback) {
+   try {
+     cordova.plugins.BmsCordovaSdkPublic.setting(true, true,
+       true, "LIST", 0, true, true, true, 2, 2, (success) => {
+       console.log("setting success", success);
+       callback();
+     }, (error) => {
+       console.log("setting error", error);
+     });
+   } catch(e) {
+     console.log("exception", e);
+   }
+}
+
+var initCustomer = function(callback) {
+	try {
+		cordova.plugins.BmsCordovaSdkPublic.initCustomer("khoa_android", "khoa@viatick.com", "+65 88268722", (success) => {
+			console.log("initCustomer success", success);
+      callback();
+		}, (error) => {
+			console.log("initCustomer error", error);
+		});
+	} catch(e) {
+		console.log("initCustomer exception", e);
+	}
+};
+
+var initSDK = function(callback) {
+	try {
+		cordova.plugins.BmsCordovaSdkPublic.initSDK("_tonthdf8aoramakguq7e92bkqtbip8etkeo5vdaojgmnqrbnmnv", (success) => {
+			console.log("initSDK success", success);
+      callback();
+		}, (error) => {
+			console.log("initSDK error", error);
+		});
+	} catch(e) {
+		console.log("initSDK exception", e);
+	}
+};
+
+var startService = function() {
+	try {
+		cordova.plugins.BmsCordovaSdkPublic.startSDK((success) => {
+			console.log("startService success", success);
+		}, (error) => {
+			console.log("startService error", error);
+		});
+	} catch(e) {
+		console.log("startService xception", e);
+	}
+};
+
+var endService = function() {
+	try {
+		cordova.plugins.BmsCordovaSdkPublic.endSDK((success) => {
+			console.log("endService success", success);
+		}, (error) => {
+			console.log("endService error", error);
+		});
+	} catch(e) {
+		console.log("endService exception", e);
+	}
+};
+
+var checkIn = function() {
+	try {
+		cordova.plugins.BmsCordovaSdkPublic.checkIn((success) => {
+			console.log("checkIn success", success);
+		}, (error) => {
+			console.log("checkIn error", error);
+		});
+	} catch(e) {
+		console.log("checkIn exception", e);
+	}
+};
+
+var checkOut = function() {
+	try {
+		cordova.plugins.BmsCordovaSdkPublic.checkOut((success) => {
+			console.log("checkOut success", success);
+		}, (error) => {
+			console.log("checkOut error", error);
+		});
+	} catch(e) {
+		console.log("checkOut exception", e);
+	}
+};
+
 var app = {
     // Application Constructor
     initialize: function() {
@@ -28,6 +117,16 @@ var app = {
     // 'pause', 'resume', etc.
     onDeviceReady: function() {
         this.receivedEvent('deviceready');
+        setting(function () {
+          initSDK(function () {
+            initCustomer(function () {
+              startService();
+
+              checkIn(); // check-in listener
+              checkOut(); // check-out listener
+            });
+          });
+        });
     },
 
     // Update DOM on a Received Event
