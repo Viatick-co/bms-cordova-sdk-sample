@@ -17,7 +17,7 @@
     "#USER",
     "/"
   ],
-  "_resolved": "git+https://github.com/Viatick-co/bms-cordova-sdk-public.git#9da0cde08ef8c84d59fa1f636739a34906a519af",
+  "_resolved": "git+https://github.com/Viatick-co/bms-cordova-sdk-public.git#e952b9dee550c7b8c09fba198e49206d80f4843a",
   "_spec": "https://github.com/Viatick-co/bms-cordova-sdk-public.git#v2.0-dev",
   "_where": "/Users/viatick/Desktop/Project/bms-cordova-sdk-sample",
   "author": {

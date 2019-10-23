@@ -1,7 +1,7 @@
 import BmsSDK
 
 @objc(BmsCordovaSdkPublic) class BmsCordovaSdkPublic : CDVPlugin {
-	private var viaBmsCtrl = ViaBmsCtrl.sharedInstance;
+    private var viaBmsCtrl:ViaBmsCtrl!;
 	private var initSdkCallbackId: String!;
 	private var initCustomerCallbackId: String!;
 	private var checkinCallbackId: String!
@@ -9,7 +9,8 @@ import BmsSDK
     private var zones: [ViaZone]!
 
 	override func pluginInitialize() {
-		viaBmsCtrl.delegate = self;
+        viaBmsCtrl = ViaBmsCtrl.sharedInstance;
+        viaBmsCtrl.delegate = self;
 	}
 
 	@objc(initSDK:)
@@ -22,8 +23,6 @@ import BmsSDK
 
 	@objc(initCustomer:)
 	func initCustomer(command: CDVInvokedUrlCommand) {
-		let pluginResult = CDVPluginResult(status: CDVCommandStatus_ERROR);
-
 		let identifier = command.arguments[0] as? String ?? "no value";
 		let phone = command.arguments[1] as? String ?? "no value";
 		let email = command.arguments[2] as? String ?? "no value";
@@ -47,12 +46,12 @@ import BmsSDK
         let attendance = command.arguments[7] as? Bool ?? false;
         let checkinDuration = command.arguments[8] as! Double;
         let checkoutDuration = command.arguments[9] as! Double;
-        
+
         var minisitesView: MinisiteViewType = .LIST;
         if (minisitesViewString == "AUTO") {
             minisitesView = .AUTO;
         }
-        
+
         viaBmsCtrl.setting(alert: alert, background: background, site: site, minisitesView: minisitesView, autoSiteDuration: autoSiteDuration,
                            tracking: tracking,
                            enableMQTT: enableMQTT, attendance: attendance, checkinDuration: checkinDuration, checkoutDuration: checkoutDuration);
@@ -66,7 +65,12 @@ import BmsSDK
 	func startSDK(command: CDVInvokedUrlCommand) {
 		var pluginResult = CDVPluginResult(status: CDVCommandStatus_ERROR);
 
-		viaBmsCtrl.startBmsService();
+		let bmsRunning = viaBmsCtrl.isBmsRunning();
+        let sdkInited = viaBmsCtrl.isSdkInited();
+
+        if (!bmsRunning && sdkInited) {
+				viaBmsCtrl.startBmsService();
+		}
 
 		pluginResult = CDVPluginResult(status: CDVCommandStatus_OK, messageAs: "startSDK done!");
 		self.commandDelegate!.send(pluginResult, callbackId: command.callbackId);
@@ -100,11 +104,11 @@ extension BmsCordovaSdkPublic: ViaBmsCtrlDelegate {
         print("sdk inited", status);
 
 				if (status) {
-                    self.zones = zones;
-					var pluginResult = CDVPluginResult(status: CDVCommandStatus_OK, messageAs: "");
+          self.zones = zones;
+					let pluginResult = CDVPluginResult(status: CDVCommandStatus_OK, messageAs: "");
 					self.commandDelegate!.send(pluginResult, callbackId: initSdkCallbackId);
 				} else {
-					var pluginResult = CDVPluginResult(status: CDVCommandStatus_ERROR, messageAs: "");
+					let pluginResult = CDVPluginResult(status: CDVCommandStatus_ERROR, messageAs: "");
 					self.commandDelegate!.send(pluginResult, callbackId: initSdkCallbackId);
 				}
     }
@@ -113,10 +117,10 @@ extension BmsCordovaSdkPublic: ViaBmsCtrlDelegate {
         print("customer inited", inited);
 
 				if (inited) {
-					var pluginResult = CDVPluginResult(status: CDVCommandStatus_OK, messageAs: "");
+					let pluginResult = CDVPluginResult(status: CDVCommandStatus_OK, messageAs: "");
 					self.commandDelegate!.send(pluginResult, callbackId: initCustomerCallbackId);
 				} else {
-					var pluginResult = CDVPluginResult(status: CDVCommandStatus_ERROR, messageAs: "");
+					let pluginResult = CDVPluginResult(status: CDVCommandStatus_ERROR, messageAs: "");
 					self.commandDelegate!.send(pluginResult, callbackId: initCustomerCallbackId);
 				}
     }

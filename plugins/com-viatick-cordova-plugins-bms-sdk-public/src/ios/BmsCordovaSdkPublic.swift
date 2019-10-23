@@ -1,14 +1,16 @@
 import BmsSDK
 
 @objc(BmsCordovaSdkPublic) class BmsCordovaSdkPublic : CDVPlugin {
-	private var viaBmsCtrl = ViaBmsCtrl.sharedInstance;
+    private var viaBmsCtrl:ViaBmsCtrl!;
 	private var initSdkCallbackId: String!;
 	private var initCustomerCallbackId: String!;
 	private var checkinCallbackId: String!
 	private var checkoutCallbackId: String!
+    private var zones: [ViaZone]!
 
 	override func pluginInitialize() {
-		viaBmsCtrl.delegate = self;
+        viaBmsCtrl = ViaBmsCtrl.sharedInstance;
+        viaBmsCtrl.delegate = self;
 	}
 
 	@objc(initSDK:)
@@ -21,12 +23,11 @@ import BmsSDK
 
 	@objc(initCustomer:)
 	func initCustomer(command: CDVInvokedUrlCommand) {
-		var pluginResult = CDVPluginResult(status: CDVCommandStatus_ERROR);
-
 		let identifier = command.arguments[0] as? String ?? "no value";
 		let phone = command.arguments[1] as? String ?? "no value";
 		let email = command.arguments[2] as? String ?? "no value";
-		viaBmsCtrl.initCustomer(identifier: identifier, phone: phone, email: email);
+        let remark = "";
+        viaBmsCtrl.initCustomer(identifier: identifier, email: email, phone: phone, remark: remark, authorizedZones: self.zones);
 
 		initCustomerCallbackId = command.callbackId;
 	}
@@ -38,9 +39,22 @@ import BmsSDK
 		let alert = command.arguments[0] as? Bool ?? false;
 		let background = command.arguments[1] as? Bool ?? false;
 		let site = command.arguments[2] as? Bool ?? false;
-		let attendance = command.arguments[3] as? Bool ?? false;
-		let tracking = command.arguments[4] as? Bool ?? false;
-		viaBmsCtrl.setting(alert: alert, background: background, site: site, attendance: attendance, tracking: tracking);
+        let minisitesViewString = command.arguments[3] as? String;
+        let autoSiteDuration = command.arguments[4] as! Double;
+		let tracking = command.arguments[5] as? Bool ?? false;
+        let enableMQTT = command.arguments[6] as? Bool ?? false;
+        let attendance = command.arguments[7] as? Bool ?? false;
+        let checkinDuration = command.arguments[8] as! Double;
+        let checkoutDuration = command.arguments[9] as! Double;
+
+        var minisitesView: MinisiteViewType = .LIST;
+        if (minisitesViewString == "AUTO") {
+            minisitesView = .AUTO;
+        }
+
+        viaBmsCtrl.setting(alert: alert, background: background, site: site, minisitesView: minisitesView, autoSiteDuration: autoSiteDuration,
+                           tracking: tracking,
+                           enableMQTT: enableMQTT, attendance: attendance, checkinDuration: checkinDuration, checkoutDuration: checkoutDuration);
 
 		pluginResult = CDVPluginResult(status: CDVCommandStatus_OK, messageAs: "setting done!");
 
@@ -51,7 +65,12 @@ import BmsSDK
 	func startSDK(command: CDVInvokedUrlCommand) {
 		var pluginResult = CDVPluginResult(status: CDVCommandStatus_ERROR);
 
-		viaBmsCtrl.startBmsService();
+		let bmsRunning = viaBmsCtrl.isBmsRunning();
+        let sdkInited = viaBmsCtrl.isSdkInited();
+
+        if (!bmsRunning && sdkInited) {
+				viaBmsCtrl.startBmsService();
+		}
 
 		pluginResult = CDVPluginResult(status: CDVCommandStatus_OK, messageAs: "startSDK done!");
 		self.commandDelegate!.send(pluginResult, callbackId: command.callbackId);
@@ -69,12 +88,12 @@ import BmsSDK
 
 	@objc(checkIn:)
 	func checkIn(command: CDVInvokedUrlCommand) {
-		initCheckinCallbackId = command.callbackId;
+        self.checkinCallbackId = command.callbackId;
 	}
 
 	@objc(checkOut:)
 	func checkOut(command: CDVInvokedUrlCommand) {
-		initCheckoutCallbackId = command.callbackId;
+        self.checkoutCallbackId = command.callbackId;
 	}
 }
 
@@ -85,10 +104,11 @@ extension BmsCordovaSdkPublic: ViaBmsCtrlDelegate {
         print("sdk inited", status);
 
 				if (status) {
-					var pluginResult = CDVPluginResult(status: CDVCommandStatus_OK, messageAs: "");
+          self.zones = zones;
+					let pluginResult = CDVPluginResult(status: CDVCommandStatus_OK, messageAs: "");
 					self.commandDelegate!.send(pluginResult, callbackId: initSdkCallbackId);
 				} else {
-					var pluginResult = CDVPluginResult(status: CDVCommandStatus_ERROR, messageAs: "");
+					let pluginResult = CDVPluginResult(status: CDVCommandStatus_ERROR, messageAs: "");
 					self.commandDelegate!.send(pluginResult, callbackId: initSdkCallbackId);
 				}
     }
@@ -96,11 +116,11 @@ extension BmsCordovaSdkPublic: ViaBmsCtrlDelegate {
     func customerInited(inited: Bool) {
         print("customer inited", inited);
 
-				if (status) {
-					var pluginResult = CDVPluginResult(status: CDVCommandStatus_OK, messageAs: "");
+				if (inited) {
+					let pluginResult = CDVPluginResult(status: CDVCommandStatus_OK, messageAs: "");
 					self.commandDelegate!.send(pluginResult, callbackId: initCustomerCallbackId);
 				} else {
-					pluginResult = CDVPluginResult(status: CDVCommandStatus_ERROR, messageAs: "");
+					let pluginResult = CDVPluginResult(status: CDVCommandStatus_ERROR, messageAs: "");
 					self.commandDelegate!.send(pluginResult, callbackId: initCustomerCallbackId);
 				}
     }
@@ -108,16 +128,16 @@ extension BmsCordovaSdkPublic: ViaBmsCtrlDelegate {
     func checkin() {
         print("check in callback");
 
-				var pluginResult = CDVPluginResult(status: CDVCommandStatus_OK, messageAs: "");
-				pluginResult.setKeepCallbackAsBool(true);
-				self.commandDelegate!.send(pluginResult, callbackId: checkinCallbackId);
+        let pluginResult: CDVPluginResult = CDVPluginResult(status: CDVCommandStatus_OK, messageAs: "");
+        pluginResult.setKeepCallbackAs(true);
+        self.commandDelegate!.send(pluginResult, callbackId: checkinCallbackId);
     }
 
     func checkout() {
         print("check out callback");
 
-				var pluginResult = CDVPluginResult(status: CDVCommandStatus_OK, messageAs: "");
-				pluginResult.setKeepCallbackAsBool(true);
-				self.commandDelegate!.send(pluginResult, callbackId: checkoutCallbackId);
+        let pluginResult: CDVPluginResult = CDVPluginResult(status: CDVCommandStatus_OK, messageAs: "");
+        pluginResult.setKeepCallbackAs(true);
+        self.commandDelegate!.send(pluginResult, callbackId: checkoutCallbackId);
     }
 }

@@ -11,23 +11,20 @@
 			</feature>
 		</config-file>
 
-		<config-file target="*-Info.plist" parent="CFBundleURLTypes">
-			<array>
-			    <dict>
-			        <key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-			        <string>description for location access</string>
-							<key>NSLocationWhenInUseUsageDescription</key>
-							<string>description for location access</string>
-							<key>NSLocationAlwaysUsageDescription</key>
-							<string>description for location access</string>
-			    </dict>
-			</array>
+		<config-file target="*-Info.plist" parent="NSLocationAlwaysAndWhenInUseUsageDescription">
+			<string>${EXECUTABLE_NAME} Would Like to Use Your Current Location Even In Background.</string>
+		</config-file>
+
+		<config-file target="*-Info.plist" parent="NSLocationWhenInUseUsageDescription">
+			<string>${EXECUTABLE_NAME} Would Like to Use Your Current Location</string>
+		</config-file>
+
+		<config-file target="*-Info.plist" parent="NSLocationAlwaysUsageDescription">
+			<string>${EXECUTABLE_NAME} Would Like to Use Your Current Location</string>
 		</config-file>
 
 		<config-file target="*-Info.plist" parent="UIBackgroundModes">
-    	<array>
-      	<string>location</string>
-      </array>
+    	<string>${EXECUTABLE_NAME} Would Like to Use Background Mode</string>
     </config-file>
 
     <config-file target="config.xml" parent="/*">

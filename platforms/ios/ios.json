@@ -21,15 +21,28 @@
       },
       "*-Info.plist": {
         "parents": {
-          "CFBundleURLTypes": [
+          "CFBundleURLTypes": [],
+          "UIBackgroundModes": [
             {
-              "xml": "<array><dict><key>NSLocationAlwaysAndWhenInUseUsageDescription</key><string>description for location access</string><key>NSLocationWhenInUseUsageDescription</key><string>description for location access</string><key>NSLocationAlwaysUsageDescription</key><string>description for location access</string></dict></array>",
+              "xml": "<string>${EXECUTABLE_NAME} Would Like to Use Background Mode</string>",
               "count": 1
             }
           ],
-          "UIBackgroundModes": [
+          "NSLocationAlwaysAndWhenInUseUsageDescription": [
             {
-              "xml": "<array><string>location</string></array>",
+              "xml": "<string>${EXECUTABLE_NAME} Would Like to Use Your Current Location Even In Background.</string>",
+              "count": 1
+            }
+          ],
+          "NSLocationWhenInUseUsageDescription": [
+            {
+              "xml": "<string>${EXECUTABLE_NAME} Would Like to Use Your Current Location</string>",
+              "count": 1
+            }
+          ],
+          "NSLocationAlwaysUsageDescription": [
+            {
+              "xml": "<string>${EXECUTABLE_NAME} Would Like to Use Your Current Location</string>",
               "count": 1
             }
           ]
