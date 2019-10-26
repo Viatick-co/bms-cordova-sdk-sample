@@ -19,8 +19,22 @@
 
 var setting = function(callback) {
    try {
+     const requestDistanceBeacons = [
+       {
+         uuid: "F7826DA6-4FA2-4E98-8024-BC5B71E0893E",
+         major: 50,
+         minor: 40
+       },
+       {
+         uuid: "F7826DA6-4FA2-4E98-8024-BC5B71E0893E",
+         major: 100,
+         minor: 1
+       }
+     ]
+
      cordova.plugins.BmsCordovaSdkPublic.setting(true, true,
-       true, "LIST", 0, true, true, true, 2, 2, (success) => {
+       true, "LIST", 0, true, true, true, 2, 2, requestDistanceBeacons,
+       "DEV", (success) => {
        console.log("setting success", success);
        callback();
      }, (error) => {
@@ -105,6 +119,18 @@ var checkOut = function() {
 	}
 };
 
+var onDistanceBeacons = function() {
+	try {
+		cordova.plugins.BmsCordovaSdkPublic.onDistanceBeacons((success) => {
+			console.log("onDistanceBeacons success", success);
+		}, (error) => {
+			console.log("onDistanceBeacons error", error);
+		});
+	} catch(e) {
+		console.log("onDistanceBeacons exception", e);
+	}
+};
+
 var app = {
     // Application Constructor
     initialize: function() {
@@ -124,6 +150,7 @@ var app = {
 
               checkIn(); // check-in listener
               checkOut(); // check-out listener
+              onDistanceBeacons();
             });
           });
         });
