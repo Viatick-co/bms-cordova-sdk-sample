@@ -2,46 +2,46 @@ import BmsSDK
 
 @objc(BmsCordovaSdkPublic) class BmsCordovaSdkPublic : CDVPlugin {
     private var viaBmsCtrl:ViaBmsCtrl!;
-	private var initSdkCallbackId: String!;
-	private var initCustomerCallbackId: String!;
-	private var checkinCallbackId: String!
-	private var checkoutCallbackId: String!
+    private var initSdkCallbackId: String!;
+    private var initCustomerCallbackId: String!;
+    private var checkinCallbackId: String!
+    private var checkoutCallbackId: String!
   private var onDistanceBeaconsCallbackId: String!
   private var zones: [ViaZone]!
 
-	override func pluginInitialize() {
+    override func pluginInitialize() {
         viaBmsCtrl = ViaBmsCtrl.sharedInstance;
         viaBmsCtrl.delegate = self;
-	}
+    }
 
-	@objc(initSDK:)
-	func initSDK(command: CDVInvokedUrlCommand) {
-		let sdk_key = command.arguments[0] as? String ?? "no value";
-		viaBmsCtrl.initSdk(uiViewController: self.viewController, sdk_key: sdk_key);
+    @objc(initSDK:)
+    func initSDK(command: CDVInvokedUrlCommand) {
+        let sdk_key = command.arguments[0] as? String ?? "no value";
+        viaBmsCtrl.initSdk(uiViewController: self.viewController, sdk_key: sdk_key);
 
-		initSdkCallbackId = command.callbackId;
-	}
+        initSdkCallbackId = command.callbackId;
+    }
 
-	@objc(initCustomer:)
-	func initCustomer(command: CDVInvokedUrlCommand) {
-		let identifier = command.arguments[0] as? String ?? "no value";
-		let phone = command.arguments[1] as? String ?? "no value";
-		let email = command.arguments[2] as? String ?? "no value";
+    @objc(initCustomer:)
+    func initCustomer(command: CDVInvokedUrlCommand) {
+        let identifier = command.arguments[0] as? String ?? "no value";
+        let phone = command.arguments[1] as? String ?? "no value";
+        let email = command.arguments[2] as? String ?? "no value";
         viaBmsCtrl.initCustomer(identifier: identifier, email: email, phone: phone, authorizedZones: self.zones);
 
-		initCustomerCallbackId = command.callbackId;
-	}
+        initCustomerCallbackId = command.callbackId;
+    }
 
-	@objc(setting:)
-	func setting(command: CDVInvokedUrlCommand) {
-		var pluginResult = CDVPluginResult(status: CDVCommandStatus_ERROR);
+    @objc(setting:)
+    func setting(command: CDVInvokedUrlCommand) {
+        var pluginResult = CDVPluginResult(status: CDVCommandStatus_ERROR);
 
-		let alert = command.arguments[0] as? Bool ?? false;
-		let background = command.arguments[1] as? Bool ?? false;
-		let site = command.arguments[2] as? Bool ?? false;
+        let alert = command.arguments[0] as? Bool ?? false;
+        let background = command.arguments[1] as? Bool ?? false;
+        let site = command.arguments[2] as? Bool ?? false;
         let minisitesViewString = command.arguments[3] as? String;
         let autoSiteDuration = command.arguments[4] as! Double;
-		let tracking = command.arguments[5] as? Bool ?? false;
+        let tracking = command.arguments[5] as? Bool ?? false;
         let enableMQTT = command.arguments[6] as? Bool ?? false;
         let attendance = command.arguments[7] as? Bool ?? false;
         let checkinDuration = command.arguments[8] as! Double;
@@ -63,59 +63,64 @@ import BmsSDK
         
         var beacons:[IBeacon] = [];
         for beaconInput in (beaconsInput as NSArray as! [NSDictionary]) {
-            beacons.append(IBeacon.init(uuid: beaconInput.value(forKey: "uuid") as! String,
-                                        major: beaconInput.value(forKey: "major") as! Int,
-                                        minor: beaconInput.value(forKey: "minor") as! Int));
+            let uuidStr:String = beaconInput.value(forKey: "uuid") as! String;
+            print("uuid ", uuidStr);
+            
+            let beacon = IBeacon.init(uuid: beaconInput.value(forKey: "uuid") as! String,
+            major: beaconInput.value(forKey: "major") as! Int,
+            minor: beaconInput.value(forKey: "minor") as! Int);
+            
+            beacons.append(beacon);
         }
 
         viaBmsCtrl.setting(alert: alert, background: background, site: site, minisitesView: minisitesView, autoSiteDuration: autoSiteDuration,
                            tracking: tracking,
                            enableMQTT: enableMQTT, attendance: attendance, checkinDuration: checkinDuration, checkoutDuration: checkoutDuration, requestDistanceBeacons: beacons, bmsEnvironment: bmsEnvironment);
 
-		pluginResult = CDVPluginResult(status: CDVCommandStatus_OK, messageAs: "setting done!");
+        pluginResult = CDVPluginResult(status: CDVCommandStatus_OK, messageAs: "setting done!");
 
-		self.commandDelegate!.send(pluginResult, callbackId: command.callbackId);
-	}
+        self.commandDelegate!.send(pluginResult, callbackId: command.callbackId);
+    }
 
-	@objc(startSDK:)
-	func startSDK(command: CDVInvokedUrlCommand) {
-		var pluginResult = CDVPluginResult(status: CDVCommandStatus_ERROR);
+    @objc(startSDK:)
+    func startSDK(command: CDVInvokedUrlCommand) {
+        var pluginResult = CDVPluginResult(status: CDVCommandStatus_ERROR);
 
-		let bmsRunning = viaBmsCtrl.isBmsRunning();
+        let bmsRunning = viaBmsCtrl.isBmsRunning();
         let sdkInited = viaBmsCtrl.isSdkInited();
 
         if (!bmsRunning && sdkInited) {
-				viaBmsCtrl.startBmsService();
-		}
+                viaBmsCtrl.startBmsService();
+        }
 
-		pluginResult = CDVPluginResult(status: CDVCommandStatus_OK, messageAs: "startSDK done!");
-		self.commandDelegate!.send(pluginResult, callbackId: command.callbackId);
-	}
+        pluginResult = CDVPluginResult(status: CDVCommandStatus_OK, messageAs: "startSDK done!");
+        self.commandDelegate!.send(pluginResult, callbackId: command.callbackId);
+    }
 
-	@objc(endSDK:)
-	func endSDK(command: CDVInvokedUrlCommand) {
-		var pluginResult = CDVPluginResult(status: CDVCommandStatus_ERROR);
+    @objc(endSDK:)
+    func endSDK(command: CDVInvokedUrlCommand) {
+        var pluginResult = CDVPluginResult(status: CDVCommandStatus_ERROR);
 
-		viaBmsCtrl.stopBmsService();
+        viaBmsCtrl.stopBmsService();
 
-		pluginResult = CDVPluginResult(status: CDVCommandStatus_OK, messageAs: "endSDK done!");
-		self.commandDelegate!.send(pluginResult, callbackId: command.callbackId);
-	}
+        pluginResult = CDVPluginResult(status: CDVCommandStatus_OK, messageAs: "endSDK done!");
+        self.commandDelegate!.send(pluginResult, callbackId: command.callbackId);
+    }
 
-	@objc(checkIn:)
-	func checkIn(command: CDVInvokedUrlCommand) {
+    @objc(checkIn:)
+    func checkIn(command: CDVInvokedUrlCommand) {
         self.checkinCallbackId = command.callbackId;
-	}
+    }
 
-	@objc(checkOut:)
-	func checkOut(command: CDVInvokedUrlCommand) {
+    @objc(checkOut:)
+    func checkOut(command: CDVInvokedUrlCommand) {
         self.checkoutCallbackId = command.callbackId;
-	}
+    }
 
   @objc(onDistanceBeacons:)
-	func onDistanceBeacons(command: CDVInvokedUrlCommand) {
+    func onDistanceBeacons(command: CDVInvokedUrlCommand) {
         self.onDistanceBeaconsCallbackId = command.callbackId;
-	}
+    }
 }
 
 extension BmsCordovaSdkPublic: ViaBmsCtrlDelegate {
@@ -124,26 +129,26 @@ extension BmsCordovaSdkPublic: ViaBmsCtrlDelegate {
     func sdkInited(inited status: Bool, zones: [ViaZone]) {
         print("sdk inited", status);
 
-				if (status) {
+                if (status) {
           self.zones = zones;
-					let pluginResult = CDVPluginResult(status: CDVCommandStatus_OK, messageAs: "");
-					self.commandDelegate!.send(pluginResult, callbackId: initSdkCallbackId);
-				} else {
-					let pluginResult = CDVPluginResult(status: CDVCommandStatus_ERROR, messageAs: "");
-					self.commandDelegate!.send(pluginResult, callbackId: initSdkCallbackId);
-				}
+                    let pluginResult = CDVPluginResult(status: CDVCommandStatus_OK, messageAs: "");
+                    self.commandDelegate!.send(pluginResult, callbackId: initSdkCallbackId);
+                } else {
+                    let pluginResult = CDVPluginResult(status: CDVCommandStatus_ERROR, messageAs: "");
+                    self.commandDelegate!.send(pluginResult, callbackId: initSdkCallbackId);
+                }
     }
 
     func customerInited(inited: Bool) {
         print("customer inited", inited);
 
-				if (inited) {
-					let pluginResult = CDVPluginResult(status: CDVCommandStatus_OK, messageAs: "");
-					self.commandDelegate!.send(pluginResult, callbackId: initCustomerCallbackId);
-				} else {
-					let pluginResult = CDVPluginResult(status: CDVCommandStatus_ERROR, messageAs: "");
-					self.commandDelegate!.send(pluginResult, callbackId: initCustomerCallbackId);
-				}
+                if (inited) {
+                    let pluginResult = CDVPluginResult(status: CDVCommandStatus_OK, messageAs: "");
+                    self.commandDelegate!.send(pluginResult, callbackId: initCustomerCallbackId);
+                } else {
+                    let pluginResult = CDVPluginResult(status: CDVCommandStatus_ERROR, messageAs: "");
+                    self.commandDelegate!.send(pluginResult, callbackId: initCustomerCallbackId);
+                }
     }
 
     func checkin() {
@@ -165,13 +170,14 @@ extension BmsCordovaSdkPublic: ViaBmsCtrlDelegate {
     func onDistanceBeacons(beacons: [IBeacon]) {
         print("onDistanceBeacons callback");
         
-        let beaconsOutput:NSArray = [];
+        var beaconsOutput:[NSDictionary] = [];
         for beacon in (beacons as NSArray as! [IBeacon]) {
-            var beaconOutput:NSDictionary!;
-            beaconOutput.setValue(beacon.uuid, forKey: "uuid");
-            beaconOutput.setValue(beacon.major, forKey: "major");
-            beaconOutput.setValue(beacon.minor, forKey: "minor");
-            beaconsOutput.adding(beaconOutput);
+            var beaconOutput:[String:Any] = [:];
+            beaconOutput["uuid"] = beacon.uuid;
+            beaconOutput["major"] = beacon.major;
+            beaconOutput["minor"] = beacon.minor;
+//
+            beaconsOutput.append(beaconOutput as NSDictionary);
         }
 
         let pluginResult: CDVPluginResult = CDVPluginResult(status: CDVCommandStatus_OK, messageAs: beaconsOutput as! [Any]);

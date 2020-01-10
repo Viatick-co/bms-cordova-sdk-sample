@@ -61,11 +61,16 @@ import BmsSDK
             bmsEnvironment = BmsEnvironment.DEV;
         }
 
-        var beacons:[IBeacon]!;
+        var beacons:[IBeacon] = [];
         for beaconInput in (beaconsInput as NSArray as! [NSDictionary]) {
-            beacons.append(IBeacon.init(uuid: beaconInput.value(forKey: "uuid") as! String,
-                                        major: beaconInput.value(forKey: "major") as! Int,
-                                        minor: beaconInput.value(forKey: "minor") as! Int));
+            let uuidStr:String = beaconInput.value(forKey: "uuid") as! String;
+            print("uuid ", uuidStr);
+
+            let beacon = IBeacon.init(uuid: beaconInput.value(forKey: "uuid") as! String,
+            major: beaconInput.value(forKey: "major") as! Int,
+            minor: beaconInput.value(forKey: "minor") as! Int);
+
+            beacons.append(beacon);
         }
 
         viaBmsCtrl.setting(alert: alert, background: background, site: site, minisitesView: minisitesView, autoSiteDuration: autoSiteDuration,
@@ -165,13 +170,14 @@ extension BmsCordovaSdkPublic: ViaBmsCtrlDelegate {
     func onDistanceBeacons(beacons: [IBeacon]) {
         print("onDistanceBeacons callback");
 
-        var beaconsOutput:NSArray!;
+        var beaconsOutput:[NSDictionary] = [];
         for beacon in (beacons as NSArray as! [IBeacon]) {
-            var beaconOutput:NSDictionary!;
-            beaconOutput.setValue(beacon.uuid, forKey: "uuid");
-            beaconOutput.setValue(beacon.major, forKey: "major");
-            beaconOutput.setValue(beacon.minor, forKey: "minor");
-            beaconsOutput.adding(beaconOutput);
+            var beaconOutput:[String:Any] = [:];
+            beaconOutput["uuid"] = beacon.uuid;
+            beaconOutput["major"] = beacon.major;
+            beaconOutput["minor"] = beacon.minor;
+//
+            beaconsOutput.append(beaconOutput as NSDictionary);
         }
 
         let pluginResult: CDVPluginResult = CDVPluginResult(status: CDVCommandStatus_OK, messageAs: beaconsOutput as! [Any]);
