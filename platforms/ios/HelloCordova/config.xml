@@ -19,6 +19,12 @@
         <param name="ios-package" value="CDVGestureHandler" />
         <param name="onload" value="true" />
     </feature>
+    <feature name="BmsCordovaSdkPublic">
+        <param name="ios-package" value="BmsCordovaSdkPublic" />
+    </feature>
+    <feature name="BackgroundLocationServices">
+        <param name="ios-package" value="BackgroundLocationServices" />
+    </feature>
     <name>HelloCordova</name>
     <description>
         A sample Apache Cordova application that responds to the deviceready event.
@@ -49,10 +55,4 @@
     <preference name="PageLength" value="0" />
     <preference name="PaginationBreakingMode" value="page" />
     <preference name="PaginationMode" value="unpaginated" />
-    <feature name="BmsCordovaSdkPublic">
-        <param name="ios-package" value="BmsCordovaSdkPublic" />
-    </feature>
-    <feature name="BackgroundLocationServices">
-        <param name="ios-package" value="BackgroundLocationServices" />
-    </feature>
 </widget>

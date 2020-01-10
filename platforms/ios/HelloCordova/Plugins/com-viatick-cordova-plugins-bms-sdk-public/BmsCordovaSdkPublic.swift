@@ -6,7 +6,8 @@ import BmsSDK
 	private var initCustomerCallbackId: String!;
 	private var checkinCallbackId: String!
 	private var checkoutCallbackId: String!
-    private var zones: [ViaZone]!
+  private var onDistanceBeaconsCallbackId: String!
+  private var zones: [ViaZone]!
 
 	override func pluginInitialize() {
         viaBmsCtrl = ViaBmsCtrl.sharedInstance;
@@ -26,8 +27,7 @@ import BmsSDK
 		let identifier = command.arguments[0] as? String ?? "no value";
 		let phone = command.arguments[1] as? String ?? "no value";
 		let email = command.arguments[2] as? String ?? "no value";
-        let remark = "";
-        viaBmsCtrl.initCustomer(identifier: identifier, email: email, phone: phone, remark: remark, authorizedZones: self.zones);
+        viaBmsCtrl.initCustomer(identifier: identifier, email: email, phone: phone, authorizedZones: self.zones);
 
 		initCustomerCallbackId = command.callbackId;
 	}
@@ -46,15 +46,31 @@ import BmsSDK
         let attendance = command.arguments[7] as? Bool ?? false;
         let checkinDuration = command.arguments[8] as! Double;
         let checkoutDuration = command.arguments[9] as! Double;
+        let beaconsInput:NSArray = command.arguments[10] as! NSArray;
+        let environmentStr = command.arguments[10] as? String;
 
         var minisitesView: MinisiteViewType = .LIST;
         if (minisitesViewString == "AUTO") {
             minisitesView = .AUTO;
         }
+        
+        var bmsEnvironment: BmsEnvironment = BmsEnvironment.PROD;
+        if (environmentStr == "CHINA") {
+            bmsEnvironment = BmsEnvironment.CHINA;
+        } else if (environmentStr == "DEV") {
+            bmsEnvironment = BmsEnvironment.DEV;
+        }
+        
+        var beacons:[IBeacon]!;
+        for beaconInput in (beaconsInput as NSArray as! [NSDictionary]) {
+            beacons.append(IBeacon.init(uuid: beaconInput.value(forKey: "uuid") as! String,
+                                        major: beaconInput.value(forKey: "major") as! Int,
+                                        minor: beaconInput.value(forKey: "minor") as! Int));
+        }
 
         viaBmsCtrl.setting(alert: alert, background: background, site: site, minisitesView: minisitesView, autoSiteDuration: autoSiteDuration,
                            tracking: tracking,
-                           enableMQTT: enableMQTT, attendance: attendance, checkinDuration: checkinDuration, checkoutDuration: checkoutDuration);
+                           enableMQTT: enableMQTT, attendance: attendance, checkinDuration: checkinDuration, checkoutDuration: checkoutDuration, requestDistanceBeacons: beacons, bmsEnvironment: bmsEnvironment);
 
 		pluginResult = CDVPluginResult(status: CDVCommandStatus_OK, messageAs: "setting done!");
 
@@ -94,6 +110,11 @@ import BmsSDK
 	@objc(checkOut:)
 	func checkOut(command: CDVInvokedUrlCommand) {
         self.checkoutCallbackId = command.callbackId;
+	}
+
+  @objc(onDistanceBeacons:)
+	func onDistanceBeacons(command: CDVInvokedUrlCommand) {
+        self.onDistanceBeaconsCallbackId = command.callbackId;
 	}
 }
 
@@ -139,5 +160,22 @@ extension BmsCordovaSdkPublic: ViaBmsCtrlDelegate {
         let pluginResult: CDVPluginResult = CDVPluginResult(status: CDVCommandStatus_OK, messageAs: "");
         pluginResult.setKeepCallbackAs(true);
         self.commandDelegate!.send(pluginResult, callbackId: checkoutCallbackId);
+    }
+
+    func onDistanceBeacons(beacons: [IBeacon]) {
+        print("onDistanceBeacons callback");
+        
+        var beaconsOutput:NSArray!;
+        for beacon in (beacons as NSArray as! [IBeacon]) {
+            var beaconOutput:NSDictionary!;
+            beaconOutput.setValue(beacon.uuid, forKey: "uuid");
+            beaconOutput.setValue(beacon.major, forKey: "major");
+            beaconOutput.setValue(beacon.minor, forKey: "minor");
+            beaconsOutput.adding(beaconOutput);
+        }
+
+        let pluginResult: CDVPluginResult = CDVPluginResult(status: CDVCommandStatus_OK, messageAs: beaconsOutput as! [Any]);
+        pluginResult.setKeepCallbackAs(true);
+        self.commandDelegate!.send(pluginResult, callbackId: onDistanceBeaconsCallbackId);
     }
 }
