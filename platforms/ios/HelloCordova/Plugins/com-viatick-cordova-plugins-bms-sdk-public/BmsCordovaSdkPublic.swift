@@ -47,11 +47,11 @@ import BmsSDK
         let checkinDuration = command.arguments[8] as! Double;
         let checkoutDuration = command.arguments[9] as! Double;
         let beaconsInput:NSArray = command.arguments[10] as! NSArray;
-        let environmentStr = command.arguments[10] as? String;
+        let environmentStr = command.arguments[11] as? String;
 
         var minisitesView: MinisiteViewType = .LIST;
         if (minisitesViewString == "AUTO") {
-            minisitesView = .AUTO; 
+            minisitesView = .AUTO;
         }
         
         var bmsEnvironment: BmsEnvironment = BmsEnvironment.PROD;
