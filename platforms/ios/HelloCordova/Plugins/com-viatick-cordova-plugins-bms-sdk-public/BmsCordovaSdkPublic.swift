@@ -51,7 +51,7 @@ import BmsSDK
 
         var minisitesView: MinisiteViewType = .LIST;
         if (minisitesViewString == "AUTO") {
-            minisitesView = .AUTO;
+            minisitesView = .AUTO; 
         }
         
         var bmsEnvironment: BmsEnvironment = BmsEnvironment.PROD;
