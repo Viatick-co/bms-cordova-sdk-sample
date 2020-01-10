@@ -61,7 +61,7 @@ import BmsSDK
             bmsEnvironment = BmsEnvironment.DEV;
         }
         
-        var beacons:[IBeacon]!;
+        var beacons:[IBeacon] = [];
         for beaconInput in (beaconsInput as NSArray as! [NSDictionary]) {
             beacons.append(IBeacon.init(uuid: beaconInput.value(forKey: "uuid") as! String,
                                         major: beaconInput.value(forKey: "major") as! Int,
@@ -165,7 +165,7 @@ extension BmsCordovaSdkPublic: ViaBmsCtrlDelegate {
     func onDistanceBeacons(beacons: [IBeacon]) {
         print("onDistanceBeacons callback");
         
-        var beaconsOutput:NSArray!;
+        let beaconsOutput:NSArray = [];
         for beacon in (beacons as NSArray as! [IBeacon]) {
             var beaconOutput:NSDictionary!;
             beaconOutput.setValue(beacon.uuid, forKey: "uuid");
