@@ -24,4 +24,5 @@
     <allow-intent href="geo:*" />
     <allow-intent href="market:*" />
     <preference name="loglevel" value="DEBUG" />
+    <preference name="android-minSdkVersion" value="21" />
 </widget>

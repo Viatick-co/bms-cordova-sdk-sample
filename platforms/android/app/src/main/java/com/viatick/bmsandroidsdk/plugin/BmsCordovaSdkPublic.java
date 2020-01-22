@@ -226,19 +226,4 @@ public class BmsCordovaSdkPublic extends CordovaPlugin implements ViaBmsCtrl.Via
       // Do nothing
     }
   }
-
-  @Override
-  public void onRequestPermissionResult(int requestCode, String[] permissions,
-  int[] grantResults) throws JSONException {
-      ViaBmsCtrl.onRequestPermissionsResult(cordova.getActivity(), requestCode, permissions, grantResults);
-  }
-
-  // override this method
-  @Override
-  public void onResume(boolean multitasking) {
-      super.onResume(multitasking);
-
-      // must put this line of code in after super.onResume()
-      ViaBmsCtrl.onResume();
-  }
 }

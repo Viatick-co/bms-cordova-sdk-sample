@@ -9,7 +9,8 @@ exports.initCustomer = function (identifier, phone, email, success, error) {
 };
 
 exports.setting = function (alert, background, site, minisitesView,
-  autoSiteDuration, tracking, enableMQTT, attendance, checkinDuration, checkoutDuration, iBeacons, bmsEnvironment, success, error) {
+  autoSiteDuration, tracking, enableMQTT, attendance, checkinDuration, checkoutDuration,
+  iBeacons, bmsEnvironment, success, error) {
     exec(success, error, 'BmsCordovaSdkPublic', 'setting', [alert, background, site, minisitesView,
       autoSiteDuration, tracking, enableMQTT, attendance, checkinDuration, checkoutDuration, iBeacons, bmsEnvironment]);
 };

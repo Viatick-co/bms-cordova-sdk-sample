@@ -47,6 +47,7 @@
 
 	<platform name="android">
         <config-file target="res/xml/config.xml" parent="/*">
+						<preference name="android-minSdkVersion" value="21"/>
             <feature name="BmsCordovaSdkPublic">
                 <param name="android-package" onload="true" value="com.viatick.bmsandroidsdk.plugin.BmsCordovaSdkPublic" />
             </feature>
@@ -56,21 +57,21 @@
 				<source-file src="src/android/SDK SRC/plugin" target-dir="app/src/main/java/com/viatick/bmsandroidsdk" />
 
         <config-file target="AndroidManifest.xml" parent="/manifest">
-          <uses-permission android:name="android.permission.INTERNET" />
-          <uses-permission android:name="android.permission.BLUETOOTH" />
-          <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
-          <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
-          <uses-permission android:name="android.permission.GET_TASKS" />
-
           <uses-feature
               android:name="android.hardware.bluetooth_le"
               android:required="true" />
 
-          <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
-          <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-          <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-          <uses-permission android:name="android.permission.READ_CONTACTS" />
-					<uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+					<uses-permission android:name="android.permission.INTERNET" />
+				  <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+				  <uses-permission android:name="android.permission.GET_TASKS" />
+				  <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+				  <uses-permission android:name="android.permission.READ_CONTACTS" />
+
+				  <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+				  <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+				  <uses-permission android:name="android.permission.BLUETOOTH" />
+				  <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+				  <uses-permission android:name="android.permission.WAKE_LOCK" />
         </config-file>
 
         <config-file target="AndroidManifest.xml" parent="application">
@@ -98,7 +99,15 @@
                     <action android:name="android.intent.action.BOOT_COMPLETED"/>
                 </intent-filter>
             </receiver>
+
+						<service
+      				android:name="com.viatick.bmsandroidsdk.controller.BeaconServiceCtrl"
+      				android:exported="false" />
         </config-file>
+
+				<edit-config file="app/src/main/AndroidManifest.xml" mode="merge" target="/manifest/application">
+        	<application android:supportsRtl="true" android:hardwareAccelerated="true"/>
+    		</edit-config>
 
         <framework src="src/android/BmsCordovaSdkPublic.gradle" custom="true" type="gradleReference" />
     </platform>

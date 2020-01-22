@@ -9,8 +9,8 @@
   },
   "com-viatick-cordova-plugins-bms-sdk-public": {
     "source": {
-      "type": "registry",
-      "id": "https://github.com/Viatick-co/bms-cordova-sdk-public.git#v2.0-dev"
+      "type": "local",
+      "path": "/Users/viatick/Desktop/Project/bms-cordova-sdk-sample/node_modules/com-viatick-cordova-plugins-bms-sdk-public"
     },
     "is_top_level": true,
     "variables": {}

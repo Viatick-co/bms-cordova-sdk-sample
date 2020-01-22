@@ -53,23 +53,23 @@ import BmsSDK
         if (minisitesViewString == "AUTO") {
             minisitesView = .AUTO;
         }
-
+        
         var bmsEnvironment: BmsEnvironment = BmsEnvironment.PROD;
         if (environmentStr == "CHINA") {
             bmsEnvironment = BmsEnvironment.CHINA;
         } else if (environmentStr == "DEV") {
             bmsEnvironment = BmsEnvironment.DEV;
         }
-
+        
         var beacons:[IBeacon] = [];
         for beaconInput in (beaconsInput as NSArray as! [NSDictionary]) {
             let uuidStr:String = beaconInput.value(forKey: "uuid") as! String;
             print("uuid ", uuidStr);
-
+            
             let beacon = IBeacon.init(uuid: beaconInput.value(forKey: "uuid") as! String,
             major: beaconInput.value(forKey: "major") as! Int,
             minor: beaconInput.value(forKey: "minor") as! Int);
-
+            
             beacons.append(beacon);
         }
 
@@ -169,7 +169,7 @@ extension BmsCordovaSdkPublic: ViaBmsCtrlDelegate {
 
     func onDistanceBeacons(beacons: [IBeacon]) {
         print("onDistanceBeacons callback");
-
+        
         var beaconsOutput:[NSDictionary] = [];
         for beacon in (beacons as NSArray as! [IBeacon]) {
             var beaconOutput:[String:Any] = [:];
