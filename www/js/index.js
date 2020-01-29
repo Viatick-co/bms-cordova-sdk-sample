@@ -22,8 +22,8 @@ var setting = function(callback) {
      const requestDistanceBeacons = [
        {
          uuid: "F7826DA6-4FA2-4E98-8024-BC5B71E0893E",
-         major: 50,
-         minor: 40
+         major: 10,
+         minor: 110
        },
        {
          uuid: "F7826DA6-4FA2-4E98-8024-BC5B71E0893E",

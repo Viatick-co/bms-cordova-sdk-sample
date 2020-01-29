@@ -13,7 +13,7 @@
               "count": 1
             },
             {
-              "xml": "<preference name=\"android-minSdkVersion\" value=\"21\" />",
+              "xml": "<preference name=\"android-minSdkVersion\" value=\"23\" />",
               "count": 1
             },
             {
