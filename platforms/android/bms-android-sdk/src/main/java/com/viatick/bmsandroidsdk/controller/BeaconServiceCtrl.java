@@ -111,6 +111,7 @@ public class BeaconServiceCtrl extends Service {
         @Override
         public void run() {
           schedulerHandler.postDelayed(this, 1000l);
+          onDistance();
         }
       };
       this.schedulerHandler.postDelayed(this.deviceScheduler, 1000l);
@@ -210,26 +211,28 @@ public class BeaconServiceCtrl extends Service {
 
     List<BleBeacon> onDistanceBeacons = new ArrayList<>();
 
-    Iterator deviceIterator = this.devicesHashMap.entrySet().iterator();
-    while (deviceIterator.hasNext()) {
-      Map.Entry entry = (Map.Entry) deviceIterator.next();
-      ViaBeacon aBeacon = (ViaBeacon) entry.getValue();
+    synchronized (this.devicesHashMap) {
+        Iterator deviceIterator = this.devicesHashMap.entrySet().iterator();
+        while (deviceIterator.hasNext()) {
+            Map.Entry entry = (Map.Entry) deviceIterator.next();
+            ViaBeacon aBeacon = (ViaBeacon) entry.getValue();
 
-      long lastSeen = aBeacon.getLastSeen();
-      long dif = current - lastSeen;
+            long lastSeen = aBeacon.getLastSeen();
+            long dif = current - lastSeen;
 
-      if (dif <= 5000) {
-        onDistanceBeacons.add(aBeacon.getBleBeacon());
-      }
-    }
+            if (dif <= 5000) {
+                onDistanceBeacons.add(aBeacon.getBleBeacon());
+            }
+        }
 
-    if (this.scanSender != null) {
-      Message msg = Message.obtain(null, DEVICES_ON_DISTANCE_RESPONSE);
-      msg.obj = onDistanceBeacons;
-      try {
-        this.scanSender.send(msg);
-      } catch (RemoteException e) {
-      }
+        if (this.scanSender != null) {
+            Message msg = Message.obtain(null, DEVICES_ON_DISTANCE_RESPONSE);
+            msg.obj = onDistanceBeacons;
+            try {
+                this.scanSender.send(msg);
+            } catch (RemoteException e) {
+            }
+        }
     }
   }
 
@@ -243,21 +246,32 @@ public class BeaconServiceCtrl extends Service {
           Log.d(TAG, "beacon: " + beacon.getUuid() + " " + beacon.getMajor() + " " + beacon.getMinor() + " " + beacon.getAccuracy());
 
           if (beacon != null) {
+
             String key = beacon.getKey();
             long current = System.currentTimeMillis();
+
+            if (ViaBmsCtrl.OWNED_BEACONS.containsKey(key)) {
+              BleBeacon ownedBeacon = ViaBmsCtrl.OWNED_BEACONS.get(key);
+              if (ownedBeacon.getAccuracy() > 0 && ownedBeacon.getAccuracy() < beacon.getAccuracy()) {
+                //Outside of effective range, ignore
+                return;
+              }
+            }
 
             if (!devicesHashMap.containsKey(key)) {
               onNewBeaconDiscover(beacon);
 
               ViaBeacon newBeacon = new ViaBeacon(beacon, current);
-              devicesHashMap.put(key, newBeacon);
+              synchronized (devicesHashMap) {
+                devicesHashMap.put(key, newBeacon);
+              }
             } else {
               ViaBeacon existBeacon = new ViaBeacon(beacon, current);
-              devicesHashMap.put(key, existBeacon);
+              synchronized (devicesHashMap) {
+                devicesHashMap.put(key, existBeacon);
+              }
             }
           }
-
-          onDistance();
         } catch (Exception e) {
         }
       }

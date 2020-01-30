@@ -98,6 +98,7 @@ public class ViaBmsCtrl {
   private static HashMap<Integer, ViaZone> ZONES;
   private static final HashMap<String, ViaZoneBeacon> ASSIGNED_BEACONS = new HashMap();
   public static final HashMap<String, IBeacon> REQUESTED_DISTANCE_BEACONS = new HashMap<>();
+  public static final HashMap<String, BleBeacon> OWNED_BEACONS = new HashMap<>();
   private static Context context;
   private static NotificationManager mNotificationManager;
   //  private static ViaIBeaconCtrl viaIBeaconCtrl;
@@ -379,6 +380,7 @@ public class ViaBmsCtrl {
             String version = System.getProperty("os.version").replaceAll("-", "");
             String remark = name + " : " + model + " : " + system + " : " + version;
             ViaCustomer customer = BmsApiCtrl.processCustomer(token, identifier, phone, email, remark, system, authorizedZones);
+
             ViaBmsCtrl.ASSIGNED_BEACONS.clear();
             List<Integer> authorizedZonesx = BmsApiCtrl.getAuthorizedZones(token, customer.getIdentifier());
             Iterator var9 = authorizedZonesx.iterator();

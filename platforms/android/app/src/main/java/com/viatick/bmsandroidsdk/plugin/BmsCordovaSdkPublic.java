@@ -218,9 +218,11 @@ public class BmsCordovaSdkPublic extends CordovaPlugin implements ViaBmsCtrl.Via
       }
 
       Log.d(TAG, "Checkout Callback");
-      PluginResult pluginResult = new PluginResult(PluginResult.Status.OK, listJson);
-      pluginResult.setKeepCallback(true); // keep callback
-      onDistanceBeaconsCallback.sendPluginResult(pluginResult);
+      if (onDistanceBeaconsCallback != null) {
+          PluginResult pluginResult = new PluginResult(PluginResult.Status.OK, listJson);
+          pluginResult.setKeepCallback(true); // keep callback
+          onDistanceBeaconsCallback.sendPluginResult(pluginResult);
+      }
     } catch (Exception e) {
       e.printStackTrace();
       // Do nothing

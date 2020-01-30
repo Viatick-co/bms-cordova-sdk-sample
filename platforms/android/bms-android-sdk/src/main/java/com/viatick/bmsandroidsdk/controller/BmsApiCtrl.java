@@ -1,6 +1,10 @@
 package com.viatick.bmsandroidsdk.controller;
 
+import android.util.Log;
+
 import com.viatick.bmsandroidsdk.helper.BmsEnvironment;
+import com.viatick.bmsandroidsdk.model.BleBeacon;
+import com.viatick.bmsandroidsdk.model.IBeacon;
 import com.viatick.bmsandroidsdk.model.ViaBmsUtil.MinisiteType;
 import com.viatick.bmsandroidsdk.model.ViaBmsUtil.ViaCustomer;
 import com.viatick.bmsandroidsdk.model.ViaMinisite;
@@ -10,6 +14,7 @@ import com.viatick.bmsandroidsdk.response.SdkInfoResponse;
 import com.viatick.bmsandroidsdk.response.SdkTokenResponse;
 
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
@@ -24,6 +29,7 @@ import okhttp3.RequestBody;
 import okhttp3.Response;
 
 public class BmsApiCtrl {
+    private static final String TAG = "[VIATICK]";
     private static final MediaType APPLICATION_JSON
             = MediaType.parse("application/json; charset=utf-8");
 
@@ -105,6 +111,37 @@ public class BmsApiCtrl {
 
                 JSONObject responseObject = new JSONObject(bodyResponse);
 
+                Log.i(TAG, "responseObject: " + responseObject);
+                if (!responseObject.isNull("distance")) {
+                    JSONObject rangeObject = responseObject.getJSONObject("distance");
+
+                    Log.i(TAG, "distanceObject: " + rangeObject);
+                    if (!rangeObject.isNull("iBeacon")) {
+                        JSONArray iBeaconArr = rangeObject.getJSONArray("iBeacon");
+
+                        for (int i = 0;i < iBeaconArr.length();i++) {
+                            JSONObject iBeaconObject = null;
+                            try {
+                                iBeaconObject = iBeaconArr.getJSONObject(i);
+
+                                String uuid = iBeaconObject.getString("uuid");
+                                int major = iBeaconObject.getInt("major");
+                                int minor = iBeaconObject.getInt("minor");
+                                double distance = iBeaconObject.getDouble("distance");
+
+                                BleBeacon iBeacon = new BleBeacon(uuid, major, minor, distance);
+
+                                String key = iBeacon.getUuid().toLowerCase() + "-" + iBeacon.getMajor() + "-" + iBeacon.getMinor();
+
+                                Log.i(TAG, "key: " + key);
+                                ViaBmsCtrl.OWNED_BEACONS.put(key, iBeacon);
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                    }
+                }
+
                 if (!responseObject.isNull("range")) {
                     JSONObject rangeObject = responseObject.getJSONObject("range");
                     if (!rangeObject.isNull("iBeacon")) {
@@ -162,6 +199,7 @@ public class BmsApiCtrl {
                         }
                     }
                 }
+
             }
 
         } catch (Exception e) {
