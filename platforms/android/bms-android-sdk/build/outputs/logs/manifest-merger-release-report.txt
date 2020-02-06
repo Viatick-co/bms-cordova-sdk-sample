@@ -1,23 +1,23 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /Users/viatick/Desktop/Project/bms-cordova-sdk-sample/platforms/android/bms-android-sdk/src/main/AndroidManifest.xml:1:1-60:12
-INJECTED from /Users/viatick/Desktop/Project/bms-cordova-sdk-sample/platforms/android/bms-android-sdk/src/main/AndroidManifest.xml:1:1-60:12
-INJECTED from /Users/viatick/Desktop/Project/bms-cordova-sdk-sample/platforms/android/bms-android-sdk/src/main/AndroidManifest.xml:1:1-60:12
-INJECTED from /Users/viatick/Desktop/Project/bms-cordova-sdk-sample/platforms/android/bms-android-sdk/src/main/AndroidManifest.xml:1:1-60:12
-INJECTED from /Users/viatick/Desktop/Project/bms-cordova-sdk-sample/platforms/android/bms-android-sdk/src/main/AndroidManifest.xml:1:1-60:12
-INJECTED from /Users/viatick/Desktop/Project/bms-cordova-sdk-sample/platforms/android/bms-android-sdk/src/main/AndroidManifest.xml:1:1-60:12
-INJECTED from /Users/viatick/Desktop/Project/bms-cordova-sdk-sample/platforms/android/bms-android-sdk/src/main/AndroidManifest.xml:1:1-60:12
+ADDED from /Users/viatick/Desktop/Project/bms-cordova-sdk-sample/platforms/android/bms-android-sdk/src/main/AndroidManifest.xml:1:1-61:12
+INJECTED from /Users/viatick/Desktop/Project/bms-cordova-sdk-sample/platforms/android/bms-android-sdk/src/main/AndroidManifest.xml:1:1-61:12
+INJECTED from /Users/viatick/Desktop/Project/bms-cordova-sdk-sample/platforms/android/bms-android-sdk/src/main/AndroidManifest.xml:1:1-61:12
+INJECTED from /Users/viatick/Desktop/Project/bms-cordova-sdk-sample/platforms/android/bms-android-sdk/src/main/AndroidManifest.xml:1:1-61:12
+INJECTED from /Users/viatick/Desktop/Project/bms-cordova-sdk-sample/platforms/android/bms-android-sdk/src/main/AndroidManifest.xml:1:1-61:12
+INJECTED from /Users/viatick/Desktop/Project/bms-cordova-sdk-sample/platforms/android/bms-android-sdk/src/main/AndroidManifest.xml:1:1-61:12
+INJECTED from /Users/viatick/Desktop/Project/bms-cordova-sdk-sample/platforms/android/bms-android-sdk/src/main/AndroidManifest.xml:1:1-61:12
 	package
 		ADDED from /Users/viatick/Desktop/Project/bms-cordova-sdk-sample/platforms/android/bms-android-sdk/src/main/AndroidManifest.xml:2:3-38
 		INJECTED from /Users/viatick/Desktop/Project/bms-cordova-sdk-sample/platforms/android/bms-android-sdk/src/main/AndroidManifest.xml
 		INJECTED from /Users/viatick/Desktop/Project/bms-cordova-sdk-sample/platforms/android/bms-android-sdk/src/main/AndroidManifest.xml
 	android:versionName
 		INJECTED from /Users/viatick/Desktop/Project/bms-cordova-sdk-sample/platforms/android/bms-android-sdk/src/main/AndroidManifest.xml
-		ADDED from /Users/viatick/Desktop/Project/bms-cordova-sdk-sample/platforms/android/bms-android-sdk/src/main/AndroidManifest.xml:1:1-60:12
+		ADDED from /Users/viatick/Desktop/Project/bms-cordova-sdk-sample/platforms/android/bms-android-sdk/src/main/AndroidManifest.xml:1:1-61:12
 		INJECTED from /Users/viatick/Desktop/Project/bms-cordova-sdk-sample/platforms/android/bms-android-sdk/src/main/AndroidManifest.xml
 	android:versionCode
 		INJECTED from /Users/viatick/Desktop/Project/bms-cordova-sdk-sample/platforms/android/bms-android-sdk/src/main/AndroidManifest.xml
-		ADDED from /Users/viatick/Desktop/Project/bms-cordova-sdk-sample/platforms/android/bms-android-sdk/src/main/AndroidManifest.xml:1:1-60:12
+		ADDED from /Users/viatick/Desktop/Project/bms-cordova-sdk-sample/platforms/android/bms-android-sdk/src/main/AndroidManifest.xml:1:1-61:12
 		INJECTED from /Users/viatick/Desktop/Project/bms-cordova-sdk-sample/platforms/android/bms-android-sdk/src/main/AndroidManifest.xml
 	xmlns:android
 		ADDED from /Users/viatick/Desktop/Project/bms-cordova-sdk-sample/platforms/android/bms-android-sdk/src/main/AndroidManifest.xml:1:11-69
@@ -139,6 +139,10 @@ uses-permission#android.permission.WAKE_LOCK
 ADDED from /Users/viatick/Desktop/Project/bms-cordova-sdk-sample/platforms/android/bms-android-sdk/src/main/AndroidManifest.xml:59:3-66
 	android:name
 		ADDED from /Users/viatick/Desktop/Project/bms-cordova-sdk-sample/platforms/android/bms-android-sdk/src/main/AndroidManifest.xml:59:20-63
+uses-permission#android.permission.FOREGROUND_SERVICE
+ADDED from /Users/viatick/Desktop/Project/bms-cordova-sdk-sample/platforms/android/bms-android-sdk/src/main/AndroidManifest.xml:60:3-75
+	android:name
+		ADDED from /Users/viatick/Desktop/Project/bms-cordova-sdk-sample/platforms/android/bms-android-sdk/src/main/AndroidManifest.xml:60:20-72
 uses-sdk
 INJECTED from /Users/viatick/Desktop/Project/bms-cordova-sdk-sample/platforms/android/bms-android-sdk/src/main/AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from /Users/viatick/Desktop/Project/bms-cordova-sdk-sample/platforms/android/bms-android-sdk/src/main/AndroidManifest.xml

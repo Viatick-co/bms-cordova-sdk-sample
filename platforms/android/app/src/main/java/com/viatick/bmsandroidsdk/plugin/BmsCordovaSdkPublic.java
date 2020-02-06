@@ -107,7 +107,8 @@ public class BmsCordovaSdkPublic extends CordovaPlugin implements ViaBmsCtrl.Via
                     ViaBmsUtil.MinisiteViewType.LIST), args.getInt(4), args.getBoolean(5),
                     args.getBoolean(6), args.getBoolean(7),
                     args.getInt(8), args.getInt(9), requestDistanceBeacons,
-                    bmsEnvironment);
+                    bmsEnvironment, args.getDouble(12), args.getBoolean(13), args.getBoolean(14),
+                    args.getBoolean(15), args.getInt(16));
 
             Log.d(TAG, "initSettings");
 

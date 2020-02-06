@@ -17,6 +17,12 @@ public class ViaSetting {
     private boolean enableMQTT;
     private boolean enableDistance;
     private BmsEnvironment bmsEnvironment;
+    private String beaconRegionUUID;
+    private double beaconRegionRange;
+    private boolean beaconRegionUUIDFilter;
+    private boolean broadcasting;
+    private boolean proximityAlert;
+    private int proximityAlertThreshold;
 
     public ViaSetting() {
         this.enableAlert = false;
@@ -31,6 +37,12 @@ public class ViaSetting {
         this.enableMQTT = true;
         this.enableDistance = false;
         this.bmsEnvironment = BmsEnvironment.DEV;
+        this.beaconRegionUUID = null;
+        this.beaconRegionRange = -1;
+        this.beaconRegionUUIDFilter = false;
+        this.broadcasting = false;
+        this.proximityAlert = false;
+        this.proximityAlertThreshold = 15;
     }
 
     public boolean isEnableAlert() {
@@ -128,5 +140,53 @@ public class ViaSetting {
 
     public boolean isEnableDistance() {
         return enableDistance;
+    }
+
+    public String getBeaconRegionUUID() {
+        return beaconRegionUUID;
+    }
+
+    public void setBeaconRegionUUID(String beaconRegionUUID) {
+        this.beaconRegionUUID = beaconRegionUUID;
+    }
+
+    public double getBeaconRegionRange() {
+        return beaconRegionRange;
+    }
+
+    public void setBeaconRegionRange(double beaconRegionRange) {
+        this.beaconRegionRange = beaconRegionRange;
+    }
+
+    public boolean isBeaconRegionUUIDFilter() {
+        return beaconRegionUUIDFilter;
+    }
+
+    public void setBeaconRegionUUIDFilter(boolean beaconRegionUUIDFilter) {
+        this.beaconRegionUUIDFilter = beaconRegionUUIDFilter;
+    }
+
+    public boolean isBroadcasting() {
+        return broadcasting;
+    }
+
+    public void setBroadcasting(boolean broadcasting) {
+        this.broadcasting = broadcasting;
+    }
+
+    public int getProximityAlertThreshold() {
+        return proximityAlertThreshold;
+    }
+
+    public void setProximityAlertThreshold(int proximityAlertThreshold) {
+        this.proximityAlertThreshold = proximityAlertThreshold;
+    }
+
+    public boolean isProximityAlert() {
+        return proximityAlert;
+    }
+
+    public void setProximityAlert(boolean proximityAlert) {
+        this.proximityAlert = proximityAlert;
     }
 }

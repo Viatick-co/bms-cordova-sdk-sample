@@ -40,8 +40,8 @@ public class BmsApiCtrl {
     private static String API_ENDPOINT = API_URL + "/dev";
     private static final String SDK_TOKEN_PATH = "/sdk/oauth2/token";
     private static final String SDK_PATH = "/api/restful";
-    private static final String CORE_TRACKING_PATH = "/core/tracking";
-    private static final String CORE_MQTT_TRACKING_PATH = "/core/mqtt/tracking";
+    private static final String CORE_TRACKING_PATH = "/api/core/tracking";
+    private static final String CORE_MQTT_TRACKING_PATH = "/api/core/mqtt/tracking";
 
     private static final String GRANT_TYPE_CREDENTIAL = "client_credentials";
 
@@ -112,6 +112,12 @@ public class BmsApiCtrl {
                 JSONObject responseObject = new JSONObject(bodyResponse);
 
                 Log.i(TAG, "responseObject: " + responseObject);
+
+                if (!responseObject.isNull("sdkBroadcastUUID")) {
+                    String sdkBroadcastUUID = responseObject.getString("sdkBroadcastUUID");
+                    ViaBmsCtrl.SETTING.setBeaconRegionUUID(sdkBroadcastUUID);
+                }
+
                 if (!responseObject.isNull("distance")) {
                     JSONObject rangeObject = responseObject.getJSONObject("distance");
 
@@ -209,7 +215,8 @@ public class BmsApiCtrl {
     }
 
     public static ViaCustomer processCustomer(String sdkToken, String identifier, String phone, String email,
-                                                  String remark, String os, List<ViaZone> authorizedZones) {
+                                                  String remark, String os, List<ViaZone> authorizedZones,
+                                              Boolean broadcasting) {
 
         String url = API_ENDPOINT + SDK_PATH;
 
@@ -240,6 +247,8 @@ public class BmsApiCtrl {
                 argumentObject.put("authorizedZones", zoneArray);
             }
 
+            argumentObject.put("broadcasting", broadcasting);
+
             jsonObject.put("arguments", argumentObject);
         } catch (Exception e) {
         }
@@ -255,10 +264,21 @@ public class BmsApiCtrl {
                 String bodyResponse = response.body().string();
 
                 JSONObject responseObject = new JSONObject(bodyResponse);
+                Log.i(TAG, "responseObject: " + responseObject);
 
                 if (!responseObject.isNull("customerId")) {
                     int customerId = responseObject.getInt("customerId");
-                    return new ViaCustomer(customerId, identifier, email, phone, remark, os);
+
+                    String uuid = null;
+                    int major = 0;
+                    int minor = 0;
+
+                    if (!responseObject.isNull("uuid")) {
+                        uuid = responseObject.getString("uuid");
+                        major = responseObject.getInt("major");
+                        minor = responseObject.getInt("minor");
+                    }
+                    return new ViaCustomer(customerId, identifier, email, phone, remark, os, uuid, major, minor);
                 }
             }
         } catch (Exception e) {
@@ -526,6 +546,8 @@ public class BmsApiCtrl {
         Headers headers = new Headers.Builder()
                 .add("Api-Key", apiKey).build();
 
+        Log.i(TAG, "coreTrackingWithMQTT: " + url + " " + apiKey);
+
 
         JSONObject jsonObject = new JSONObject();
         try {
@@ -545,6 +567,8 @@ public class BmsApiCtrl {
 
         try {
             Response response = client.newCall(request).execute();
+
+            Log.i(TAG, "coreTrackingWithMQTT response: " + response.body().string());
             boolean success = response.isSuccessful();
         } catch (Exception e) {
         }
@@ -637,6 +661,53 @@ public class BmsApiCtrl {
 
         return null;
     }
+
+    public static Integer createCustomerAlert(String sdkToken, int customer, String uuid,
+                                              int major, int minor) {
+        String apiURL = API_ENDPOINT + SDK_PATH;
+
+        JSONObject jsonObject = new JSONObject();
+        try {
+            jsonObject.put("field", "createCustomerAlert");
+            jsonObject.put("authorization", "Bearer " + sdkToken);
+
+            JSONObject inputObject = new JSONObject();
+            inputObject.put("customer", customer);
+            inputObject.put("uuid", uuid);
+            inputObject.put("major", major);
+            inputObject.put("minor", minor);
+            inputObject.put("type", "proximity");
+
+            JSONObject argumentObject = new JSONObject();
+            argumentObject.put("input", inputObject);
+
+            jsonObject.put("arguments", argumentObject);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        RequestBody body = RequestBody.create(APPLICATION_JSON, jsonObject.toString());
+        Request request = requestBuilder.url(apiURL).post(body).build();
+
+        try {
+            Response response = client.newCall(request).execute();
+            boolean success = response.isSuccessful();
+
+
+            if (success) {
+                String bodyResponse = response.body().string();
+                JSONObject responseObject = new JSONObject(bodyResponse);
+
+                if (!responseObject.isNull("customerAlertId")) {
+                    return responseObject.getInt("customerAlertId");
+                }
+            }
+        } catch (Exception e) {
+        }
+
+        return null;
+    }
+
 
     public static boolean checkout(String sdkToken, int attendanceId, String time) {
         List<Integer> ids = new ArrayList<>();

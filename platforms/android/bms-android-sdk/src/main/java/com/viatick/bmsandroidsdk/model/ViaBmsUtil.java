@@ -54,18 +54,24 @@ public class ViaBmsUtil {
         private String phone;
         private String remark;
         private String os;
+        private String uuid;
+        private int major;
+        private int minor;
 
         public ViaCustomer() {
         }
 
         public ViaCustomer(int customerId, String identifier, String email,
-                           String phone, String remark, String os) {
+                           String phone, String remark, String os, String uuid, int major, int minor) {
             this.customerId = customerId;
             this.identifier = identifier;
             this.email = email;
             this.phone = phone;
             this.remark = remark;
             this.os = os;
+            this.uuid = uuid;
+            this.major = major;
+            this.minor = minor;
         }
 
         public int getCustomerId() {
@@ -106,6 +112,30 @@ public class ViaBmsUtil {
 
         public void setRemark(String remark) {
             this.remark = remark;
+        }
+
+        public String getUuid() {
+            return uuid;
+        }
+
+        public void setUuid(String uuid) {
+            this.uuid = uuid;
+        }
+
+        public int getMajor() {
+            return major;
+        }
+
+        public void setMajor(int major) {
+            this.major = major;
+        }
+
+        public int getMinor() {
+            return minor;
+        }
+
+        public void setMinor(int minor) {
+            this.minor = minor;
         }
 
         public String getOs() {

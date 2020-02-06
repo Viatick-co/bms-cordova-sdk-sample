@@ -107,7 +107,8 @@ public class BmsCordovaSdkPublic extends CordovaPlugin implements ViaBmsCtrl.Via
                     ViaBmsUtil.MinisiteViewType.LIST), args.getInt(4), args.getBoolean(5),
                     args.getBoolean(6), args.getBoolean(7),
                     args.getInt(8), args.getInt(9), requestDistanceBeacons,
-                    bmsEnvironment);
+                    bmsEnvironment, args.getDouble(12), args.getBoolean(13), args.getBoolean(14),
+                    args.getBoolean(15), args.getInt(16));
 
             Log.d(TAG, "initSettings");
 
@@ -218,21 +219,14 @@ public class BmsCordovaSdkPublic extends CordovaPlugin implements ViaBmsCtrl.Via
       }
 
       Log.d(TAG, "Checkout Callback");
-      PluginResult pluginResult = new PluginResult(PluginResult.Status.OK, listJson);
-      pluginResult.setKeepCallback(true); // keep callback
-      onDistanceBeaconsCallback.sendPluginResult(pluginResult);
+      if (onDistanceBeaconsCallback != null) {
+          PluginResult pluginResult = new PluginResult(PluginResult.Status.OK, listJson);
+          pluginResult.setKeepCallback(true); // keep callback
+          onDistanceBeaconsCallback.sendPluginResult(pluginResult);
+      }
     } catch (Exception e) {
       e.printStackTrace();
       // Do nothing
     }
-  }
-
-  // override this method
-  @Override
-  public void onResume(boolean multitasking) {
-      super.onResume(multitasking);
-
-      // must put this line of code in after super.onResume()
-      ViaBmsCtrl.onResume();
   }
 }

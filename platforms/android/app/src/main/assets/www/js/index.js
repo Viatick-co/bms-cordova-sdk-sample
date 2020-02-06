@@ -21,25 +21,15 @@ var setting = function(callback) {
    try {
      const requestDistanceBeacons = [
        {
-         uuid: "F7826DA6-4FA2-4E98-8024-BC5B71E0893A",
-         major: 100,
-         minor: 2
-       },
-       {
-         uuid: "F7826DA6-4FA2-4E98-8024-BC5B71E0893A",
-         major: 100,
-         minor: 3
-       },
-       {
-         uuid: "F7826DA6-4FA2-4E98-8024-BC5B71E0893E",
-         major: 322,
-         minor: 117
+         uuid: "F7826DA6-4FA2-4E98-8024-BC5B71E0893B",
+         major: 1,
+         minor: 47
        }
      ]
 
      cordova.plugins.BmsCordovaSdkPublic.setting(true, true,
        true, "LIST", 0, true, true, true, 2, 2, requestDistanceBeacons,
-       "DEV", (success) => {
+       "DEV", 5, true, true, true, 120, (success) => {
        console.log("setting success", success);
        callback();
      }, (error) => {
@@ -52,7 +42,7 @@ var setting = function(callback) {
 
 var initCustomer = function(callback) {
 	try {
-		cordova.plugins.BmsCordovaSdkPublic.initCustomer("khoa_android", "+65 88268722", "khoa@viatick.com", (success) => {
+		cordova.plugins.BmsCordovaSdkPublic.initCustomer("khoa_android_huawei", "+65 88268724", "khoa_huawei@viatick.com", (success) => {
 			console.log("initCustomer success", success);
       callback();
 		}, (error) => {

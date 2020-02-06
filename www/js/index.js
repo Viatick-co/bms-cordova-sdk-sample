@@ -21,20 +21,15 @@ var setting = function(callback) {
    try {
      const requestDistanceBeacons = [
        {
-         uuid: "F7826DA6-4FA2-4E98-8024-BC5B71E0893E",
-         major: 10,
-         minor: 110
-       },
-       {
-         uuid: "F7826DA6-4FA2-4E98-8024-BC5B71E0893E",
-         major: 100,
-         minor: 1
+         uuid: "F7826DA6-4FA2-4E98-8024-BC5B71E0893B",
+         major: 1,
+         minor: 47
        }
      ]
 
      cordova.plugins.BmsCordovaSdkPublic.setting(true, true,
        true, "LIST", 0, true, true, true, 2, 2, requestDistanceBeacons,
-       "DEV", (success) => {
+       "DEV", 5, true, true, true, 120, (success) => {
        console.log("setting success", success);
        callback();
      }, (error) => {
@@ -47,7 +42,7 @@ var setting = function(callback) {
 
 var initCustomer = function(callback) {
 	try {
-		cordova.plugins.BmsCordovaSdkPublic.initCustomer("khoa_android", "khoa@viatick.com", "+65 88268722", (success) => {
+		cordova.plugins.BmsCordovaSdkPublic.initCustomer("khoa_android_huawei", "+65 88268724", "khoa_huawei@viatick.com", (success) => {
 			console.log("initCustomer success", success);
       callback();
 		}, (error) => {
@@ -60,7 +55,7 @@ var initCustomer = function(callback) {
 
 var initSDK = function(callback) {
 	try {
-		cordova.plugins.BmsCordovaSdkPublic.initSDK("_tonthdf8aoramakguq7e92bkqtbip8etkeo5vdaojgmnqrbnmnv", (success) => {
+		cordova.plugins.BmsCordovaSdkPublic.initSDK("71b20b69d6c313e5a226b910ccac09d35c68caaec7c7303984f8caae0a7fdb25", (success) => {
 			console.log("initSDK success", success);
       callback();
 		}, (error) => {
@@ -123,6 +118,11 @@ var onDistanceBeacons = function() {
 	try {
 		cordova.plugins.BmsCordovaSdkPublic.onDistanceBeacons((success) => {
 			console.log("onDistanceBeacons success", success);
+			if (success) {
+			    const filteredBeacons = success.filter((b) => b.distance < 2.5);
+
+			    console.log("onDistanceBeacons filteredBeacons", filteredBeacons);
+			}
 		}, (error) => {
 			console.log("onDistanceBeacons error", error);
 		});

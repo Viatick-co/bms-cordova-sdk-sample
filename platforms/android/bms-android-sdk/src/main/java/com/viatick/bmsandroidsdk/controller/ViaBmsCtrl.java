@@ -26,6 +26,7 @@ import android.support.v4.app.NotificationCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.content.LocalBroadcastManager;
 import android.text.TextUtils;
+import android.util.Log;
 
 import com.viatick.bmsandroidsdk.helper.BmsEnvironment;
 import com.viatick.bmsandroidsdk.helper.ViaBeaconHelper;
@@ -38,6 +39,7 @@ import com.viatick.bmsandroidsdk.model.ViaBmsUtil.MinisiteType;
 import com.viatick.bmsandroidsdk.model.ViaBmsUtil.ViaCustomer;
 import com.viatick.bmsandroidsdk.model.ViaBmsUtil.ViaIBeaconRegion;
 import com.viatick.bmsandroidsdk.model.ViaMinisite;
+import com.viatick.bmsandroidsdk.model.ViaProximity;
 import com.viatick.bmsandroidsdk.model.ViaSetting;
 import com.viatick.bmsandroidsdk.model.ViaZone;
 import com.viatick.bmsandroidsdk.model.ViaZoneBeacon;
@@ -80,14 +82,15 @@ public class ViaBmsCtrl {
   public static boolean inMinisiteView = false;
   private static boolean inMinisiteAuto = false;
   private static boolean attendanceUpdating = false;
+  private static HashMap<String, Boolean> proximityUpdating = new HashMap<>();
   public static boolean isModal = false;
   private static int currentSite = -1;
   private static String SDK_KEY;
   private static String SDK_TOKEN;
   private static long SDK_EXPIRATION_TIME = 0L;
   private static String API_KEY;
-  private static final ViaSetting SETTING = new ViaSetting();
-  private static ViaCustomer CUSTOMER;
+  public static final ViaSetting SETTING = new ViaSetting();
+  public static ViaCustomer CUSTOMER;
   private static final ViaIBeaconRegion IBEACON_REGION = new ViaIBeaconRegion();
   private ViaBmsUtil.ViaEddystoneRegion EDDY_REGION = new ViaBmsUtil.ViaEddystoneRegion();
   private ViaBmsUtil.ViaFetchInterval FETCH_INTERVAL = new ViaBmsUtil.ViaFetchInterval();
@@ -95,6 +98,7 @@ public class ViaBmsCtrl {
   private static int notificationCount = 0;
   private static final ArrayList<ViaMinisite> MINISITES = new ArrayList();
   private static final ViaAttendance ATTENDANCE = new ViaAttendance();
+  private static final HashMap<String, ViaProximity> PROXIMITY = new HashMap<>();
   private static HashMap<Integer, ViaZone> ZONES;
   private static final HashMap<String, ViaZoneBeacon> ASSIGNED_BEACONS = new HashMap();
   public static final HashMap<String, IBeacon> REQUESTED_DISTANCE_BEACONS = new HashMap<>();
@@ -117,6 +121,7 @@ public class ViaBmsCtrl {
   private static final Runnable attendanceRunable = new Runnable() {
     public void run() {
       ViaBmsCtrl.checkAttendance();
+      ViaBmsCtrl.checkProximity();
       ViaBmsCtrl.handler.postDelayed(this, 1000L);
     }
   };
@@ -173,6 +178,8 @@ public class ViaBmsCtrl {
         case BeaconServiceCtrl.DEVICES_ON_DISTANCE_RESPONSE:
           List<BleBeacon> devices = (List<BleBeacon>) msg.obj;
 
+          Log.i(TAG, "BeaconServiceCtrl.DEVICES_ON_DISTANCE_RESPONSE: " + devices.toArray().toString());
+
           if (SETTING.isEnableDistance()) {
             ViaBmsCtrl.updateBeaconDistance(devices);
           }
@@ -181,10 +188,18 @@ public class ViaBmsCtrl {
             ViaBmsCtrl.updateDeviceAttendance(devices);
           }
 
-
           if (SETTING.isEnableTracking()) {
             ViaBmsCtrl.trackingRequest(devices);
           }
+
+          if (SETTING.isProximityAlert()) {
+            ViaBmsCtrl.updateProximity(devices);
+          }
+
+          break;
+
+        case BeaconServiceCtrl.DEVICES_ON_ADVERTISING_STARTED:
+          // Doing nothing for now
           break;
       }
     }
@@ -202,7 +217,9 @@ public class ViaBmsCtrl {
                               Integer autoSiteDuration, boolean tracking,
                               boolean enableMQTT, boolean attendance,
                               Integer checkinDuration, Integer checkoutDuration,
-                              List<IBeacon> requestDistanceBeacons, BmsEnvironment bmsEnvironment) {
+                              List<IBeacon> requestDistanceBeacons, BmsEnvironment bmsEnvironment,
+                              Double beaconRegionRange, Boolean beaconRegionUUIDFilter, Boolean broadcasting, Boolean proximityAlert,
+                              Integer proximityAlertTheshold) {
     SETTING.setEnableAlert(alert);
     SETTING.setEnableBackground(background);
     SETTING.setEnableSite(site);
@@ -225,6 +242,24 @@ public class ViaBmsCtrl {
     if (bmsEnvironment != null) {
       SETTING.setBmsEnvironment(bmsEnvironment);
       BmsApiCtrl.initApi(bmsEnvironment);
+    }
+
+    if (beaconRegionRange != null & beaconRegionRange > 0) {
+      SETTING.setBeaconRegionRange(beaconRegionRange);
+    }
+
+    if (beaconRegionUUIDFilter != null) {
+      SETTING.setBeaconRegionUUIDFilter(beaconRegionUUIDFilter);
+    }
+
+    if (broadcasting != null) {
+      SETTING.setBroadcasting(broadcasting);
+    }
+
+    SETTING.setProximityAlert(proximityAlert);
+
+    if (proximityAlertTheshold != null && proximityAlertTheshold > 0) {
+      SETTING.setProximityAlertThreshold(proximityAlertTheshold);
     }
 
     if (requestDistanceBeacons != null) {
@@ -379,7 +414,8 @@ public class ViaBmsCtrl {
             String system = "Android";
             String version = System.getProperty("os.version").replaceAll("-", "");
             String remark = name + " : " + model + " : " + system + " : " + version;
-            ViaCustomer customer = BmsApiCtrl.processCustomer(token, identifier, phone, email, remark, system, authorizedZones);
+            Boolean broadcasting = SETTING.isBroadcasting();
+            ViaCustomer customer = BmsApiCtrl.processCustomer(token, identifier, phone, email, remark, system, authorizedZones, broadcasting);
 
             ViaBmsCtrl.ASSIGNED_BEACONS.clear();
             List<Integer> authorizedZonesx = BmsApiCtrl.getAuthorizedZones(token, customer.getIdentifier());
@@ -433,6 +469,16 @@ public class ViaBmsCtrl {
         msg.replyTo = beaconServiceCtrlReceiver;
 
         beaconServiceCtrlMessenger.send(msg);
+
+        if (ViaBmsCtrl.CUSTOMER.getUuid() != null) {
+          // broadcast corresponding iBeacon info
+          msg = Message.obtain(null, BeaconServiceCtrl.START_ADVERTISE_REQUEST);
+          try {
+            beaconServiceCtrlMessenger.send(msg);
+          } catch (RemoteException e) {
+            e.printStackTrace();
+          }
+        }
       } catch (Exception ex) {
       }
 
@@ -446,10 +492,11 @@ public class ViaBmsCtrl {
   public static void stopBmsService() {
     if (sdkInited && bmsRunning) {
       try {
-//        viaIBeaconCtrl.stopRange();
-
         Message msg = Message.obtain(null, BeaconServiceCtrl.STOP_SCAN_REQUEST);
+        Message msg2 = Message.obtain(null, BeaconServiceCtrl.STOP_ADVERTISE_REQUEST);
+
         beaconServiceCtrlMessenger.send(msg);
+        beaconServiceCtrlMessenger.send(msg2);
       } catch (Exception var1) {
       }
 
@@ -769,7 +816,101 @@ public class ViaBmsCtrl {
         ATTENDANCE.setStatus(AttendanceStatus.CHECKOUT);
       }
     }
+  }
 
+  private static void checkProximity() {
+    Log.i(TAG, "checkProximity");
+    for (String beaconKey: PROXIMITY.keySet()) {
+      final long now = System.currentTimeMillis();
+      ViaProximity beaconProximity = PROXIMITY.get(beaconKey);
+
+      AttendanceStatus stt = beaconProximity.getStatus();
+      final Integer proximityIdId = beaconProximity.getProximityId();
+      if (stt == AttendanceStatus.CHECKIN || stt == AttendanceStatus.PRE_CHECKIN) {
+        long lastProximityTime = beaconProximity.getProximityTime();
+        long dif = now - lastProximityTime;
+        if (dif >= (long) (60 * 1000)) {
+          beaconProximity.setStatus(AttendanceStatus.CHECKOUT);
+          PROXIMITY.put(beaconKey, beaconProximity);
+
+          Log.i(TAG, "checkProximity checkout");
+        }
+      }
+    }
+  }
+
+  private static void updateProximity(final List<BleBeacon> beacons) {
+    Log.i(TAG, "updateProximity");
+    synchronized (proximityUpdating) {
+      for (final BleBeacon beacon: beacons) {
+        if (CUSTOMER != null && (!proximityUpdating.containsKey(beacon.getKey()) || !proximityUpdating.get(beacon.getKey()))) {
+          proximityUpdating.put(beacon.getKey(), true);
+          final long now = System.currentTimeMillis();
+          boolean checkin = false;
+
+          double distance = beacon.getAccuracy();
+          if (distance > 0.0D) {
+            String key = beacon.getKey();
+            key = key.toUpperCase();
+
+            ViaProximity beaconProximity = PROXIMITY.get(beacon.getKey());
+            if (beaconProximity == null) {
+              beaconProximity = new ViaProximity();
+            }
+
+            AttendanceStatus stt = beaconProximity.getStatus();
+            switch (stt) {
+              case CHECKOUT:
+                beaconProximity.setStatus(AttendanceStatus.PRE_CHECKIN);
+                beaconProximity.setStartTime(now);
+                break;
+              case PRE_CHECKIN:
+                long firstAttendance = beaconProximity.getStartTime();
+                long dif = now - firstAttendance;
+                if (dif >= (long) (SETTING.getProximityAlertThreshold() * 1000)) { // To be changed
+                  beaconProximity.setStatus(AttendanceStatus.CHECKIN);
+                  checkin = true;
+                }
+            }
+
+            beaconProximity.setProximityTime(now);
+            PROXIMITY.put(beacon.getKey(), beaconProximity);
+          }
+
+          Log.i(TAG, "updateProximity checkin: " + checkin);
+
+          if (checkin) {
+            (new ViaBmsCtrl.ApiTask(new ViaBmsCtrl.ApiTask.ApiTaskInterface() {
+              public void load() {
+                String token = ViaBmsCtrl.getToken();
+                if (token != null) {
+                  String time = ViaBmsCtrl.convertMilliToIso8601(now);
+                  Integer proximityId = BmsApiCtrl.createCustomerAlert(token, ViaBmsCtrl.CUSTOMER.getCustomerId(),
+                          beacon.getUuid(), beacon.getMajor(), beacon.getMinor());
+                  Log.i(TAG, "updateProximity proximityId: " + proximityId);
+
+                  if (proximityId != null) {
+
+                    ViaProximity beaconProximity = PROXIMITY.get(beacon.getKey());
+                    if (beaconProximity == null) {
+                      beaconProximity = new ViaProximity();
+                    }
+                    beaconProximity.setProximityId(proximityId);
+
+                    PROXIMITY.put(beacon.getKey(), beaconProximity);
+                    Log.i("TAG", "Proximity alert logged!");
+                  }
+                }
+
+                ViaBmsCtrl.proximityUpdating.put(beacon.getKey(), false);
+              }
+            })).execute(new Void[0]);
+          } else {
+            ViaBmsCtrl.proximityUpdating.put(beacon.getKey(), false);
+          }
+        }
+      }
+    }
   }
 
   private static void updateDeviceAttendance(List<BleBeacon> beacons) {
@@ -828,7 +969,6 @@ public class ViaBmsCtrl {
         attendanceUpdating = false;
       }
     }
-
   }
 
   public static String getDeviceName() {
