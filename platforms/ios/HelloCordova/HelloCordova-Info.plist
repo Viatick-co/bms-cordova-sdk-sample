@@ -52,6 +52,10 @@
 	<string>${EXECUTABLE_NAME} Would Like to Use Your Current Location Even In Background.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>${EXECUTABLE_NAME} Would Like to Use Your Current Location</string>
+	<key>NSBluetoothAlwaysUsageDescription</key>
+	<string>${EXECUTABLE_NAME} Would Like to Use Bluetooth</string>
+	<key>NSBluetoothPeripheralUsageDescription</key>
+	<string>${EXECUTABLE_NAME} Would Like to Act as Peripheral</string>
 	<key>NSLocationAlwaysUsageDescription</key>
 	<string>${EXECUTABLE_NAME} Would Like to Use Your Current Location</string>
 	<key>UIBackgroundModes</key>

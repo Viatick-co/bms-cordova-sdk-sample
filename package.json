@@ -28,8 +28,8 @@
       "com-viatick-cordova-plugins-bms-sdk-public": {}
     },
     "platforms": [
-      "ios",
-      "android"
+      "android",
+      "ios"
     ]
   }
 }
