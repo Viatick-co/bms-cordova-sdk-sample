@@ -42,7 +42,7 @@ var setting = function(callback) {
 
 var initCustomer = function(callback) {
 	try {
-		cordova.plugins.BmsCordovaSdkPublic.initCustomer("khoa_android_huawei", "+65 88268724", "khoa_huawei@viatick.com", (success) => {
+		cordova.plugins.BmsCordovaSdkPublic.initCustomer("khoa_cordova", "+65 88268725", "khoa_cordova@viatick.com", (success) => {
 			console.log("initCustomer success", success);
       callback();
 		}, (error) => {

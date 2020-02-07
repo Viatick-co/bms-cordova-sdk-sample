@@ -204,8 +204,8 @@ android {
       abortOnError false;
     }
 
-    compileSdkVersion 28
-    buildToolsVersion '29.0.2'
+    compileSdkVersion cdvCompileSdkVersion
+    buildToolsVersion cdvBuildToolsVersion
 
     // This code exists for Crosswalk and other Native APIs.
     // By default, we multiply the existing version code in the
@@ -291,7 +291,7 @@ android {
 
 
 dependencies {
-    implementation fileTree(include: '*.jar', dir: 'libs')
+    implementation fileTree(dir: 'libs', include: '*.jar')
     // SUB-PROJECT DEPENDENCIES START
     implementation(project(path: ":CordovaLib"))
     // SUB-PROJECT DEPENDENCIES END
