@@ -131,6 +131,18 @@ var onDistanceBeacons = function() {
 	}
 };
 
+var openDeviceSite = function(url) {
+	try {
+		cordova.plugins.BmsCordovaSdkPublic.openDeviceSite(url, (success) => {
+			console.log("openDeviceSite success", success);
+		}, (error) => {
+			console.log("openDeviceSite error", error);
+		});
+	} catch(e) {
+		console.log("openDeviceSite exception", e);
+	}
+};
+
 var app = {
     // Application Constructor
     initialize: function() {
@@ -151,6 +163,8 @@ var app = {
               checkIn(); // check-in listener
               checkOut(); // check-out listener
               onDistanceBeacons();
+
+              openDeviceSite("https://bms.viatick.com/link/?serial=TEST0000001&env=dev&key=df3ac43dd0ce4d11887edabdca7bfb6e071f800f09001d05df68ddb7747bd130");
             });
           });
         });

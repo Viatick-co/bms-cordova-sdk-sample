@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "/Users/viatick/Desktop/Project/bms-cordova-sdk-sample/platforms/android/bms-android-sdk/build/intermediates/res/merged/release/anim-v21/design_bottom_sheet_slide_out.xml",
+        "source": "/Users/viatick/.gradle/caches/transforms-1/files-1.1/design-27.1.1.aar/baa014976593fc3badd086b16dda711e/res/anim-v21/design_bottom_sheet_slide_out.xml"
+    },
+    {
+        "merged": "/Users/viatick/Desktop/Project/bms-cordova-sdk-sample/platforms/android/bms-android-sdk/build/intermediates/res/merged/release/anim-v21/design_bottom_sheet_slide_in.xml",
+        "source": "/Users/viatick/.gradle/caches/transforms-1/files-1.1/design-27.1.1.aar/baa014976593fc3badd086b16dda711e/res/anim-v21/design_bottom_sheet_slide_in.xml"
+    }
+]

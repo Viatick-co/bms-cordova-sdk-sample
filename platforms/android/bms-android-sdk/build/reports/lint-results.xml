@@ -1,0 +1,1012 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<issues format="5" by="lint 3.3.0">
+
+    <issue
+        id="OnClick"
+        severity="Error"
+        message="`onClick` handler `share(View)` must be public"
+        category="Correctness"
+        priority="10"
+        summary="`onClick` method does not exist"
+        explanation="The `onClick` attribute value should be the name of a method in this View&apos;s context to invoke when the view is clicked. This name must correspond to a public method that takes exactly one parameter of type `View`.&#xA;&#xA;Must be a string value, using &apos;\\;&apos; to escape characters such as &apos;\\n&apos; or &apos;\\uxxxx&apos; for a unicode character."
+        errorLine1="    protected void share (View view) {"
+        errorLine2="    ^">
+        <location
+            file="/Users/viatick/Desktop/Project/bms-cordova-sdk-sample/platforms/android/bms-android-sdk/src/main/java/com/viatick/bmsandroidsdk/view/MinisiteActivity.java"
+            line="165"
+            column="5"/>
+    </issue>
+
+    <issue
+        id="OnClick"
+        severity="Error"
+        message="`onClick` handler `back(View)` must be public"
+        category="Correctness"
+        priority="10"
+        summary="`onClick` method does not exist"
+        explanation="The `onClick` attribute value should be the name of a method in this View&apos;s context to invoke when the view is clicked. This name must correspond to a public method that takes exactly one parameter of type `View`.&#xA;&#xA;Must be a string value, using &apos;\\;&apos; to escape characters such as &apos;\\n&apos; or &apos;\\uxxxx&apos; for a unicode character."
+        errorLine1="    protected void back(View view) {"
+        errorLine2="    ^">
+        <location
+            file="/Users/viatick/Desktop/Project/bms-cordova-sdk-sample/platforms/android/bms-android-sdk/src/main/java/com/viatick/bmsandroidsdk/view/MinisiteActivity.java"
+            line="203"
+            column="5"/>
+    </issue>
+
+    <issue
+        id="GradleCompatible"
+        severity="Fatal"
+        message="All com.android.support libraries must use the exact same version specification (mixing versions can lead to runtime crashes). Found versions 27.1.1, 27.1.0. Examples include `com.android.support:animated-vector-drawable:27.1.1` and `com.android.support:exifinterface:27.1.0`"
+        category="Correctness"
+        priority="8"
+        summary="Incompatible Gradle Versions"
+        explanation="There are some combinations of libraries, or tools and libraries, that are incompatible, or can lead to bugs. One such incompatibility is compiling with a version of the Android support libraries that is not the latest version (or in particular, a version lower than your `targetSdkVersion`).">
+        <location
+            file="/Users/viatick/Desktop/Project/bms-cordova-sdk-sample/platforms/android/bms-android-sdk/build.gradle"/>
+    </issue>
+
+    <issue
+        id="GradleCompatible"
+        severity="Fatal"
+        message="This support library should not use a different version (27) than the `compileSdkVersion` (29)"
+        category="Correctness"
+        priority="8"
+        summary="Incompatible Gradle Versions"
+        explanation="There are some combinations of libraries, or tools and libraries, that are incompatible, or can lead to bugs. One such incompatibility is compiling with a version of the Android support libraries that is not the latest version (or in particular, a version lower than your `targetSdkVersion`)."
+        errorLine1="    implementation &apos;com.android.support:appcompat-v7:27.1.1&apos;"
+        errorLine2="    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/viatick/Desktop/Project/bms-cordova-sdk-sample/platforms/android/bms-android-sdk/build.gradle"
+            line="31"
+            column="5"/>
+    </issue>
+
+    <issue
+        id="GradleCompatible"
+        severity="Fatal"
+        message="This support library should not use a different version (27) than the `compileSdkVersion` (29)"
+        category="Correctness"
+        priority="8"
+        summary="Incompatible Gradle Versions"
+        explanation="There are some combinations of libraries, or tools and libraries, that are incompatible, or can lead to bugs. One such incompatibility is compiling with a version of the Android support libraries that is not the latest version (or in particular, a version lower than your `targetSdkVersion`)."
+        errorLine1="    implementation &quot;com.android.support:design:27.1.1&quot;"
+        errorLine2="    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/viatick/Desktop/Project/bms-cordova-sdk-sample/platforms/android/bms-android-sdk/build.gradle"
+            line="36"
+            column="5"/>
+    </issue>
+
+    <issue
+        id="NamespaceTypo"
+        severity="Fatal"
+        message="Suspicious namespace and prefix combination"
+        category="Correctness"
+        priority="8"
+        summary="Misspelled namespace declaration"
+        explanation="Accidental misspellings in namespace declarations can lead to some very obscure error messages. This check looks for potential misspellings to help track these down."
+        errorLine1="    xmlns:app=&quot;http://schemas.android.com/tools&quot;"
+        errorLine2="               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/viatick/Desktop/Project/bms-cordova-sdk-sample/platforms/android/bms-android-sdk/src/main/res/layout/minisite_web_view.xml"
+            line="4"
+            column="16"/>
+    </issue>
+
+    <issue
+        id="DefaultLocale"
+        severity="Warning"
+        message="Implicitly using the default locale is a common source of bugs: Use `toLowerCase(Locale)` instead. For strings meant to be internal use `Locale.ROOT`, otherwise `Locale.getDefault()`."
+        category="Correctness"
+        priority="6"
+        summary="Implied default locale in case conversion"
+        explanation="Calling `String#toLowerCase()` or `#toUpperCase()` **without specifying an explicit locale** is a common source of bugs. The reason for that is that those methods will use the current locale on the user&apos;s device, and even though the code appears to work correctly when you are developing the app, it will fail in some locales. For example, in the Turkish locale, the uppercase replacement for `i` is **not** `I`.&#xA;&#xA;If you want the methods to just perform ASCII replacement, for example to convert an enum name, call `String#toUpperCase(Locale.US)` instead. If you really want to use the current locale, call `String#toUpperCase(Locale.getDefault())` instead."
+        url="http://developer.android.com/reference/java/util/Locale.html#default_locale"
+        urls="http://developer.android.com/reference/java/util/Locale.html#default_locale"
+        errorLine1="          System.arraycopy(hexStringToByteArray(uuid.toLowerCase().replaceAll(&quot;-&quot;,&quot;&quot;)), 0, payload, 2, 16);"
+        errorLine2="                                                     ~~~~~~~~~~~">
+        <location
+            file="/Users/viatick/Desktop/Project/bms-cordova-sdk-sample/platforms/android/bms-android-sdk/src/main/java/com/viatick/bmsandroidsdk/controller/BeaconServiceCtrl.java"
+            line="216"
+            column="54"/>
+    </issue>
+
+    <issue
+        id="DefaultLocale"
+        severity="Warning"
+        message="Implicitly using the default locale is a common source of bugs: Use `toLowerCase(Locale)` instead. For strings meant to be internal use `Locale.ROOT`, otherwise `Locale.getDefault()`."
+        category="Correctness"
+        priority="6"
+        summary="Implied default locale in case conversion"
+        explanation="Calling `String#toLowerCase()` or `#toUpperCase()` **without specifying an explicit locale** is a common source of bugs. The reason for that is that those methods will use the current locale on the user&apos;s device, and even though the code appears to work correctly when you are developing the app, it will fail in some locales. For example, in the Turkish locale, the uppercase replacement for `i` is **not** `I`.&#xA;&#xA;If you want the methods to just perform ASCII replacement, for example to convert an enum name, call `String#toUpperCase(Locale.US)` instead. If you really want to use the current locale, call `String#toUpperCase(Locale.getDefault())` instead."
+        url="http://developer.android.com/reference/java/util/Locale.html#default_locale"
+        urls="http://developer.android.com/reference/java/util/Locale.html#default_locale"
+        errorLine1="            Log.i(TAG, &quot;ViaBmsCtrl.SETTING.getBeaconRegionUUID().toLowerCase(): &quot; + ViaBmsCtrl.SETTING.getBeaconRegionUUID().toLowerCase());"
+        errorLine2="                                                                                                                             ~~~~~~~~~~~">
+        <location
+            file="/Users/viatick/Desktop/Project/bms-cordova-sdk-sample/platforms/android/bms-android-sdk/src/main/java/com/viatick/bmsandroidsdk/controller/BeaconServiceCtrl.java"
+            line="353"
+            column="126"/>
+    </issue>
+
+    <issue
+        id="DefaultLocale"
+        severity="Warning"
+        message="Implicitly using the default locale is a common source of bugs: Use `toLowerCase(Locale)` instead. For strings meant to be internal use `Locale.ROOT`, otherwise `Locale.getDefault()`."
+        category="Correctness"
+        priority="6"
+        summary="Implied default locale in case conversion"
+        explanation="Calling `String#toLowerCase()` or `#toUpperCase()` **without specifying an explicit locale** is a common source of bugs. The reason for that is that those methods will use the current locale on the user&apos;s device, and even though the code appears to work correctly when you are developing the app, it will fail in some locales. For example, in the Turkish locale, the uppercase replacement for `i` is **not** `I`.&#xA;&#xA;If you want the methods to just perform ASCII replacement, for example to convert an enum name, call `String#toUpperCase(Locale.US)` instead. If you really want to use the current locale, call `String#toUpperCase(Locale.getDefault())` instead."
+        url="http://developer.android.com/reference/java/util/Locale.html#default_locale"
+        urls="http://developer.android.com/reference/java/util/Locale.html#default_locale"
+        errorLine1="            Log.i(TAG, &quot;comparsion 2: &quot; + !ViaBmsCtrl.SETTING.getBeaconRegionUUID().toLowerCase().equals(beacon.getUuid()));"
+        errorLine2="                                                                                    ~~~~~~~~~~~">
+        <location
+            file="/Users/viatick/Desktop/Project/bms-cordova-sdk-sample/platforms/android/bms-android-sdk/src/main/java/com/viatick/bmsandroidsdk/controller/BeaconServiceCtrl.java"
+            line="354"
+            column="85"/>
+    </issue>
+
+    <issue
+        id="DefaultLocale"
+        severity="Warning"
+        message="Implicitly using the default locale is a common source of bugs: Use `toLowerCase(Locale)` instead. For strings meant to be internal use `Locale.ROOT`, otherwise `Locale.getDefault()`."
+        category="Correctness"
+        priority="6"
+        summary="Implied default locale in case conversion"
+        explanation="Calling `String#toLowerCase()` or `#toUpperCase()` **without specifying an explicit locale** is a common source of bugs. The reason for that is that those methods will use the current locale on the user&apos;s device, and even though the code appears to work correctly when you are developing the app, it will fail in some locales. For example, in the Turkish locale, the uppercase replacement for `i` is **not** `I`.&#xA;&#xA;If you want the methods to just perform ASCII replacement, for example to convert an enum name, call `String#toUpperCase(Locale.US)` instead. If you really want to use the current locale, call `String#toUpperCase(Locale.getDefault())` instead."
+        url="http://developer.android.com/reference/java/util/Locale.html#default_locale"
+        urls="http://developer.android.com/reference/java/util/Locale.html#default_locale"
+        errorLine1="            if (ViaBmsCtrl.SETTING.getBeaconRegionUUID() != null &amp;&amp; !ViaBmsCtrl.SETTING.getBeaconRegionUUID().toLowerCase().equals(beacon.getUuid())) {"
+        errorLine2="                                                                                                              ~~~~~~~~~~~">
+        <location
+            file="/Users/viatick/Desktop/Project/bms-cordova-sdk-sample/platforms/android/bms-android-sdk/src/main/java/com/viatick/bmsandroidsdk/controller/BeaconServiceCtrl.java"
+            line="361"
+            column="111"/>
+    </issue>
+
+    <issue
+        id="DefaultLocale"
+        severity="Warning"
+        message="Implicitly using the default locale is a common source of bugs: Use `toLowerCase(Locale)` instead. For strings meant to be internal use `Locale.ROOT`, otherwise `Locale.getDefault()`."
+        category="Correctness"
+        priority="6"
+        summary="Implied default locale in case conversion"
+        explanation="Calling `String#toLowerCase()` or `#toUpperCase()` **without specifying an explicit locale** is a common source of bugs. The reason for that is that those methods will use the current locale on the user&apos;s device, and even though the code appears to work correctly when you are developing the app, it will fail in some locales. For example, in the Turkish locale, the uppercase replacement for `i` is **not** `I`.&#xA;&#xA;If you want the methods to just perform ASCII replacement, for example to convert an enum name, call `String#toUpperCase(Locale.US)` instead. If you really want to use the current locale, call `String#toUpperCase(Locale.getDefault())` instead."
+        url="http://developer.android.com/reference/java/util/Locale.html#default_locale"
+        urls="http://developer.android.com/reference/java/util/Locale.html#default_locale"
+        errorLine1="      Log.i(TAG, &quot;manufacturerData :&quot; + Arrays.toString(hexStringToByteArray(uuid.toLowerCase().replace(&quot;-&quot;,&quot;&quot;))));"
+        errorLine2="                                                                                  ~~~~~~~~~~~">
+        <location
+            file="/Users/viatick/Desktop/Project/bms-cordova-sdk-sample/platforms/android/bms-android-sdk/src/main/java/com/viatick/bmsandroidsdk/controller/BeaconServiceCtrl.java"
+            line="529"
+            column="83"/>
+    </issue>
+
+    <issue
+        id="DefaultLocale"
+        severity="Warning"
+        message="Implicitly using the default locale is a common source of bugs: Use `toLowerCase(Locale)` instead. For strings meant to be internal use `Locale.ROOT`, otherwise `Locale.getDefault()`."
+        category="Correctness"
+        priority="6"
+        summary="Implied default locale in case conversion"
+        explanation="Calling `String#toLowerCase()` or `#toUpperCase()` **without specifying an explicit locale** is a common source of bugs. The reason for that is that those methods will use the current locale on the user&apos;s device, and even though the code appears to work correctly when you are developing the app, it will fail in some locales. For example, in the Turkish locale, the uppercase replacement for `i` is **not** `I`.&#xA;&#xA;If you want the methods to just perform ASCII replacement, for example to convert an enum name, call `String#toUpperCase(Locale.US)` instead. If you really want to use the current locale, call `String#toUpperCase(Locale.getDefault())` instead."
+        url="http://developer.android.com/reference/java/util/Locale.html#default_locale"
+        urls="http://developer.android.com/reference/java/util/Locale.html#default_locale"
+        errorLine1="                                String key = iBeacon.getUuid().toLowerCase() + &quot;-&quot; + iBeacon.getMajor() + &quot;-&quot; + iBeacon.getMinor();"
+        errorLine2="                                                               ~~~~~~~~~~~">
+        <location
+            file="/Users/viatick/Desktop/Project/bms-cordova-sdk-sample/platforms/android/bms-android-sdk/src/main/java/com/viatick/bmsandroidsdk/controller/BmsApiCtrl.java"
+            line="140"
+            column="64"/>
+    </issue>
+
+    <issue
+        id="DefaultLocale"
+        severity="Warning"
+        message="Implicitly using the default locale is a common source of bugs: Use `toUpperCase(Locale)` instead. For strings meant to be internal use `Locale.ROOT`, otherwise `Locale.getDefault()`."
+        category="Correctness"
+        priority="6"
+        summary="Implied default locale in case conversion"
+        explanation="Calling `String#toLowerCase()` or `#toUpperCase()` **without specifying an explicit locale** is a common source of bugs. The reason for that is that those methods will use the current locale on the user&apos;s device, and even though the code appears to work correctly when you are developing the app, it will fail in some locales. For example, in the Turkish locale, the uppercase replacement for `i` is **not** `I`.&#xA;&#xA;If you want the methods to just perform ASCII replacement, for example to convert an enum name, call `String#toUpperCase(Locale.US)` instead. If you really want to use the current locale, call `String#toUpperCase(Locale.getDefault())` instead."
+        url="http://developer.android.com/reference/java/util/Locale.html#default_locale"
+        urls="http://developer.android.com/reference/java/util/Locale.html#default_locale"
+        errorLine1="        this.uuid = uuid.toUpperCase();"
+        errorLine2="                         ~~~~~~~~~~~">
+        <location
+            file="/Users/viatick/Desktop/Project/bms-cordova-sdk-sample/platforms/android/bms-android-sdk/src/main/java/com/viatick/bmsandroidsdk/model/IBeacon.java"
+            line="10"
+            column="26"/>
+    </issue>
+
+    <issue
+        id="DefaultLocale"
+        severity="Warning"
+        message="Implicitly using the default locale is a common source of bugs: Use `toUpperCase(Locale)` instead. For strings meant to be internal use `Locale.ROOT`, otherwise `Locale.getDefault()`."
+        category="Correctness"
+        priority="6"
+        summary="Implied default locale in case conversion"
+        explanation="Calling `String#toLowerCase()` or `#toUpperCase()` **without specifying an explicit locale** is a common source of bugs. The reason for that is that those methods will use the current locale on the user&apos;s device, and even though the code appears to work correctly when you are developing the app, it will fail in some locales. For example, in the Turkish locale, the uppercase replacement for `i` is **not** `I`.&#xA;&#xA;If you want the methods to just perform ASCII replacement, for example to convert an enum name, call `String#toUpperCase(Locale.US)` instead. If you really want to use the current locale, call `String#toUpperCase(Locale.getDefault())` instead."
+        url="http://developer.android.com/reference/java/util/Locale.html#default_locale"
+        urls="http://developer.android.com/reference/java/util/Locale.html#default_locale"
+        errorLine1="        this.uuid = uuid.toUpperCase();"
+        errorLine2="                         ~~~~~~~~~~~">
+        <location
+            file="/Users/viatick/Desktop/Project/bms-cordova-sdk-sample/platforms/android/bms-android-sdk/src/main/java/com/viatick/bmsandroidsdk/model/IBeacon.java"
+            line="20"
+            column="26"/>
+    </issue>
+
+    <issue
+        id="DefaultLocale"
+        severity="Warning"
+        message="Implicitly using the default locale is a common source of bugs: Use `toUpperCase(Locale)` instead. For strings meant to be internal use `Locale.ROOT`, otherwise `Locale.getDefault()`."
+        category="Correctness"
+        priority="6"
+        summary="Implied default locale in case conversion"
+        explanation="Calling `String#toLowerCase()` or `#toUpperCase()` **without specifying an explicit locale** is a common source of bugs. The reason for that is that those methods will use the current locale on the user&apos;s device, and even though the code appears to work correctly when you are developing the app, it will fail in some locales. For example, in the Turkish locale, the uppercase replacement for `i` is **not** `I`.&#xA;&#xA;If you want the methods to just perform ASCII replacement, for example to convert an enum name, call `String#toUpperCase(Locale.US)` instead. If you really want to use the current locale, call `String#toUpperCase(Locale.getDefault())` instead."
+        url="http://developer.android.com/reference/java/util/Locale.html#default_locale"
+        urls="http://developer.android.com/reference/java/util/Locale.html#default_locale"
+        errorLine1="                key = key.toUpperCase();"
+        errorLine2="                          ~~~~~~~~~~~">
+        <location
+            file="/Users/viatick/Desktop/Project/bms-cordova-sdk-sample/platforms/android/bms-android-sdk/src/main/java/com/viatick/bmsandroidsdk/controller/ViaBmsCtrl.java"
+            line="446"
+            column="27"/>
+    </issue>
+
+    <issue
+        id="DefaultLocale"
+        severity="Warning"
+        message="Implicitly using the default locale is a common source of bugs: Use `toUpperCase(Locale)` instead. For strings meant to be internal use `Locale.ROOT`, otherwise `Locale.getDefault()`."
+        category="Correctness"
+        priority="6"
+        summary="Implied default locale in case conversion"
+        explanation="Calling `String#toLowerCase()` or `#toUpperCase()` **without specifying an explicit locale** is a common source of bugs. The reason for that is that those methods will use the current locale on the user&apos;s device, and even though the code appears to work correctly when you are developing the app, it will fail in some locales. For example, in the Turkish locale, the uppercase replacement for `i` is **not** `I`.&#xA;&#xA;If you want the methods to just perform ASCII replacement, for example to convert an enum name, call `String#toUpperCase(Locale.US)` instead. If you really want to use the current locale, call `String#toUpperCase(Locale.getDefault())` instead."
+        url="http://developer.android.com/reference/java/util/Locale.html#default_locale"
+        urls="http://developer.android.com/reference/java/util/Locale.html#default_locale"
+        errorLine1="            key = key.toUpperCase();"
+        errorLine2="                      ~~~~~~~~~~~">
+        <location
+            file="/Users/viatick/Desktop/Project/bms-cordova-sdk-sample/platforms/android/bms-android-sdk/src/main/java/com/viatick/bmsandroidsdk/controller/ViaBmsCtrl.java"
+            line="633"
+            column="23"/>
+    </issue>
+
+    <issue
+        id="DefaultLocale"
+        severity="Warning"
+        message="Implicitly using the default locale is a common source of bugs: Use `toUpperCase(Locale)` instead. For strings meant to be internal use `Locale.ROOT`, otherwise `Locale.getDefault()`."
+        category="Correctness"
+        priority="6"
+        summary="Implied default locale in case conversion"
+        explanation="Calling `String#toLowerCase()` or `#toUpperCase()` **without specifying an explicit locale** is a common source of bugs. The reason for that is that those methods will use the current locale on the user&apos;s device, and even though the code appears to work correctly when you are developing the app, it will fail in some locales. For example, in the Turkish locale, the uppercase replacement for `i` is **not** `I`.&#xA;&#xA;If you want the methods to just perform ASCII replacement, for example to convert an enum name, call `String#toUpperCase(Locale.US)` instead. If you really want to use the current locale, call `String#toUpperCase(Locale.getDefault())` instead."
+        url="http://developer.android.com/reference/java/util/Locale.html#default_locale"
+        urls="http://developer.android.com/reference/java/util/Locale.html#default_locale"
+        errorLine1="            key = key.toUpperCase();"
+        errorLine2="                      ~~~~~~~~~~~">
+        <location
+            file="/Users/viatick/Desktop/Project/bms-cordova-sdk-sample/platforms/android/bms-android-sdk/src/main/java/com/viatick/bmsandroidsdk/controller/ViaBmsCtrl.java"
+            line="1010"
+            column="23"/>
+    </issue>
+
+    <issue
+        id="DefaultLocale"
+        severity="Warning"
+        message="Implicitly using the default locale is a common source of bugs: Use `toUpperCase(Locale)` instead. For strings meant to be internal use `Locale.ROOT`, otherwise `Locale.getDefault()`."
+        category="Correctness"
+        priority="6"
+        summary="Implied default locale in case conversion"
+        explanation="Calling `String#toLowerCase()` or `#toUpperCase()` **without specifying an explicit locale** is a common source of bugs. The reason for that is that those methods will use the current locale on the user&apos;s device, and even though the code appears to work correctly when you are developing the app, it will fail in some locales. For example, in the Turkish locale, the uppercase replacement for `i` is **not** `I`.&#xA;&#xA;If you want the methods to just perform ASCII replacement, for example to convert an enum name, call `String#toUpperCase(Locale.US)` instead. If you really want to use the current locale, call `String#toUpperCase(Locale.getDefault())` instead."
+        url="http://developer.android.com/reference/java/util/Locale.html#default_locale"
+        urls="http://developer.android.com/reference/java/util/Locale.html#default_locale"
+        errorLine1="          key = key.toUpperCase();"
+        errorLine2="                    ~~~~~~~~~~~">
+        <location
+            file="/Users/viatick/Desktop/Project/bms-cordova-sdk-sample/platforms/android/bms-android-sdk/src/main/java/com/viatick/bmsandroidsdk/controller/ViaBmsCtrl.java"
+            line="1083"
+            column="21"/>
+    </issue>
+
+    <issue
+        id="InlinedApi"
+        severity="Warning"
+        message="Field requires API level 23 (current min is 21): `android.bluetooth.le.ScanSettings#MATCH_MODE_AGGRESSIVE`"
+        category="Correctness"
+        priority="6"
+        summary="Using inlined constants on older versions"
+        explanation="This check scans through all the Android API field references in the application and flags certain constants, such as static final integers and Strings, which were introduced in later versions. These will actually be copied into the class files rather than being referenced, which means that the value is available even when running on older devices. In some cases that&apos;s fine, and in other cases it can result in a runtime crash or incorrect behavior. It depends on the context, so consider the code carefully and decide whether it&apos;s safe and can be suppressed or whether the code needs to be guarded.&#xA;&#xA;If you really want to use this API and don&apos;t need to support older devices just set the `minSdkVersion` in your `build.gradle` or `AndroidManifest.xml` files.&#xA;If your code is **deliberately** accessing newer APIs, and you have ensured (e.g. with conditional execution) that this code will only ever be called on a supported platform, then you can annotate your class or method with the `@TargetApi` annotation specifying the local minimum SDK to apply, such as `@TargetApi(11)`, such that this check considers 11 rather than your manifest file&apos;s minimum SDK as the required API level."
+        errorLine1="                  .setMatchMode(ScanSettings.MATCH_MODE_AGGRESSIVE)"
+        errorLine2="                                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/viatick/Desktop/Project/bms-cordova-sdk-sample/platforms/android/bms-android-sdk/src/main/java/com/viatick/bmsandroidsdk/controller/BeaconServiceCtrl.java"
+            line="152"
+            column="33"/>
+    </issue>
+
+    <issue
+        id="InlinedApi"
+        severity="Warning"
+        message="Field requires API level 23 (current min is 21): `android.bluetooth.le.ScanSettings#MATCH_NUM_MAX_ADVERTISEMENT`"
+        category="Correctness"
+        priority="6"
+        summary="Using inlined constants on older versions"
+        explanation="This check scans through all the Android API field references in the application and flags certain constants, such as static final integers and Strings, which were introduced in later versions. These will actually be copied into the class files rather than being referenced, which means that the value is available even when running on older devices. In some cases that&apos;s fine, and in other cases it can result in a runtime crash or incorrect behavior. It depends on the context, so consider the code carefully and decide whether it&apos;s safe and can be suppressed or whether the code needs to be guarded.&#xA;&#xA;If you really want to use this API and don&apos;t need to support older devices just set the `minSdkVersion` in your `build.gradle` or `AndroidManifest.xml` files.&#xA;If your code is **deliberately** accessing newer APIs, and you have ensured (e.g. with conditional execution) that this code will only ever be called on a supported platform, then you can annotate your class or method with the `@TargetApi` annotation specifying the local minimum SDK to apply, such as `@TargetApi(11)`, such that this check considers 11 rather than your manifest file&apos;s minimum SDK as the required API level."
+        errorLine1="                  .setNumOfMatches(ScanSettings.MATCH_NUM_MAX_ADVERTISEMENT)"
+        errorLine2="                                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/viatick/Desktop/Project/bms-cordova-sdk-sample/platforms/android/bms-android-sdk/src/main/java/com/viatick/bmsandroidsdk/controller/BeaconServiceCtrl.java"
+            line="154"
+            column="36"/>
+    </issue>
+
+    <issue
+        id="NewApi"
+        severity="Error"
+        message="Call requires API level 23 (current min is 21): android.bluetooth.le.ScanSettings.Builder#setMatchMode"
+        category="Correctness"
+        priority="6"
+        summary="Calling new methods on older versions"
+        explanation="This check scans through all the Android API calls in the application and warns about any calls that are not available on **all** versions targeted by this application (according to its minimum SDK attribute in the manifest).&#xA;&#xA;If you really want to use this API and don&apos;t need to support older devices just set the `minSdkVersion` in your `build.gradle` or `AndroidManifest.xml` files.&#xA;&#xA;If your code is **deliberately** accessing newer APIs, and you have ensured (e.g. with conditional execution) that this code will only ever be called on a supported platform, then you can annotate your class or method with the `@TargetApi` annotation specifying the local minimum SDK to apply, such as `@TargetApi(11)`, such that this check considers 11 rather than your manifest file&apos;s minimum SDK as the required API level.&#xA;&#xA;If you are deliberately setting `android:` attributes in style definitions, make sure you place this in a `values-v`*NN* folder in order to avoid running into runtime conflicts on certain devices where manufacturers have added custom attributes whose ids conflict with the new ones on later platforms.&#xA;&#xA;Similarly, you can use tools:targetApi=&quot;11&quot; in an XML file to indicate that the element will only be inflated in an adequate context."
+        errorLine1="                  .setMatchMode(ScanSettings.MATCH_MODE_AGGRESSIVE)"
+        errorLine2="                   ~~~~~~~~~~~~">
+        <location
+            file="/Users/viatick/Desktop/Project/bms-cordova-sdk-sample/platforms/android/bms-android-sdk/src/main/java/com/viatick/bmsandroidsdk/controller/BeaconServiceCtrl.java"
+            line="152"
+            column="20"/>
+    </issue>
+
+    <issue
+        id="NewApi"
+        severity="Error"
+        message="Call requires API level 23 (current min is 21): android.bluetooth.le.ScanSettings.Builder#setCallbackType"
+        category="Correctness"
+        priority="6"
+        summary="Calling new methods on older versions"
+        explanation="This check scans through all the Android API calls in the application and warns about any calls that are not available on **all** versions targeted by this application (according to its minimum SDK attribute in the manifest).&#xA;&#xA;If you really want to use this API and don&apos;t need to support older devices just set the `minSdkVersion` in your `build.gradle` or `AndroidManifest.xml` files.&#xA;&#xA;If your code is **deliberately** accessing newer APIs, and you have ensured (e.g. with conditional execution) that this code will only ever be called on a supported platform, then you can annotate your class or method with the `@TargetApi` annotation specifying the local minimum SDK to apply, such as `@TargetApi(11)`, such that this check considers 11 rather than your manifest file&apos;s minimum SDK as the required API level.&#xA;&#xA;If you are deliberately setting `android:` attributes in style definitions, make sure you place this in a `values-v`*NN* folder in order to avoid running into runtime conflicts on certain devices where manufacturers have added custom attributes whose ids conflict with the new ones on later platforms.&#xA;&#xA;Similarly, you can use tools:targetApi=&quot;11&quot; in an XML file to indicate that the element will only be inflated in an adequate context."
+        errorLine1="                  .setCallbackType(ScanSettings.CALLBACK_TYPE_ALL_MATCHES)"
+        errorLine2="                   ~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/viatick/Desktop/Project/bms-cordova-sdk-sample/platforms/android/bms-android-sdk/src/main/java/com/viatick/bmsandroidsdk/controller/BeaconServiceCtrl.java"
+            line="153"
+            column="20"/>
+    </issue>
+
+    <issue
+        id="NewApi"
+        severity="Error"
+        message="Call requires API level 23 (current min is 21): android.bluetooth.le.ScanSettings.Builder#setNumOfMatches"
+        category="Correctness"
+        priority="6"
+        summary="Calling new methods on older versions"
+        explanation="This check scans through all the Android API calls in the application and warns about any calls that are not available on **all** versions targeted by this application (according to its minimum SDK attribute in the manifest).&#xA;&#xA;If you really want to use this API and don&apos;t need to support older devices just set the `minSdkVersion` in your `build.gradle` or `AndroidManifest.xml` files.&#xA;&#xA;If your code is **deliberately** accessing newer APIs, and you have ensured (e.g. with conditional execution) that this code will only ever be called on a supported platform, then you can annotate your class or method with the `@TargetApi` annotation specifying the local minimum SDK to apply, such as `@TargetApi(11)`, such that this check considers 11 rather than your manifest file&apos;s minimum SDK as the required API level.&#xA;&#xA;If you are deliberately setting `android:` attributes in style definitions, make sure you place this in a `values-v`*NN* folder in order to avoid running into runtime conflicts on certain devices where manufacturers have added custom attributes whose ids conflict with the new ones on later platforms.&#xA;&#xA;Similarly, you can use tools:targetApi=&quot;11&quot; in an XML file to indicate that the element will only be inflated in an adequate context."
+        errorLine1="                  .setNumOfMatches(ScanSettings.MATCH_NUM_MAX_ADVERTISEMENT)"
+        errorLine2="                   ~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/viatick/Desktop/Project/bms-cordova-sdk-sample/platforms/android/bms-android-sdk/src/main/java/com/viatick/bmsandroidsdk/controller/BeaconServiceCtrl.java"
+            line="154"
+            column="20"/>
+    </issue>
+
+    <issue
+        id="ManifestOrder"
+        severity="Warning"
+        message="`&lt;uses-permission>` tag appears after `&lt;application>` tag"
+        category="Correctness"
+        priority="5"
+        summary="Incorrect order of elements in manifest"
+        explanation="The &lt;application> tag should appear after the elements which declare which version you need, which features you need, which libraries you need, and so on. In the past there have been subtle bugs (such as themes not getting applied correctly) when the `&lt;application>` tag appears before some of these other elements, so it&apos;s best to order your manifest in the logical dependency order."
+        errorLine1="  &lt;uses-permission android:name=&quot;android.permission.INTERNET&quot; />"
+        errorLine2="   ~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/viatick/Desktop/Project/bms-cordova-sdk-sample/platforms/android/bms-android-sdk/src/main/AndroidManifest.xml"
+            line="49"
+            column="4"/>
+    </issue>
+
+    <issue
+        id="GradleDependency"
+        severity="Warning"
+        message="A newer version of com.android.volley:volley than 1.1.0.+ is available: 1.1.1"
+        category="Correctness"
+        priority="4"
+        summary="Obsolete Gradle Dependency"
+        explanation="This detector looks for usages of libraries where the version you are using is not the current stable release. Using older versions is fine, and there are cases where you deliberately want to stick with an older version. However, you may simply not be aware that a more recent version is available, and that is what this lint check helps find."
+        errorLine1="    implementation &quot;com.android.volley:volley:1.1.0+&quot;"
+        errorLine2="    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/viatick/Desktop/Project/bms-cordova-sdk-sample/platforms/android/bms-android-sdk/build.gradle"
+            line="37"
+            column="5"/>
+    </issue>
+
+    <issue
+        id="GradleDependency"
+        severity="Warning"
+        message="A newer version of com.squareup.picasso:picasso than 2.7.+ is available: 2.71828"
+        category="Correctness"
+        priority="4"
+        summary="Obsolete Gradle Dependency"
+        explanation="This detector looks for usages of libraries where the version you are using is not the current stable release. Using older versions is fine, and there are cases where you deliberately want to stick with an older version. However, you may simply not be aware that a more recent version is available, and that is what this lint check helps find."
+        errorLine1="    implementation &quot;com.squareup.picasso:picasso:2.7+&quot;"
+        errorLine2="    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/viatick/Desktop/Project/bms-cordova-sdk-sample/platforms/android/bms-android-sdk/build.gradle"
+            line="38"
+            column="5"/>
+    </issue>
+
+    <issue
+        id="GradleDynamicVersion"
+        severity="Warning"
+        message="Avoid using + in version numbers; can lead to unpredictable and unrepeatable builds (com.android.volley:volley:1.1.0+)"
+        category="Correctness"
+        priority="4"
+        summary="Gradle Dynamic Version"
+        explanation="Using `+` in dependencies lets you automatically pick up the latest available version rather than a specific, named version. However, this is not recommended; your builds are not repeatable; you may have tested with a slightly different version than what the build server used. (Using a dynamic version as the major version number is more problematic than using it in the minor version position.)"
+        errorLine1="    implementation &quot;com.android.volley:volley:1.1.0+&quot;"
+        errorLine2="    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/viatick/Desktop/Project/bms-cordova-sdk-sample/platforms/android/bms-android-sdk/build.gradle"
+            line="37"
+            column="5"/>
+    </issue>
+
+    <issue
+        id="GradleDynamicVersion"
+        severity="Warning"
+        message="Avoid using + in version numbers; can lead to unpredictable and unrepeatable builds (com.squareup.picasso:picasso:2.7+)"
+        category="Correctness"
+        priority="4"
+        summary="Gradle Dynamic Version"
+        explanation="Using `+` in dependencies lets you automatically pick up the latest available version rather than a specific, named version. However, this is not recommended; your builds are not repeatable; you may have tested with a slightly different version than what the build server used. (Using a dynamic version as the major version number is more problematic than using it in the minor version position.)"
+        errorLine1="    implementation &quot;com.squareup.picasso:picasso:2.7+&quot;"
+        errorLine2="    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/viatick/Desktop/Project/bms-cordova-sdk-sample/platforms/android/bms-android-sdk/build.gradle"
+            line="38"
+            column="5"/>
+    </issue>
+
+    <issue
+        id="ParcelClassLoader"
+        severity="Warning"
+        message="Using the default class loader will not work if you are restoring your own classes. Consider using for example `readBundle(getClass().getClassLoader())` instead."
+        category="Correctness"
+        priority="3"
+        summary="Default Parcel Class Loader"
+        explanation="The documentation for `Parcel#readParcelable(ClassLoader)` (and its variations) says that you can pass in `null` to pick up the default class loader. However, that ClassLoader is a system class loader and is not able to find classes in your own application.&#xA;&#xA;If you are writing your own classes into the `Parcel` (not just SDK classes like `String` and so on), then you should supply a `ClassLoader` for your application instead; a simple way to obtain one is to just call `getClass().getClassLoader()` from your own class."
+        url="http://developer.android.com/reference/android/os/Parcel.html"
+        urls="http://developer.android.com/reference/android/os/Parcel.html"
+        errorLine1="        Bundle b = in.readBundle();"
+        errorLine2="                      ~~~~~~~~~~~~">
+        <location
+            file="/Users/viatick/Desktop/Project/bms-cordova-sdk-sample/platforms/android/bms-android-sdk/src/main/java/com/viatick/bmsandroidsdk/model/ViaMinisite.java"
+            line="162"
+            column="23"/>
+    </issue>
+
+    <issue
+        id="PxUsage"
+        severity="Warning"
+        message="Avoid using &quot;`px`&quot; as units; use &quot;`dp`&quot; instead"
+        category="Correctness"
+        priority="2"
+        summary="Using &apos;px&apos; dimension"
+        explanation="For performance reasons and to keep the code simpler, the Android system uses pixels as the standard unit for expressing dimension or coordinate values. That means that the dimensions of a view are always expressed in the code using pixels, but always based on the current screen density. For instance, if `myView.getWidth()` returns 10, the view is 10 pixels wide on the current screen, but on a device with a higher density screen, the value returned might be 15. If you use pixel values in your application code to work with bitmaps that are not pre-scaled for the current screen density, you might need to scale the pixel values that you use in your code to match the un-scaled bitmap source."
+        url="http://developer.android.com/guide/practices/screens_support.html#screen-independence"
+        urls="http://developer.android.com/guide/practices/screens_support.html#screen-independence"
+        errorLine1="                android:paddingLeft=&quot;8px&quot;"
+        errorLine2="                ~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/viatick/Desktop/Project/bms-cordova-sdk-sample/platforms/android/bms-android-sdk/src/main/res/layout/minisite_menu_each.xml"
+            line="32"
+            column="17"/>
+    </issue>
+
+    <issue
+        id="PxUsage"
+        severity="Warning"
+        message="Avoid using &quot;`px`&quot; as units; use &quot;`dp`&quot; instead"
+        category="Correctness"
+        priority="2"
+        summary="Using &apos;px&apos; dimension"
+        explanation="For performance reasons and to keep the code simpler, the Android system uses pixels as the standard unit for expressing dimension or coordinate values. That means that the dimensions of a view are always expressed in the code using pixels, but always based on the current screen density. For instance, if `myView.getWidth()` returns 10, the view is 10 pixels wide on the current screen, but on a device with a higher density screen, the value returned might be 15. If you use pixel values in your application code to work with bitmaps that are not pre-scaled for the current screen density, you might need to scale the pixel values that you use in your code to match the un-scaled bitmap source."
+        url="http://developer.android.com/guide/practices/screens_support.html#screen-independence"
+        urls="http://developer.android.com/guide/practices/screens_support.html#screen-independence"
+        errorLine1="                android:paddingRight=&quot;8px&quot;"
+        errorLine2="                ~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/viatick/Desktop/Project/bms-cordova-sdk-sample/platforms/android/bms-android-sdk/src/main/res/layout/minisite_menu_each.xml"
+            line="33"
+            column="17"/>
+    </issue>
+
+    <issue
+        id="PxUsage"
+        severity="Warning"
+        message="Avoid using &quot;`px`&quot; as units; use &quot;`dp`&quot; instead"
+        category="Correctness"
+        priority="2"
+        summary="Using &apos;px&apos; dimension"
+        explanation="For performance reasons and to keep the code simpler, the Android system uses pixels as the standard unit for expressing dimension or coordinate values. That means that the dimensions of a view are always expressed in the code using pixels, but always based on the current screen density. For instance, if `myView.getWidth()` returns 10, the view is 10 pixels wide on the current screen, but on a device with a higher density screen, the value returned might be 15. If you use pixel values in your application code to work with bitmaps that are not pre-scaled for the current screen density, you might need to scale the pixel values that you use in your code to match the un-scaled bitmap source."
+        url="http://developer.android.com/guide/practices/screens_support.html#screen-independence"
+        urls="http://developer.android.com/guide/practices/screens_support.html#screen-independence"
+        errorLine1="                android:paddingLeft=&quot;8px&quot;"
+        errorLine2="                ~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/viatick/Desktop/Project/bms-cordova-sdk-sample/platforms/android/bms-android-sdk/src/main/res/layout/minisite_menu_each.xml"
+            line="44"
+            column="17"/>
+    </issue>
+
+    <issue
+        id="PxUsage"
+        severity="Warning"
+        message="Avoid using &quot;`px`&quot; as units; use &quot;`dp`&quot; instead"
+        category="Correctness"
+        priority="2"
+        summary="Using &apos;px&apos; dimension"
+        explanation="For performance reasons and to keep the code simpler, the Android system uses pixels as the standard unit for expressing dimension or coordinate values. That means that the dimensions of a view are always expressed in the code using pixels, but always based on the current screen density. For instance, if `myView.getWidth()` returns 10, the view is 10 pixels wide on the current screen, but on a device with a higher density screen, the value returned might be 15. If you use pixel values in your application code to work with bitmaps that are not pre-scaled for the current screen density, you might need to scale the pixel values that you use in your code to match the un-scaled bitmap source."
+        url="http://developer.android.com/guide/practices/screens_support.html#screen-independence"
+        urls="http://developer.android.com/guide/practices/screens_support.html#screen-independence"
+        errorLine1="                android:paddingRight=&quot;8px&quot;"
+        errorLine2="                ~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/viatick/Desktop/Project/bms-cordova-sdk-sample/platforms/android/bms-android-sdk/src/main/res/layout/minisite_menu_each.xml"
+            line="45"
+            column="17"/>
+    </issue>
+
+    <issue
+        id="PxUsage"
+        severity="Warning"
+        message="Avoid using &quot;`px`&quot; as units; use &quot;`dp`&quot; instead"
+        category="Correctness"
+        priority="2"
+        summary="Using &apos;px&apos; dimension"
+        explanation="For performance reasons and to keep the code simpler, the Android system uses pixels as the standard unit for expressing dimension or coordinate values. That means that the dimensions of a view are always expressed in the code using pixels, but always based on the current screen density. For instance, if `myView.getWidth()` returns 10, the view is 10 pixels wide on the current screen, but on a device with a higher density screen, the value returned might be 15. If you use pixel values in your application code to work with bitmaps that are not pre-scaled for the current screen density, you might need to scale the pixel values that you use in your code to match the un-scaled bitmap source."
+        url="http://developer.android.com/guide/practices/screens_support.html#screen-independence"
+        urls="http://developer.android.com/guide/practices/screens_support.html#screen-independence"
+        errorLine1="        android:layout_height=&quot;3px&quot;"
+        errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/viatick/Desktop/Project/bms-cordova-sdk-sample/platforms/android/bms-android-sdk/src/main/res/layout/minisite_web_view.xml"
+            line="11"
+            column="9"/>
+    </issue>
+
+    <issue
+        id="SetJavaScriptEnabled"
+        severity="Warning"
+        message="Using `setJavaScriptEnabled` can introduce XSS vulnerabilities into your application, review carefully."
+        category="Security"
+        priority="6"
+        summary="Using `setJavaScriptEnabled`"
+        explanation="Your code should not invoke `setJavaScriptEnabled` if you are not sure that your app really requires JavaScript support."
+        url="http://developer.android.com/guide/practices/security.html"
+        urls="http://developer.android.com/guide/practices/security.html"
+        errorLine1="        webView.getSettings().setJavaScriptEnabled(true);"
+        errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/viatick/Desktop/Project/bms-cordova-sdk-sample/platforms/android/bms-android-sdk/src/main/java/com/viatick/bmsandroidsdk/view/MinisiteActivity.java"
+            line="142"
+            column="9"/>
+    </issue>
+
+    <issue
+        id="UnsafeProtectedBroadcastReceiver"
+        severity="Warning"
+        message="This broadcast receiver declares an intent-filter for a protected broadcast action string, which can only be sent by the system, not third-party applications. However, the receiver&apos;s onReceive method does not appear to call getAction to ensure that the received Intent&apos;s action string matches the expected value, potentially making it possible for another actor to send a spoofed intent with no action string or a different action string and cause undesired behavior."
+        category="Security"
+        priority="6"
+        summary="Unsafe Protected BroadcastReceiver"
+        explanation="BroadcastReceivers that declare an intent-filter for a protected-broadcast action string must check that the received intent&apos;s action string matches the expected value, otherwise it is possible for malicious actors to spoof intents."
+        errorLine1="    public void onReceive(Context context, Intent intent) {"
+        errorLine2="                ~~~~~~~~~">
+        <location
+            file="/Users/viatick/Desktop/Project/bms-cordova-sdk-sample/platforms/android/bms-android-sdk/src/main/java/com/viatick/bmsandroidsdk/helper/ViaBeaconRebootReceiver.java"
+            line="10"
+            column="17"/>
+    </issue>
+
+    <issue
+        id="ObsoleteLayoutParam"
+        severity="Warning"
+        message="Invalid layout param in a `RelativeLayout`: `layout_weight`"
+        category="Performance"
+        priority="6"
+        summary="Obsolete layout params"
+        explanation="The given layout_param is not defined for the given layout, meaning it has no effect. This usually happens when you change the parent layout or move view code around without updating the layout params. This will cause useless attribute processing at runtime, and is misleading for others reading the layout so the parameter should be removed."
+        errorLine1="        android:layout_weight=&quot;1&quot;"
+        errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/viatick/Desktop/Project/bms-cordova-sdk-sample/platforms/android/bms-android-sdk/src/main/res/layout/activity_minisite_menu.xml"
+            line="12"
+            column="9"/>
+    </issue>
+
+    <issue
+        id="ObsoleteLayoutParam"
+        severity="Warning"
+        message="Invalid layout param in a `LinearLayout`: `layout_alignParentBottom`"
+        category="Performance"
+        priority="6"
+        summary="Obsolete layout params"
+        explanation="The given layout_param is not defined for the given layout, meaning it has no effect. This usually happens when you change the parent layout or move view code around without updating the layout params. This will cause useless attribute processing at runtime, and is misleading for others reading the layout so the parameter should be removed."
+        errorLine1="            android:layout_alignParentBottom=&quot;true&quot;"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/viatick/Desktop/Project/bms-cordova-sdk-sample/platforms/android/bms-android-sdk/src/main/res/layout/minisite_web_view.xml"
+            line="45"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="ObsoleteLayoutParam"
+        severity="Warning"
+        message="Invalid layout param in a `LinearLayout`: `layout_alignParentRight`"
+        category="Performance"
+        priority="6"
+        summary="Obsolete layout params"
+        explanation="The given layout_param is not defined for the given layout, meaning it has no effect. This usually happens when you change the parent layout or move view code around without updating the layout params. This will cause useless attribute processing at runtime, and is misleading for others reading the layout so the parameter should be removed."
+        errorLine1="            android:layout_alignParentRight=&quot;true&quot;"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/viatick/Desktop/Project/bms-cordova-sdk-sample/platforms/android/bms-android-sdk/src/main/res/layout/minisite_web_view.xml"
+            line="46"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="ObsoleteSdkInt"
+        severity="Warning"
+        message="Unnecessary; SDK_INT is always >= 21"
+        category="Performance"
+        priority="6"
+        summary="Obsolete SDK_INT Version Check"
+        explanation="This check flags version checks that are not necessary, because the `minSdkVersion` (or surrounding known API level) is already at least as high as the version checked for.&#xA;&#xA;Similarly, it also looks for resources in `-vNN` folders, such as `values-v14` where the version qualifier is less than or equal to the `minSdkVersion`, where the contents should be merged into the best folder."
+        errorLine1="        if (Build.VERSION.SDK_INT >= 19) {"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/viatick/Desktop/Project/bms-cordova-sdk-sample/platforms/android/bms-android-sdk/src/main/java/com/viatick/bmsandroidsdk/view/MinisiteActivity.java"
+            line="143"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="ObsoleteSdkInt"
+        severity="Warning"
+        message="Unnecessary; SDK_INT is always >= 21"
+        category="Performance"
+        priority="6"
+        summary="Obsolete SDK_INT Version Check"
+        explanation="This check flags version checks that are not necessary, because the `minSdkVersion` (or surrounding known API level) is already at least as high as the version checked for.&#xA;&#xA;Similarly, it also looks for resources in `-vNN` folders, such as `values-v14` where the version qualifier is less than or equal to the `minSdkVersion`, where the contents should be merged into the best folder."
+        errorLine1="        if (Build.VERSION.SDK_INT > Build.VERSION_CODES.KITKAT_WATCH) {"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/viatick/Desktop/Project/bms-cordova-sdk-sample/platforms/android/bms-android-sdk/src/main/java/com/viatick/bmsandroidsdk/helper/ViaBeaconHelper.java"
+            line="61"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="StaticFieldLeak"
+        severity="Warning"
+        message="Do not place Android context classes in static fields; this is a memory leak (and also breaks Instant Run)"
+        category="Performance"
+        priority="6"
+        summary="Static Field Leaks"
+        explanation="A static field will leak contexts.&#xA;&#xA;Non-static inner classes have an implicit reference to their outer class. If that outer class is for example a `Fragment` or `Activity`, then this reference means that the long-running handler/loader/task will hold a reference to the activity which prevents it from getting garbage collected.&#xA;&#xA;Similarly, direct field references to activities and fragments from these longer running instances can cause leaks.&#xA;&#xA;ViewModel classes should never point to Views or non-application Contexts."
+        errorLine1="  private static Context context;"
+        errorLine2="          ~~~~~~">
+        <location
+            file="/Users/viatick/Desktop/Project/bms-cordova-sdk-sample/platforms/android/bms-android-sdk/src/main/java/com/viatick/bmsandroidsdk/controller/ViaBmsCtrl.java"
+            line="110"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="StaticFieldLeak"
+        severity="Warning"
+        message="This field leaks a context object"
+        category="Performance"
+        priority="6"
+        summary="Static Field Leaks"
+        explanation="A static field will leak contexts.&#xA;&#xA;Non-static inner classes have an implicit reference to their outer class. If that outer class is for example a `Fragment` or `Activity`, then this reference means that the long-running handler/loader/task will hold a reference to the activity which prevents it from getting garbage collected.&#xA;&#xA;Similarly, direct field references to activities and fragments from these longer running instances can cause leaks.&#xA;&#xA;ViewModel classes should never point to Views or non-application Contexts."
+        errorLine1="    private Context context;"
+        errorLine2="    ~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/viatick/Desktop/Project/bms-cordova-sdk-sample/platforms/android/bms-android-sdk/src/main/java/com/viatick/bmsandroidsdk/controller/ViaBmsCtrl.java"
+            line="1177"
+            column="5"/>
+    </issue>
+
+    <issue
+        id="HandlerLeak"
+        severity="Warning"
+        message="This Handler class should be static or leaks might occur (com.viatick.bmsandroidsdk.controller.BeaconServiceCtrl.MessageHandler)"
+        category="Performance"
+        priority="4"
+        summary="Handler reference leaks"
+        explanation="Since this Handler is declared as an inner class, it may prevent the outer class from being garbage collected. If the Handler is using a Looper or MessageQueue for a thread other than the main thread, then there is no issue. If the Handler is using the Looper or MessageQueue of the main thread, you need to fix your Handler declaration, as follows: Declare the Handler as a static class; In the outer class, instantiate a WeakReference to the outer class and pass this object to your Handler when you instantiate the Handler; Make all references to members of the outer class using the WeakReference object."
+        errorLine1="  private class MessageHandler extends Handler {"
+        errorLine2="                ~~~~~~~~~~~~~~">
+        <location
+            file="/Users/viatick/Desktop/Project/bms-cordova-sdk-sample/platforms/android/bms-android-sdk/src/main/java/com/viatick/bmsandroidsdk/controller/BeaconServiceCtrl.java"
+            line="263"
+            column="17"/>
+    </issue>
+
+    <issue
+        id="UseSparseArrays"
+        severity="Warning"
+        message="Use `new SparseArray&lt;ViaZone>(...)` instead for better performance"
+        category="Performance"
+        priority="4"
+        summary="HashMap can be replaced with SparseArray"
+        explanation="For maps where the keys are of type integer, it&apos;s typically more efficient to use the Android `SparseArray` API. This check identifies scenarios where you might want to consider using `SparseArray` instead of `HashMap` for better performance.&#xA;&#xA;This is **particularly** useful when the value types are primitives like ints, where you can use `SparseIntArray` and avoid auto-boxing the values from `int` to `Integer`.&#xA;&#xA;If you need to construct a `HashMap` because you need to call an API outside of your control which requires a `Map`, you can suppress this warning using for example the `@SuppressLint` annotation."
+        errorLine1="                            HashMap&lt;Integer, ViaZone> zones = new HashMap&lt;>();"
+        errorLine2="                                                              ~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/viatick/Desktop/Project/bms-cordova-sdk-sample/platforms/android/bms-android-sdk/src/main/java/com/viatick/bmsandroidsdk/controller/BmsApiCtrl.java"
+            line="160"
+            column="63"/>
+    </issue>
+
+    <issue
+        id="UselessParent"
+        severity="Warning"
+        message="This `FrameLayout` layout or its `LinearLayout` parent is possibly useless"
+        category="Performance"
+        priority="2"
+        summary="Useless parent layout"
+        explanation="A layout with children that has no siblings, is not a scrollview or a root layout, and does not have a background, can be removed and have its children moved directly into the parent for a flatter and more efficient layout hierarchy."
+        errorLine1="    &lt;FrameLayout"
+        errorLine2="     ~~~~~~~~~~~">
+        <location
+            file="/Users/viatick/Desktop/Project/bms-cordova-sdk-sample/platforms/android/bms-android-sdk/src/main/res/layout/minisite_menu_each.xml"
+            line="5"
+            column="6"/>
+    </issue>
+
+    <issue
+        id="UnusedNamespace"
+        severity="Warning"
+        message="Unused namespace declaration xmlns:android; already declared on the root element"
+        category="Performance"
+        priority="1"
+        summary="Unused namespace"
+        explanation="Unused namespace declarations take up space and require processing that is not necessary"
+        errorLine1="    &lt;WebView xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;"
+        errorLine2="             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/viatick/Desktop/Project/bms-cordova-sdk-sample/platforms/android/bms-android-sdk/src/main/res/layout/minisite_web_view.xml"
+            line="16"
+            column="14"/>
+    </issue>
+
+    <issue
+        id="IconDipSize"
+        severity="Warning"
+        message="The image `ic_backspace.png` varies significantly in its density-independent (dip) size across the various density versions: drawable-mdpi/ic_backspace.png: 48x48 dp (48x48 px), drawable-xhdpi/ic_backspace.png: 24x24 dp (48x48 px), drawable-xxhdpi/ic_backspace.png: 16x16 dp (48x48 px)"
+        category="Usability:Icons"
+        priority="5"
+        summary="Icon density-independent size validation"
+        explanation="Checks the all icons which are provided in multiple densities, all compute to roughly the same density-independent pixel (`dip`) size. This catches errors where images are either placed in the wrong folder, or icons are changed to new sizes but some folders are forgotten.">
+        <location
+            file="/Users/viatick/Desktop/Project/bms-cordova-sdk-sample/platforms/android/bms-android-sdk/src/main/res/drawable-xxhdpi/ic_backspace.png"/>
+        <location
+            file="/Users/viatick/Desktop/Project/bms-cordova-sdk-sample/platforms/android/bms-android-sdk/src/main/res/drawable-xhdpi/ic_backspace.png"/>
+        <location
+            file="/Users/viatick/Desktop/Project/bms-cordova-sdk-sample/platforms/android/bms-android-sdk/src/main/res/drawable-mdpi/ic_backspace.png"/>
+    </issue>
+
+    <issue
+        id="IconDipSize"
+        severity="Warning"
+        message="The image `ic_file_download.png` varies significantly in its density-independent (dip) size across the various density versions: drawable-mdpi/ic_file_download.png: 48x48 dp (48x48 px), drawable-xhdpi/ic_file_download.png: 24x24 dp (48x48 px), drawable-xxhdpi/ic_file_download.png: 16x16 dp (48x48 px)"
+        category="Usability:Icons"
+        priority="5"
+        summary="Icon density-independent size validation"
+        explanation="Checks the all icons which are provided in multiple densities, all compute to roughly the same density-independent pixel (`dip`) size. This catches errors where images are either placed in the wrong folder, or icons are changed to new sizes but some folders are forgotten.">
+        <location
+            file="/Users/viatick/Desktop/Project/bms-cordova-sdk-sample/platforms/android/bms-android-sdk/src/main/res/drawable-xxhdpi/ic_file_download.png"/>
+        <location
+            file="/Users/viatick/Desktop/Project/bms-cordova-sdk-sample/platforms/android/bms-android-sdk/src/main/res/drawable-xhdpi/ic_file_download.png"/>
+        <location
+            file="/Users/viatick/Desktop/Project/bms-cordova-sdk-sample/platforms/android/bms-android-sdk/src/main/res/drawable-mdpi/ic_file_download.png"/>
+    </issue>
+
+    <issue
+        id="IconDipSize"
+        severity="Warning"
+        message="The image `ic_share.png` varies significantly in its density-independent (dip) size across the various density versions: drawable-mdpi/ic_share.png: 48x48 dp (48x48 px), drawable-xhdpi/ic_share.png: 24x24 dp (48x48 px), drawable-xxhdpi/ic_share.png: 16x16 dp (48x48 px)"
+        category="Usability:Icons"
+        priority="5"
+        summary="Icon density-independent size validation"
+        explanation="Checks the all icons which are provided in multiple densities, all compute to roughly the same density-independent pixel (`dip`) size. This catches errors where images are either placed in the wrong folder, or icons are changed to new sizes but some folders are forgotten.">
+        <location
+            file="/Users/viatick/Desktop/Project/bms-cordova-sdk-sample/platforms/android/bms-android-sdk/src/main/res/drawable-xxhdpi/ic_share.png"/>
+        <location
+            file="/Users/viatick/Desktop/Project/bms-cordova-sdk-sample/platforms/android/bms-android-sdk/src/main/res/drawable-xhdpi/ic_share.png"/>
+        <location
+            file="/Users/viatick/Desktop/Project/bms-cordova-sdk-sample/platforms/android/bms-android-sdk/src/main/res/drawable-mdpi/ic_share.png"/>
+    </issue>
+
+    <issue
+        id="IconDuplicatesConfig"
+        severity="Warning"
+        message="The `ic_backspace.png` icon has identical contents in the following configuration folders: drawable-mdpi, drawable-xhdpi, drawable-xxhdpi"
+        category="Usability:Icons"
+        priority="5"
+        summary="Identical bitmaps across various configurations"
+        explanation="If an icon is provided under different configuration parameters such as `drawable-hdpi` or `-v11`, they should typically be different. This detector catches cases where the same icon is provided in different configuration folder which is usually not intentional.">
+        <location
+            file="/Users/viatick/Desktop/Project/bms-cordova-sdk-sample/platforms/android/bms-android-sdk/src/main/res/drawable-xxhdpi/ic_backspace.png"/>
+        <location
+            file="/Users/viatick/Desktop/Project/bms-cordova-sdk-sample/platforms/android/bms-android-sdk/src/main/res/drawable-xhdpi/ic_backspace.png"/>
+        <location
+            file="/Users/viatick/Desktop/Project/bms-cordova-sdk-sample/platforms/android/bms-android-sdk/src/main/res/drawable-mdpi/ic_backspace.png"/>
+    </issue>
+
+    <issue
+        id="IconDuplicatesConfig"
+        severity="Warning"
+        message="The `ic_file_download.png` icon has identical contents in the following configuration folders: drawable-mdpi, drawable-xhdpi, drawable-xxhdpi"
+        category="Usability:Icons"
+        priority="5"
+        summary="Identical bitmaps across various configurations"
+        explanation="If an icon is provided under different configuration parameters such as `drawable-hdpi` or `-v11`, they should typically be different. This detector catches cases where the same icon is provided in different configuration folder which is usually not intentional.">
+        <location
+            file="/Users/viatick/Desktop/Project/bms-cordova-sdk-sample/platforms/android/bms-android-sdk/src/main/res/drawable-xxhdpi/ic_file_download.png"/>
+        <location
+            file="/Users/viatick/Desktop/Project/bms-cordova-sdk-sample/platforms/android/bms-android-sdk/src/main/res/drawable-xhdpi/ic_file_download.png"/>
+        <location
+            file="/Users/viatick/Desktop/Project/bms-cordova-sdk-sample/platforms/android/bms-android-sdk/src/main/res/drawable-mdpi/ic_file_download.png"/>
+    </issue>
+
+    <issue
+        id="IconDuplicatesConfig"
+        severity="Warning"
+        message="The `ic_share.png` icon has identical contents in the following configuration folders: drawable-mdpi, drawable-xhdpi, drawable-xxhdpi"
+        category="Usability:Icons"
+        priority="5"
+        summary="Identical bitmaps across various configurations"
+        explanation="If an icon is provided under different configuration parameters such as `drawable-hdpi` or `-v11`, they should typically be different. This detector catches cases where the same icon is provided in different configuration folder which is usually not intentional.">
+        <location
+            file="/Users/viatick/Desktop/Project/bms-cordova-sdk-sample/platforms/android/bms-android-sdk/src/main/res/drawable-xxhdpi/ic_share.png"/>
+        <location
+            file="/Users/viatick/Desktop/Project/bms-cordova-sdk-sample/platforms/android/bms-android-sdk/src/main/res/drawable-xhdpi/ic_share.png"/>
+        <location
+            file="/Users/viatick/Desktop/Project/bms-cordova-sdk-sample/platforms/android/bms-android-sdk/src/main/res/drawable-mdpi/ic_share.png"/>
+    </issue>
+
+    <issue
+        id="IconMissingDensityFolder"
+        severity="Warning"
+        message="Missing density variation folders in `src/main/res`: drawable-hdpi"
+        category="Usability:Icons"
+        priority="3"
+        summary="Missing density folder"
+        explanation="Icons will look best if a custom version is provided for each of the major screen density classes (low, medium, high, extra-high, extra-extra-high). This lint check identifies folders which are missing, such as `drawable-hdpi`.&#xA;&#xA;Low density is not really used much anymore, so this check ignores the ldpi density. To force lint to include it, set the environment variable `ANDROID_LINT_INCLUDE_LDPI=true`. For more information on current density usage, see http://developer.android.com/resources/dashboard/screens.html"
+        url="http://developer.android.com/guide/practices/screens_support.html"
+        urls="http://developer.android.com/guide/practices/screens_support.html">
+        <location
+            file="/Users/viatick/Desktop/Project/bms-cordova-sdk-sample/platforms/android/bms-android-sdk/src/main/res"/>
+    </issue>
+
+    <issue
+        id="ContentDescription"
+        severity="Warning"
+        message="Missing `contentDescription` attribute on image"
+        category="Accessibility"
+        priority="3"
+        summary="Image without `contentDescription`"
+        explanation="Non-textual widgets like ImageViews and ImageButtons should use the `contentDescription` attribute to specify a textual description of the widget such that screen readers and other accessibility tools can adequately describe the user interface.&#xA;&#xA;Note that elements in application screens that are purely decorative and do not provide any content or enable a user action should not have accessibility content descriptions. In this case, just suppress the lint warning with a tools:ignore=&quot;ContentDescription&quot; attribute.&#xA;&#xA;Note that for text fields, you should not set both the `hint` and the `contentDescription` attributes since the hint will never be shown. Just set the `hint`. See http://developer.android.com/guide/topics/ui/accessibility/checklist.html#special-cases."
+        errorLine1="        &lt;ImageView android:id=&quot;@+id/cover&quot;"
+        errorLine2="         ~~~~~~~~~">
+        <location
+            file="/Users/viatick/Desktop/Project/bms-cordova-sdk-sample/platforms/android/bms-android-sdk/src/main/res/layout/minisite_menu_each.xml"
+            line="9"
+            column="10"/>
+    </issue>
+
+    <issue
+        id="RtlHardcoded"
+        severity="Warning"
+        message="Consider replacing `android:layout_marginRight` with `android:layout_marginEnd=&quot;10dp&quot;` to better support right-to-left layouts"
+        category="Internationalization:Bidirectional Text"
+        priority="5"
+        summary="Using left/right instead of start/end attributes"
+        explanation="Using `Gravity#LEFT` and `Gravity#RIGHT` can lead to problems when a layout is rendered in locales where text flows from right to left. Use `Gravity#START` and `Gravity#END` instead. Similarly, in XML `gravity` and `layout_gravity` attributes, use `start` rather than `left`.&#xA;&#xA;For XML attributes such as paddingLeft and `layout_marginLeft`, use `paddingStart` and `layout_marginStart`. **NOTE**: If your `minSdkVersion` is less than 17, you should add **both** the older left/right attributes **as well as** the new start/right attributes. On older platforms, where RTL is not supported and the start/right attributes are unknown and therefore ignored, you need the older left/right attributes. There is a separate lint check which catches that type of error.&#xA;&#xA;(Note: For `Gravity#LEFT` and `Gravity#START`, you can use these constants even when targeting older platforms, because the `start` bitmask is a superset of the `left` bitmask. Therefore, you can use `gravity=&quot;start&quot;` rather than `gravity=&quot;left|start&quot;`.)"
+        errorLine1="        android:layout_marginRight=&quot;10dp&quot;"
+        errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/viatick/Desktop/Project/bms-cordova-sdk-sample/platforms/android/bms-android-sdk/src/main/res/layout/activity_minisite_menu.xml"
+            line="20"
+            column="9"/>
+    </issue>
+
+    <issue
+        id="RtlHardcoded"
+        severity="Warning"
+        message="Consider replacing `android:layout_alignParentRight` with `android:layout_alignParentEnd=&quot;true&quot;` to better support right-to-left layouts"
+        category="Internationalization:Bidirectional Text"
+        priority="5"
+        summary="Using left/right instead of start/end attributes"
+        explanation="Using `Gravity#LEFT` and `Gravity#RIGHT` can lead to problems when a layout is rendered in locales where text flows from right to left. Use `Gravity#START` and `Gravity#END` instead. Similarly, in XML `gravity` and `layout_gravity` attributes, use `start` rather than `left`.&#xA;&#xA;For XML attributes such as paddingLeft and `layout_marginLeft`, use `paddingStart` and `layout_marginStart`. **NOTE**: If your `minSdkVersion` is less than 17, you should add **both** the older left/right attributes **as well as** the new start/right attributes. On older platforms, where RTL is not supported and the start/right attributes are unknown and therefore ignored, you need the older left/right attributes. There is a separate lint check which catches that type of error.&#xA;&#xA;(Note: For `Gravity#LEFT` and `Gravity#START`, you can use these constants even when targeting older platforms, because the `start` bitmask is a superset of the `left` bitmask. Therefore, you can use `gravity=&quot;start&quot;` rather than `gravity=&quot;left|start&quot;`.)"
+        errorLine1="        android:layout_alignParentRight=&quot;true&quot;"
+        errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/viatick/Desktop/Project/bms-cordova-sdk-sample/platforms/android/bms-android-sdk/src/main/res/layout/activity_minisite_menu.xml"
+            line="22"
+            column="9"/>
+    </issue>
+
+    <issue
+        id="RtlHardcoded"
+        severity="Warning"
+        message="Consider replacing `android:layout_alignParentRight` with `android:layout_alignParentEnd=&quot;true&quot;` to better support right-to-left layouts"
+        category="Internationalization:Bidirectional Text"
+        priority="5"
+        summary="Using left/right instead of start/end attributes"
+        explanation="Using `Gravity#LEFT` and `Gravity#RIGHT` can lead to problems when a layout is rendered in locales where text flows from right to left. Use `Gravity#START` and `Gravity#END` instead. Similarly, in XML `gravity` and `layout_gravity` attributes, use `start` rather than `left`.&#xA;&#xA;For XML attributes such as paddingLeft and `layout_marginLeft`, use `paddingStart` and `layout_marginStart`. **NOTE**: If your `minSdkVersion` is less than 17, you should add **both** the older left/right attributes **as well as** the new start/right attributes. On older platforms, where RTL is not supported and the start/right attributes are unknown and therefore ignored, you need the older left/right attributes. There is a separate lint check which catches that type of error.&#xA;&#xA;(Note: For `Gravity#LEFT` and `Gravity#START`, you can use these constants even when targeting older platforms, because the `start` bitmask is a superset of the `left` bitmask. Therefore, you can use `gravity=&quot;start&quot;` rather than `gravity=&quot;left|start&quot;`.)"
+        errorLine1="        android:layout_alignParentRight=&quot;true&quot;"
+        errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/viatick/Desktop/Project/bms-cordova-sdk-sample/platforms/android/bms-android-sdk/src/main/res/layout/minisite_web_view.xml"
+            line="23"
+            column="9"/>
+    </issue>
+
+    <issue
+        id="RtlHardcoded"
+        severity="Warning"
+        message="Consider replacing `android:layout_marginRight` with `android:layout_marginEnd=&quot;10dp&quot;` to better support right-to-left layouts"
+        category="Internationalization:Bidirectional Text"
+        priority="5"
+        summary="Using left/right instead of start/end attributes"
+        explanation="Using `Gravity#LEFT` and `Gravity#RIGHT` can lead to problems when a layout is rendered in locales where text flows from right to left. Use `Gravity#START` and `Gravity#END` instead. Similarly, in XML `gravity` and `layout_gravity` attributes, use `start` rather than `left`.&#xA;&#xA;For XML attributes such as paddingLeft and `layout_marginLeft`, use `paddingStart` and `layout_marginStart`. **NOTE**: If your `minSdkVersion` is less than 17, you should add **both** the older left/right attributes **as well as** the new start/right attributes. On older platforms, where RTL is not supported and the start/right attributes are unknown and therefore ignored, you need the older left/right attributes. There is a separate lint check which catches that type of error.&#xA;&#xA;(Note: For `Gravity#LEFT` and `Gravity#START`, you can use these constants even when targeting older platforms, because the `start` bitmask is a superset of the `left` bitmask. Therefore, you can use `gravity=&quot;start&quot;` rather than `gravity=&quot;left|start&quot;`.)"
+        errorLine1="        android:layout_marginRight=&quot;10dp&quot;>"
+        errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/viatick/Desktop/Project/bms-cordova-sdk-sample/platforms/android/bms-android-sdk/src/main/res/layout/minisite_web_view.xml"
+            line="27"
+            column="9"/>
+    </issue>
+
+    <issue
+        id="RtlHardcoded"
+        severity="Warning"
+        message="Consider replacing `android:layout_marginRight` with `android:layout_marginEnd=&quot;10dp&quot;` to better support right-to-left layouts"
+        category="Internationalization:Bidirectional Text"
+        priority="5"
+        summary="Using left/right instead of start/end attributes"
+        explanation="Using `Gravity#LEFT` and `Gravity#RIGHT` can lead to problems when a layout is rendered in locales where text flows from right to left. Use `Gravity#START` and `Gravity#END` instead. Similarly, in XML `gravity` and `layout_gravity` attributes, use `start` rather than `left`.&#xA;&#xA;For XML attributes such as paddingLeft and `layout_marginLeft`, use `paddingStart` and `layout_marginStart`. **NOTE**: If your `minSdkVersion` is less than 17, you should add **both** the older left/right attributes **as well as** the new start/right attributes. On older platforms, where RTL is not supported and the start/right attributes are unknown and therefore ignored, you need the older left/right attributes. There is a separate lint check which catches that type of error.&#xA;&#xA;(Note: For `Gravity#LEFT` and `Gravity#START`, you can use these constants even when targeting older platforms, because the `start` bitmask is a superset of the `left` bitmask. Therefore, you can use `gravity=&quot;start&quot;` rather than `gravity=&quot;left|start&quot;`.)"
+        errorLine1="            android:layout_marginRight=&quot;10dp&quot;/>"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/viatick/Desktop/Project/bms-cordova-sdk-sample/platforms/android/bms-android-sdk/src/main/res/layout/minisite_web_view.xml"
+            line="38"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="RtlHardcoded"
+        severity="Warning"
+        message="Consider replacing `android:layout_alignParentRight` with `android:layout_alignParentEnd=&quot;true&quot;` to better support right-to-left layouts"
+        category="Internationalization:Bidirectional Text"
+        priority="5"
+        summary="Using left/right instead of start/end attributes"
+        explanation="Using `Gravity#LEFT` and `Gravity#RIGHT` can lead to problems when a layout is rendered in locales where text flows from right to left. Use `Gravity#START` and `Gravity#END` instead. Similarly, in XML `gravity` and `layout_gravity` attributes, use `start` rather than `left`.&#xA;&#xA;For XML attributes such as paddingLeft and `layout_marginLeft`, use `paddingStart` and `layout_marginStart`. **NOTE**: If your `minSdkVersion` is less than 17, you should add **both** the older left/right attributes **as well as** the new start/right attributes. On older platforms, where RTL is not supported and the start/right attributes are unknown and therefore ignored, you need the older left/right attributes. There is a separate lint check which catches that type of error.&#xA;&#xA;(Note: For `Gravity#LEFT` and `Gravity#START`, you can use these constants even when targeting older platforms, because the `start` bitmask is a superset of the `left` bitmask. Therefore, you can use `gravity=&quot;start&quot;` rather than `gravity=&quot;left|start&quot;`.)"
+        errorLine1="            android:layout_alignParentRight=&quot;true&quot;"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/viatick/Desktop/Project/bms-cordova-sdk-sample/platforms/android/bms-android-sdk/src/main/res/layout/minisite_web_view.xml"
+            line="46"
+            column="13"/>
+    </issue>
+
+</issues>

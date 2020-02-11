@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "/Users/viatick/Desktop/Project/bms-cordova-sdk-sample/platforms/android/bms-android-sdk/build/intermediates/res/merged/release/layout-watch-v20/abc_alert_dialog_title_material.xml",
+        "source": "/Users/viatick/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/ceb61e326ec71f0be0a3e8232a3b3909/res/layout-watch-v20/abc_alert_dialog_title_material.xml"
+    },
+    {
+        "merged": "/Users/viatick/Desktop/Project/bms-cordova-sdk-sample/platforms/android/bms-android-sdk/build/intermediates/res/merged/release/layout-watch-v20/abc_alert_dialog_button_bar_material.xml",
+        "source": "/Users/viatick/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/ceb61e326ec71f0be0a3e8232a3b3909/res/layout-watch-v20/abc_alert_dialog_button_bar_material.xml"
+    }
+]
