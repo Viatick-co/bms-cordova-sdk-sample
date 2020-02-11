@@ -40,6 +40,7 @@ public class BmsCordovaSdkPublic extends CordovaPlugin implements ViaBmsCtrl.Via
   CallbackContext checkinCallback;
   CallbackContext checkoutCallback;
   CallbackContext onDistanceBeaconsCallback;
+  CallbackContext openDeviceSiteCallback;
   List<ViaZone> zones = new ArrayList<>();
   boolean isReady = false;
 
@@ -153,7 +154,13 @@ public class BmsCordovaSdkPublic extends CordovaPlugin implements ViaBmsCtrl.Via
       } else if (action.equals("onDistanceBeacons")) {
           onDistanceBeaconsCallback = callbackContext;
           return true;
+      } else if (action.equals("openDeviceSite")) {
+          openDeviceSiteCallback = callbackContext;
+          ViaBmsCtrl.openDeviceSite(args.getString(0));
+
+          return true;
       }
+
       return false;
   };
 
@@ -228,5 +235,21 @@ public class BmsCordovaSdkPublic extends CordovaPlugin implements ViaBmsCtrl.Via
       e.printStackTrace();
       // Do nothing
     }
+  }
+
+  @Override
+  public void deviceSiteLoaded(boolean loaded, String error) {
+      Log.d(TAG, "Device site loaded Callback");
+      if (openDeviceSiteCallback != null) {
+          if (loaded) {
+              PluginResult pluginResult = new PluginResult(PluginResult.Status.OK, "");
+              pluginResult.setKeepCallback(true); // keep callback
+              openDeviceSiteCallback.sendPluginResult(pluginResult);
+          } else {
+              PluginResult pluginResult = new PluginResult(PluginResult.Status.ERROR, error);
+              pluginResult.setKeepCallback(true); // keep callback
+              openDeviceSiteCallback.sendPluginResult(pluginResult);
+          }
+      }
   }
 }
