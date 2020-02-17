@@ -53,27 +53,11 @@
         priority="8"
         summary="Incompatible Gradle Versions"
         explanation="There are some combinations of libraries, or tools and libraries, that are incompatible, or can lead to bugs. One such incompatibility is compiling with a version of the Android support libraries that is not the latest version (or in particular, a version lower than your `targetSdkVersion`)."
-        errorLine1="    implementation &apos;com.android.support:appcompat-v7:27.1.1&apos;"
-        errorLine2="    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
-        <location
-            file="/Users/viatick/Desktop/Project/bms-cordova-sdk-sample/platforms/android/bms-android-sdk/build.gradle"
-            line="31"
-            column="5"/>
-    </issue>
-
-    <issue
-        id="GradleCompatible"
-        severity="Fatal"
-        message="This support library should not use a different version (27) than the `compileSdkVersion` (29)"
-        category="Correctness"
-        priority="8"
-        summary="Incompatible Gradle Versions"
-        explanation="There are some combinations of libraries, or tools and libraries, that are incompatible, or can lead to bugs. One such incompatibility is compiling with a version of the Android support libraries that is not the latest version (or in particular, a version lower than your `targetSdkVersion`)."
         errorLine1="    implementation &quot;com.android.support:design:27.1.1&quot;"
         errorLine2="    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="/Users/viatick/Desktop/Project/bms-cordova-sdk-sample/platforms/android/bms-android-sdk/build.gradle"
-            line="36"
+            line="37"
             column="5"/>
     </issue>
 
@@ -251,7 +235,7 @@
         errorLine2="                          ~~~~~~~~~~~">
         <location
             file="/Users/viatick/Desktop/Project/bms-cordova-sdk-sample/platforms/android/bms-android-sdk/src/main/java/com/viatick/bmsandroidsdk/controller/ViaBmsCtrl.java"
-            line="446"
+            line="447"
             column="27"/>
     </issue>
 
@@ -269,7 +253,7 @@
         errorLine2="                      ~~~~~~~~~~~">
         <location
             file="/Users/viatick/Desktop/Project/bms-cordova-sdk-sample/platforms/android/bms-android-sdk/src/main/java/com/viatick/bmsandroidsdk/controller/ViaBmsCtrl.java"
-            line="633"
+            line="634"
             column="23"/>
     </issue>
 
@@ -287,7 +271,7 @@
         errorLine2="                      ~~~~~~~~~~~">
         <location
             file="/Users/viatick/Desktop/Project/bms-cordova-sdk-sample/platforms/android/bms-android-sdk/src/main/java/com/viatick/bmsandroidsdk/controller/ViaBmsCtrl.java"
-            line="1010"
+            line="1043"
             column="23"/>
     </issue>
 
@@ -305,7 +289,7 @@
         errorLine2="                    ~~~~~~~~~~~">
         <location
             file="/Users/viatick/Desktop/Project/bms-cordova-sdk-sample/platforms/android/bms-android-sdk/src/main/java/com/viatick/bmsandroidsdk/controller/ViaBmsCtrl.java"
-            line="1083"
+            line="1116"
             column="21"/>
     </issue>
 
@@ -390,6 +374,22 @@
     </issue>
 
     <issue
+        id="NewApi"
+        severity="Error"
+        message="Field requires API level 29 (current min is 21): `android.app.TaskInfo#topActivity`"
+        category="Correctness"
+        priority="6"
+        summary="Calling new methods on older versions"
+        explanation="This check scans through all the Android API calls in the application and warns about any calls that are not available on **all** versions targeted by this application (according to its minimum SDK attribute in the manifest).&#xA;&#xA;If you really want to use this API and don&apos;t need to support older devices just set the `minSdkVersion` in your `build.gradle` or `AndroidManifest.xml` files.&#xA;&#xA;If your code is **deliberately** accessing newer APIs, and you have ensured (e.g. with conditional execution) that this code will only ever be called on a supported platform, then you can annotate your class or method with the `@TargetApi` annotation specifying the local minimum SDK to apply, such as `@TargetApi(11)`, such that this check considers 11 rather than your manifest file&apos;s minimum SDK as the required API level.&#xA;&#xA;If you are deliberately setting `android:` attributes in style definitions, make sure you place this in a `values-v`*NN* folder in order to avoid running into runtime conflicts on certain devices where manufacturers have added custom attributes whose ids conflict with the new ones on later platforms.&#xA;&#xA;Similarly, you can use tools:targetApi=&quot;11&quot; in an XML file to indicate that the element will only be inflated in an adequate context."
+        errorLine1="            ComponentName componentInfo = taskInfo.get(0).topActivity;"
+        errorLine2="                                          ~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/viatick/Desktop/Project/bms-cordova-sdk-sample/platforms/android/bms-android-sdk/src/main/java/com/viatick/bmsandroidsdk/helper/ViaBeaconHelper.java"
+            line="74"
+            column="43"/>
+    </issue>
+
+    <issue
         id="ManifestOrder"
         severity="Warning"
         message="`&lt;uses-permission>` tag appears after `&lt;application>` tag"
@@ -401,8 +401,24 @@
         errorLine2="   ~~~~~~~~~~~~~~~">
         <location
             file="/Users/viatick/Desktop/Project/bms-cordova-sdk-sample/platforms/android/bms-android-sdk/src/main/AndroidManifest.xml"
-            line="49"
+            line="50"
             column="4"/>
+    </issue>
+
+    <issue
+        id="GradleDependency"
+        severity="Warning"
+        message="A newer version of androidx.appcompat:appcompat than 1.0.0 is available: 1.1.0"
+        category="Correctness"
+        priority="4"
+        summary="Obsolete Gradle Dependency"
+        explanation="This detector looks for usages of libraries where the version you are using is not the current stable release. Using older versions is fine, and there are cases where you deliberately want to stick with an older version. However, you may simply not be aware that a more recent version is available, and that is what this lint check helps find."
+        errorLine1="    implementation &apos;androidx.appcompat:appcompat:1.0.0&apos;"
+        errorLine2="    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/viatick/Desktop/Project/bms-cordova-sdk-sample/platforms/android/bms-android-sdk/build.gradle"
+            line="31"
+            column="5"/>
     </issue>
 
     <issue
@@ -417,7 +433,7 @@
         errorLine2="    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="/Users/viatick/Desktop/Project/bms-cordova-sdk-sample/platforms/android/bms-android-sdk/build.gradle"
-            line="37"
+            line="38"
             column="5"/>
     </issue>
 
@@ -433,7 +449,7 @@
         errorLine2="    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="/Users/viatick/Desktop/Project/bms-cordova-sdk-sample/platforms/android/bms-android-sdk/build.gradle"
-            line="38"
+            line="39"
             column="5"/>
     </issue>
 
@@ -449,7 +465,7 @@
         errorLine2="    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="/Users/viatick/Desktop/Project/bms-cordova-sdk-sample/platforms/android/bms-android-sdk/build.gradle"
-            line="37"
+            line="38"
             column="5"/>
     </issue>
 
@@ -465,7 +481,7 @@
         errorLine2="    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="/Users/viatick/Desktop/Project/bms-cordova-sdk-sample/platforms/android/bms-android-sdk/build.gradle"
-            line="38"
+            line="39"
             column="5"/>
     </issue>
 
@@ -703,7 +719,7 @@
         errorLine2="          ~~~~~~">
         <location
             file="/Users/viatick/Desktop/Project/bms-cordova-sdk-sample/platforms/android/bms-android-sdk/src/main/java/com/viatick/bmsandroidsdk/controller/ViaBmsCtrl.java"
-            line="110"
+            line="111"
             column="11"/>
     </issue>
 
@@ -719,7 +735,7 @@
         errorLine2="    ~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="/Users/viatick/Desktop/Project/bms-cordova-sdk-sample/platforms/android/bms-android-sdk/src/main/java/com/viatick/bmsandroidsdk/controller/ViaBmsCtrl.java"
-            line="1177"
+            line="1210"
             column="5"/>
     </issue>
 
@@ -747,12 +763,12 @@
         priority="4"
         summary="HashMap can be replaced with SparseArray"
         explanation="For maps where the keys are of type integer, it&apos;s typically more efficient to use the Android `SparseArray` API. This check identifies scenarios where you might want to consider using `SparseArray` instead of `HashMap` for better performance.&#xA;&#xA;This is **particularly** useful when the value types are primitives like ints, where you can use `SparseIntArray` and avoid auto-boxing the values from `int` to `Integer`.&#xA;&#xA;If you need to construct a `HashMap` because you need to call an API outside of your control which requires a `Map`, you can suppress this warning using for example the `@SuppressLint` annotation."
-        errorLine1="                            HashMap&lt;Integer, ViaZone> zones = new HashMap&lt;>();"
-        errorLine2="                                                              ~~~~~~~~~~~~~~~">
+        errorLine1="                HashMap&lt;Integer, ViaZone> zones = new HashMap&lt;>();"
+        errorLine2="                                                  ~~~~~~~~~~~~~~~">
         <location
             file="/Users/viatick/Desktop/Project/bms-cordova-sdk-sample/platforms/android/bms-android-sdk/src/main/java/com/viatick/bmsandroidsdk/controller/BmsApiCtrl.java"
-            line="160"
-            column="63"/>
+            line="153"
+            column="51"/>
     </issue>
 
     <issue

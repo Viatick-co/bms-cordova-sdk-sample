@@ -4,7 +4,17 @@
             "outputFile": "/Users/viatick/Desktop/Project/bms-cordova-sdk-sample/platforms/android/bms-android-sdk/build/intermediates/res/merged/release/values-v24/values-v24.xml",
             "map": [
                 {
-                    "source": "/Users/viatick/.gradle/caches/transforms-1/files-1.1/support-media-compat-27.1.1.aar/5e6896cd55098ab2c86901c10d27ef36/res/values-v24/values-v24.xml",
+                    "source": "/Users/viatick/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.0.aar/4388d0e541870a0cf62639b850388f0e/res/values-v24/values-v24.xml",
+                    "from": {
+                        "startLines": "2,3",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,212",
+                        "endColumns": "156,134",
+                        "endOffsets": "207,342"
+                    }
+                },
+                {
+                    "source": "/Users/viatick/.gradle/caches/transforms-1/files-1.1/media-1.0.0.aar/b9a8c1fcfcc37692fe6b09fdb8bc2705/res/values-v24/values-v24.xml",
                     "from": {
                         "startLines": "2,3,4,5",
                         "startColumns": "4,4,4,4",
@@ -18,16 +28,6 @@
                         "startOffsets": "347,413,474,540",
                         "endColumns": "65,60,65,66",
                         "endOffsets": "408,469,535,602"
-                    }
-                },
-                {
-                    "source": "/Users/viatick/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/ceb61e326ec71f0be0a3e8232a3b3909/res/values-v24/values-v24.xml",
-                    "from": {
-                        "startLines": "2,3",
-                        "startColumns": "4,4",
-                        "startOffsets": "55,212",
-                        "endColumns": "156,134",
-                        "endOffsets": "207,342"
                     }
                 }
             ]
@@ -36,7 +36,17 @@
             "outputFile": "/Users/viatick/Desktop/Project/bms-cordova-sdk-sample/platforms/android/bms-android-sdk/build/intermediates/incremental/mergeReleaseResources/merged.dir/values-v24/values-v24.xml",
             "map": [
                 {
-                    "source": "/Users/viatick/.gradle/caches/transforms-1/files-1.1/support-media-compat-27.1.1.aar/5e6896cd55098ab2c86901c10d27ef36/res/values-v24/values-v24.xml",
+                    "source": "/Users/viatick/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.0.aar/4388d0e541870a0cf62639b850388f0e/res/values-v24/values-v24.xml",
+                    "from": {
+                        "startLines": "2,3",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,212",
+                        "endColumns": "156,134",
+                        "endOffsets": "207,342"
+                    }
+                },
+                {
+                    "source": "/Users/viatick/.gradle/caches/transforms-1/files-1.1/media-1.0.0.aar/b9a8c1fcfcc37692fe6b09fdb8bc2705/res/values-v24/values-v24.xml",
                     "from": {
                         "startLines": "2,3,4,5",
                         "startColumns": "4,4,4,4",
@@ -50,16 +60,6 @@
                         "startOffsets": "347,413,474,540",
                         "endColumns": "65,60,65,66",
                         "endOffsets": "408,469,535,602"
-                    }
-                },
-                {
-                    "source": "/Users/viatick/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/ceb61e326ec71f0be0a3e8232a3b3909/res/values-v24/values-v24.xml",
-                    "from": {
-                        "startLines": "2,3",
-                        "startColumns": "4,4",
-                        "startOffsets": "55,212",
-                        "endColumns": "156,134",
-                        "endOffsets": "207,342"
                     }
                 }
             ]

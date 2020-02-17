@@ -60,5 +60,7 @@
 	<string>${EXECUTABLE_NAME} Would Like to Use Your Current Location</string>
 	<key>UIBackgroundModes</key>
 	<string>${EXECUTABLE_NAME} Would Like to Use Background Mode</string>
+	<key>NFCReaderUsageDescription</key>
+	<string>Read NFC Tags</string>
 </dict>
 </plist>

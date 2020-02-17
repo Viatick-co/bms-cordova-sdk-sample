@@ -1,11 +1,19 @@
 [
     {
         "merged": "/Users/viatick/Desktop/Project/bms-cordova-sdk-sample/platforms/android/bms-android-sdk/build/intermediates/res/merged/release/drawable-v21/notification_action_background.xml",
-        "source": "/Users/viatick/.gradle/caches/transforms-1/files-1.1/support-compat-27.1.1.aar/0fe3716b30d7de3be0914cbd05074049/res/drawable-v21/notification_action_background.xml"
+        "source": "/Users/viatick/.gradle/caches/transforms-1/files-1.1/core-1.0.0.aar/ee4af61d1793b824339f8d42efcbf178/res/drawable-v21/notification_action_background.xml"
+    },
+    {
+        "merged": "/Users/viatick/Desktop/Project/bms-cordova-sdk-sample/platforms/android/bms-android-sdk/build/intermediates/res/merged/release/drawable-v21/abc_dialog_material_background.xml",
+        "source": "/Users/viatick/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.0.aar/4388d0e541870a0cf62639b850388f0e/res/drawable-v21/abc_dialog_material_background.xml"
     },
     {
         "merged": "/Users/viatick/Desktop/Project/bms-cordova-sdk-sample/platforms/android/bms-android-sdk/build/intermediates/res/merged/release/drawable-v21/design_password_eye.xml",
         "source": "/Users/viatick/.gradle/caches/transforms-1/files-1.1/design-27.1.1.aar/baa014976593fc3badd086b16dda711e/res/drawable-v21/design_password_eye.xml"
+    },
+    {
+        "merged": "/Users/viatick/Desktop/Project/bms-cordova-sdk-sample/platforms/android/bms-android-sdk/build/intermediates/res/merged/release/drawable-v21/abc_list_divider_material.xml",
+        "source": "/Users/viatick/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.0.aar/4388d0e541870a0cf62639b850388f0e/res/drawable-v21/abc_list_divider_material.xml"
     },
     {
         "merged": "/Users/viatick/Desktop/Project/bms-cordova-sdk-sample/platforms/android/bms-android-sdk/build/intermediates/res/merged/release/drawable-v21/avd_show_password.xml",
@@ -17,15 +25,15 @@
     },
     {
         "merged": "/Users/viatick/Desktop/Project/bms-cordova-sdk-sample/platforms/android/bms-android-sdk/build/intermediates/res/merged/release/drawable-v21/abc_edit_text_material.xml",
-        "source": "/Users/viatick/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/ceb61e326ec71f0be0a3e8232a3b3909/res/drawable-v21/abc_edit_text_material.xml"
+        "source": "/Users/viatick/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.0.aar/4388d0e541870a0cf62639b850388f0e/res/drawable-v21/abc_edit_text_material.xml"
     },
     {
         "merged": "/Users/viatick/Desktop/Project/bms-cordova-sdk-sample/platforms/android/bms-android-sdk/build/intermediates/res/merged/release/drawable-v21/abc_action_bar_item_background_material.xml",
-        "source": "/Users/viatick/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/ceb61e326ec71f0be0a3e8232a3b3909/res/drawable-v21/abc_action_bar_item_background_material.xml"
+        "source": "/Users/viatick/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.0.aar/4388d0e541870a0cf62639b850388f0e/res/drawable-v21/abc_action_bar_item_background_material.xml"
     },
     {
         "merged": "/Users/viatick/Desktop/Project/bms-cordova-sdk-sample/platforms/android/bms-android-sdk/build/intermediates/res/merged/release/drawable-v21/abc_btn_colored_material.xml",
-        "source": "/Users/viatick/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/ceb61e326ec71f0be0a3e8232a3b3909/res/drawable-v21/abc_btn_colored_material.xml"
+        "source": "/Users/viatick/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.0.aar/4388d0e541870a0cf62639b850388f0e/res/drawable-v21/abc_btn_colored_material.xml"
     },
     {
         "merged": "/Users/viatick/Desktop/Project/bms-cordova-sdk-sample/platforms/android/bms-android-sdk/build/intermediates/res/merged/release/drawable-v21/avd_hide_password.xml",

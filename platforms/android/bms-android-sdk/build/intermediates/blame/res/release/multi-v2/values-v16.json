@@ -4,17 +4,7 @@
             "outputFile": "/Users/viatick/Desktop/Project/bms-cordova-sdk-sample/platforms/android/bms-android-sdk/build/intermediates/res/merged/release/values-v16/values-v16.xml",
             "map": [
                 {
-                    "source": "/Users/viatick/.gradle/caches/transforms-1/files-1.1/support-compat-27.1.1.aar/0fe3716b30d7de3be0914cbd05074049/res/values-v16/values-v16.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "65",
-                        "endOffsets": "116"
-                    }
-                },
-                {
-                    "source": "/Users/viatick/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/ceb61e326ec71f0be0a3e8232a3b3909/res/values-v16/values-v16.xml",
+                    "source": "/Users/viatick/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.0.aar/4388d0e541870a0cf62639b850388f0e/res/values-v16/values-v16.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -30,6 +20,16 @@
                         "endLines": "6",
                         "endColumns": "12",
                         "endOffsets": "289"
+                    }
+                },
+                {
+                    "source": "/Users/viatick/.gradle/caches/transforms-1/files-1.1/core-1.0.0.aar/ee4af61d1793b824339f8d42efcbf178/res/values-v16/values-v16.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "65",
+                        "endOffsets": "116"
                     }
                 }
             ]
@@ -38,17 +38,7 @@
             "outputFile": "/Users/viatick/Desktop/Project/bms-cordova-sdk-sample/platforms/android/bms-android-sdk/build/intermediates/incremental/mergeReleaseResources/merged.dir/values-v16/values-v16.xml",
             "map": [
                 {
-                    "source": "/Users/viatick/.gradle/caches/transforms-1/files-1.1/support-compat-27.1.1.aar/0fe3716b30d7de3be0914cbd05074049/res/values-v16/values-v16.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "65",
-                        "endOffsets": "116"
-                    }
-                },
-                {
-                    "source": "/Users/viatick/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/ceb61e326ec71f0be0a3e8232a3b3909/res/values-v16/values-v16.xml",
+                    "source": "/Users/viatick/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.0.aar/4388d0e541870a0cf62639b850388f0e/res/values-v16/values-v16.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -64,6 +54,16 @@
                         "endLines": "6",
                         "endColumns": "12",
                         "endOffsets": "289"
+                    }
+                },
+                {
+                    "source": "/Users/viatick/.gradle/caches/transforms-1/files-1.1/core-1.0.0.aar/ee4af61d1793b824339f8d42efcbf178/res/values-v16/values-v16.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "65",
+                        "endOffsets": "116"
                     }
                 }
             ]

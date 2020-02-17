@@ -1,18 +1,18 @@
 [
     {
         "merged": "/Users/viatick/Desktop/Project/bms-cordova-sdk-sample/platforms/android/bms-android-sdk/build/intermediates/res/merged/release/layout-v21/notification_action_tombstone.xml",
-        "source": "/Users/viatick/.gradle/caches/transforms-1/files-1.1/support-compat-27.1.1.aar/0fe3716b30d7de3be0914cbd05074049/res/layout-v21/notification_action_tombstone.xml"
+        "source": "/Users/viatick/.gradle/caches/transforms-1/files-1.1/core-1.0.0.aar/ee4af61d1793b824339f8d42efcbf178/res/layout-v21/notification_action_tombstone.xml"
     },
     {
         "merged": "/Users/viatick/Desktop/Project/bms-cordova-sdk-sample/platforms/android/bms-android-sdk/build/intermediates/res/merged/release/layout-v21/notification_template_icon_group.xml",
-        "source": "/Users/viatick/.gradle/caches/transforms-1/files-1.1/support-compat-27.1.1.aar/0fe3716b30d7de3be0914cbd05074049/res/layout-v21/notification_template_icon_group.xml"
+        "source": "/Users/viatick/.gradle/caches/transforms-1/files-1.1/core-1.0.0.aar/ee4af61d1793b824339f8d42efcbf178/res/layout-v21/notification_template_icon_group.xml"
     },
     {
         "merged": "/Users/viatick/Desktop/Project/bms-cordova-sdk-sample/platforms/android/bms-android-sdk/build/intermediates/res/merged/release/layout-v21/notification_template_custom_big.xml",
-        "source": "/Users/viatick/.gradle/caches/transforms-1/files-1.1/support-compat-27.1.1.aar/0fe3716b30d7de3be0914cbd05074049/res/layout-v21/notification_template_custom_big.xml"
+        "source": "/Users/viatick/.gradle/caches/transforms-1/files-1.1/core-1.0.0.aar/ee4af61d1793b824339f8d42efcbf178/res/layout-v21/notification_template_custom_big.xml"
     },
     {
         "merged": "/Users/viatick/Desktop/Project/bms-cordova-sdk-sample/platforms/android/bms-android-sdk/build/intermediates/res/merged/release/layout-v21/notification_action.xml",
-        "source": "/Users/viatick/.gradle/caches/transforms-1/files-1.1/support-compat-27.1.1.aar/0fe3716b30d7de3be0914cbd05074049/res/layout-v21/notification_action.xml"
+        "source": "/Users/viatick/.gradle/caches/transforms-1/files-1.1/core-1.0.0.aar/ee4af61d1793b824339f8d42efcbf178/res/layout-v21/notification_action.xml"
     }
 ]

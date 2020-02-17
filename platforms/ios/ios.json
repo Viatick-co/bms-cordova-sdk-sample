@@ -15,6 +15,10 @@
             {
               "xml": "<feature name=\"BackgroundLocationServices\"><param name=\"ios-package\" value=\"BackgroundLocationServices\" /></feature>",
               "count": 1
+            },
+            {
+              "xml": "<feature name=\"NfcPlugin\"><param name=\"ios-package\" value=\"NfcPlugin\" /></feature>",
+              "count": 1
             }
           ]
         }
@@ -56,6 +60,12 @@
               "xml": "<string>${EXECUTABLE_NAME} Would Like to Use Background Mode</string>",
               "count": 1
             }
+          ],
+          "NFCReaderUsageDescription": [
+            {
+              "xml": "<string>Read NFC Tags</string>",
+              "count": 1
+            }
           ]
         }
       },
@@ -78,6 +88,26 @@
             }
           ]
         }
+      },
+      "*-Debug.plist": {
+        "parents": {
+          "com.apple.developer.nfc.readersession.formats": [
+            {
+              "xml": "<array><string>NDEF</string><string>TAG</string></array>",
+              "count": 1
+            }
+          ]
+        }
+      },
+      "*-Release.plist": {
+        "parents": {
+          "com.apple.developer.nfc.readersession.formats": [
+            {
+              "xml": "<array><string>NDEF</string><string>TAG</string></array>",
+              "count": 1
+            }
+          ]
+        }
       }
     }
   },
@@ -90,6 +120,10 @@
     },
     "cordova-plugin-whitelist": {
       "PACKAGE_NAME": "$(PRODUCT_BUNDLE_IDENTIFIER)"
+    },
+    "phonegap-nfc": {
+      "NFC_USAGE_DESCRIPTION": "Read NFC Tags",
+      "PACKAGE_NAME": "$(PRODUCT_BUNDLE_IDENTIFIER)"
     }
   },
   "dependent_plugins": {},
@@ -101,11 +135,18 @@
       "clobbers": [
         "cordova.plugins.BmsCordovaSdkPublic"
       ]
+    },
+    {
+      "id": "phonegap-nfc.NFC",
+      "file": "plugins/phonegap-nfc/www/phonegap-nfc.js",
+      "pluginId": "phonegap-nfc",
+      "runs": true
     }
   ],
   "plugin_metadata": {
     "cordova-plugin-add-swift-support": "2.0.2",
     "com-viatick-cordova-plugins-bms-sdk-public": "0.1.2",
-    "cordova-plugin-whitelist": "1.3.4"
+    "cordova-plugin-whitelist": "1.3.4",
+    "phonegap-nfc": "1.0.4"
   }
 }

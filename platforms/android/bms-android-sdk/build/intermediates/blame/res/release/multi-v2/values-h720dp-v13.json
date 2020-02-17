@@ -4,7 +4,7 @@
             "outputFile": "/Users/viatick/Desktop/Project/bms-cordova-sdk-sample/platforms/android/bms-android-sdk/build/intermediates/res/merged/release/values-h720dp-v13/values-h720dp-v13.xml",
             "map": [
                 {
-                    "source": "/Users/viatick/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/ceb61e326ec71f0be0a3e8232a3b3909/res/values-h720dp-v13/values-h720dp-v13.xml",
+                    "source": "/Users/viatick/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.0.aar/4388d0e541870a0cf62639b850388f0e/res/values-h720dp-v13/values-h720dp-v13.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -19,7 +19,7 @@
             "outputFile": "/Users/viatick/Desktop/Project/bms-cordova-sdk-sample/platforms/android/bms-android-sdk/build/intermediates/incremental/mergeReleaseResources/merged.dir/values-h720dp-v13/values-h720dp-v13.xml",
             "map": [
                 {
-                    "source": "/Users/viatick/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/ceb61e326ec71f0be0a3e8232a3b3909/res/values-h720dp-v13/values-h720dp-v13.xml",
+                    "source": "/Users/viatick/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.0.aar/4388d0e541870a0cf62639b850388f0e/res/values-h720dp-v13/values-h720dp-v13.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

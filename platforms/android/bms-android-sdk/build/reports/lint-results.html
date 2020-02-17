@@ -173,10 +173,10 @@ document.getElementById(id).style.display = 'none';
 <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
   <header class="mdl-layout__header">
     <div class="mdl-layout__header-row">
-      <span class="mdl-layout-title">Lint Report: 9 errors and 52 warnings</span>
+      <span class="mdl-layout-title">Lint Report: 9 errors and 53 warnings</span>
       <div class="mdl-layout-spacer"></div>
       <nav class="mdl-navigation mdl-layout--large-screen-only">
-Check performed at Tue Feb 11 10:57:16 SGT 2020      </nav>
+Check performed at Mon Feb 17 18:09:58 SGT 2020      </nav>
     </div>
   </header>
   <div class="mdl-layout__drawer">
@@ -184,13 +184,13 @@ Check performed at Tue Feb 11 10:57:16 SGT 2020      </nav>
     <nav class="mdl-navigation">
       <a class="mdl-navigation__link" href="#overview"><i class="material-icons">dashboard</i>Overview</a>
       <a class="mdl-navigation__link" href="#OnClick"><i class="material-icons error-icon">error</i><code>onClick</code> method does not exist (2)</a>
-      <a class="mdl-navigation__link" href="#GradleCompatible"><i class="material-icons error-icon">error</i>Incompatible Gradle Versions (3)</a>
+      <a class="mdl-navigation__link" href="#GradleCompatible"><i class="material-icons error-icon">error</i>Incompatible Gradle Versions (2)</a>
       <a class="mdl-navigation__link" href="#NamespaceTypo"><i class="material-icons error-icon">error</i>Misspelled namespace declaration (1)</a>
       <a class="mdl-navigation__link" href="#DefaultLocale"><i class="material-icons warning-icon">warning</i>Implied default locale in case conversion (12)</a>
       <a class="mdl-navigation__link" href="#InlinedApi"><i class="material-icons warning-icon">warning</i>Using inlined constants on older versions (2)</a>
-      <a class="mdl-navigation__link" href="#NewApi"><i class="material-icons error-icon">error</i>Calling new methods on older versions (3)</a>
+      <a class="mdl-navigation__link" href="#NewApi"><i class="material-icons error-icon">error</i>Calling new methods on older versions (4)</a>
       <a class="mdl-navigation__link" href="#ManifestOrder"><i class="material-icons warning-icon">warning</i>Incorrect order of elements in manifest (1)</a>
-      <a class="mdl-navigation__link" href="#GradleDependency"><i class="material-icons warning-icon">warning</i>Obsolete Gradle Dependency (2)</a>
+      <a class="mdl-navigation__link" href="#GradleDependency"><i class="material-icons warning-icon">warning</i>Obsolete Gradle Dependency (3)</a>
       <a class="mdl-navigation__link" href="#GradleDynamicVersion"><i class="material-icons warning-icon">warning</i>Gradle Dynamic Version (2)</a>
       <a class="mdl-navigation__link" href="#ParcelClassLoader"><i class="material-icons warning-icon">warning</i>Default Parcel Class Loader (1)</a>
       <a class="mdl-navigation__link" href="#PxUsage"><i class="material-icons warning-icon">warning</i>Using 'px' dimension (5)</a>
@@ -226,7 +226,7 @@ Check performed at Tue Feb 11 10:57:16 SGT 2020      </nav>
 <td class="countColumn">2</td><td class="issueColumn"><i class="material-icons error-icon">error</i>
 <a href="#OnClick">OnClick</a>: <code>onClick</code> method does not exist</td></tr>
 <tr>
-<td class="countColumn">3</td><td class="issueColumn"><i class="material-icons error-icon">error</i>
+<td class="countColumn">2</td><td class="issueColumn"><i class="material-icons error-icon">error</i>
 <a href="#GradleCompatible">GradleCompatible</a>: Incompatible Gradle Versions</td></tr>
 <tr>
 <td class="countColumn">1</td><td class="issueColumn"><i class="material-icons error-icon">error</i>
@@ -238,13 +238,13 @@ Check performed at Tue Feb 11 10:57:16 SGT 2020      </nav>
 <td class="countColumn">2</td><td class="issueColumn"><i class="material-icons warning-icon">warning</i>
 <a href="#InlinedApi">InlinedApi</a>: Using inlined constants on older versions</td></tr>
 <tr>
-<td class="countColumn">3</td><td class="issueColumn"><i class="material-icons error-icon">error</i>
+<td class="countColumn">4</td><td class="issueColumn"><i class="material-icons error-icon">error</i>
 <a href="#NewApi">NewApi</a>: Calling new methods on older versions</td></tr>
 <tr>
 <td class="countColumn">1</td><td class="issueColumn"><i class="material-icons warning-icon">warning</i>
 <a href="#ManifestOrder">ManifestOrder</a>: Incorrect order of elements in manifest</td></tr>
 <tr>
-<td class="countColumn">2</td><td class="issueColumn"><i class="material-icons warning-icon">warning</i>
+<td class="countColumn">3</td><td class="issueColumn"><i class="material-icons warning-icon">warning</i>
 <a href="#GradleDependency">GradleDependency</a>: Obsolete Gradle Dependency</td></tr>
 <tr>
 <td class="countColumn">2</td><td class="issueColumn"><i class="material-icons warning-icon">warning</i>
@@ -382,23 +382,14 @@ Dismiss</button>            </div>
 <div class="issue">
 <div class="warningslist">
 <span class="location"><a href="../../build.gradle">../../build.gradle</a></span>: <span class="message">All com.android.support libraries must use the exact same version specification (mixing versions can lead to runtime crashes). Found versions 27.1.1, 27.1.0. Examples include <code>com.android.support:animated-vector-drawable:27.1.1</code> and <code>com.android.support:exifinterface:27.1.0</code></span><br />
-<span class="location"><a href="../../build.gradle">../../build.gradle</a>:31</span>: <span class="message">This support library should not use a different version (27) than the <code>compileSdkVersion</code> (29)</span><br /><pre class="errorlines">
-<span class="lineno"> 28 </span>dependencies {
-<span class="lineno"> 29 </span>    implementation fileTree(dir: <span class="string">'libs'</span>, include: [<span class="string">'*.jar'</span>])
-<span class="lineno"> 30 </span>
-<span class="caretline"><span class="lineno"> 31 </span>    <span class="error">implementation <span class="string">'com.android.support:appcompat-v7:27.1.1'</span></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-<span class="lineno"> 32 </span>    testImplementation <span class="string">'junit:junit:4.12'</span>
-<span class="lineno"> 33 </span>    androidTestImplementation <span class="string">'com.android.support.test:runner:1.0.2'</span>
-<span class="lineno"> 34 </span>    androidTestImplementation <span class="string">'com.android.support.test.espresso:espresso-core:3.0.2'</span></pre>
-
-<span class="location"><a href="../../build.gradle">../../build.gradle</a>:36</span>: <span class="message">This support library should not use a different version (27) than the <code>compileSdkVersion</code> (29)</span><br /><pre class="errorlines">
-<span class="lineno"> 33 </span>    androidTestImplementation <span class="string">'com.android.support.test:runner:1.0.2'</span>
-<span class="lineno"> 34 </span>    androidTestImplementation <span class="string">'com.android.support.test.espresso:espresso-core:3.0.2'</span>
-<span class="lineno"> 35 </span>
-<span class="caretline"><span class="lineno"> 36 </span>    <span class="error">implementation <span class="string">"com.android.support:design:27.1.1"</span></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-<span class="lineno"> 37 </span>    implementation <span class="string">"com.android.volley:volley:1.1.0+"</span>
-<span class="lineno"> 38 </span>    implementation <span class="string">"com.squareup.picasso:picasso:2.7+"</span>
-<span class="lineno"> 39 </span>    implementation <span class="string">'com.google.android.gms:play-services-location:17.0.0'</span></pre>
+<span class="location"><a href="../../build.gradle">../../build.gradle</a>:37</span>: <span class="message">This support library should not use a different version (27) than the <code>compileSdkVersion</code> (29)</span><br /><pre class="errorlines">
+<span class="lineno"> 34 </span>    androidTestImplementation <span class="string">'com.android.support.test:runner:1.0.2'</span>
+<span class="lineno"> 35 </span>    androidTestImplementation <span class="string">'com.android.support.test.espresso:espresso-core:3.0.2'</span>
+<span class="lineno"> 36 </span>
+<span class="caretline"><span class="lineno"> 37 </span>    <span class="error">implementation <span class="string">"com.android.support:design:27.1.1"</span></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 38 </span>    implementation <span class="string">"com.android.volley:volley:1.1.0+"</span>
+<span class="lineno"> 39 </span>    implementation <span class="string">"com.squareup.picasso:picasso:2.7+"</span>
+<span class="lineno"> 40 </span>    implementation <span class="string">'com.google.android.gms:play-services-location:17.0.0'</span></pre>
 
 </div>
 <div class="metadata"><div class="explanation" id="explanationGradleCompatible" style="display: none;">
@@ -562,44 +553,44 @@ Dismiss</button>            </div>
 <span class="lineno"> 23 </span>    <span class="keyword">public</span> <span class="keyword">int</span> getMajor() {
 </pre>
 
-<span class="location"><a href="../../src/main/java/com/viatick/bmsandroidsdk/controller/ViaBmsCtrl.java">../../src/main/java/com/viatick/bmsandroidsdk/controller/ViaBmsCtrl.java</a>:446</span>: <span class="message">Implicitly using the default locale is a common source of bugs: Use <code>toUpperCase(Locale)</code> instead. For strings meant to be internal use <code>Locale.ROOT</code>, otherwise <code>Locale.getDefault()</code>.</span><br /><pre class="errorlines">
-<span class="lineno">  443 </span>    <span class="keyword">while</span> (var13.hasNext()) {
-<span class="lineno">  444 </span>      ViaZoneBeacon aBeacon = (ViaZoneBeacon) var13.next();
-<span class="lineno">  445 </span>      String key = aBeacon.getUuid() + <span class="string">"-"</span> + aBeacon.getMajor() + <span class="string">"-"</span> + aBeacon.getMinor();
-<span class="caretline"><span class="lineno">  446 </span>      key = key.<span class="warning">toUpperCase</span>();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-<span class="lineno">  447 </span>      ViaBmsCtrl.ASSIGNED_BEACONS.put(key, aBeacon);
-<span class="lineno">  448 </span>    }
-<span class="lineno">  449 </span>  }
+<span class="location"><a href="../../src/main/java/com/viatick/bmsandroidsdk/controller/ViaBmsCtrl.java">../../src/main/java/com/viatick/bmsandroidsdk/controller/ViaBmsCtrl.java</a>:447</span>: <span class="message">Implicitly using the default locale is a common source of bugs: Use <code>toUpperCase(Locale)</code> instead. For strings meant to be internal use <code>Locale.ROOT</code>, otherwise <code>Locale.getDefault()</code>.</span><br /><pre class="errorlines">
+<span class="lineno">  444 </span>    <span class="keyword">while</span> (var13.hasNext()) {
+<span class="lineno">  445 </span>      ViaZoneBeacon aBeacon = (ViaZoneBeacon) var13.next();
+<span class="lineno">  446 </span>      String key = aBeacon.getUuid() + <span class="string">"-"</span> + aBeacon.getMajor() + <span class="string">"-"</span> + aBeacon.getMinor();
+<span class="caretline"><span class="lineno">  447 </span>      key = key.<span class="warning">toUpperCase</span>();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno">  448 </span>      ViaBmsCtrl.ASSIGNED_BEACONS.put(key, aBeacon);
+<span class="lineno">  449 </span>    }
+<span class="lineno">  450 </span>  }
 </pre>
 
-<span class="location"><a href="../../src/main/java/com/viatick/bmsandroidsdk/controller/ViaBmsCtrl.java">../../src/main/java/com/viatick/bmsandroidsdk/controller/ViaBmsCtrl.java</a>:633</span>: <span class="message">Implicitly using the default locale is a common source of bugs: Use <code>toUpperCase(Locale)</code> instead. For strings meant to be internal use <code>Locale.ROOT</code>, otherwise <code>Locale.getDefault()</code>.</span><br /><pre class="errorlines">
-<span class="lineno">  630 </span>          <span class="keyword">double</span> distance = viaIBeacon.getAccuracy();
-<span class="lineno">  631 </span>          <span class="keyword">if</span> (distance > <span class="number">0.0D</span>) {
-<span class="lineno">  632 </span>            String key = viaIBeacon.getKey();
-<span class="caretline"><span class="lineno">  633 </span>            key = key.<span class="warning">toUpperCase</span>();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-<span class="lineno">  634 </span>
-<span class="lineno">  635 </span>            <span class="keyword">if</span> (REQUESTED_DISTANCE_BEACONS.containsKey(key)) {
-<span class="lineno">  636 </span>              IBeacon responseBeacon = REQUESTED_DISTANCE_BEACONS.get(key);
+<span class="location"><a href="../../src/main/java/com/viatick/bmsandroidsdk/controller/ViaBmsCtrl.java">../../src/main/java/com/viatick/bmsandroidsdk/controller/ViaBmsCtrl.java</a>:634</span>: <span class="message">Implicitly using the default locale is a common source of bugs: Use <code>toUpperCase(Locale)</code> instead. For strings meant to be internal use <code>Locale.ROOT</code>, otherwise <code>Locale.getDefault()</code>.</span><br /><pre class="errorlines">
+<span class="lineno">  631 </span>          <span class="keyword">double</span> distance = viaIBeacon.getAccuracy();
+<span class="lineno">  632 </span>          <span class="keyword">if</span> (distance > <span class="number">0.0D</span>) {
+<span class="lineno">  633 </span>            String key = viaIBeacon.getKey();
+<span class="caretline"><span class="lineno">  634 </span>            key = key.<span class="warning">toUpperCase</span>();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno">  635 </span>
+<span class="lineno">  636 </span>            <span class="keyword">if</span> (REQUESTED_DISTANCE_BEACONS.containsKey(key)) {
+<span class="lineno">  637 </span>              IBeacon responseBeacon = REQUESTED_DISTANCE_BEACONS.get(key);
 </pre>
 
-<span class="location"><a href="../../src/main/java/com/viatick/bmsandroidsdk/controller/ViaBmsCtrl.java">../../src/main/java/com/viatick/bmsandroidsdk/controller/ViaBmsCtrl.java</a>:1010</span>: <span class="message">Implicitly using the default locale is a common source of bugs: Use <code>toUpperCase(Locale)</code> instead. For strings meant to be internal use <code>Locale.ROOT</code>, otherwise <code>Locale.getDefault()</code>.</span><br /><pre class="errorlines">
-<span class="lineno"> 1007 </span>          <span class="keyword">double</span> distance = beacon.getAccuracy();
-<span class="lineno"> 1008 </span>          <span class="keyword">if</span> (distance > <span class="number">0.0D</span>) {
-<span class="lineno"> 1009 </span>            String key = beacon.getKey();
-<span class="caretline"><span class="lineno"> 1010 </span>            key = key.<span class="warning">toUpperCase</span>();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-<span class="lineno"> 1011 </span>
-<span class="lineno"> 1012 </span>            ViaProximity beaconProximity = PROXIMITY.get(beacon.getKey());
-<span class="lineno"> 1013 </span>            <span class="keyword">if</span> (beaconProximity == <span class="keyword">null</span>) {
+<span class="location"><a href="../../src/main/java/com/viatick/bmsandroidsdk/controller/ViaBmsCtrl.java">../../src/main/java/com/viatick/bmsandroidsdk/controller/ViaBmsCtrl.java</a>:1043</span>: <span class="message">Implicitly using the default locale is a common source of bugs: Use <code>toUpperCase(Locale)</code> instead. For strings meant to be internal use <code>Locale.ROOT</code>, otherwise <code>Locale.getDefault()</code>.</span><br /><pre class="errorlines">
+<span class="lineno"> 1040 </span>          <span class="keyword">double</span> distance = beacon.getAccuracy();
+<span class="lineno"> 1041 </span>          <span class="keyword">if</span> (distance > <span class="number">0.0D</span>) {
+<span class="lineno"> 1042 </span>            String key = beacon.getKey();
+<span class="caretline"><span class="lineno"> 1043 </span>            key = key.<span class="warning">toUpperCase</span>();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 1044 </span>
+<span class="lineno"> 1045 </span>            ViaProximity beaconProximity = PROXIMITY.get(beacon.getKey());
+<span class="lineno"> 1046 </span>            <span class="keyword">if</span> (beaconProximity == <span class="keyword">null</span>) {
 </pre>
 
-<span class="location"><a href="../../src/main/java/com/viatick/bmsandroidsdk/controller/ViaBmsCtrl.java">../../src/main/java/com/viatick/bmsandroidsdk/controller/ViaBmsCtrl.java</a>:1083</span>: <span class="message">Implicitly using the default locale is a common source of bugs: Use <code>toUpperCase(Locale)</code> instead. For strings meant to be internal use <code>Locale.ROOT</code>, otherwise <code>Locale.getDefault()</code>.</span><br /><pre class="errorlines">
-<span class="lineno"> 1080 </span>        <span class="keyword">double</span> distance = beacon.getAccuracy();
-<span class="lineno"> 1081 </span>        <span class="keyword">if</span> (distance > <span class="number">0.0D</span>) {
-<span class="lineno"> 1082 </span>          String key = beacon.getKey();
-<span class="caretline"><span class="lineno"> 1083 </span>          key = key.<span class="warning">toUpperCase</span>();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-<span class="lineno"> 1084 </span>
-<span class="lineno"> 1085 </span>          ViaZoneBeacon assignedBeacon = ASSIGNED_BEACONS.get(key);
-<span class="lineno"> 1086 </span>          <span class="keyword">if</span> (assignedBeacon != <span class="keyword">null</span>) {
+<span class="location"><a href="../../src/main/java/com/viatick/bmsandroidsdk/controller/ViaBmsCtrl.java">../../src/main/java/com/viatick/bmsandroidsdk/controller/ViaBmsCtrl.java</a>:1116</span>: <span class="message">Implicitly using the default locale is a common source of bugs: Use <code>toUpperCase(Locale)</code> instead. For strings meant to be internal use <code>Locale.ROOT</code>, otherwise <code>Locale.getDefault()</code>.</span><br /><pre class="errorlines">
+<span class="lineno"> 1113 </span>        <span class="keyword">double</span> distance = beacon.getAccuracy();
+<span class="lineno"> 1114 </span>        <span class="keyword">if</span> (distance > <span class="number">0.0D</span>) {
+<span class="lineno"> 1115 </span>          String key = beacon.getKey();
+<span class="caretline"><span class="lineno"> 1116 </span>          key = key.<span class="warning">toUpperCase</span>();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 1117 </span>
+<span class="lineno"> 1118 </span>          ViaZoneBeacon assignedBeacon = ASSIGNED_BEACONS.get(key);
+<span class="lineno"> 1119 </span>          <span class="keyword">if</span> (assignedBeacon != <span class="keyword">null</span>) {
 </pre>
 
 </div>
@@ -728,6 +719,16 @@ Dismiss</button>            </div>
 <span class="lineno"> 156 </span>                  .build();
 </pre>
 
+<span class="location"><a href="../../src/main/java/com/viatick/bmsandroidsdk/helper/ViaBeaconHelper.java">../../src/main/java/com/viatick/bmsandroidsdk/helper/ViaBeaconHelper.java</a>:74</span>: <span class="message">Field requires API level 29 (current min is 21): <code>android.app.TaskInfo#topActivity</code></span><br /><pre class="errorlines">
+<span class="lineno"> 71 </span>            }
+<span class="lineno"> 72 </span>        } <span class="keyword">else</span> {
+<span class="lineno"> 73 </span>            List&lt;ActivityManager.RunningTaskInfo> taskInfo = am.getRunningTasks(<span class="number">1</span>);
+<span class="caretline"><span class="lineno"> 74 </span>            ComponentName componentInfo = <span class="error">taskInfo.get(<span class="number">0</span>).topActivity</span>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 75 </span>            <span class="keyword">if</span> (componentInfo.getPackageName().equals(context.getPackageName())) {
+<span class="lineno"> 76 </span>                isInBackground = <span class="keyword">false</span>;
+<span class="lineno"> 77 </span>            }
+</pre>
+
 </div>
 <div class="metadata"><div class="explanation" id="explanationNewApi" style="display: none;">
 This check scans through all the Android API calls in the application and warns about any calls that are not available on <b>all</b> versions targeted by this application (according to its minimum SDK attribute in the manifest).<br/>
@@ -772,14 +773,14 @@ Dismiss</button>            </div>
               <div class="mdl-card__supporting-text">
 <div class="issue">
 <div class="warningslist">
-<span class="location"><a href="../../src/main/AndroidManifest.xml">../../src/main/AndroidManifest.xml</a>:49</span>: <span class="message"><code>&lt;uses-permission></code> tag appears after <code>&lt;application></code> tag</span><br /><pre class="errorlines">
-<span class="lineno"> 46 </span>      <span class="prefix">android:</span><span class="attribute">exported</span>=<span class="value">"false"</span> />
-<span class="lineno"> 47 </span>  <span class="tag">&lt;/application></span>
-<span class="lineno"> 48 </span>
-<span class="caretline"><span class="lineno"> 49 </span>  <span class="tag">&lt;</span><span class="warning"><span class="tag">uses-permission</span></span><span class="attribute"> </span><span class="prefix">android:</span><span class="attribute">name</span>=<span class="value">"android.permission.INTERNET"</span> />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-<span class="lineno"> 50 </span>  <span class="tag">&lt;uses-permission</span><span class="attribute"> </span><span class="prefix">android:</span><span class="attribute">name</span>=<span class="value">"android.permission.RECEIVE_BOOT_COMPLETED"</span> />
-<span class="lineno"> 51 </span>  <span class="tag">&lt;uses-permission</span><span class="attribute"> </span><span class="prefix">android:</span><span class="attribute">name</span>=<span class="value">"android.permission.GET_TASKS"</span> />
-<span class="lineno"> 52 </span>  <span class="tag">&lt;uses-permission</span><span class="attribute"> </span><span class="prefix">android:</span><span class="attribute">name</span>=<span class="value">"android.permission.READ_PHONE_STATE"</span> />
+<span class="location"><a href="../../src/main/AndroidManifest.xml">../../src/main/AndroidManifest.xml</a>:50</span>: <span class="message"><code>&lt;uses-permission></code> tag appears after <code>&lt;application></code> tag</span><br /><pre class="errorlines">
+<span class="lineno"> 47 </span>      <span class="prefix">android:</span><span class="attribute">exported</span>=<span class="value">"false"</span> />
+<span class="lineno"> 48 </span>  <span class="tag">&lt;/application></span>
+<span class="lineno"> 49 </span>
+<span class="caretline"><span class="lineno"> 50 </span>  <span class="tag">&lt;</span><span class="warning"><span class="tag">uses-permission</span></span><span class="attribute"> </span><span class="prefix">android:</span><span class="attribute">name</span>=<span class="value">"android.permission.INTERNET"</span> />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 51 </span>  <span class="tag">&lt;uses-permission</span><span class="attribute"> </span><span class="prefix">android:</span><span class="attribute">name</span>=<span class="value">"android.permission.RECEIVE_BOOT_COMPLETED"</span> />
+<span class="lineno"> 52 </span>  <span class="tag">&lt;uses-permission</span><span class="attribute"> </span><span class="prefix">android:</span><span class="attribute">name</span>=<span class="value">"android.permission.GET_TASKS"</span> />
+<span class="lineno"> 53 </span>  <span class="tag">&lt;uses-permission</span><span class="attribute"> </span><span class="prefix">android:</span><span class="attribute">name</span>=<span class="value">"android.permission.READ_PHONE_STATE"</span> />
 </pre>
 
 </div>
@@ -817,23 +818,32 @@ Dismiss</button>            </div>
               <div class="mdl-card__supporting-text">
 <div class="issue">
 <div class="warningslist">
-<span class="location"><a href="../../build.gradle">../../build.gradle</a>:37</span>: <span class="message">A newer version of com.android.volley:volley than 1.1.0.+ is available: 1.1.1</span><br /><pre class="errorlines">
-<span class="lineno"> 34 </span>    androidTestImplementation <span class="string">'com.android.support.test.espresso:espresso-core:3.0.2'</span>
-<span class="lineno"> 35 </span>
-<span class="lineno"> 36 </span>    implementation <span class="string">"com.android.support:design:27.1.1"</span>
-<span class="caretline"><span class="lineno"> 37 </span>    <span class="warning">implementation <span class="string">"com.android.volley:volley:1.1.0+"</span></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-<span class="lineno"> 38 </span>    implementation <span class="string">"com.squareup.picasso:picasso:2.7+"</span>
-<span class="lineno"> 39 </span>    implementation <span class="string">'com.google.android.gms:play-services-location:17.0.0'</span>
-<span class="lineno"> 40 </span>}
+<span class="location"><a href="../../build.gradle">../../build.gradle</a>:31</span>: <span class="message">A newer version of androidx.appcompat:appcompat than 1.0.0 is available: 1.1.0</span><br /><pre class="errorlines">
+<span class="lineno"> 28 </span>dependencies {
+<span class="lineno"> 29 </span>    implementation fileTree(dir: <span class="string">'libs'</span>, include: [<span class="string">'*.jar'</span>])
+<span class="lineno"> 30 </span>
+<span class="caretline"><span class="lineno"> 31 </span>    <span class="warning">implementation <span class="string">'androidx.appcompat:appcompat:1.0.0'</span></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 32 </span>    implementation <span class="string">'androidx.legacy:legacy-support-v4:1.0.0'</span>
+<span class="lineno"> 33 </span>    testImplementation <span class="string">'junit:junit:4.12'</span>
+<span class="lineno"> 34 </span>    androidTestImplementation <span class="string">'com.android.support.test:runner:1.0.2'</span></pre>
+
+<span class="location"><a href="../../build.gradle">../../build.gradle</a>:38</span>: <span class="message">A newer version of com.android.volley:volley than 1.1.0.+ is available: 1.1.1</span><br /><pre class="errorlines">
+<span class="lineno"> 35 </span>    androidTestImplementation <span class="string">'com.android.support.test.espresso:espresso-core:3.0.2'</span>
+<span class="lineno"> 36 </span>
+<span class="lineno"> 37 </span>    implementation <span class="string">"com.android.support:design:27.1.1"</span>
+<span class="caretline"><span class="lineno"> 38 </span>    <span class="warning">implementation <span class="string">"com.android.volley:volley:1.1.0+"</span></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 39 </span>    implementation <span class="string">"com.squareup.picasso:picasso:2.7+"</span>
+<span class="lineno"> 40 </span>    implementation <span class="string">'com.google.android.gms:play-services-location:17.0.0'</span>
+<span class="lineno"> 41 </span>}
 </pre>
 
-<span class="location"><a href="../../build.gradle">../../build.gradle</a>:38</span>: <span class="message">A newer version of com.squareup.picasso:picasso than 2.7.+ is available: 2.71828</span><br /><pre class="errorlines">
-<span class="lineno"> 35 </span>
-<span class="lineno"> 36 </span>    implementation <span class="string">"com.android.support:design:27.1.1"</span>
-<span class="lineno"> 37 </span>    implementation <span class="string">"com.android.volley:volley:1.1.0+"</span>
-<span class="caretline"><span class="lineno"> 38 </span>    <span class="warning">implementation <span class="string">"com.squareup.picasso:picasso:2.7+"</span></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-<span class="lineno"> 39 </span>    implementation <span class="string">'com.google.android.gms:play-services-location:17.0.0'</span>
-<span class="lineno"> 40 </span>}
+<span class="location"><a href="../../build.gradle">../../build.gradle</a>:39</span>: <span class="message">A newer version of com.squareup.picasso:picasso than 2.7.+ is available: 2.71828</span><br /><pre class="errorlines">
+<span class="lineno"> 36 </span>
+<span class="lineno"> 37 </span>    implementation <span class="string">"com.android.support:design:27.1.1"</span>
+<span class="lineno"> 38 </span>    implementation <span class="string">"com.android.volley:volley:1.1.0+"</span>
+<span class="caretline"><span class="lineno"> 39 </span>    <span class="warning">implementation <span class="string">"com.squareup.picasso:picasso:2.7+"</span></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 40 </span>    implementation <span class="string">'com.google.android.gms:play-services-location:17.0.0'</span>
+<span class="lineno"> 41 </span>}
 </pre>
 
 </div>
@@ -872,23 +882,23 @@ Dismiss</button>            </div>
               <div class="mdl-card__supporting-text">
 <div class="issue">
 <div class="warningslist">
-<span class="location"><a href="../../build.gradle">../../build.gradle</a>:37</span>: <span class="message">Avoid using + in version numbers; can lead to unpredictable and unrepeatable builds (com.android.volley:volley:1.1.0+)</span><br /><pre class="errorlines">
-<span class="lineno"> 34 </span>    androidTestImplementation <span class="string">'com.android.support.test.espresso:espresso-core:3.0.2'</span>
-<span class="lineno"> 35 </span>
-<span class="lineno"> 36 </span>    implementation <span class="string">"com.android.support:design:27.1.1"</span>
-<span class="caretline"><span class="lineno"> 37 </span>    <span class="warning">implementation <span class="string">"com.android.volley:volley:1.1.0+"</span></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-<span class="lineno"> 38 </span>    implementation <span class="string">"com.squareup.picasso:picasso:2.7+"</span>
-<span class="lineno"> 39 </span>    implementation <span class="string">'com.google.android.gms:play-services-location:17.0.0'</span>
-<span class="lineno"> 40 </span>}
+<span class="location"><a href="../../build.gradle">../../build.gradle</a>:38</span>: <span class="message">Avoid using + in version numbers; can lead to unpredictable and unrepeatable builds (com.android.volley:volley:1.1.0+)</span><br /><pre class="errorlines">
+<span class="lineno"> 35 </span>    androidTestImplementation <span class="string">'com.android.support.test.espresso:espresso-core:3.0.2'</span>
+<span class="lineno"> 36 </span>
+<span class="lineno"> 37 </span>    implementation <span class="string">"com.android.support:design:27.1.1"</span>
+<span class="caretline"><span class="lineno"> 38 </span>    <span class="warning">implementation <span class="string">"com.android.volley:volley:1.1.0+"</span></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 39 </span>    implementation <span class="string">"com.squareup.picasso:picasso:2.7+"</span>
+<span class="lineno"> 40 </span>    implementation <span class="string">'com.google.android.gms:play-services-location:17.0.0'</span>
+<span class="lineno"> 41 </span>}
 </pre>
 
-<span class="location"><a href="../../build.gradle">../../build.gradle</a>:38</span>: <span class="message">Avoid using + in version numbers; can lead to unpredictable and unrepeatable builds (com.squareup.picasso:picasso:2.7+)</span><br /><pre class="errorlines">
-<span class="lineno"> 35 </span>
-<span class="lineno"> 36 </span>    implementation <span class="string">"com.android.support:design:27.1.1"</span>
-<span class="lineno"> 37 </span>    implementation <span class="string">"com.android.volley:volley:1.1.0+"</span>
-<span class="caretline"><span class="lineno"> 38 </span>    <span class="warning">implementation <span class="string">"com.squareup.picasso:picasso:2.7+"</span></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-<span class="lineno"> 39 </span>    implementation <span class="string">'com.google.android.gms:play-services-location:17.0.0'</span>
-<span class="lineno"> 40 </span>}
+<span class="location"><a href="../../build.gradle">../../build.gradle</a>:39</span>: <span class="message">Avoid using + in version numbers; can lead to unpredictable and unrepeatable builds (com.squareup.picasso:picasso:2.7+)</span><br /><pre class="errorlines">
+<span class="lineno"> 36 </span>
+<span class="lineno"> 37 </span>    implementation <span class="string">"com.android.support:design:27.1.1"</span>
+<span class="lineno"> 38 </span>    implementation <span class="string">"com.android.volley:volley:1.1.0+"</span>
+<span class="caretline"><span class="lineno"> 39 </span>    <span class="warning">implementation <span class="string">"com.squareup.picasso:picasso:2.7+"</span></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 40 </span>    implementation <span class="string">'com.google.android.gms:play-services-location:17.0.0'</span>
+<span class="lineno"> 41 </span>}
 </pre>
 
 </div>
@@ -1275,24 +1285,24 @@ Dismiss</button>            </div>
               <div class="mdl-card__supporting-text">
 <div class="issue">
 <div class="warningslist">
-<span class="location"><a href="../../src/main/java/com/viatick/bmsandroidsdk/controller/ViaBmsCtrl.java">../../src/main/java/com/viatick/bmsandroidsdk/controller/ViaBmsCtrl.java</a>:110</span>: <span class="message">Do not place Android context classes in static fields; this is a memory leak (and also breaks Instant Run)</span><br /><pre class="errorlines">
-<span class="lineno">  107 </span>  <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> HashMap&lt;String, ViaZoneBeacon> ASSIGNED_BEACONS = <span class="keyword">new</span> HashMap();
-<span class="lineno">  108 </span>  <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> HashMap&lt;String, IBeacon> REQUESTED_DISTANCE_BEACONS = <span class="keyword">new</span> HashMap&lt;>();
-<span class="lineno">  109 </span>  <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> HashMap&lt;String, BleBeacon> OWNED_BEACONS = <span class="keyword">new</span> HashMap&lt;>();
-<span class="caretline"><span class="lineno">  110 </span>  <span class="keyword">private</span> <span class="warning"><span class="keyword">static</span></span> Context context;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-<span class="lineno">  111 </span>  <span class="keyword">private</span> <span class="keyword">static</span> NotificationManager mNotificationManager;
-<span class="lineno">  112 </span>  <span class="comment">//  private static ViaIBeaconCtrl viaIBeaconCtrl;</span>
-<span class="lineno">  113 </span>  <span class="keyword">private</span> <span class="keyword">static</span> ViaBmsCtrl.ViaBmsCtrlDelegate viaBmsCtrlDelegate;
+<span class="location"><a href="../../src/main/java/com/viatick/bmsandroidsdk/controller/ViaBmsCtrl.java">../../src/main/java/com/viatick/bmsandroidsdk/controller/ViaBmsCtrl.java</a>:111</span>: <span class="message">Do not place Android context classes in static fields; this is a memory leak (and also breaks Instant Run)</span><br /><pre class="errorlines">
+<span class="lineno">  108 </span>  <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> HashMap&lt;String, ViaZoneBeacon> ASSIGNED_BEACONS = <span class="keyword">new</span> HashMap();
+<span class="lineno">  109 </span>  <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> HashMap&lt;String, IBeacon> REQUESTED_DISTANCE_BEACONS = <span class="keyword">new</span> HashMap&lt;>();
+<span class="lineno">  110 </span>  <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> HashMap&lt;String, BleBeacon> OWNED_BEACONS = <span class="keyword">new</span> HashMap&lt;>();
+<span class="caretline"><span class="lineno">  111 </span>  <span class="keyword">private</span> <span class="warning"><span class="keyword">static</span></span> Context context;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno">  112 </span>  <span class="keyword">private</span> <span class="keyword">static</span> NotificationManager mNotificationManager;
+<span class="lineno">  113 </span>  <span class="comment">//  private static ViaIBeaconCtrl viaIBeaconCtrl;</span>
+<span class="lineno">  114 </span>  <span class="keyword">private</span> <span class="keyword">static</span> ViaBmsCtrl.ViaBmsCtrlDelegate viaBmsCtrlDelegate;
 </pre>
 
-<span class="location"><a href="../../src/main/java/com/viatick/bmsandroidsdk/controller/ViaBmsCtrl.java">../../src/main/java/com/viatick/bmsandroidsdk/controller/ViaBmsCtrl.java</a>:1177</span>: <span class="message">This field leaks a context object</span><br /><pre class="errorlines">
-<span class="lineno"> 1174 </span>  }
-<span class="lineno"> 1175 </span>
-<span class="lineno"> 1176 </span>  <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">class</span> NotificationTask <span class="keyword">extends</span> AsyncTask&lt;Void, Void, Bitmap> {
-<span class="caretline"><span class="lineno"> 1177 </span>    <span class="warning"><span class="keyword">private</span> Context context;</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-<span class="lineno"> 1178 </span>    <span class="keyword">private</span> String title;
-<span class="lineno"> 1179 </span>    <span class="keyword">private</span> String text;
-<span class="lineno"> 1180 </span>    <span class="keyword">private</span> String image;
+<span class="location"><a href="../../src/main/java/com/viatick/bmsandroidsdk/controller/ViaBmsCtrl.java">../../src/main/java/com/viatick/bmsandroidsdk/controller/ViaBmsCtrl.java</a>:1210</span>: <span class="message">This field leaks a context object</span><br /><pre class="errorlines">
+<span class="lineno"> 1207 </span>  }
+<span class="lineno"> 1208 </span>
+<span class="lineno"> 1209 </span>  <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">class</span> NotificationTask <span class="keyword">extends</span> AsyncTask&lt;Void, Void, Bitmap> {
+<span class="caretline"><span class="lineno"> 1210 </span>    <span class="warning"><span class="keyword">private</span> Context context;</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 1211 </span>    <span class="keyword">private</span> String title;
+<span class="lineno"> 1212 </span>    <span class="keyword">private</span> String text;
+<span class="lineno"> 1213 </span>    <span class="keyword">private</span> String image;
 </pre>
 
 </div>
@@ -1380,13 +1390,14 @@ Dismiss</button>            </div>
               <div class="mdl-card__supporting-text">
 <div class="issue">
 <div class="warningslist">
-<span class="location"><a href="../../src/main/java/com/viatick/bmsandroidsdk/controller/BmsApiCtrl.java">../../src/main/java/com/viatick/bmsandroidsdk/controller/BmsApiCtrl.java</a>:160</span>: <span class="message">Use <code>new SparseArray&lt;ViaZone>(...)</code> instead for better performance</span><br /><pre class="errorlines">
-<span class="lineno"> 157 </span>       <span class="keyword">int</span> fetchRate = responseObject.getInt(<span class="string">"fetchRate"</span>);
-<span class="lineno"> 158 </span>       String apiKeyHash = responseObject.getString(<span class="string">"apiKeyHash"</span>);
-<span class="lineno"> 159 </span>
-<span class="caretline"><span class="lineno"> 160 </span>       HashMap&lt;Integer, ViaZone> zones = <span class="warning"><span class="keyword">new</span> HashMap&lt;>()</span>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-<span class="lineno"> 161 </span>       <span class="keyword">if</span> (!responseObject.isNull(<span class="string">"zones"</span>)) {
-<span class="lineno"> 162 </span>           JSONArray zoneArray = responseObject.getJSONArray(<span class="string">"zones"</span>);
+<span class="location"><a href="../../src/main/java/com/viatick/bmsandroidsdk/controller/BmsApiCtrl.java">../../src/main/java/com/viatick/bmsandroidsdk/controller/BmsApiCtrl.java</a>:153</span>: <span class="message">Use <code>new SparseArray&lt;ViaZone>(...)</code> instead for better performance</span><br /><pre class="errorlines">
+<span class="lineno"> 150 </span>
+<span class="lineno"> 151 </span>               <span class="keyword">int</span> fetchRate = responseObject.getInt(<span class="string">"fetchRate"</span>);
+<span class="lineno"> 152 </span>               String apiKeyHash = responseObject.getString(<span class="string">"apiKeyHash"</span>);
+<span class="caretline"><span class="lineno"> 153 </span>               HashMap&lt;Integer, ViaZone> zones = <span class="warning"><span class="keyword">new</span> HashMap&lt;>()</span>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 154 </span>
+<span class="lineno"> 155 </span>               <span class="keyword">if</span> (!responseObject.isNull(<span class="string">"range"</span>)) {
+<span class="lineno"> 156 </span>                   JSONObject rangeObject = responseObject.getJSONObject(<span class="string">"range"</span>);
 </pre>
 
 </div>

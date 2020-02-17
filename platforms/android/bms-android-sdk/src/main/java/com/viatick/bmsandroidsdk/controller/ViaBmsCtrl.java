@@ -4,6 +4,7 @@ import android.Manifest;
 import android.app.Activity;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
@@ -729,7 +730,7 @@ public class ViaBmsCtrl {
 
     Log.i(TAG, "prefix: " + prefix);
 
-    if (!prefix.equals("https://bms.viatick.com/link/")) {
+    if (!prefix.equals("https://bms.viatick.com/link/") && !prefix.equals("bms.viatick.com/link/")) {
       ViaBmsCtrl.viaBmsCtrlDelegate.deviceSiteLoaded(false, "INVALID_DEVICE_SITE_URL");
     } else {
       String serial = null;
@@ -831,17 +832,49 @@ public class ViaBmsCtrl {
                   hasLocation = false;
                 } else {
                   LocationManager locationManager = (LocationManager) context.getSystemService(Context.LOCATION_SERVICE);
+
+                  Location bestResult = null;
+                  long bestTime = 0;
+                  long minTime = 999999999;
+                  float bestAccuracy = 999999999;
+
+                  List<String> matchingProviders = locationManager.getAllProviders();
+                  for (String provider: matchingProviders) {
+                    Location location = locationManager.getLastKnownLocation(provider);
+                    if (location != null) {
+                      float accuracy = location.getAccuracy();
+                      long time = location.getTime();
+
+                      if ((time > minTime && accuracy < bestAccuracy)) {
+                        bestResult = location;
+                        bestAccuracy = accuracy;
+                        bestTime = time;
+                      }
+                      else if (time < minTime &&
+                              bestAccuracy == Float.MAX_VALUE && time > bestTime){
+                        bestResult = location;
+                        bestTime = time;
+                      }
+                    }
+                  }
+
                   // Create a criteria object to retrieve provider
-                  Criteria criteria = new Criteria();
-                  // Get the name of the best provider
-                  String provider = locationManager.getBestProvider(criteria, true);
-                  Location myLocation = locationManager.getLastKnownLocation(provider);
+//                  Criteria criteria = new Criteria();
+//                  // Get the name of the best provider
+//                  String provider = locationManager.getBestProvider(criteria, true);
+//
+//                  Log.i(TAG, "provider: " + provider);
+//                  Location myLocation = locationManager.getLastKnownLocation(provider);
 
-                  //latitude of location
-                  latitude = myLocation.getLatitude();
+                  Location myLocation = bestResult;
 
-                  //longitude og location
-                  longitude = myLocation.getLongitude();
+                  if (myLocation != null) {
+                    //latitude of location
+                    latitude = myLocation.getLatitude();
+
+                    //longitude og location
+                    longitude = myLocation.getLongitude();
+                  }
                 }
 
                 Log.i(TAG, "latitude: " + latitude);

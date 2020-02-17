@@ -55,7 +55,7 @@ var initCustomer = function(callback) {
 
 var initSDK = function(callback) {
 	try {
-		cordova.plugins.BmsCordovaSdkPublic.initSDK("71b20b69d6c313e5a226b910ccac09d35c68caaec7c7303984f8caae0a7fdb25", (success) => {
+		cordova.plugins.BmsCordovaSdkPublic.initSDK("ec562b5f867336a7826b131f97223f6d8d39332dd74bd23ba7b97903218c1769", (success) => {
 			console.log("initSDK success", success);
       callback();
 		}, (error) => {
@@ -143,6 +143,87 @@ var openDeviceSite = function(url) {
 	}
 };
 
+var addTagListener = function (callback) {
+    nfc.addNdefListener(callback);
+//    nfc.addNdefFormatableListener(
+//                    callback
+//                );
+}
+
+function decodePayload(record) {
+    var recordType = nfc.bytesToString(record.type),
+        payload;
+
+    console.log('recordType: ' + recordType);
+
+    var tnfString = tnfToString(record.tnf);
+    console.log ('tnf: ' + tnfString);
+
+    if (recordType === "T") {
+        var langCodeLength = record.payload[0],
+        text = record.payload.slice((1 + langCodeLength), record.payload.length);
+        payload = nfc.bytesToString(text);
+
+    } else if (recordType === "U") {
+        var identifierCode = record.payload.shift(),
+        uri =  nfc.bytesToString(record.payload);
+
+        if (identifierCode !== 0) {
+            console.log("WARNING: uri needs to be decoded");
+        }
+        //payload = "<a href='" + uri + "'>" + uri + "<\/a>";
+        payload = uri;
+    } else if (recordType === "Sp") {
+        var decoded =  nfc.bytesToString(record.payload);
+        //payload = "<a href='" + uri + "'>" + uri + "<\/a>";
+        var uriPart = decoded.substring(decoded.indexOf("U") + 2, decoded.length);
+        console.log('uriPart', uriPart);
+        var uri = uriPart.substring(0, uriPart.indexOf("T") - 2);
+
+        console.log('uri', uri);
+
+        payload = uri;
+    } else {
+
+        // kludge assume we can treat as String
+        payload = nfc.bytesToString(record.payload);
+    }
+
+    return payload;
+}
+
+function tnfToString(tnf) {
+    var value = tnf;
+
+    switch (tnf) {
+    case ndef.TNF_EMPTY:
+        value = "Empty";
+        break;
+    case ndef.TNF_WELL_KNOWN:
+        value = "Well Known";
+        break;
+    case ndef.TNF_MIME_MEDIA:
+        value = "Mime Media";
+        break;
+    case ndef.TNF_ABSOLUTE_URI:
+        value = "Absolute URI";
+        break;
+    case ndef.TNF_EXTERNAL_TYPE:
+        value = "External";
+        break;
+    case ndef.TNF_UNKNOWN:
+        value = "Unknown";
+        break;
+    case ndef.TNF_UNCHANGED:
+        value = "Unchanged";
+        break;
+    case ndef.TNF_RESERVED:
+        value = "Reserved";
+        break;
+    }
+    return value;
+}
+
 var app = {
     // Application Constructor
     initialize: function() {
@@ -164,7 +245,15 @@ var app = {
               checkOut(); // check-out listener
               onDistanceBeacons();
 
-              openDeviceSite("https://bms.viatick.com/link/?serial=TEST0000001&env=dev&key=df3ac43dd0ce4d11887edabdca7bfb6e071f800f09001d05df68ddb7747bd130");
+              addTagListener(function(response) {
+                console.log('response', response);
+                    const uri = decodePayload(response.tag.ndefMessage[0]);
+                    console.log('uri', uri);
+
+                    if (uri) {
+                        openDeviceSite(uri);
+                    }
+              });
             });
           });
         });

@@ -148,16 +148,18 @@ public class BmsApiCtrl {
                     }
                 }
 
+                int fetchRate = responseObject.getInt("fetchRate");
+                String apiKeyHash = responseObject.getString("apiKeyHash");
+                HashMap<Integer, ViaZone> zones = new HashMap<>();
+
                 if (!responseObject.isNull("range")) {
                     JSONObject rangeObject = responseObject.getJSONObject("range");
+
                     if (!rangeObject.isNull("iBeacon")) {
                         JSONObject iBeaconObject = rangeObject.getJSONObject("iBeacon");
                         if (!iBeaconObject.isNull("uuid")) {
                             String uuidRegion = iBeaconObject.getString("uuid");
-                            int fetchRate = responseObject.getInt("fetchRate");
-                            String apiKeyHash = responseObject.getString("apiKeyHash");
 
-                            HashMap<Integer, ViaZone> zones = new HashMap<>();
                             if (!responseObject.isNull("zones")) {
                                 JSONArray zoneArray = responseObject.getJSONArray("zones");
 
@@ -202,10 +204,15 @@ public class BmsApiCtrl {
                             }
 
                             return new SdkInfoResponse(fetchRate, uuidRegion, apiKeyHash, zones);
+                        } else {
+                            return new SdkInfoResponse(fetchRate, null, apiKeyHash, zones);
                         }
+                    } else {
+                        return new SdkInfoResponse(fetchRate, null, apiKeyHash, zones);
                     }
+                } else {
+                    return new SdkInfoResponse(fetchRate, null, apiKeyHash, zones);
                 }
-
             }
 
         } catch (Exception e) {
@@ -816,5 +823,4 @@ public class BmsApiCtrl {
             return null;
         }
     }
-
 }

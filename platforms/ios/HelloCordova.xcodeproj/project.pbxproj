@@ -17,6 +17,8 @@
 		CB627114AAB8496CB50FE745 /* BmsCordovaSdkPublic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75AC2CAF7F4E4C83A319976D /* BmsCordovaSdkPublic.swift */; };
 		0F710783573648D18438FBB2 /* BmsSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7C6893606B449D6895AECB6 /* BmsSDK.framework */; };
 		7695373407EE40E5BF3B3693 /* BmsSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F7C6893606B449D6895AECB6 /* BmsSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		71FAD31B30E04D7AB0202465 /* NfcPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 253E7EE96E62426A950BBB7D /* NfcPlugin.m */; };
+		519DC06B57294D2CB79C79FD /* CoreNFC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B457C5FB3FA343A59BB5533F /* CoreNFC.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +68,9 @@
 		F840E1F0165FE0F500CFE078 /* config.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = config.xml; path = "HelloCordova/config.xml"; sourceTree = "<group>"; };
 		75AC2CAF7F4E4C83A319976D /* BmsCordovaSdkPublic.swift */ = {isa = PBXFileReference; name = "BmsCordovaSdkPublic.swift"; path = "com-viatick-cordova-plugins-bms-sdk-public/BmsCordovaSdkPublic.swift"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.swift; explicitFileType = undefined; includeInIndex = 0; };
 		F7C6893606B449D6895AECB6 /* BmsSDK.framework */ = {isa = PBXFileReference; name = "BmsSDK.framework"; path = "HelloCordova/Plugins/com-viatick-cordova-plugins-bms-sdk-public/BmsSDK.framework"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
+		253E7EE96E62426A950BBB7D /* NfcPlugin.m */ = {isa = PBXFileReference; name = "NfcPlugin.m"; path = "phonegap-nfc/NfcPlugin.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
+		5BCB37E78EC945ED80FC5656 /* NfcPlugin.h */ = {isa = PBXFileReference; name = "NfcPlugin.h"; path = "phonegap-nfc/NfcPlugin.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
+		B457C5FB3FA343A59BB5533F /* CoreNFC.framework */ = {isa = PBXFileReference; name = "CoreNFC.framework"; path = "System/Library/Frameworks/CoreNFC.framework"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +79,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				301BF552109A68D80062928A /* libCordova.a in Frameworks */,
+				519DC06B57294D2CB79C79FD /* CoreNFC.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -145,6 +151,7 @@
 			isa = PBXGroup;
 			children = (
 				F7C6893606B449D6895AECB6 /* BmsSDK.framework */,
+				B457C5FB3FA343A59BB5533F /* CoreNFC.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -172,6 +179,8 @@
 			isa = PBXGroup;
 			children = (
 				75AC2CAF7F4E4C83A319976D /* BmsCordovaSdkPublic.swift */,
+				253E7EE96E62426A950BBB7D /* NfcPlugin.m */,
+				5BCB37E78EC945ED80FC5656 /* NfcPlugin.h */,
 			);
 			name = Plugins;
 			path = "HelloCordova/Plugins";
@@ -298,6 +307,7 @@
 				1D3623260D0F684500981E51 /* AppDelegate.m in Sources */,
 				302D95F114D2391D003F00A1 /* MainViewController.m in Sources */,
 				CB627114AAB8496CB50FE745 /* BmsCordovaSdkPublic.swift in Sources */,
+				71FAD31B30E04D7AB0202465 /* NfcPlugin.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
