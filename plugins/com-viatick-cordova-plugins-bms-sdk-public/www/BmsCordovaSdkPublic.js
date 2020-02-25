@@ -39,3 +39,7 @@ exports.checkOut = function (success, error) {
 exports.onDistanceBeacons = function (success, error) {
     exec(success, error, 'BmsCordovaSdkPublic', 'onDistanceBeacons', []);
 };
+
+exports.openDeviceSite = function (url, success, error) {
+    exec(success, error, 'BmsCordovaSdkPublic', 'openDeviceSite', [url]);
+};

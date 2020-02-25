@@ -6,8 +6,9 @@ import BmsSDK
 	private var initCustomerCallbackId: String!;
 	private var checkinCallbackId: String!
 	private var checkoutCallbackId: String!
-  private var onDistanceBeaconsCallbackId: String!
-  private var zones: [ViaZone]!
+    private var onDistanceBeaconsCallbackId: String!
+    private var openDeviceSiteCallbackId: String!
+    private var zones: [ViaZone]!
 
 	override func pluginInitialize() {
         viaBmsCtrl = ViaBmsCtrl.sharedInstance;
@@ -127,10 +128,17 @@ import BmsSDK
         self.checkoutCallbackId = command.callbackId;
 	}
 
-  @objc(onDistanceBeacons:)
+    @objc(onDistanceBeacons:)
 	func onDistanceBeacons(command: CDVInvokedUrlCommand) {
         self.onDistanceBeaconsCallbackId = command.callbackId;
 	}
+
+    @objc(openDeviceSite:)
+    func openDeviceSite(command: CDVInvokedUrlCommand) {
+        let deviceSiteURL = command.arguments[0] as? String;
+        viaBmsCtrl.openDeviceSite(deviceSiteURL: deviceSiteURL!)
+        self.openDeviceSiteCallbackId = command.callbackId;
+    }
 }
 
 extension BmsCordovaSdkPublic: ViaBmsCtrlDelegate {
@@ -194,8 +202,22 @@ extension BmsCordovaSdkPublic: ViaBmsCtrlDelegate {
             beaconsOutput.append(beaconOutput as NSDictionary);
         }
 
-        let pluginResult: CDVPluginResult = CDVPluginResult(status: CDVCommandStatus_OK, messageAs: beaconsOutput as! [Any]);
+        let pluginResult: CDVPluginResult = CDVPluginResult(status: CDVCommandStatus_OK, messageAs: beaconsOutput as [Any]);
         pluginResult.setKeepCallbackAs(true);
         self.commandDelegate!.send(pluginResult, callbackId: onDistanceBeaconsCallbackId);
+    }
+
+    func deviceSiteLoaded(loaded: Bool, error: String?) {
+        print("deviceSiteLoaded callback");
+
+        if (loaded) {
+            let pluginResult: CDVPluginResult = CDVPluginResult(status: CDVCommandStatus_OK, messageAs: "");
+            pluginResult.setKeepCallbackAs(true);
+            self.commandDelegate!.send(pluginResult, callbackId: checkoutCallbackId);
+        } else {
+            let pluginResult: CDVPluginResult = CDVPluginResult(status: CDVCommandStatus_ERROR, messageAs: error);
+            pluginResult.setKeepCallbackAs(true);
+            self.commandDelegate!.send(pluginResult, callbackId: checkoutCallbackId);
+        }
     }
 }

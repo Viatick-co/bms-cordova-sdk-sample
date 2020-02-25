@@ -27,9 +27,9 @@ var setting = function(callback) {
        }
      ]
 
-     cordova.plugins.BmsCordovaSdkPublic.setting(true, true,
-       true, "LIST", 0, true, true, true, 2, 2, requestDistanceBeacons,
-       "DEV", 5, true, true, true, 120, (success) => {
+     cordova.plugins.BmsCordovaSdkPublic.setting(false, false,
+       false, "LIST", 0, false, false, false, 2, 2, requestDistanceBeacons,
+       "CHINA", 5, false, false, false, 120, (success) => {
        console.log("setting success", success);
        callback();
      }, (error) => {
@@ -55,7 +55,7 @@ var initCustomer = function(callback) {
 
 var initSDK = function(callback) {
 	try {
-		cordova.plugins.BmsCordovaSdkPublic.initSDK("ec562b5f867336a7826b131f97223f6d8d39332dd74bd23ba7b97903218c1769", (success) => {
+		cordova.plugins.BmsCordovaSdkPublic.initSDK("deb680d32836f46757e0f893c47706d4151d15aa3d80ce0699a114ab2f6d01df", (success) => {
 			console.log("initSDK success", success);
       callback();
 		}, (error) => {
