@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#000</color>
+    <color name="blue">#86E2D5</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="dark_blue">#2ABB9B</color>
+    <color name="white">#FFF</color>
+    <string name="activity_name">@string/launcher_name</string>
+    <string name="app_name">BMS_MS_CDV_SDK</string>
+    <string name="launcher_name">@string/app_name</string>
+</resources>

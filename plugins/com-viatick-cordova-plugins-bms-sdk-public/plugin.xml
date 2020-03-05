@@ -19,6 +19,14 @@
 			<string>${EXECUTABLE_NAME} Would Like to Use Your Current Location</string>
 		</config-file>
 
+		<config-file target="*-Info.plist" parent="NSBluetoothAlwaysUsageDescription">
+			<string>${EXECUTABLE_NAME} Would Like to Use Bluetooth</string>
+		</config-file>
+
+		<config-file target="*-Info.plist" parent="NSBluetoothPeripheralUsageDescription">
+			<string>${EXECUTABLE_NAME} Would Like to Act as Peripheral</string>
+		</config-file>
+
 		<config-file target="*-Info.plist" parent="NSLocationAlwaysUsageDescription">
 			<string>${EXECUTABLE_NAME} Would Like to Use Your Current Location</string>
 		</config-file>
@@ -43,10 +51,12 @@
 		<source-file src="src/ios/BmsCordovaSdkPublic.swift" />
 
 		<framework src="src/ios/BmsSDK.framework" embed="true" custom="true" />
+		<dependency id="cordova-plugin-add-swift-support" version="2.0.2"/>
 	</platform>
 
 	<platform name="android">
         <config-file target="res/xml/config.xml" parent="/*">
+						<preference name="android-minSdkVersion" value="23"/>
             <feature name="BmsCordovaSdkPublic">
                 <param name="android-package" onload="true" value="com.viatick.bmsandroidsdk.plugin.BmsCordovaSdkPublic" />
             </feature>

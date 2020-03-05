@@ -7,12 +7,19 @@
     "files": {}
   },
   "installed_plugins": {
+    "com-viatick-cordova-plugins-bms-sdk-public": {
+      "PACKAGE_NAME": "com.viatick.bmssdksample"
+    },
     "cordova-plugin-whitelist": {
       "PACKAGE_NAME": "com.viatick.bmssdksample"
     },
-    "com-viatick-cordova-plugins-bms-sdk-public": {
+    "phonegap-nfc": {
       "PACKAGE_NAME": "com.viatick.bmssdksample"
     }
   },
-  "dependent_plugins": {}
+  "dependent_plugins": {
+    "cordova-plugin-add-swift-support": {
+      "PACKAGE_NAME": "com.viatick.bmssdksample"
+    }
+  }
 }

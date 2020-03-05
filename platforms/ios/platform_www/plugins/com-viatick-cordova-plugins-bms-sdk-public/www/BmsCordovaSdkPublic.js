@@ -10,9 +10,15 @@ exports.initCustomer = function (identifier, phone, email, success, error) {
 };
 
 exports.setting = function (alert, background, site, minisitesView,
-  autoSiteDuration, tracking, enableMQTT, attendance, checkinDuration, checkoutDuration, success, error) {
+  autoSiteDuration, tracking, enableMQTT, attendance, checkinDuration, checkoutDuration,
+  iBeacons, bmsEnvironment, beaconRegionRange, beaconRegionUUIDFilter, isBroadcasting, proximityAlert, proximityAlertThreshold, success, error) {
     exec(success, error, 'BmsCordovaSdkPublic', 'setting', [alert, background, site, minisitesView,
-      autoSiteDuration, tracking, enableMQTT, attendance, checkinDuration, checkoutDuration]);
+      autoSiteDuration, tracking, enableMQTT, attendance, checkinDuration, checkoutDuration, iBeacons, bmsEnvironment,
+      beaconRegionRange,
+      beaconRegionUUIDFilter,
+      isBroadcasting,
+      proximityAlert,
+      proximityAlertThreshold]);
 };
 
 exports.startSDK = function (success, error) {

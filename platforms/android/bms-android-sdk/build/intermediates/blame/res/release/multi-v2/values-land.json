@@ -1,0 +1,106 @@
+{
+    "logs": [
+        {
+            "outputFile": "/Users/viatick/Desktop/Project/bms-cordova-sdk-sample/platforms/android/bms-android-sdk/build/intermediates/res/merged/release/values-land/values-land.xml",
+            "map": [
+                {
+                    "source": "/Users/viatick/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/ceb61e326ec71f0be0a3e8232a3b3909/res/values-land/values-land.xml",
+                    "from": {
+                        "startLines": "3",
+                        "startColumns": "4",
+                        "startOffsets": "125",
+                        "endColumns": "63",
+                        "endOffsets": "184"
+                    }
+                },
+                {
+                    "source": "/Users/viatick/.gradle/caches/transforms-1/files-1.1/design-27.1.1.aar/baa014976593fc3badd086b16dda711e/res/values-land/values-land.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endLines": "5",
+                        "endColumns": "12",
+                        "endOffsets": "232"
+                    },
+                    "to": {
+                        "startLines": "6",
+                        "startColumns": "4",
+                        "startOffsets": "328",
+                        "endLines": "9",
+                        "endColumns": "12",
+                        "endOffsets": "505"
+                    }
+                },
+                {
+                    "source": "/Users/viatick/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.0.aar/4388d0e541870a0cf62639b850388f0e/res/values-land/values-land.xml",
+                    "from": {
+                        "startLines": "2,3,4",
+                        "startColumns": "4,4,4",
+                        "startOffsets": "55,125,196",
+                        "endColumns": "69,70,67",
+                        "endOffsets": "120,191,259"
+                    },
+                    "to": {
+                        "startLines": "2,4,5",
+                        "startColumns": "4,4,4",
+                        "startOffsets": "55,189,260",
+                        "endColumns": "69,70,67",
+                        "endOffsets": "120,255,323"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "/Users/viatick/Desktop/Project/bms-cordova-sdk-sample/platforms/android/bms-android-sdk/build/intermediates/incremental/mergeReleaseResources/merged.dir/values-land/values-land.xml",
+            "map": [
+                {
+                    "source": "/Users/viatick/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/ceb61e326ec71f0be0a3e8232a3b3909/res/values-land/values-land.xml",
+                    "from": {
+                        "startLines": "3",
+                        "startColumns": "4",
+                        "startOffsets": "125",
+                        "endColumns": "63",
+                        "endOffsets": "184"
+                    }
+                },
+                {
+                    "source": "/Users/viatick/.gradle/caches/transforms-1/files-1.1/design-27.1.1.aar/baa014976593fc3badd086b16dda711e/res/values-land/values-land.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endLines": "5",
+                        "endColumns": "12",
+                        "endOffsets": "232"
+                    },
+                    "to": {
+                        "startLines": "6",
+                        "startColumns": "4",
+                        "startOffsets": "328",
+                        "endLines": "9",
+                        "endColumns": "12",
+                        "endOffsets": "505"
+                    }
+                },
+                {
+                    "source": "/Users/viatick/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.0.aar/4388d0e541870a0cf62639b850388f0e/res/values-land/values-land.xml",
+                    "from": {
+                        "startLines": "2,3,4",
+                        "startColumns": "4,4,4",
+                        "startOffsets": "55,125,196",
+                        "endColumns": "69,70,67",
+                        "endOffsets": "120,191,259"
+                    },
+                    "to": {
+                        "startLines": "2,4,5",
+                        "startColumns": "4,4,4",
+                        "startOffsets": "55,189,260",
+                        "endColumns": "69,70,67",
+                        "endOffsets": "120,255,323"
+                    }
+                }
+            ]
+        }
+    ]
+}

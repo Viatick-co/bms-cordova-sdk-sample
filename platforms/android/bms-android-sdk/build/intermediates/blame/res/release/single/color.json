@@ -1,0 +1,102 @@
+[
+    {
+        "merged": "/Users/viatick/Desktop/Project/bms-cordova-sdk-sample/platforms/android/bms-android-sdk/build/intermediates/res/merged/release/color/switch_thumb_material_dark.xml",
+        "source": "/Users/viatick/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.0.aar/4388d0e541870a0cf62639b850388f0e/res/color/switch_thumb_material_dark.xml"
+    },
+    {
+        "merged": "/Users/viatick/Desktop/Project/bms-cordova-sdk-sample/platforms/android/bms-android-sdk/build/intermediates/res/merged/release/color/common_google_signin_btn_text_dark.xml",
+        "source": "/Users/viatick/.gradle/caches/transforms-1/files-1.1/play-services-base-17.0.0.aar/0fa77dc206d19c0ade720e2e536c69de/res/color/common_google_signin_btn_text_dark.xml"
+    },
+    {
+        "merged": "/Users/viatick/Desktop/Project/bms-cordova-sdk-sample/platforms/android/bms-android-sdk/build/intermediates/res/merged/release/color/abc_tint_switch_track.xml",
+        "source": "/Users/viatick/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.0.aar/4388d0e541870a0cf62639b850388f0e/res/color/abc_tint_switch_track.xml"
+    },
+    {
+        "merged": "/Users/viatick/Desktop/Project/bms-cordova-sdk-sample/platforms/android/bms-android-sdk/build/intermediates/res/merged/release/color/abc_background_cache_hint_selector_material_light.xml",
+        "source": "/Users/viatick/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.0.aar/4388d0e541870a0cf62639b850388f0e/res/color/abc_background_cache_hint_selector_material_light.xml"
+    },
+    {
+        "merged": "/Users/viatick/Desktop/Project/bms-cordova-sdk-sample/platforms/android/bms-android-sdk/build/intermediates/res/merged/release/color/abc_hint_foreground_material_light.xml",
+        "source": "/Users/viatick/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.0.aar/4388d0e541870a0cf62639b850388f0e/res/color/abc_hint_foreground_material_light.xml"
+    },
+    {
+        "merged": "/Users/viatick/Desktop/Project/bms-cordova-sdk-sample/platforms/android/bms-android-sdk/build/intermediates/res/merged/release/color/switch_thumb_material_light.xml",
+        "source": "/Users/viatick/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.0.aar/4388d0e541870a0cf62639b850388f0e/res/color/switch_thumb_material_light.xml"
+    },
+    {
+        "merged": "/Users/viatick/Desktop/Project/bms-cordova-sdk-sample/platforms/android/bms-android-sdk/build/intermediates/res/merged/release/color/design_tint_password_toggle.xml",
+        "source": "/Users/viatick/.gradle/caches/transforms-1/files-1.1/design-27.1.1.aar/baa014976593fc3badd086b16dda711e/res/color/design_tint_password_toggle.xml"
+    },
+    {
+        "merged": "/Users/viatick/Desktop/Project/bms-cordova-sdk-sample/platforms/android/bms-android-sdk/build/intermediates/res/merged/release/color/abc_tint_default.xml",
+        "source": "/Users/viatick/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.0.aar/4388d0e541870a0cf62639b850388f0e/res/color/abc_tint_default.xml"
+    },
+    {
+        "merged": "/Users/viatick/Desktop/Project/bms-cordova-sdk-sample/platforms/android/bms-android-sdk/build/intermediates/res/merged/release/color/design_error.xml",
+        "source": "/Users/viatick/.gradle/caches/transforms-1/files-1.1/design-27.1.1.aar/baa014976593fc3badd086b16dda711e/res/color/design_error.xml"
+    },
+    {
+        "merged": "/Users/viatick/Desktop/Project/bms-cordova-sdk-sample/platforms/android/bms-android-sdk/build/intermediates/res/merged/release/color/abc_primary_text_material_dark.xml",
+        "source": "/Users/viatick/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.0.aar/4388d0e541870a0cf62639b850388f0e/res/color/abc_primary_text_material_dark.xml"
+    },
+    {
+        "merged": "/Users/viatick/Desktop/Project/bms-cordova-sdk-sample/platforms/android/bms-android-sdk/build/intermediates/res/merged/release/color/common_google_signin_btn_text_light.xml",
+        "source": "/Users/viatick/.gradle/caches/transforms-1/files-1.1/play-services-base-17.0.0.aar/0fa77dc206d19c0ade720e2e536c69de/res/color/common_google_signin_btn_text_light.xml"
+    },
+    {
+        "merged": "/Users/viatick/Desktop/Project/bms-cordova-sdk-sample/platforms/android/bms-android-sdk/build/intermediates/res/merged/release/color/abc_hint_foreground_material_dark.xml",
+        "source": "/Users/viatick/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.0.aar/4388d0e541870a0cf62639b850388f0e/res/color/abc_hint_foreground_material_dark.xml"
+    },
+    {
+        "merged": "/Users/viatick/Desktop/Project/bms-cordova-sdk-sample/platforms/android/bms-android-sdk/build/intermediates/res/merged/release/color/common_google_signin_btn_tint.xml",
+        "source": "/Users/viatick/.gradle/caches/transforms-1/files-1.1/play-services-base-17.0.0.aar/0fa77dc206d19c0ade720e2e536c69de/res/color/common_google_signin_btn_tint.xml"
+    },
+    {
+        "merged": "/Users/viatick/Desktop/Project/bms-cordova-sdk-sample/platforms/android/bms-android-sdk/build/intermediates/res/merged/release/color/abc_tint_seek_thumb.xml",
+        "source": "/Users/viatick/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.0.aar/4388d0e541870a0cf62639b850388f0e/res/color/abc_tint_seek_thumb.xml"
+    },
+    {
+        "merged": "/Users/viatick/Desktop/Project/bms-cordova-sdk-sample/platforms/android/bms-android-sdk/build/intermediates/res/merged/release/color/abc_tint_spinner.xml",
+        "source": "/Users/viatick/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.0.aar/4388d0e541870a0cf62639b850388f0e/res/color/abc_tint_spinner.xml"
+    },
+    {
+        "merged": "/Users/viatick/Desktop/Project/bms-cordova-sdk-sample/platforms/android/bms-android-sdk/build/intermediates/res/merged/release/color/abc_primary_text_disable_only_material_dark.xml",
+        "source": "/Users/viatick/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.0.aar/4388d0e541870a0cf62639b850388f0e/res/color/abc_primary_text_disable_only_material_dark.xml"
+    },
+    {
+        "merged": "/Users/viatick/Desktop/Project/bms-cordova-sdk-sample/platforms/android/bms-android-sdk/build/intermediates/res/merged/release/color/abc_secondary_text_material_dark.xml",
+        "source": "/Users/viatick/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.0.aar/4388d0e541870a0cf62639b850388f0e/res/color/abc_secondary_text_material_dark.xml"
+    },
+    {
+        "merged": "/Users/viatick/Desktop/Project/bms-cordova-sdk-sample/platforms/android/bms-android-sdk/build/intermediates/res/merged/release/color/abc_primary_text_disable_only_material_light.xml",
+        "source": "/Users/viatick/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.0.aar/4388d0e541870a0cf62639b850388f0e/res/color/abc_primary_text_disable_only_material_light.xml"
+    },
+    {
+        "merged": "/Users/viatick/Desktop/Project/bms-cordova-sdk-sample/platforms/android/bms-android-sdk/build/intermediates/res/merged/release/color/abc_secondary_text_material_light.xml",
+        "source": "/Users/viatick/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.0.aar/4388d0e541870a0cf62639b850388f0e/res/color/abc_secondary_text_material_light.xml"
+    },
+    {
+        "merged": "/Users/viatick/Desktop/Project/bms-cordova-sdk-sample/platforms/android/bms-android-sdk/build/intermediates/res/merged/release/color/abc_search_url_text.xml",
+        "source": "/Users/viatick/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.0.aar/4388d0e541870a0cf62639b850388f0e/res/color/abc_search_url_text.xml"
+    },
+    {
+        "merged": "/Users/viatick/Desktop/Project/bms-cordova-sdk-sample/platforms/android/bms-android-sdk/build/intermediates/res/merged/release/color/abc_btn_colored_text_material.xml",
+        "source": "/Users/viatick/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.0.aar/4388d0e541870a0cf62639b850388f0e/res/color/abc_btn_colored_text_material.xml"
+    },
+    {
+        "merged": "/Users/viatick/Desktop/Project/bms-cordova-sdk-sample/platforms/android/bms-android-sdk/build/intermediates/res/merged/release/color/abc_background_cache_hint_selector_material_dark.xml",
+        "source": "/Users/viatick/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.0.aar/4388d0e541870a0cf62639b850388f0e/res/color/abc_background_cache_hint_selector_material_dark.xml"
+    },
+    {
+        "merged": "/Users/viatick/Desktop/Project/bms-cordova-sdk-sample/platforms/android/bms-android-sdk/build/intermediates/res/merged/release/color/abc_tint_edittext.xml",
+        "source": "/Users/viatick/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.0.aar/4388d0e541870a0cf62639b850388f0e/res/color/abc_tint_edittext.xml"
+    },
+    {
+        "merged": "/Users/viatick/Desktop/Project/bms-cordova-sdk-sample/platforms/android/bms-android-sdk/build/intermediates/res/merged/release/color/abc_primary_text_material_light.xml",
+        "source": "/Users/viatick/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.0.aar/4388d0e541870a0cf62639b850388f0e/res/color/abc_primary_text_material_light.xml"
+    },
+    {
+        "merged": "/Users/viatick/Desktop/Project/bms-cordova-sdk-sample/platforms/android/bms-android-sdk/build/intermediates/res/merged/release/color/abc_tint_btn_checkable.xml",
+        "source": "/Users/viatick/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.0.aar/4388d0e541870a0cf62639b850388f0e/res/color/abc_tint_btn_checkable.xml"
+    }
+]

@@ -7,12 +7,20 @@
     "files": {}
   },
   "installed_plugins": {
+    "com-viatick-cordova-plugins-bms-sdk-public": {
+      "PACKAGE_NAME": "$(PRODUCT_BUNDLE_IDENTIFIER)"
+    },
     "cordova-plugin-whitelist": {
       "PACKAGE_NAME": "$(PRODUCT_BUNDLE_IDENTIFIER)"
     },
-    "com-viatick-cordova-plugins-bms-sdk-public": {
+    "phonegap-nfc": {
+      "NFC_USAGE_DESCRIPTION": "Read NFC Tags",
       "PACKAGE_NAME": "$(PRODUCT_BUNDLE_IDENTIFIER)"
     }
   },
-  "dependent_plugins": {}
+  "dependent_plugins": {
+    "cordova-plugin-add-swift-support": {
+      "PACKAGE_NAME": "$(PRODUCT_BUNDLE_IDENTIFIER)"
+    }
+  }
 }

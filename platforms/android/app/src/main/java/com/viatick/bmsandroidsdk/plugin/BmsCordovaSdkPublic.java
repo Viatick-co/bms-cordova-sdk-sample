@@ -1,13 +1,12 @@
 package com.viatick.bmsandroidsdk.plugin;
 // The native Toast API
 import android.Manifest;
+import android.bluetooth.le.ScanSettings;
 import android.content.ComponentName;
 import android.content.Intent;
 import android.content.ServiceConnection;
 import android.content.pm.PackageManager;
 import android.os.IBinder;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
 import android.util.Log;
 import android.widget.Toast;
 // Cordova-required packages
@@ -40,6 +39,7 @@ public class BmsCordovaSdkPublic extends CordovaPlugin implements ViaBmsCtrl.Via
   CallbackContext checkinCallback;
   CallbackContext checkoutCallback;
   CallbackContext onDistanceBeaconsCallback;
+  CallbackContext openDeviceSiteCallback;
   List<ViaZone> zones = new ArrayList<>();
   boolean isReady = false;
 
@@ -107,7 +107,8 @@ public class BmsCordovaSdkPublic extends CordovaPlugin implements ViaBmsCtrl.Via
                     ViaBmsUtil.MinisiteViewType.LIST), args.getInt(4), args.getBoolean(5),
                     args.getBoolean(6), args.getBoolean(7),
                     args.getInt(8), args.getInt(9), requestDistanceBeacons,
-                    bmsEnvironment);
+                    bmsEnvironment, args.getDouble(12), args.getBoolean(13), args.getBoolean(14),
+                    args.getBoolean(15), args.getInt(16), args.get(17) != null ? args.getInt(17) : ScanSettings.SCAN_MODE_BALANCED);
 
             Log.d(TAG, "initSettings");
 
@@ -152,7 +153,13 @@ public class BmsCordovaSdkPublic extends CordovaPlugin implements ViaBmsCtrl.Via
       } else if (action.equals("onDistanceBeacons")) {
           onDistanceBeaconsCallback = callbackContext;
           return true;
+      } else if (action.equals("openDeviceSite")) {
+          openDeviceSiteCallback = callbackContext;
+          ViaBmsCtrl.openDeviceSite(args.getString(0));
+
+          return true;
       }
+
       return false;
   };
 
@@ -218,9 +225,11 @@ public class BmsCordovaSdkPublic extends CordovaPlugin implements ViaBmsCtrl.Via
       }
 
       Log.d(TAG, "Checkout Callback");
-      PluginResult pluginResult = new PluginResult(PluginResult.Status.OK, listJson);
-      pluginResult.setKeepCallback(true); // keep callback
-      onDistanceBeaconsCallback.sendPluginResult(pluginResult);
+      if (onDistanceBeaconsCallback != null) {
+          PluginResult pluginResult = new PluginResult(PluginResult.Status.OK, listJson);
+          pluginResult.setKeepCallback(true); // keep callback
+          onDistanceBeaconsCallback.sendPluginResult(pluginResult);
+      }
     } catch (Exception e) {
       e.printStackTrace();
       // Do nothing
@@ -228,17 +237,18 @@ public class BmsCordovaSdkPublic extends CordovaPlugin implements ViaBmsCtrl.Via
   }
 
   @Override
-  public void onRequestPermissionResult(int requestCode, String[] permissions,
-  int[] grantResults) throws JSONException {
-      ViaBmsCtrl.onRequestPermissionsResult(cordova.getActivity(), requestCode, permissions, grantResults);
-  }
-
-  // override this method
-  @Override
-  public void onResume(boolean multitasking) {
-      super.onResume(multitasking);
-
-      // must put this line of code in after super.onResume()
-      ViaBmsCtrl.onResume();
+  public void deviceSiteLoaded(boolean loaded, String error) {
+      Log.d(TAG, "Device site loaded Callback");
+      if (openDeviceSiteCallback != null) {
+          if (loaded) {
+              PluginResult pluginResult = new PluginResult(PluginResult.Status.OK, "");
+              pluginResult.setKeepCallback(true); // keep callback
+              openDeviceSiteCallback.sendPluginResult(pluginResult);
+          } else {
+              PluginResult pluginResult = new PluginResult(PluginResult.Status.ERROR, error);
+              pluginResult.setKeepCallback(true); // keep callback
+              openDeviceSiteCallback.sendPluginResult(pluginResult);
+          }
+      }
   }
 }

@@ -9,9 +9,15 @@ exports.initCustomer = function (identifier, phone, email, success, error) {
 };
 
 exports.setting = function (alert, background, site, minisitesView,
-  autoSiteDuration, tracking, enableMQTT, attendance, checkinDuration, checkoutDuration, iBeacons, bmsEnvironment, success, error) {
+  autoSiteDuration, tracking, enableMQTT, attendance, checkinDuration, checkoutDuration,
+  iBeacons, bmsEnvironment, beaconRegionRange, beaconRegionUUIDFilter, isBroadcasting, proximityAlert, proximityAlertThreshold, success, error) {
     exec(success, error, 'BmsCordovaSdkPublic', 'setting', [alert, background, site, minisitesView,
-      autoSiteDuration, tracking, enableMQTT, attendance, checkinDuration, checkoutDuration, iBeacons, bmsEnvironment]);
+      autoSiteDuration, tracking, enableMQTT, attendance, checkinDuration, checkoutDuration, iBeacons, bmsEnvironment,
+      beaconRegionRange,
+      beaconRegionUUIDFilter,
+      isBroadcasting,
+      proximityAlert,
+      proximityAlertThreshold]);
 };
 
 exports.startSDK = function (success, error) {
@@ -32,4 +38,8 @@ exports.checkOut = function (success, error) {
 
 exports.onDistanceBeacons = function (success, error) {
     exec(success, error, 'BmsCordovaSdkPublic', 'onDistanceBeacons', []);
+};
+
+exports.openDeviceSite = function (url, success, error) {
+    exec(success, error, 'BmsCordovaSdkPublic', 'openDeviceSite', [url]);
 };

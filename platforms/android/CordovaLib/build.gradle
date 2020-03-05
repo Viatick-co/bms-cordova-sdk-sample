@@ -15,11 +15,13 @@
    specific language governing permissions and limitations
    under the License.
 */
+
 ext {
     apply from: 'cordova.gradle'
     cdvCompileSdkVersion = privateHelpers.getProjectTarget()
     cdvBuildToolsVersion = privateHelpers.findLatestInstalledBuildTools()
 }
+
 buildscript {
     repositories {
         google()
@@ -34,17 +36,21 @@ buildscript {
         classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.7.3'
     }
 }
+
 allprojects {
     repositories {
         google()
         jcenter()
     }
 }
+
 apply plugin: 'com.android.library'
 apply plugin: 'com.github.dcendents.android-maven'
 apply plugin: 'com.jfrog.bintray'
+
 group = 'org.apache.cordova'
 version = '8.1.0'
+
 android {
     compileSdkVersion cdvCompileSdkVersion
     buildToolsVersion cdvBuildToolsVersion
@@ -78,6 +84,7 @@ android {
         exclude 'META-INF/NOTICE'
     }
 }
+
 install {
     repositories.mavenInstaller {
         pom {
@@ -107,13 +114,16 @@ install {
         }
     }
 }
+
 task sourcesJar(type: Jar) {
     from android.sourceSets.main.java.srcDirs
     classifier = 'sources'
 }
+
 artifacts {
     archives sourcesJar
 }
+
 bintray {
     user = System.getenv('BINTRAY_USER')
     key = System.getenv('BINTRAY_KEY')
@@ -131,11 +141,8 @@ bintray {
         labels = ['android', 'cordova', 'phonegap']
         version {
             name = '8.1.0'
-            released = new Date()
+            released  = new Date()
             vcsTag = '8.1.0'
         }
     }
-}
-
-dependencies {
 }

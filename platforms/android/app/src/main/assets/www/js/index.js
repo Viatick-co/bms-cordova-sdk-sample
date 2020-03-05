@@ -21,20 +21,15 @@ var setting = function(callback) {
    try {
      const requestDistanceBeacons = [
        {
-         uuid: "F7826DA6-4FA2-4E98-8024-BC5B71E0893E",
-         major: 50,
-         minor: 40
-       },
-       {
-         uuid: "F7826DA6-4FA2-4E98-8024-BC5B71E0893E",
-         major: 100,
-         minor: 1
+         uuid: "F7826DA6-4FA2-4E98-8024-BC5B71E0893B",
+         major: 1,
+         minor: 47
        }
      ]
 
-     cordova.plugins.BmsCordovaSdkPublic.setting(true, true,
-       true, "LIST", 0, true, true, true, 2, 2, requestDistanceBeacons,
-       "DEV", (success) => {
+     cordova.plugins.BmsCordovaSdkPublic.setting(false, false,
+       false, "LIST", 0, false, false, false, 2, 2, requestDistanceBeacons,
+       "CHINA", 5, false, false, false, 120, 2, (success) => {
        console.log("setting success", success);
        callback();
      }, (error) => {
@@ -47,7 +42,7 @@ var setting = function(callback) {
 
 var initCustomer = function(callback) {
 	try {
-		cordova.plugins.BmsCordovaSdkPublic.initCustomer("khoa_android", "khoa@viatick.com", "+65 88268722", (success) => {
+		cordova.plugins.BmsCordovaSdkPublic.initCustomer("khoa_cordova", "+65 88268725", "khoa_cordova@viatick.com", (success) => {
 			console.log("initCustomer success", success);
       callback();
 		}, (error) => {
@@ -60,7 +55,7 @@ var initCustomer = function(callback) {
 
 var initSDK = function(callback) {
 	try {
-		cordova.plugins.BmsCordovaSdkPublic.initSDK("_tonthdf8aoramakguq7e92bkqtbip8etkeo5vdaojgmnqrbnmnv", (success) => {
+		cordova.plugins.BmsCordovaSdkPublic.initSDK("deb680d32836f46757e0f893c47706d4151d15aa3d80ce0699a114ab2f6d01df", (success) => {
 			console.log("initSDK success", success);
       callback();
 		}, (error) => {
@@ -123,6 +118,11 @@ var onDistanceBeacons = function() {
 	try {
 		cordova.plugins.BmsCordovaSdkPublic.onDistanceBeacons((success) => {
 			console.log("onDistanceBeacons success", success);
+			if (success) {
+			    const filteredBeacons = success.filter((b) => b.distance < 2.5);
+
+			    console.log("onDistanceBeacons filteredBeacons", filteredBeacons);
+			}
 		}, (error) => {
 			console.log("onDistanceBeacons error", error);
 		});
@@ -130,6 +130,99 @@ var onDistanceBeacons = function() {
 		console.log("onDistanceBeacons exception", e);
 	}
 };
+
+var openDeviceSite = function(url) {
+	try {
+		cordova.plugins.BmsCordovaSdkPublic.openDeviceSite(url, (success) => {
+			console.log("openDeviceSite success", success);
+		}, (error) => {
+			console.log("openDeviceSite error", error);
+		});
+	} catch(e) {
+		console.log("openDeviceSite exception", e);
+	}
+};
+
+var addTagListener = function (callback) {
+    nfc.addNdefListener(callback);
+//    nfc.addNdefFormatableListener(
+//                    callback
+//                );
+}
+
+function decodePayload(record) {
+    var recordType = nfc.bytesToString(record.type),
+        payload;
+
+    console.log('recordType: ' + recordType);
+
+    var tnfString = tnfToString(record.tnf);
+    console.log ('tnf: ' + tnfString);
+
+    if (recordType === "T") {
+        var langCodeLength = record.payload[0],
+        text = record.payload.slice((1 + langCodeLength), record.payload.length);
+        payload = nfc.bytesToString(text);
+
+    } else if (recordType === "U") {
+        var identifierCode = record.payload.shift(),
+        uri =  nfc.bytesToString(record.payload);
+
+        if (identifierCode !== 0) {
+            console.log("WARNING: uri needs to be decoded");
+        }
+        //payload = "<a href='" + uri + "'>" + uri + "<\/a>";
+        payload = uri;
+    } else if (recordType === "Sp") {
+        var decoded =  nfc.bytesToString(record.payload);
+        //payload = "<a href='" + uri + "'>" + uri + "<\/a>";
+        var uriPart = decoded.substring(decoded.indexOf("U") + 2, decoded.length);
+        console.log('uriPart', uriPart);
+        var uri = uriPart.substring(0, uriPart.indexOf("T") - 2);
+
+        console.log('uri', uri);
+
+        payload = uri;
+    } else {
+
+        // kludge assume we can treat as String
+        payload = nfc.bytesToString(record.payload);
+    }
+
+    return payload;
+}
+
+function tnfToString(tnf) {
+    var value = tnf;
+
+    switch (tnf) {
+    case ndef.TNF_EMPTY:
+        value = "Empty";
+        break;
+    case ndef.TNF_WELL_KNOWN:
+        value = "Well Known";
+        break;
+    case ndef.TNF_MIME_MEDIA:
+        value = "Mime Media";
+        break;
+    case ndef.TNF_ABSOLUTE_URI:
+        value = "Absolute URI";
+        break;
+    case ndef.TNF_EXTERNAL_TYPE:
+        value = "External";
+        break;
+    case ndef.TNF_UNKNOWN:
+        value = "Unknown";
+        break;
+    case ndef.TNF_UNCHANGED:
+        value = "Unchanged";
+        break;
+    case ndef.TNF_RESERVED:
+        value = "Reserved";
+        break;
+    }
+    return value;
+}
 
 var app = {
     // Application Constructor
@@ -151,6 +244,16 @@ var app = {
               checkIn(); // check-in listener
               checkOut(); // check-out listener
               onDistanceBeacons();
+
+              addTagListener(function(response) {
+                console.log('response', response);
+                    const uri = decodePayload(response.tag.ndefMessage[0]);
+                    console.log('uri', uri);
+
+                    if (uri) {
+                        openDeviceSite(uri);
+                    }
+              });
             });
           });
         });

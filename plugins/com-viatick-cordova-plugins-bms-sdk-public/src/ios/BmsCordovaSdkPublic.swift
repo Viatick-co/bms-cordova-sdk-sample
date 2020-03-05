@@ -6,8 +6,9 @@ import BmsSDK
 	private var initCustomerCallbackId: String!;
 	private var checkinCallbackId: String!
 	private var checkoutCallbackId: String!
-  private var onDistanceBeaconsCallbackId: String!
-  private var zones: [ViaZone]!
+    private var onDistanceBeaconsCallbackId: String!
+    private var openDeviceSiteCallbackId: String!
+    private var zones: [ViaZone]!
 
 	override func pluginInitialize() {
         viaBmsCtrl = ViaBmsCtrl.sharedInstance;
@@ -48,6 +49,11 @@ import BmsSDK
         let checkoutDuration = command.arguments[9] as! Double;
         let beaconsInput:NSArray = command.arguments[10] as! NSArray;
         let environmentStr = command.arguments[11] as? String;
+        let beaconRegionRange = command.arguments[12] as! Double;
+        let beaconRegionUUIDFilter = command.arguments[12] as? Bool ?? false;
+        let isBroadcasting = command.arguments[13] as? Bool ?? false;
+        let proximityAlert = command.arguments[14] as? Bool ?? false;
+        let proximityAlertThreshold = command.arguments[15] as! Double;
 
         var minisitesView: MinisiteViewType = .LIST;
         if (minisitesViewString == "AUTO") {
@@ -75,7 +81,12 @@ import BmsSDK
 
         viaBmsCtrl.setting(alert: alert, background: background, site: site, minisitesView: minisitesView, autoSiteDuration: autoSiteDuration,
                            tracking: tracking,
-                           enableMQTT: enableMQTT, attendance: attendance, checkinDuration: checkinDuration, checkoutDuration: checkoutDuration, requestDistanceBeacons: beacons, bmsEnvironment: bmsEnvironment);
+                           enableMQTT: enableMQTT, attendance: attendance, checkinDuration: checkinDuration, checkoutDuration: checkoutDuration, requestDistanceBeacons: beacons, bmsEnvironment: bmsEnvironment,
+                               beaconRegionRange: beaconRegionRange,
+                               beaconRegionUUIDFilter: beaconRegionUUIDFilter,
+                               isBroadcasting: isBroadcasting,
+                               proximityAlert: proximityAlert,
+                               proximityAlertThreshold: proximityAlertThreshold);
 
 		pluginResult = CDVPluginResult(status: CDVCommandStatus_OK, messageAs: "setting done!");
 
@@ -117,10 +128,17 @@ import BmsSDK
         self.checkoutCallbackId = command.callbackId;
 	}
 
-  @objc(onDistanceBeacons:)
+    @objc(onDistanceBeacons:)
 	func onDistanceBeacons(command: CDVInvokedUrlCommand) {
         self.onDistanceBeaconsCallbackId = command.callbackId;
 	}
+
+    @objc(openDeviceSite:)
+    func openDeviceSite(command: CDVInvokedUrlCommand) {
+        let deviceSiteURL = command.arguments[0] as? String;
+        viaBmsCtrl.openDeviceSite(deviceSiteURL: deviceSiteURL!)
+        self.openDeviceSiteCallbackId = command.callbackId;
+    }
 }
 
 extension BmsCordovaSdkPublic: ViaBmsCtrlDelegate {
@@ -167,6 +185,10 @@ extension BmsCordovaSdkPublic: ViaBmsCtrlDelegate {
         self.commandDelegate!.send(pluginResult, callbackId: checkoutCallbackId);
     }
 
+    func onProximityAlert() {
+        print("onProximityAlert");
+    }
+
     func onDistanceBeacons(beacons: [IBeacon]) {
         print("onDistanceBeacons callback");
 
@@ -180,8 +202,22 @@ extension BmsCordovaSdkPublic: ViaBmsCtrlDelegate {
             beaconsOutput.append(beaconOutput as NSDictionary);
         }
 
-        let pluginResult: CDVPluginResult = CDVPluginResult(status: CDVCommandStatus_OK, messageAs: beaconsOutput as! [Any]);
+        let pluginResult: CDVPluginResult = CDVPluginResult(status: CDVCommandStatus_OK, messageAs: beaconsOutput as [Any]);
         pluginResult.setKeepCallbackAs(true);
         self.commandDelegate!.send(pluginResult, callbackId: onDistanceBeaconsCallbackId);
+    }
+
+    func deviceSiteLoaded(loaded: Bool, error: String?) {
+        print("deviceSiteLoaded callback");
+
+        if (loaded) {
+            let pluginResult: CDVPluginResult = CDVPluginResult(status: CDVCommandStatus_OK, messageAs: "");
+            pluginResult.setKeepCallbackAs(true);
+            self.commandDelegate!.send(pluginResult, callbackId: checkoutCallbackId);
+        } else {
+            let pluginResult: CDVPluginResult = CDVPluginResult(status: CDVCommandStatus_ERROR, messageAs: error);
+            pluginResult.setKeepCallbackAs(true);
+            self.commandDelegate!.send(pluginResult, callbackId: checkoutCallbackId);
+        }
     }
 }

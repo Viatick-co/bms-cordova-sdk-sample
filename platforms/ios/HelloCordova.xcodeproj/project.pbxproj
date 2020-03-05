@@ -5,6 +5,7 @@
 	};
 	objectVersion = 46;
 	objects = {
+
 /* Begin PBXBuildFile section */
 		0207DA581B56EA530066E2B4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0207DA571B56EA530066E2B4 /* Images.xcassets */; };
 		1D3623260D0F684500981E51 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* AppDelegate.m */; };
@@ -12,30 +13,31 @@
 		301BF552109A68D80062928A /* libCordova.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 301BF535109A57CC0062928A /* libCordova.a */; settings = {ATTRIBUTES = (Required, ); }; };
 		302D95F114D2391D003F00A1 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 302D95EF14D2391D003F00A1 /* MainViewController.m */; };
 		302D95F214D2391D003F00A1 /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 302D95F014D2391D003F00A1 /* MainViewController.xib */; };
+		519DC06B57294D2CB79C79FD /* CoreNFC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B457C5FB3FA343A59BB5533F /* CoreNFC.framework */; };
 		6AFF5BF91D6E424B00AB3073 /* CDVLaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6AFF5BF81D6E424B00AB3073 /* CDVLaunchScreen.storyboard */; };
-		361E7AF2736B4EA5860A9D2B /* BmsCordovaSdkPublic.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1769BA311749108F83C5DD /* BmsCordovaSdkPublic.swift */; };
-		3D1538E81CDA488CA653458D /* BmsSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8228C26F2EF341E68B54F9C3 /* BmsSDK.framework */; };
-		59E3F04F22A0408DBD10F799 /* BmsSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8228C26F2EF341E68B54F9C3 /* BmsSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		71FAD31B30E04D7AB0202465 /* NfcPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 253E7EE96E62426A950BBB7D /* NfcPlugin.m */; };
+		7695373407EE40E5BF3B3693 /* BmsSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F7C6893606B449D6895AECB6 /* BmsSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		CB627114AAB8496CB50FE745 /* BmsCordovaSdkPublic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75AC2CAF7F4E4C83A319976D /* BmsCordovaSdkPublic.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
 		301BF534109A57CC0062928A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 301BF52D109A57CC0062928A /* CordovaLib/CordovaLib.xcodeproj */;
+			containerPortal = 301BF52D109A57CC0062928A /* CordovaLib.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = D2AAC07E0554694100DB518D;
 			remoteInfo = CordovaLib;
 		};
 		301BF550109A68C00062928A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 301BF52D109A57CC0062928A /* CordovaLib/CordovaLib.xcodeproj */;
+			containerPortal = 301BF52D109A57CC0062928A /* CordovaLib.xcodeproj */;
 			proxyType = 1;
 			remoteGlobalIDString = D2AAC07D0554694100DB518D;
 			remoteInfo = CordovaLib;
 		};
 		907D8123214C687600058A10 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 301BF52D109A57CC0062928A /* CordovaLib/CordovaLib.xcodeproj */;
+			containerPortal = 301BF52D109A57CC0062928A /* CordovaLib.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = C0C01EB21E3911D50056E6CB;
 			remoteInfo = Cordova;
@@ -43,15 +45,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		EE83258D79154CACA2F75DCA /* Embed Frameworks */ = {
+		9C635C7180DB4009B746F8F2 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				784283417490416A85BF5FAA /* BmsSDK.framework in Embed Frameworks */,
-				B6FF18E3D7C744178E7C7FB6 /* BmsSDK.framework in Embed Frameworks */,
-				59E3F04F22A0408DBD10F799 /* BmsSDK.framework in Embed Frameworks */,
+				7695373407EE40E5BF3B3693 /* BmsSDK.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -63,8 +63,9 @@
 		1D3623240D0F684500981E51 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		1D3623250D0F684500981E51 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		1D6058910D05DD3D006BFB54 /* HelloCordova.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HelloCordova.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		253E7EE96E62426A950BBB7D /* NfcPlugin.m */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.objc; name = NfcPlugin.m; path = "phonegap-nfc/NfcPlugin.m"; sourceTree = "<group>"; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		301BF52D109A57CC0062928A /* CordovaLib/CordovaLib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = CordovaLib/CordovaLib.xcodeproj; sourceTree = "<group>"; };
+		301BF52D109A57CC0062928A /* CordovaLib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CordovaLib.xcodeproj; path = CordovaLib/CordovaLib.xcodeproj; sourceTree = "<group>"; };
 		301BF56E109A69640062928A /* www */ = {isa = PBXFileReference; lastKnownFileType = folder; path = www; sourceTree = SOURCE_ROOT; };
 		302D95EE14D2391D003F00A1 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		302D95EF14D2391D003F00A1 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
@@ -73,14 +74,16 @@
 		3047A5101AB8059700498E2A /* build-release.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = "build-release.xcconfig"; path = "cordova/build-release.xcconfig"; sourceTree = SOURCE_ROOT; };
 		3047A5111AB8059700498E2A /* build.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = build.xcconfig; path = cordova/build.xcconfig; sourceTree = SOURCE_ROOT; };
 		32CA4F630368D1EE00C91783 /* HelloCordova-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "HelloCordova-Prefix.pch"; sourceTree = "<group>"; };
+		5BCB37E78EC945ED80FC5656 /* NfcPlugin.h */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.h; name = NfcPlugin.h; path = "phonegap-nfc/NfcPlugin.h"; sourceTree = "<group>"; };
 		6AFF5BF81D6E424B00AB3073 /* CDVLaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = CDVLaunchScreen.storyboard; path = HelloCordova/CDVLaunchScreen.storyboard; sourceTree = SOURCE_ROOT; };
+		75AC2CAF7F4E4C83A319976D /* BmsCordovaSdkPublic.swift */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.swift; name = BmsCordovaSdkPublic.swift; path = "com-viatick-cordova-plugins-bms-sdk-public/BmsCordovaSdkPublic.swift"; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* HelloCordova-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "HelloCordova-Info.plist"; path = "HelloCordova/HelloCordova-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = SOURCE_ROOT; };
+		B457C5FB3FA343A59BB5533F /* CoreNFC.framework */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = wrapper.framework; name = CoreNFC.framework; path = System/Library/Frameworks/CoreNFC.framework; sourceTree = SDKROOT; };
 		EB87FDF31871DA8E0020F90C /* www */ = {isa = PBXFileReference; lastKnownFileType = folder; name = www; path = ../../www; sourceTree = "<group>"; };
 		EB87FDF41871DAF40020F90C /* config.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = config.xml; path = ../../config.xml; sourceTree = "<group>"; };
 		ED33DF2A687741AEAF9F8254 /* Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
+		F7C6893606B449D6895AECB6 /* BmsSDK.framework */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = wrapper.framework; name = BmsSDK.framework; path = "HelloCordova/Plugins/com-viatick-cordova-plugins-bms-sdk-public/BmsSDK.framework"; sourceTree = "<group>"; };
 		F840E1F0165FE0F500CFE078 /* config.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = config.xml; path = HelloCordova/config.xml; sourceTree = "<group>"; };
-		FD1769BA311749108F83C5DD /* BmsCordovaSdkPublic.swift */ = {isa = PBXFileReference; name = "BmsCordovaSdkPublic.swift"; path = "com-viatick-cordova-plugins-bms-sdk-public/BmsCordovaSdkPublic.swift"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.swift; explicitFileType = undefined; includeInIndex = 0; };
-		8228C26F2EF341E68B54F9C3 /* BmsSDK.framework */ = {isa = PBXFileReference; name = "BmsSDK.framework"; path = "HelloCordova/Plugins/com-viatick-cordova-plugins-bms-sdk-public/BmsSDK.framework"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +92,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				301BF552109A68D80062928A /* libCordova.a in Frameworks */,
+				519DC06B57294D2CB79C79FD /* CoreNFC.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -122,7 +126,7 @@
 				EB87FDF41871DAF40020F90C /* config.xml */,
 				EB87FDF31871DA8E0020F90C /* www */,
 				EB87FDF11871DA420020F90C /* Staging */,
-				301BF52D109A57CC0062928A /* CordovaLib/CordovaLib.xcodeproj */,
+				301BF52D109A57CC0062928A /* CordovaLib.xcodeproj */,
 				080E96DDFE201D6D7F000001 /* Classes */,
 				307C750510C5A3420062BCA9 /* Plugins */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
@@ -159,7 +163,8 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				8228C26F2EF341E68B54F9C3 /* BmsSDK.framework */,
+				F7C6893606B449D6895AECB6 /* BmsSDK.framework */,
+				B457C5FB3FA343A59BB5533F /* CoreNFC.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -186,7 +191,9 @@
 		307C750510C5A3420062BCA9 /* Plugins */ = {
 			isa = PBXGroup;
 			children = (
-				FD1769BA311749108F83C5DD /* BmsCordovaSdkPublic.swift */,
+				75AC2CAF7F4E4C83A319976D /* BmsCordovaSdkPublic.swift */,
+				253E7EE96E62426A950BBB7D /* NfcPlugin.m */,
+				5BCB37E78EC945ED80FC5656 /* NfcPlugin.h */,
 			);
 			name = Plugins;
 			path = HelloCordova/Plugins;
@@ -212,7 +219,7 @@
 				1D60588D0D05DD3D006BFB54 /* Resources */,
 				1D60588E0D05DD3D006BFB54 /* Sources */,
 				1D60588F0D05DD3D006BFB54 /* Frameworks */,
-				EE83258D79154CACA2F75DCA /* Embed Frameworks */,
+				9C635C7180DB4009B746F8F2 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -234,6 +241,7 @@
 				TargetAttributes = {
 					1D6058900D05DD3D006BFB54 = {
 						DevelopmentTeam = 65BFNMKECG;
+						LastSwiftMigration = 1130;
 					};
 				};
 			};
@@ -251,7 +259,7 @@
 			projectReferences = (
 				{
 					ProductGroup = 301BF52E109A57CC0062928A /* Products */;
-					ProjectRef = 301BF52D109A57CC0062928A /* CordovaLib/CordovaLib.xcodeproj */;
+					ProjectRef = 301BF52D109A57CC0062928A /* CordovaLib.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -317,7 +325,8 @@
 				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
 				1D3623260D0F684500981E51 /* AppDelegate.m in Sources */,
 				302D95F114D2391D003F00A1 /* MainViewController.m in Sources */,
-				361E7AF2736B4EA5860A9D2B /* BmsCordovaSdkPublic.swift in Sources */,
+				CB627114AAB8496CB50FE745 /* BmsCordovaSdkPublic.swift in Sources */,
+				71FAD31B30E04D7AB0202465 /* NfcPlugin.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -336,6 +345,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3047A50F1AB8059700498E2A /* build-debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -345,10 +355,6 @@
 				DEVELOPMENT_TEAM = 65BFNMKECG;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"HelloCordova/Plugins/com-viatick-cordova-plugins-bms-sdk-public",
-					"$(PROJECT_DIR)/HelloCordova/Plugins/com-viatick-cordova-plugins-bms-sdk-public",
-					"\"HelloCordova/Plugins/com-viatick-cordova-plugins-bms-sdk-public\"",
-					"\"HelloCordova/Plugins/com-viatick-cordova-plugins-bms-sdk-public\"",
 					"\"HelloCordova/Plugins/com-viatick-cordova-plugins-bms-sdk-public\"",
 				);
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -362,6 +368,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.viatick.bmssdksample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/$(PROJECT_NAME)/Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -371,21 +379,17 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3047A5101AB8059700498E2A /* build-release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
-				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				COPY_PHASE_STRIP = YES;
-				DEVELOPMENT_TEAM = 65BFNMKECG;
+				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"HelloCordova/Plugins/com-viatick-cordova-plugins-bms-sdk-public",
-					"$(PROJECT_DIR)/HelloCordova/Plugins/com-viatick-cordova-plugins-bms-sdk-public",
-					"\"HelloCordova/Plugins/com-viatick-cordova-plugins-bms-sdk-public\"",
-					"\"HelloCordova/Plugins/com-viatick-cordova-plugins-bms-sdk-public\"",
 					"\"HelloCordova/Plugins/com-viatick-cordova-plugins-bms-sdk-public\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -398,6 +402,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.viatick.bmssdksample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/$(PROJECT_NAME)/Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -407,6 +412,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3047A5111AB8059700498E2A /* build.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
@@ -442,6 +448,10 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.viatick.bmssdksample;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = NO;
+				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/$(PROJECT_NAME)/Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
+				WK_WEB_VIEW_ONLY = 0;
 			};
 			name = Debug;
 		};
@@ -449,6 +459,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3047A5111AB8059700498E2A /* build.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
@@ -482,6 +493,9 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.viatick.bmssdksample;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = NO;
+				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/$(PROJECT_NAME)/Bridging-Header.h";
+				SWIFT_VERSION = 4.0;
+				WK_WEB_VIEW_ONLY = 0;
 			};
 			name = Release;
 		};

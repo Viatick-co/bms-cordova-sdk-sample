@@ -13,10 +13,12 @@
   "author": "Apache Cordova Team",
   "license": "Apache-2.0",
   "dependencies": {
-    "com-viatick-cordova-plugins-bms-sdk-public": "git+https://github.com/Viatick-co/bms-cordova-sdk-public.git#v2.0-dev",
+    "com-viatick-cordova-plugins-bms-sdk-public": "file:../bms-cordova-sdk-public",
     "cordova-android": "^8.1.0",
-    "cordova-ios": "^5.0.1",
-    "cordova-plugin-whitelist": "^1.3.4"
+    "cordova-ios": "^5.1.1",
+    "cordova-plugin-add-swift-support": "^2.0.2",
+    "cordova-plugin-whitelist": "^1.3.4",
+    "phonegap-nfc": "^1.0.4"
   },
   "devDependencies": {
     "cordova-plugin-whitelist": "1"
@@ -24,11 +26,14 @@
   "cordova": {
     "plugins": {
       "cordova-plugin-whitelist": {},
-      "com-viatick-cordova-plugins-bms-sdk-public": {}
+      "com-viatick-cordova-plugins-bms-sdk-public": {},
+      "phonegap-nfc": {
+        "NFC_USAGE_DESCRIPTION": "Read NFC Tags"
+      }
     },
     "platforms": [
-      "ios",
-      "android"
+      "android",
+      "ios"
     ]
   }
 }
