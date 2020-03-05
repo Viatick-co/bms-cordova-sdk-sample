@@ -91,7 +91,7 @@
         errorLine2="                                                     ~~~~~~~~~~~">
         <location
             file="/Users/viatick/Desktop/Project/bms-cordova-sdk-sample/platforms/android/bms-android-sdk/src/main/java/com/viatick/bmsandroidsdk/controller/BeaconServiceCtrl.java"
-            line="216"
+            line="218"
             column="54"/>
     </issue>
 
@@ -109,7 +109,7 @@
         errorLine2="                                                                                                                             ~~~~~~~~~~~">
         <location
             file="/Users/viatick/Desktop/Project/bms-cordova-sdk-sample/platforms/android/bms-android-sdk/src/main/java/com/viatick/bmsandroidsdk/controller/BeaconServiceCtrl.java"
-            line="353"
+            line="355"
             column="126"/>
     </issue>
 
@@ -127,7 +127,7 @@
         errorLine2="                                                                                    ~~~~~~~~~~~">
         <location
             file="/Users/viatick/Desktop/Project/bms-cordova-sdk-sample/platforms/android/bms-android-sdk/src/main/java/com/viatick/bmsandroidsdk/controller/BeaconServiceCtrl.java"
-            line="354"
+            line="356"
             column="85"/>
     </issue>
 
@@ -145,7 +145,7 @@
         errorLine2="                                                                                                              ~~~~~~~~~~~">
         <location
             file="/Users/viatick/Desktop/Project/bms-cordova-sdk-sample/platforms/android/bms-android-sdk/src/main/java/com/viatick/bmsandroidsdk/controller/BeaconServiceCtrl.java"
-            line="361"
+            line="363"
             column="111"/>
     </issue>
 
@@ -163,7 +163,7 @@
         errorLine2="                                                                                  ~~~~~~~~~~~">
         <location
             file="/Users/viatick/Desktop/Project/bms-cordova-sdk-sample/platforms/android/bms-android-sdk/src/main/java/com/viatick/bmsandroidsdk/controller/BeaconServiceCtrl.java"
-            line="529"
+            line="531"
             column="83"/>
     </issue>
 
@@ -235,7 +235,7 @@
         errorLine2="                          ~~~~~~~~~~~">
         <location
             file="/Users/viatick/Desktop/Project/bms-cordova-sdk-sample/platforms/android/bms-android-sdk/src/main/java/com/viatick/bmsandroidsdk/controller/ViaBmsCtrl.java"
-            line="447"
+            line="449"
             column="27"/>
     </issue>
 
@@ -253,7 +253,7 @@
         errorLine2="                      ~~~~~~~~~~~">
         <location
             file="/Users/viatick/Desktop/Project/bms-cordova-sdk-sample/platforms/android/bms-android-sdk/src/main/java/com/viatick/bmsandroidsdk/controller/ViaBmsCtrl.java"
-            line="634"
+            line="636"
             column="23"/>
     </issue>
 
@@ -271,7 +271,7 @@
         errorLine2="                      ~~~~~~~~~~~">
         <location
             file="/Users/viatick/Desktop/Project/bms-cordova-sdk-sample/platforms/android/bms-android-sdk/src/main/java/com/viatick/bmsandroidsdk/controller/ViaBmsCtrl.java"
-            line="1043"
+            line="1045"
             column="23"/>
     </issue>
 
@@ -289,7 +289,7 @@
         errorLine2="                    ~~~~~~~~~~~">
         <location
             file="/Users/viatick/Desktop/Project/bms-cordova-sdk-sample/platforms/android/bms-android-sdk/src/main/java/com/viatick/bmsandroidsdk/controller/ViaBmsCtrl.java"
-            line="1116"
+            line="1118"
             column="21"/>
     </issue>
 
@@ -735,7 +735,7 @@
         errorLine2="    ~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="/Users/viatick/Desktop/Project/bms-cordova-sdk-sample/platforms/android/bms-android-sdk/src/main/java/com/viatick/bmsandroidsdk/controller/ViaBmsCtrl.java"
-            line="1210"
+            line="1212"
             column="5"/>
     </issue>
 
@@ -751,7 +751,7 @@
         errorLine2="                ~~~~~~~~~~~~~~">
         <location
             file="/Users/viatick/Desktop/Project/bms-cordova-sdk-sample/platforms/android/bms-android-sdk/src/main/java/com/viatick/bmsandroidsdk/controller/BeaconServiceCtrl.java"
-            line="263"
+            line="265"
             column="17"/>
     </issue>
 

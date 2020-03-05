@@ -225,7 +225,7 @@ public class ViaBmsCtrl {
                               Integer checkinDuration, Integer checkoutDuration,
                               List<IBeacon> requestDistanceBeacons, BmsEnvironment bmsEnvironment,
                               Double beaconRegionRange, Boolean beaconRegionUUIDFilter, Boolean broadcasting, Boolean proximityAlert,
-                              Integer proximityAlertTheshold) {
+                              Integer proximityAlertTheshold, int scanMode) {
     SETTING.setEnableAlert(alert);
     SETTING.setEnableBackground(background);
     SETTING.setEnableSite(site);
@@ -280,6 +280,8 @@ public class ViaBmsCtrl {
 
       SETTING.setEnableDistance(true);
     }
+
+    SETTING.setScanMode(scanMode);
   }
 
   private static void initedSdk(boolean inited) {

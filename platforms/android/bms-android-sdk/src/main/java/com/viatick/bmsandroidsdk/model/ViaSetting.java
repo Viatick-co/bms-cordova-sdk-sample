@@ -1,5 +1,7 @@
 package com.viatick.bmsandroidsdk.model;
 
+import android.bluetooth.le.ScanSettings;
+
 import com.viatick.bmsandroidsdk.helper.BmsEnvironment;
 import com.viatick.bmsandroidsdk.model.ViaBmsUtil.MinisiteViewType;
 
@@ -23,6 +25,7 @@ public class ViaSetting {
     private boolean broadcasting;
     private boolean proximityAlert;
     private int proximityAlertThreshold;
+    private int scanMode;
 
     public ViaSetting() {
         this.enableAlert = false;
@@ -43,6 +46,7 @@ public class ViaSetting {
         this.broadcasting = false;
         this.proximityAlert = false;
         this.proximityAlertThreshold = 15;
+        this.scanMode = ScanSettings.SCAN_MODE_BALANCED;
     }
 
     public boolean isEnableAlert() {
@@ -188,5 +192,13 @@ public class ViaSetting {
 
     public void setProximityAlert(boolean proximityAlert) {
         this.proximityAlert = proximityAlert;
+    }
+
+    public int getScanMode() {
+        return scanMode;
+    }
+
+    public void setScanMode(int scanMode) {
+        this.scanMode = scanMode;
     }
 }

@@ -148,16 +148,18 @@ public class BeaconServiceCtrl extends Service {
           BluetoothAdapter adapter = getBluetoothAdapter();
 
           ScanSettings scanSettings = new ScanSettings.Builder()
-                  .setScanMode(ScanSettings.SCAN_MODE_LOW_LATENCY)
+                  .setScanMode(ViaBmsCtrl.SETTING.getScanMode())
                   .setMatchMode(ScanSettings.MATCH_MODE_AGGRESSIVE)
                   .setCallbackType(ScanSettings.CALLBACK_TYPE_ALL_MATCHES)
                   .setNumOfMatches(ScanSettings.MATCH_NUM_MAX_ADVERTISEMENT)
                   .setReportDelay(0)
                   .build();
 
+          Log.i(TAG, "Scan mode: " + ViaBmsCtrl.SETTING.getScanMode());
+
           List<ScanFilter> scanFilters = new ArrayList<ScanFilter>();
           if (ViaBmsCtrl.SETTING.isBeaconRegionUUIDFilter()) {
-              Log.i(TAG, "ViaBmsCtrl.SETTING.getBeaconRegionUUID(): " + ViaBmsCtrl.SETTING.getBeaconRegionUUID());
+
               if (ViaBmsCtrl.SETTING.getBeaconRegionUUID() != null) {
                   scanFilters.add(ScanFilterUtils.getScanFilterUUID(ViaBmsCtrl.SETTING.getBeaconRegionUUID()));
               }

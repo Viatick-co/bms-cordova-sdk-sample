@@ -176,7 +176,7 @@ document.getElementById(id).style.display = 'none';
       <span class="mdl-layout-title">Lint Report: 9 errors and 53 warnings</span>
       <div class="mdl-layout-spacer"></div>
       <nav class="mdl-navigation mdl-layout--large-screen-only">
-Check performed at Mon Feb 17 18:09:58 SGT 2020      </nav>
+Check performed at Thu Mar 05 19:01:52 SGT 2020      </nav>
     </div>
   </header>
   <div class="mdl-layout__drawer">
@@ -472,53 +472,53 @@ Dismiss</button>            </div>
               <div class="mdl-card__supporting-text">
 <div class="issue">
 <div class="warningslist">
-<span class="location"><a href="../../src/main/java/com/viatick/bmsandroidsdk/controller/BeaconServiceCtrl.java">../../src/main/java/com/viatick/bmsandroidsdk/controller/BeaconServiceCtrl.java</a>:216</span>: <span class="message">Implicitly using the default locale is a common source of bugs: Use <code>toLowerCase(Locale)</code> instead. For strings meant to be internal use <code>Locale.ROOT</code>, otherwise <code>Locale.getDefault()</code>.</span><br /><pre class="errorlines">
-<span class="lineno"> 213 </span>          (<span class="keyword">byte</span>)<span class="number">0x00</span>, (<span class="keyword">byte</span>)<span class="number">0x00</span>, <span class="comment">// Minor</span>
-<span class="lineno"> 214 </span>          (<span class="keyword">byte</span>)<span class="number">0xCB</span>}; <span class="comment">// Tx Power</span>
-<span class="lineno"> 215 </span>
-<span class="caretline"><span class="lineno"> 216 </span>  System.arraycopy(hexStringToByteArray(uuid.<span class="warning">toLowerCase</span>().replaceAll(<span class="string">"-"</span>,<span class="string">""</span>)), <span class="number">0</span>, payload, <span class="number">2</span>, <span class="number">16</span>);</span>
+<span class="location"><a href="../../src/main/java/com/viatick/bmsandroidsdk/controller/BeaconServiceCtrl.java">../../src/main/java/com/viatick/bmsandroidsdk/controller/BeaconServiceCtrl.java</a>:218</span>: <span class="message">Implicitly using the default locale is a common source of bugs: Use <code>toLowerCase(Locale)</code> instead. For strings meant to be internal use <code>Locale.ROOT</code>, otherwise <code>Locale.getDefault()</code>.</span><br /><pre class="errorlines">
+<span class="lineno"> 215 </span>          (<span class="keyword">byte</span>)<span class="number">0x00</span>, (<span class="keyword">byte</span>)<span class="number">0x00</span>, <span class="comment">// Minor</span>
+<span class="lineno"> 216 </span>          (<span class="keyword">byte</span>)<span class="number">0xCB</span>}; <span class="comment">// Tx Power</span>
 <span class="lineno"> 217 </span>
-<span class="lineno"> 218 </span>  <span class="comment">// copy major into data array</span>
-<span class="lineno"> 219 </span>  System.arraycopy(integerToByteArray(major), <span class="number">0</span>, payload, <span class="number">18</span>, <span class="number">2</span>);
+<span class="caretline"><span class="lineno"> 218 </span>  System.arraycopy(hexStringToByteArray(uuid.<span class="warning">toLowerCase</span>().replaceAll(<span class="string">"-"</span>,<span class="string">""</span>)), <span class="number">0</span>, payload, <span class="number">2</span>, <span class="number">16</span>);</span>
+<span class="lineno"> 219 </span>
+<span class="lineno"> 220 </span>  <span class="comment">// copy major into data array</span>
+<span class="lineno"> 221 </span>  System.arraycopy(integerToByteArray(major), <span class="number">0</span>, payload, <span class="number">18</span>, <span class="number">2</span>);
 </pre>
 
-<span class="location"><a href="../../src/main/java/com/viatick/bmsandroidsdk/controller/BeaconServiceCtrl.java">../../src/main/java/com/viatick/bmsandroidsdk/controller/BeaconServiceCtrl.java</a>:353</span>: <span class="message">Implicitly using the default locale is a common source of bugs: Use <code>toLowerCase(Locale)</code> instead. For strings meant to be internal use <code>Locale.ROOT</code>, otherwise <code>Locale.getDefault()</code>.</span><br /><pre class="errorlines">
-<span class="lineno"> 350 </span>
-<span class="lineno"> 351 </span>  Log.i(TAG, <span class="string">"ViaBmsCtrl.SETTING.getBeaconRegionRange(): "</span> + ViaBmsCtrl.SETTING.getBeaconRegionRange());
-<span class="lineno"> 352 </span>  Log.i(TAG, <span class="string">"comparsion 1: "</span> + (ViaBmsCtrl.SETTING.getBeaconRegionRange() &lt; beacon.getAccuracy()));
-<span class="caretline"><span class="lineno"> 353 </span>  Log.i(TAG, <span class="string">"ViaBmsCtrl.SETTING.getBeaconRegionUUID().toLowerCase(): "</span> + ViaBmsCtrl.SETTING.getBeaconRegionUUID().<span class="warning">toLowerCase</span>());</span>
-<span class="lineno"> 354 </span>  Log.i(TAG, <span class="string">"comparsion 2: "</span> + !ViaBmsCtrl.SETTING.getBeaconRegionUUID().toLowerCase().equals(beacon.getUuid()));
-<span class="lineno"> 355 </span>
-<span class="lineno"> 356 </span>  <span class="keyword">if</span> (ViaBmsCtrl.SETTING.getBeaconRegionRange() > <span class="number">0</span> &amp;&amp; ViaBmsCtrl.SETTING.getBeaconRegionRange() &lt; beacon.getAccuracy()) {
+<span class="location"><a href="../../src/main/java/com/viatick/bmsandroidsdk/controller/BeaconServiceCtrl.java">../../src/main/java/com/viatick/bmsandroidsdk/controller/BeaconServiceCtrl.java</a>:355</span>: <span class="message">Implicitly using the default locale is a common source of bugs: Use <code>toLowerCase(Locale)</code> instead. For strings meant to be internal use <code>Locale.ROOT</code>, otherwise <code>Locale.getDefault()</code>.</span><br /><pre class="errorlines">
+<span class="lineno"> 352 </span>
+<span class="lineno"> 353 </span>  Log.i(TAG, <span class="string">"ViaBmsCtrl.SETTING.getBeaconRegionRange(): "</span> + ViaBmsCtrl.SETTING.getBeaconRegionRange());
+<span class="lineno"> 354 </span>  Log.i(TAG, <span class="string">"comparsion 1: "</span> + (ViaBmsCtrl.SETTING.getBeaconRegionRange() &lt; beacon.getAccuracy()));
+<span class="caretline"><span class="lineno"> 355 </span>  Log.i(TAG, <span class="string">"ViaBmsCtrl.SETTING.getBeaconRegionUUID().toLowerCase(): "</span> + ViaBmsCtrl.SETTING.getBeaconRegionUUID().<span class="warning">toLowerCase</span>());</span>
+<span class="lineno"> 356 </span>  Log.i(TAG, <span class="string">"comparsion 2: "</span> + !ViaBmsCtrl.SETTING.getBeaconRegionUUID().toLowerCase().equals(beacon.getUuid()));
+<span class="lineno"> 357 </span>
+<span class="lineno"> 358 </span>  <span class="keyword">if</span> (ViaBmsCtrl.SETTING.getBeaconRegionRange() > <span class="number">0</span> &amp;&amp; ViaBmsCtrl.SETTING.getBeaconRegionRange() &lt; beacon.getAccuracy()) {
 </pre>
 
-<span class="location"><a href="../../src/main/java/com/viatick/bmsandroidsdk/controller/BeaconServiceCtrl.java">../../src/main/java/com/viatick/bmsandroidsdk/controller/BeaconServiceCtrl.java</a>:354</span>: <span class="message">Implicitly using the default locale is a common source of bugs: Use <code>toLowerCase(Locale)</code> instead. For strings meant to be internal use <code>Locale.ROOT</code>, otherwise <code>Locale.getDefault()</code>.</span><br /><pre class="errorlines">
-<span class="lineno"> 351 </span>  Log.i(TAG, <span class="string">"ViaBmsCtrl.SETTING.getBeaconRegionRange(): "</span> + ViaBmsCtrl.SETTING.getBeaconRegionRange());
-<span class="lineno"> 352 </span>  Log.i(TAG, <span class="string">"comparsion 1: "</span> + (ViaBmsCtrl.SETTING.getBeaconRegionRange() &lt; beacon.getAccuracy()));
-<span class="lineno"> 353 </span>  Log.i(TAG, <span class="string">"ViaBmsCtrl.SETTING.getBeaconRegionUUID().toLowerCase(): "</span> + ViaBmsCtrl.SETTING.getBeaconRegionUUID().toLowerCase());
-<span class="caretline"><span class="lineno"> 354 </span>  Log.i(TAG, <span class="string">"comparsion 2: "</span> + !ViaBmsCtrl.SETTING.getBeaconRegionUUID().<span class="warning">toLowerCase</span>().equals(beacon.getUuid()));</span>
-<span class="lineno"> 355 </span>
-<span class="lineno"> 356 </span>  <span class="keyword">if</span> (ViaBmsCtrl.SETTING.getBeaconRegionRange() > <span class="number">0</span> &amp;&amp; ViaBmsCtrl.SETTING.getBeaconRegionRange() &lt; beacon.getAccuracy()) {
-<span class="lineno"> 357 </span>    <span class="comment">// Outside of user-defined beacon region range, ignore</span></pre>
+<span class="location"><a href="../../src/main/java/com/viatick/bmsandroidsdk/controller/BeaconServiceCtrl.java">../../src/main/java/com/viatick/bmsandroidsdk/controller/BeaconServiceCtrl.java</a>:356</span>: <span class="message">Implicitly using the default locale is a common source of bugs: Use <code>toLowerCase(Locale)</code> instead. For strings meant to be internal use <code>Locale.ROOT</code>, otherwise <code>Locale.getDefault()</code>.</span><br /><pre class="errorlines">
+<span class="lineno"> 353 </span>  Log.i(TAG, <span class="string">"ViaBmsCtrl.SETTING.getBeaconRegionRange(): "</span> + ViaBmsCtrl.SETTING.getBeaconRegionRange());
+<span class="lineno"> 354 </span>  Log.i(TAG, <span class="string">"comparsion 1: "</span> + (ViaBmsCtrl.SETTING.getBeaconRegionRange() &lt; beacon.getAccuracy()));
+<span class="lineno"> 355 </span>  Log.i(TAG, <span class="string">"ViaBmsCtrl.SETTING.getBeaconRegionUUID().toLowerCase(): "</span> + ViaBmsCtrl.SETTING.getBeaconRegionUUID().toLowerCase());
+<span class="caretline"><span class="lineno"> 356 </span>  Log.i(TAG, <span class="string">"comparsion 2: "</span> + !ViaBmsCtrl.SETTING.getBeaconRegionUUID().<span class="warning">toLowerCase</span>().equals(beacon.getUuid()));</span>
+<span class="lineno"> 357 </span>
+<span class="lineno"> 358 </span>  <span class="keyword">if</span> (ViaBmsCtrl.SETTING.getBeaconRegionRange() > <span class="number">0</span> &amp;&amp; ViaBmsCtrl.SETTING.getBeaconRegionRange() &lt; beacon.getAccuracy()) {
+<span class="lineno"> 359 </span>    <span class="comment">// Outside of user-defined beacon region range, ignore</span></pre>
 
-<span class="location"><a href="../../src/main/java/com/viatick/bmsandroidsdk/controller/BeaconServiceCtrl.java">../../src/main/java/com/viatick/bmsandroidsdk/controller/BeaconServiceCtrl.java</a>:361</span>: <span class="message">Implicitly using the default locale is a common source of bugs: Use <code>toLowerCase(Locale)</code> instead. For strings meant to be internal use <code>Locale.ROOT</code>, otherwise <code>Locale.getDefault()</code>.</span><br /><pre class="errorlines">
-<span class="lineno"> 358 </span>    <span class="keyword">return</span>;
-<span class="lineno"> 359 </span>  }
-<span class="lineno"> 360 </span>
-<span class="caretline"><span class="lineno"> 361 </span>  <span class="keyword">if</span> (ViaBmsCtrl.SETTING.getBeaconRegionUUID() != <span class="keyword">null</span> &amp;&amp; !ViaBmsCtrl.SETTING.getBeaconRegionUUID().<span class="warning">toLowerCase</span>().equals(beacon.getUuid())) {</span>
-<span class="lineno"> 362 </span>    <span class="comment">// Not having beacon region UUID, ignore</span>
-<span class="lineno"> 363 </span>    <span class="keyword">return</span>;
-<span class="lineno"> 364 </span>  }
+<span class="location"><a href="../../src/main/java/com/viatick/bmsandroidsdk/controller/BeaconServiceCtrl.java">../../src/main/java/com/viatick/bmsandroidsdk/controller/BeaconServiceCtrl.java</a>:363</span>: <span class="message">Implicitly using the default locale is a common source of bugs: Use <code>toLowerCase(Locale)</code> instead. For strings meant to be internal use <code>Locale.ROOT</code>, otherwise <code>Locale.getDefault()</code>.</span><br /><pre class="errorlines">
+<span class="lineno"> 360 </span>    <span class="keyword">return</span>;
+<span class="lineno"> 361 </span>  }
+<span class="lineno"> 362 </span>
+<span class="caretline"><span class="lineno"> 363 </span>  <span class="keyword">if</span> (ViaBmsCtrl.SETTING.getBeaconRegionUUID() != <span class="keyword">null</span> &amp;&amp; !ViaBmsCtrl.SETTING.getBeaconRegionUUID().<span class="warning">toLowerCase</span>().equals(beacon.getUuid())) {</span>
+<span class="lineno"> 364 </span>    <span class="comment">// Not having beacon region UUID, ignore</span>
+<span class="lineno"> 365 </span>    <span class="keyword">return</span>;
+<span class="lineno"> 366 </span>  }
 </pre>
 
-<span class="location"><a href="../../src/main/java/com/viatick/bmsandroidsdk/controller/BeaconServiceCtrl.java">../../src/main/java/com/viatick/bmsandroidsdk/controller/BeaconServiceCtrl.java</a>:529</span>: <span class="message">Implicitly using the default locale is a common source of bugs: Use <code>toLowerCase(Locale)</code> instead. For strings meant to be internal use <code>Locale.ROOT</code>, otherwise <code>Locale.getDefault()</code>.</span><br /><pre class="errorlines">
-<span class="lineno"> 526 </span>  System.arraycopy(hexStringToByteArray(uuid.replaceAll(<span class="string">"-"</span>,<span class="string">""</span>)), <span class="number">0</span>, manufacturerData, <span class="number">2</span>, <span class="number">16</span>);
-<span class="lineno"> 527 </span>
-<span class="lineno"> 528 </span>  Log.i(TAG, <span class="string">"uuid: "</span> + uuid);
-<span class="caretline"><span class="lineno"> 529 </span>  Log.i(TAG, <span class="string">"manufacturerData :"</span> + Arrays.toString(hexStringToByteArray(uuid.<span class="warning">toLowerCase</span>().replace(<span class="string">"-"</span>,<span class="string">""</span>))));</span>
-<span class="lineno"> 530 </span>
-<span class="lineno"> 531 </span>  builder.setManufacturerData(
-<span class="lineno"> 532 </span>          MANUFACTURER_ID,
+<span class="location"><a href="../../src/main/java/com/viatick/bmsandroidsdk/controller/BeaconServiceCtrl.java">../../src/main/java/com/viatick/bmsandroidsdk/controller/BeaconServiceCtrl.java</a>:531</span>: <span class="message">Implicitly using the default locale is a common source of bugs: Use <code>toLowerCase(Locale)</code> instead. For strings meant to be internal use <code>Locale.ROOT</code>, otherwise <code>Locale.getDefault()</code>.</span><br /><pre class="errorlines">
+<span class="lineno"> 528 </span>  System.arraycopy(hexStringToByteArray(uuid.replaceAll(<span class="string">"-"</span>,<span class="string">""</span>)), <span class="number">0</span>, manufacturerData, <span class="number">2</span>, <span class="number">16</span>);
+<span class="lineno"> 529 </span>
+<span class="lineno"> 530 </span>  Log.i(TAG, <span class="string">"uuid: "</span> + uuid);
+<span class="caretline"><span class="lineno"> 531 </span>  Log.i(TAG, <span class="string">"manufacturerData :"</span> + Arrays.toString(hexStringToByteArray(uuid.<span class="warning">toLowerCase</span>().replace(<span class="string">"-"</span>,<span class="string">""</span>))));</span>
+<span class="lineno"> 532 </span>
+<span class="lineno"> 533 </span>  builder.setManufacturerData(
+<span class="lineno"> 534 </span>          MANUFACTURER_ID,
 </pre>
 
 <button class="mdl-button mdl-js-button mdl-button--primary" id="DefaultLocaleDivLink" onclick="reveal('DefaultLocaleDiv');" />+ 7 More Occurrences...</button>
@@ -553,44 +553,44 @@ Dismiss</button>            </div>
 <span class="lineno"> 23 </span>    <span class="keyword">public</span> <span class="keyword">int</span> getMajor() {
 </pre>
 
-<span class="location"><a href="../../src/main/java/com/viatick/bmsandroidsdk/controller/ViaBmsCtrl.java">../../src/main/java/com/viatick/bmsandroidsdk/controller/ViaBmsCtrl.java</a>:447</span>: <span class="message">Implicitly using the default locale is a common source of bugs: Use <code>toUpperCase(Locale)</code> instead. For strings meant to be internal use <code>Locale.ROOT</code>, otherwise <code>Locale.getDefault()</code>.</span><br /><pre class="errorlines">
-<span class="lineno">  444 </span>    <span class="keyword">while</span> (var13.hasNext()) {
-<span class="lineno">  445 </span>      ViaZoneBeacon aBeacon = (ViaZoneBeacon) var13.next();
-<span class="lineno">  446 </span>      String key = aBeacon.getUuid() + <span class="string">"-"</span> + aBeacon.getMajor() + <span class="string">"-"</span> + aBeacon.getMinor();
-<span class="caretline"><span class="lineno">  447 </span>      key = key.<span class="warning">toUpperCase</span>();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-<span class="lineno">  448 </span>      ViaBmsCtrl.ASSIGNED_BEACONS.put(key, aBeacon);
-<span class="lineno">  449 </span>    }
-<span class="lineno">  450 </span>  }
+<span class="location"><a href="../../src/main/java/com/viatick/bmsandroidsdk/controller/ViaBmsCtrl.java">../../src/main/java/com/viatick/bmsandroidsdk/controller/ViaBmsCtrl.java</a>:449</span>: <span class="message">Implicitly using the default locale is a common source of bugs: Use <code>toUpperCase(Locale)</code> instead. For strings meant to be internal use <code>Locale.ROOT</code>, otherwise <code>Locale.getDefault()</code>.</span><br /><pre class="errorlines">
+<span class="lineno">  446 </span>    <span class="keyword">while</span> (var13.hasNext()) {
+<span class="lineno">  447 </span>      ViaZoneBeacon aBeacon = (ViaZoneBeacon) var13.next();
+<span class="lineno">  448 </span>      String key = aBeacon.getUuid() + <span class="string">"-"</span> + aBeacon.getMajor() + <span class="string">"-"</span> + aBeacon.getMinor();
+<span class="caretline"><span class="lineno">  449 </span>      key = key.<span class="warning">toUpperCase</span>();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno">  450 </span>      ViaBmsCtrl.ASSIGNED_BEACONS.put(key, aBeacon);
+<span class="lineno">  451 </span>    }
+<span class="lineno">  452 </span>  }
 </pre>
 
-<span class="location"><a href="../../src/main/java/com/viatick/bmsandroidsdk/controller/ViaBmsCtrl.java">../../src/main/java/com/viatick/bmsandroidsdk/controller/ViaBmsCtrl.java</a>:634</span>: <span class="message">Implicitly using the default locale is a common source of bugs: Use <code>toUpperCase(Locale)</code> instead. For strings meant to be internal use <code>Locale.ROOT</code>, otherwise <code>Locale.getDefault()</code>.</span><br /><pre class="errorlines">
-<span class="lineno">  631 </span>          <span class="keyword">double</span> distance = viaIBeacon.getAccuracy();
-<span class="lineno">  632 </span>          <span class="keyword">if</span> (distance > <span class="number">0.0D</span>) {
-<span class="lineno">  633 </span>            String key = viaIBeacon.getKey();
-<span class="caretline"><span class="lineno">  634 </span>            key = key.<span class="warning">toUpperCase</span>();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-<span class="lineno">  635 </span>
-<span class="lineno">  636 </span>            <span class="keyword">if</span> (REQUESTED_DISTANCE_BEACONS.containsKey(key)) {
-<span class="lineno">  637 </span>              IBeacon responseBeacon = REQUESTED_DISTANCE_BEACONS.get(key);
+<span class="location"><a href="../../src/main/java/com/viatick/bmsandroidsdk/controller/ViaBmsCtrl.java">../../src/main/java/com/viatick/bmsandroidsdk/controller/ViaBmsCtrl.java</a>:636</span>: <span class="message">Implicitly using the default locale is a common source of bugs: Use <code>toUpperCase(Locale)</code> instead. For strings meant to be internal use <code>Locale.ROOT</code>, otherwise <code>Locale.getDefault()</code>.</span><br /><pre class="errorlines">
+<span class="lineno">  633 </span>          <span class="keyword">double</span> distance = viaIBeacon.getAccuracy();
+<span class="lineno">  634 </span>          <span class="keyword">if</span> (distance > <span class="number">0.0D</span>) {
+<span class="lineno">  635 </span>            String key = viaIBeacon.getKey();
+<span class="caretline"><span class="lineno">  636 </span>            key = key.<span class="warning">toUpperCase</span>();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno">  637 </span>
+<span class="lineno">  638 </span>            <span class="keyword">if</span> (REQUESTED_DISTANCE_BEACONS.containsKey(key)) {
+<span class="lineno">  639 </span>              IBeacon responseBeacon = REQUESTED_DISTANCE_BEACONS.get(key);
 </pre>
 
-<span class="location"><a href="../../src/main/java/com/viatick/bmsandroidsdk/controller/ViaBmsCtrl.java">../../src/main/java/com/viatick/bmsandroidsdk/controller/ViaBmsCtrl.java</a>:1043</span>: <span class="message">Implicitly using the default locale is a common source of bugs: Use <code>toUpperCase(Locale)</code> instead. For strings meant to be internal use <code>Locale.ROOT</code>, otherwise <code>Locale.getDefault()</code>.</span><br /><pre class="errorlines">
-<span class="lineno"> 1040 </span>          <span class="keyword">double</span> distance = beacon.getAccuracy();
-<span class="lineno"> 1041 </span>          <span class="keyword">if</span> (distance > <span class="number">0.0D</span>) {
-<span class="lineno"> 1042 </span>            String key = beacon.getKey();
-<span class="caretline"><span class="lineno"> 1043 </span>            key = key.<span class="warning">toUpperCase</span>();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-<span class="lineno"> 1044 </span>
-<span class="lineno"> 1045 </span>            ViaProximity beaconProximity = PROXIMITY.get(beacon.getKey());
-<span class="lineno"> 1046 </span>            <span class="keyword">if</span> (beaconProximity == <span class="keyword">null</span>) {
+<span class="location"><a href="../../src/main/java/com/viatick/bmsandroidsdk/controller/ViaBmsCtrl.java">../../src/main/java/com/viatick/bmsandroidsdk/controller/ViaBmsCtrl.java</a>:1045</span>: <span class="message">Implicitly using the default locale is a common source of bugs: Use <code>toUpperCase(Locale)</code> instead. For strings meant to be internal use <code>Locale.ROOT</code>, otherwise <code>Locale.getDefault()</code>.</span><br /><pre class="errorlines">
+<span class="lineno"> 1042 </span>          <span class="keyword">double</span> distance = beacon.getAccuracy();
+<span class="lineno"> 1043 </span>          <span class="keyword">if</span> (distance > <span class="number">0.0D</span>) {
+<span class="lineno"> 1044 </span>            String key = beacon.getKey();
+<span class="caretline"><span class="lineno"> 1045 </span>            key = key.<span class="warning">toUpperCase</span>();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 1046 </span>
+<span class="lineno"> 1047 </span>            ViaProximity beaconProximity = PROXIMITY.get(beacon.getKey());
+<span class="lineno"> 1048 </span>            <span class="keyword">if</span> (beaconProximity == <span class="keyword">null</span>) {
 </pre>
 
-<span class="location"><a href="../../src/main/java/com/viatick/bmsandroidsdk/controller/ViaBmsCtrl.java">../../src/main/java/com/viatick/bmsandroidsdk/controller/ViaBmsCtrl.java</a>:1116</span>: <span class="message">Implicitly using the default locale is a common source of bugs: Use <code>toUpperCase(Locale)</code> instead. For strings meant to be internal use <code>Locale.ROOT</code>, otherwise <code>Locale.getDefault()</code>.</span><br /><pre class="errorlines">
-<span class="lineno"> 1113 </span>        <span class="keyword">double</span> distance = beacon.getAccuracy();
-<span class="lineno"> 1114 </span>        <span class="keyword">if</span> (distance > <span class="number">0.0D</span>) {
-<span class="lineno"> 1115 </span>          String key = beacon.getKey();
-<span class="caretline"><span class="lineno"> 1116 </span>          key = key.<span class="warning">toUpperCase</span>();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-<span class="lineno"> 1117 </span>
-<span class="lineno"> 1118 </span>          ViaZoneBeacon assignedBeacon = ASSIGNED_BEACONS.get(key);
-<span class="lineno"> 1119 </span>          <span class="keyword">if</span> (assignedBeacon != <span class="keyword">null</span>) {
+<span class="location"><a href="../../src/main/java/com/viatick/bmsandroidsdk/controller/ViaBmsCtrl.java">../../src/main/java/com/viatick/bmsandroidsdk/controller/ViaBmsCtrl.java</a>:1118</span>: <span class="message">Implicitly using the default locale is a common source of bugs: Use <code>toUpperCase(Locale)</code> instead. For strings meant to be internal use <code>Locale.ROOT</code>, otherwise <code>Locale.getDefault()</code>.</span><br /><pre class="errorlines">
+<span class="lineno"> 1115 </span>        <span class="keyword">double</span> distance = beacon.getAccuracy();
+<span class="lineno"> 1116 </span>        <span class="keyword">if</span> (distance > <span class="number">0.0D</span>) {
+<span class="lineno"> 1117 </span>          String key = beacon.getKey();
+<span class="caretline"><span class="lineno"> 1118 </span>          key = key.<span class="warning">toUpperCase</span>();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 1119 </span>
+<span class="lineno"> 1120 </span>          ViaZoneBeacon assignedBeacon = ASSIGNED_BEACONS.get(key);
+<span class="lineno"> 1121 </span>          <span class="keyword">if</span> (assignedBeacon != <span class="keyword">null</span>) {
 </pre>
 
 </div>
@@ -635,7 +635,7 @@ Dismiss</button>            </div>
 <span class="location"><a href="../../src/main/java/com/viatick/bmsandroidsdk/controller/BeaconServiceCtrl.java">../../src/main/java/com/viatick/bmsandroidsdk/controller/BeaconServiceCtrl.java</a>:152</span>: <span class="message">Field requires API level 23 (current min is 21): <code>android.bluetooth.le.ScanSettings#MATCH_MODE_AGGRESSIVE</code></span><br /><pre class="errorlines">
 <span class="lineno"> 149 </span>
 <span class="lineno"> 150 </span>          ScanSettings scanSettings = <span class="keyword">new</span> ScanSettings.Builder()
-<span class="lineno"> 151 </span>                  .setScanMode(ScanSettings.SCAN_MODE_LOW_LATENCY)
+<span class="lineno"> 151 </span>                  .setScanMode(ViaBmsCtrl.SETTING.getScanMode())
 <span class="caretline"><span class="lineno"> 152 </span>                  .setMatchMode(<span class="warning">ScanSettings.MATCH_MODE_AGGRESSIVE</span>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
 <span class="lineno"> 153 </span>                  .setCallbackType(ScanSettings.CALLBACK_TYPE_ALL_MATCHES)
 <span class="lineno"> 154 </span>                  .setNumOfMatches(ScanSettings.MATCH_NUM_MAX_ADVERTISEMENT)
@@ -643,7 +643,7 @@ Dismiss</button>            </div>
 </pre>
 
 <span class="location"><a href="../../src/main/java/com/viatick/bmsandroidsdk/controller/BeaconServiceCtrl.java">../../src/main/java/com/viatick/bmsandroidsdk/controller/BeaconServiceCtrl.java</a>:154</span>: <span class="message">Field requires API level 23 (current min is 21): <code>android.bluetooth.le.ScanSettings#MATCH_NUM_MAX_ADVERTISEMENT</code></span><br /><pre class="errorlines">
-<span class="lineno"> 151 </span>                  .setScanMode(ScanSettings.SCAN_MODE_LOW_LATENCY)
+<span class="lineno"> 151 </span>                  .setScanMode(ViaBmsCtrl.SETTING.getScanMode())
 <span class="lineno"> 152 </span>                  .setMatchMode(ScanSettings.MATCH_MODE_AGGRESSIVE)
 <span class="lineno"> 153 </span>                  .setCallbackType(ScanSettings.CALLBACK_TYPE_ALL_MATCHES)
 <span class="caretline"><span class="lineno"> 154 </span>                  .setNumOfMatches(<span class="warning">ScanSettings.MATCH_NUM_MAX_ADVERTISEMENT</span>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
@@ -693,7 +693,7 @@ Dismiss</button>            </div>
 <span class="location"><a href="../../src/main/java/com/viatick/bmsandroidsdk/controller/BeaconServiceCtrl.java">../../src/main/java/com/viatick/bmsandroidsdk/controller/BeaconServiceCtrl.java</a>:152</span>: <span class="message">Call requires API level 23 (current min is 21): android.bluetooth.le.ScanSettings.Builder#setMatchMode</span><br /><pre class="errorlines">
 <span class="lineno"> 149 </span>
 <span class="lineno"> 150 </span>          ScanSettings scanSettings = <span class="keyword">new</span> ScanSettings.Builder()
-<span class="lineno"> 151 </span>                  .setScanMode(ScanSettings.SCAN_MODE_LOW_LATENCY)
+<span class="lineno"> 151 </span>                  .setScanMode(ViaBmsCtrl.SETTING.getScanMode())
 <span class="caretline"><span class="lineno"> 152 </span>                  .<span class="error">setMatchMode</span>(ScanSettings.MATCH_MODE_AGGRESSIVE)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
 <span class="lineno"> 153 </span>                  .setCallbackType(ScanSettings.CALLBACK_TYPE_ALL_MATCHES)
 <span class="lineno"> 154 </span>                  .setNumOfMatches(ScanSettings.MATCH_NUM_MAX_ADVERTISEMENT)
@@ -702,7 +702,7 @@ Dismiss</button>            </div>
 
 <span class="location"><a href="../../src/main/java/com/viatick/bmsandroidsdk/controller/BeaconServiceCtrl.java">../../src/main/java/com/viatick/bmsandroidsdk/controller/BeaconServiceCtrl.java</a>:153</span>: <span class="message">Call requires API level 23 (current min is 21): android.bluetooth.le.ScanSettings.Builder#setCallbackType</span><br /><pre class="errorlines">
 <span class="lineno"> 150 </span>          ScanSettings scanSettings = <span class="keyword">new</span> ScanSettings.Builder()
-<span class="lineno"> 151 </span>                  .setScanMode(ScanSettings.SCAN_MODE_LOW_LATENCY)
+<span class="lineno"> 151 </span>                  .setScanMode(ViaBmsCtrl.SETTING.getScanMode())
 <span class="lineno"> 152 </span>                  .setMatchMode(ScanSettings.MATCH_MODE_AGGRESSIVE)
 <span class="caretline"><span class="lineno"> 153 </span>                  .<span class="error">setCallbackType</span>(ScanSettings.CALLBACK_TYPE_ALL_MATCHES)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
 <span class="lineno"> 154 </span>                  .setNumOfMatches(ScanSettings.MATCH_NUM_MAX_ADVERTISEMENT)
@@ -711,7 +711,7 @@ Dismiss</button>            </div>
 </pre>
 
 <span class="location"><a href="../../src/main/java/com/viatick/bmsandroidsdk/controller/BeaconServiceCtrl.java">../../src/main/java/com/viatick/bmsandroidsdk/controller/BeaconServiceCtrl.java</a>:154</span>: <span class="message">Call requires API level 23 (current min is 21): android.bluetooth.le.ScanSettings.Builder#setNumOfMatches</span><br /><pre class="errorlines">
-<span class="lineno"> 151 </span>                  .setScanMode(ScanSettings.SCAN_MODE_LOW_LATENCY)
+<span class="lineno"> 151 </span>                  .setScanMode(ViaBmsCtrl.SETTING.getScanMode())
 <span class="lineno"> 152 </span>                  .setMatchMode(ScanSettings.MATCH_MODE_AGGRESSIVE)
 <span class="lineno"> 153 </span>                  .setCallbackType(ScanSettings.CALLBACK_TYPE_ALL_MATCHES)
 <span class="caretline"><span class="lineno"> 154 </span>                  .<span class="error">setNumOfMatches</span>(ScanSettings.MATCH_NUM_MAX_ADVERTISEMENT)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
@@ -1295,14 +1295,14 @@ Dismiss</button>            </div>
 <span class="lineno">  114 </span>  <span class="keyword">private</span> <span class="keyword">static</span> ViaBmsCtrl.ViaBmsCtrlDelegate viaBmsCtrlDelegate;
 </pre>
 
-<span class="location"><a href="../../src/main/java/com/viatick/bmsandroidsdk/controller/ViaBmsCtrl.java">../../src/main/java/com/viatick/bmsandroidsdk/controller/ViaBmsCtrl.java</a>:1210</span>: <span class="message">This field leaks a context object</span><br /><pre class="errorlines">
-<span class="lineno"> 1207 </span>  }
-<span class="lineno"> 1208 </span>
-<span class="lineno"> 1209 </span>  <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">class</span> NotificationTask <span class="keyword">extends</span> AsyncTask&lt;Void, Void, Bitmap> {
-<span class="caretline"><span class="lineno"> 1210 </span>    <span class="warning"><span class="keyword">private</span> Context context;</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-<span class="lineno"> 1211 </span>    <span class="keyword">private</span> String title;
-<span class="lineno"> 1212 </span>    <span class="keyword">private</span> String text;
-<span class="lineno"> 1213 </span>    <span class="keyword">private</span> String image;
+<span class="location"><a href="../../src/main/java/com/viatick/bmsandroidsdk/controller/ViaBmsCtrl.java">../../src/main/java/com/viatick/bmsandroidsdk/controller/ViaBmsCtrl.java</a>:1212</span>: <span class="message">This field leaks a context object</span><br /><pre class="errorlines">
+<span class="lineno"> 1209 </span>  }
+<span class="lineno"> 1210 </span>
+<span class="lineno"> 1211 </span>  <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">class</span> NotificationTask <span class="keyword">extends</span> AsyncTask&lt;Void, Void, Bitmap> {
+<span class="caretline"><span class="lineno"> 1212 </span>    <span class="warning"><span class="keyword">private</span> Context context;</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 1213 </span>    <span class="keyword">private</span> String title;
+<span class="lineno"> 1214 </span>    <span class="keyword">private</span> String text;
+<span class="lineno"> 1215 </span>    <span class="keyword">private</span> String image;
 </pre>
 
 </div>
@@ -1346,13 +1346,13 @@ Dismiss</button>            </div>
               <div class="mdl-card__supporting-text">
 <div class="issue">
 <div class="warningslist">
-<span class="location"><a href="../../src/main/java/com/viatick/bmsandroidsdk/controller/BeaconServiceCtrl.java">../../src/main/java/com/viatick/bmsandroidsdk/controller/BeaconServiceCtrl.java</a>:263</span>: <span class="message">This Handler class should be static or leaks might occur (com.viatick.bmsandroidsdk.controller.BeaconServiceCtrl.MessageHandler)</span><br /><pre class="errorlines">
-<span class="lineno"> 260 </span>    <span class="keyword">return</span> bluetoothManager.getAdapter();
-<span class="lineno"> 261 </span>  }
-<span class="lineno"> 262 </span>
-<span class="caretline"><span class="lineno"> 263 </span>  <span class="keyword">private</span> <span class="keyword">class</span> <span class="warning">MessageHandler</span> <span class="keyword">extends</span> Handler {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="location"><a href="../../src/main/java/com/viatick/bmsandroidsdk/controller/BeaconServiceCtrl.java">../../src/main/java/com/viatick/bmsandroidsdk/controller/BeaconServiceCtrl.java</a>:265</span>: <span class="message">This Handler class should be static or leaks might occur (com.viatick.bmsandroidsdk.controller.BeaconServiceCtrl.MessageHandler)</span><br /><pre class="errorlines">
+<span class="lineno"> 262 </span>    <span class="keyword">return</span> bluetoothManager.getAdapter();
+<span class="lineno"> 263 </span>  }
 <span class="lineno"> 264 </span>
-<span class="lineno"> 265 </span>    <span class="keyword">private</span> BeaconServiceCtrl service;
+<span class="caretline"><span class="lineno"> 265 </span>  <span class="keyword">private</span> <span class="keyword">class</span> <span class="warning">MessageHandler</span> <span class="keyword">extends</span> Handler {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 266 </span>
+<span class="lineno"> 267 </span>    <span class="keyword">private</span> BeaconServiceCtrl service;
 </pre>
 
 </div>

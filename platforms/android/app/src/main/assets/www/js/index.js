@@ -29,7 +29,7 @@ var setting = function(callback) {
 
      cordova.plugins.BmsCordovaSdkPublic.setting(false, false,
        false, "LIST", 0, false, false, false, 2, 2, requestDistanceBeacons,
-       "CHINA", 5, false, false, false, 120, (success) => {
+       "CHINA", 5, false, false, false, 120, 2, (success) => {
        console.log("setting success", success);
        callback();
      }, (error) => {

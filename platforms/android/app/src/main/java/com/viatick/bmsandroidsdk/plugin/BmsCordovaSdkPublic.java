@@ -1,6 +1,7 @@
 package com.viatick.bmsandroidsdk.plugin;
 // The native Toast API
 import android.Manifest;
+import android.bluetooth.le.ScanSettings;
 import android.content.ComponentName;
 import android.content.Intent;
 import android.content.ServiceConnection;
@@ -107,7 +108,7 @@ public class BmsCordovaSdkPublic extends CordovaPlugin implements ViaBmsCtrl.Via
                     args.getBoolean(6), args.getBoolean(7),
                     args.getInt(8), args.getInt(9), requestDistanceBeacons,
                     bmsEnvironment, args.getDouble(12), args.getBoolean(13), args.getBoolean(14),
-                    args.getBoolean(15), args.getInt(16));
+                    args.getBoolean(15), args.getInt(16), args.get(17) != null ? args.getInt(17) : ScanSettings.SCAN_MODE_BALANCED);
 
             Log.d(TAG, "initSettings");
 
