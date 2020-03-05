@@ -61,10 +61,10 @@ public class BmsCordovaSdkPublic extends CordovaPlugin implements ViaBmsCtrl.Via
     final CallbackContext callbackContext) throws JSONException {
       if (action.equals("initCustomer")) {
           initCustomerCallback = callbackContext;
-          Log.d(TAG, "initCustomer: " + args.getString(0) + " " + args.getString(1)
-          + " " + args.getString(2));
-          ViaBmsCtrl.initCustomer(args.getString(0), args.getString(1),
-                  args.getString(2), this.zones);
+          Log.d(TAG, "initCustomer: " + args.getString(0) + " " + args.getString(2)
+          + " " + args.getString(1));
+          ViaBmsCtrl.initCustomer(args.getString(0), args.getString(2),
+                  args.getString(1), this.zones);
           return true;
       } else if (action.equals("setting")) {
           try {

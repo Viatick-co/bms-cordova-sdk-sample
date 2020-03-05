@@ -41,6 +41,7 @@ public class BmsCordovaSdkPublic extends CordovaPlugin implements ViaBmsCtrl.Via
   CallbackContext checkoutCallback;
   CallbackContext onDistanceBeaconsCallback;
   CallbackContext openDeviceSiteCallback;
+
   List<ViaZone> zones = new ArrayList<>();
   boolean isReady = false;
 
@@ -62,10 +63,10 @@ public class BmsCordovaSdkPublic extends CordovaPlugin implements ViaBmsCtrl.Via
     final CallbackContext callbackContext) throws JSONException {
       if (action.equals("initCustomer")) {
           initCustomerCallback = callbackContext;
-          Log.d(TAG, "initCustomer: " + args.getString(0) + " " + args.getString(1)
-          + " " + args.getString(2));
-          ViaBmsCtrl.initCustomer(args.getString(0), args.getString(1),
-                  args.getString(2), this.zones);
+          Log.d(TAG, "initCustomer: " + args.getString(0) + " " + args.getString(2)
+          + " " + args.getString(1));
+          ViaBmsCtrl.initCustomer(args.getString(0), args.getString(2),
+                  args.getString(1), this.zones);
           return true;
       } else if (action.equals("setting")) {
           try {
@@ -157,7 +158,6 @@ public class BmsCordovaSdkPublic extends CordovaPlugin implements ViaBmsCtrl.Via
       } else if (action.equals("openDeviceSite")) {
           openDeviceSiteCallback = callbackContext;
           ViaBmsCtrl.openDeviceSite(args.getString(0));
-
           return true;
       }
 
@@ -226,11 +226,9 @@ public class BmsCordovaSdkPublic extends CordovaPlugin implements ViaBmsCtrl.Via
       }
 
       Log.d(TAG, "Checkout Callback");
-      if (onDistanceBeaconsCallback != null) {
-          PluginResult pluginResult = new PluginResult(PluginResult.Status.OK, listJson);
-          pluginResult.setKeepCallback(true); // keep callback
-          onDistanceBeaconsCallback.sendPluginResult(pluginResult);
-      }
+      PluginResult pluginResult = new PluginResult(PluginResult.Status.OK, listJson);
+      pluginResult.setKeepCallback(true); // keep callback
+      onDistanceBeaconsCallback.sendPluginResult(pluginResult);
     } catch (Exception e) {
       e.printStackTrace();
       // Do nothing
